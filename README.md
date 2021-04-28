@@ -13,3 +13,8 @@ Translation of config.php requires translation of the descriptive text for the e
 
 ### [2021/04/28]  
 開始翻譯. 
+Translated the const in template_ini.php.  
+Some translations remain in English or Japanese.  
+This is because the translation of that part did not go well.  
+I would like help from those who understand Chinese.  
+
