@@ -4,84 +4,77 @@
   *
 */
 
-//テンプレートのバージョン
+//theme version
 define('TEMPLATE_VER', "lot.210309");
 
-//一般的なメッセージ
+//General message
 
-//投稿者名を引用する時の敬称、ただし名前の末尾に入る
+//Honorific title when quoting the poster name
 define('HONORIFIC_SUFFIX', 'さん');
-//アップロードした画像の呼称
-define('UPLOADED_OBJECT_NAME', '画像');
-//アップロードに成功した時のメッセージ
-define('UPLOAD_SUCCESSFUL', 'のアップロードが成功しました');
-//投稿が終了して画面が切り替わる時のメッセージ
-define('THE_SCREEN_CHANGES', '画面を切り替えます');
+//Uploaded object type name
+define('UPLOADED_OBJECT_NAME', '圖片');
+//Message when upload is successful
+define('UPLOAD_SUCCESSFUL', '上傳成功');
+//Message when the screen is changeed after posting is completed
+define('THE_SCREEN_CHANGES', '切換畫面');
 
+//Message for notification mail
+define('NOTICE_MAIL_TITLE', 'Title');
+define('NOTICE_MAIL_IMG', 'Picture');
+define('NOTICE_MAIL_THUMBNAIL', 'Thumbnail');
+define('NOTICE_MAIL_ANIME', 'Timelapse');
+define('NOTICE_MAIL_URL', 'Fixed link');
+define('NOTICE_MAIL_REPLY', ' Notification: There is a new reply to a post.');
+define('NOTICE_MAIL_NEWPOST', ' Notification: There is a new post');
 
 /* ---------- ADD:2004/06/22 ---------- */
 //エラーメッセージ
-define('MSG001', "該当記事がみつかりません");
-define('MSG002', "絵が選択されていません");
-define('MSG003', "アップロードに失敗しました<br>サーバーがサポートしていない可能性があります");
-define('MSG004', "アップロードに失敗しました<br>画像ファイル以外は受け付けません");
-define('MSG005', "アップロードに失敗しました<br>同じ画像がありました");
+define('MSG001', "找不到日誌");
+define('MSG002', "您尚未選擇圖片，您必須上傳圖片！");
+define('MSG003', "上傳失敗<br>服務器可能不支持它");
+define('MSG004', "上傳失敗<br>只能上傳圖片");
+define('MSG005', "上傳失敗<br>圖片已存在");
 define('MSG006', "不正な投稿をしないで下さい<br>POST以外での投稿は受け付けません");
-define('MSG007', "画像がありません");
-define('MSG008', "何か書いて下さい");
-define('MSG009', "名前がありません");
-define('MSG010', "題名がありません");
-define('MSG011', "本文が長すぎます");
-define('MSG012', "名前が長すぎます");
-define('MSG013', "メールアドレスが長すぎます");
-define('MSG014', "題名が長すぎます");
-define('MSG015', "異常です");
-define('MSG016', "拒絶されました<br>そのHOSTからの投稿は受け付けません");
-define('MSG017', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(80)");
-define('MSG018', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(8080)");
-define('MSG019', "ログの読み込みに失敗しました");
-define('MSG020', "連続投稿はもうしばらく時間を置いてからお願い致します");
-define('MSG021', "画像連続投稿はもうしばらく時間を置いてからお願い致します");
-define('MSG022', "このコメントで一度投稿しています<br>別のコメントでお願い致します");
-define('MSG023', "ツリーの更新に失敗しました");
-define('MSG024', "ツリーの削除に失敗しました");
-define('MSG025', "スレッドがありません");
-define('MSG026', "スレッドが最後の1つなので削除できません");
-define('MSG027', "削除に失敗しました(ユーザー)");
-define('MSG028', "該当記事が見つからないかパスワードが間違っています");
-define('MSG029', "パスワードが違います");
-define('MSG030', "削除に失敗しました(管理者権限)");
-define('MSG031', "記事Noが未入力です");
-define('MSG032', "拒絶されました<br>不正な文字列があります");
-define('MSG033', "削除に失敗しました<br>ユーザーに削除権限がありません");
-define('MSG034', "アップロードに失敗しました<br>規定の画像容量をオーバーしています");
-define('MSG035', "日本語で何か書いてください。");
-define('MSG036', "本文にURLを書く事はできません。");
-define('MSG037', "その名前は使えません。");
-define('MSG038', "そのタグは使えません。");
-define('MSG039', "コメントのみの新規投稿はできません。");
-define('MSG040', "管理者パスワードが設定されていません。");
-define('MSG041', "がありません");
-define('MSG042', "を読めません");
-define('MSG043', "を書けません");
-define('MSG044', "最大ログ数が設定されていないか、数字以外の文字列が入っています。");
-define('MSG045', "アニメファイルをアップロードしてください。<br>対応フォーマットはpch、spchです。");
+define('MSG007', "圖片不存在");
+define('MSG008', "請寫點東西");
+define('MSG009', "請輸入你的名字");
+define('MSG010', "請輸入標題");
+define('MSG011', "評論太長");
+define('MSG012', "名字太長");
+define('MSG013', "電子郵件太長");
+define('MSG014', "主題太長");
+define('MSG015', "[Unknown error]");
+define('MSG016', "發布被拒絕<br>[This HOST has been banned from posting.]");
+// define('MSG017', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(80)");
+// define('MSG018', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(8080)");
+define('MSG019', "未能讀取日誌");
+define('MSG020', "請稍等一下再發表");
+define('MSG021', "請稍等一下再發表");
+define('MSG022', "通過此評論發布一次<br>請再發表評論");
+define('MSG023', "它沒有更新樹");
+define('MSG024', "刪除樹失敗");
+define('MSG025', "線程不存在");
+define('MSG026', "這是最後一個線程，無法刪除。");
+define('MSG027', "刪除失敗。（用戶）");
+define('MSG028', "找不到文章或密碼錯誤。");
+define('MSG029', "密碼錯誤。");
+define('MSG030', "刪除失敗。(管理員權限	)");
+define('MSG031', "請輸入編號");
+define('MSG032', "發布被拒絕<br>非法字符串。");
+define('MSG033', "刪除失敗<br>用戶沒有刪除權限");
+define('MSG034', "上傳圖片失敗<br>圖片尺寸太大");//? File size kb, not with height
+define('MSG035', "cjk You need to enter characters from the Kanji cultural sphere");
+define('MSG036', "您無法在正文中張貼網址");
+define('MSG037', "您不能使用該名稱。");
+define('MSG038', "包含無法使用的TAG。");
+define('MSG039', "不能僅發布文本。 我需要一張照片。");
+define('MSG040', "未設置管理員密碼。。");
+define('MSG041', "不存在");
+define('MSG042', "不可讀");
+define('MSG043', "不可寫");
+define('MSG044', "未設置MAX LOG，或者它包含非數字字符串。");
+define('MSG045', "請上傳繪圖動畫文件。<br>支持的格式為pch和spch。");
 
-/* ---------- ADD:2004/03/16 ---------- */
-
-//文字色テーブル '値[,名称]'
-$fontcolors = array('#000000,黒'
-,'#666666,灰'
-,'#003399,青'
-,'#990000,赤'
-,'#669900,緑'
-,'#cc3399,紫'
-,'#ff6633,橙'
-,'#cccc00,黄'
-);
-
-//デフォルト文字色 (旧ログ互換用)
-define('DEF_FONTCOLOR', '#666666');
 
 
 /* ---------- ADD:2004/02/03 ---------- */
@@ -89,7 +82,8 @@ define('DEF_FONTCOLOR', '#666666');
 //描画時間の書式
 //※日本語だと、"1日1時間1分1秒"
 //※英語だと、"1day 1hr 1min 1sec"
-define('PTIME_D', '日');
+
+define('PTIME_D', '日');//I don't know the format for Chinese
 define('PTIME_H', '時間');
 define('PTIME_M', '分');
 define('PTIME_S', '秒');
@@ -99,46 +93,46 @@ define('PTIME_S', '秒');
 define('RE_START', '');
 define('RE_END', '');
 
-//現在のページの書式
-//※<PAGE> にページ数が入ります
+//Format when > is attached
+//Since it is sandwiched between RE_START and RE_END, 
+//it is recommended to set it with css considering. (do not change it here)
 define('NOW_PAGE', '<span class="parentheses">[<span class="page_number"><PAGE></span>]</span>');
 
-//他のページの書式
-//※<PAGE> にページ数が入ります
-//※<PURL> にURLが入ります
+//Format of other pages
+//The number of pages is entered in <PAGE>
+//<PURL> is the URL
 define('OTHER_PAGE', '<span class="parentheses">[<span class="page_number"><a href="<PURL>"><PAGE></a></span>]</span>');
 
 
 /* -------------------- */
 
-//メインのテンプレートファイル
+//Main template file
 define('MAINFILE', 'pink_main.html');
-//レスのテンプレートファイル
+//Reply template file
 define('RESFILE', 'pink_res.html');
 
-//その他のテンプレートファイル
+//Other template files
 define('OTHERFILE', 'pink_other.html');
 
-//お絵かきのテンプレートファイル
+//Drawing template file
 define('PAINTFILE', 'pink_paint.html');
 
-//カタログのテンプレートファイル
+//Catalog template file
 define('CATALOGFILE', 'pink_catalog.html');
 
-//カタログの列数(横)
+// Number of columns in the catalog (horizontal)
 define('CATALOG_X', '3');
 
-//カタログの行数(縦)
+// Number of lines in the catalog (vertical)
 define('CATALOG_Y', '6');
 
-//カタログの画像幅
+//Catalog image width.
 define('CATALOG_W', '300');
 
-//編集したときの目印
-//※記事を編集したら日付の後ろに付きます
-define('UPDATE_MARK', '(編集)');
+//Mark when editing
+define('UPDATE_MARK', ' *');
 
-//日付の書式
+//Date format
 //※<1> に漢字の曜日(土・日・月など)が入ります
 //※<2> に漢字の曜日(土曜・日曜・月曜など)が入ります
 //※他は下記のURL参照
