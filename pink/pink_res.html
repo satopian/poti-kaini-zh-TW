@@ -74,7 +74,7 @@
 	</div>
 	<% def(oya/src) %>
 	<div class="article_img_info">
-	<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">続きを描く</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動画</a></span><% /def %>
+	<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">畫更多</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動畫</a></span><% /def %>
 	</div>
 	<% /def %>
 	<% ========== 親記事ヘッダここまで ========== %>
@@ -92,7 +92,7 @@
 // oya/id…ID
 // oya/painttime…描画時間
 // oya/src…画像URL
-// oya/pch…動画ファイル用引数(フラグ兼用)
+// oya/pch…動畫ファイル用引数(フラグ兼用)
 // oya/continue…コンティニュー用引数(フラグ兼用)
 // oya/thumb…サムネイルがあるとき true が入る
 -->
@@ -113,7 +113,7 @@
 -->
 <% /def %>
 
-<% def(oya/limit) %><hr><div class="article_limit">このスレッドは古いのでもうすぐ消えます。</div><% /def %>
+<% def(oya/limit) %><hr><div class="article_limit">該線程很舊，很快就會消失。</div><% /def %>
 <% def(n) %>
 <!--
 // oya/limit…消える(ログ落ち)間近のとき true が入る
@@ -137,7 +137,7 @@
 	</div>
 	<% def(oya/res/src) %>
 	<div class="article_img_info">
-	<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">続きを描く</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動画</a></span><% /def %>
+	<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">畫更多</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動畫</a></span><% /def %>
 	</div>
 	<% /def %>
 	<% レス記事ヘッダここまで %>
@@ -156,7 +156,7 @@
 // oya/res/id…ID
 // oya/res/painttime…描画時間
 // oya/res/src…画像URL
-// oya/res/pch…動画ファイル用引数(フラグ兼用)
+// oya/res/pch…動畫ファイル用引数(フラグ兼用)
 // oya/res/continue…コンティニュー用引数(フラグ兼用)
 // oya/res/thumb…サムネイルがあるとき true が入る
 -->
@@ -265,11 +265,11 @@ PMAX_H //高さ
 	
 <!-- NEOを使う -->
 <label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>保存播放</label><% /def %>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>動畫保存</label><% /def %>
 <% def(n) %>
 <!--
-// anime…動画記録機能を使用するとき true が入る
-// animechk…動画記録をデフォルトでチェックするとき ' checked' が入る
+// anime…動畫記録機能を使用するとき true が入る
+// animechk…動畫記録をデフォルトでチェックするとき ' checked' が入る
 -->
 <% /def %>
 <input type="hidden" name="resto" value="<% echo (resno) %>">
@@ -302,7 +302,7 @@ PMAX_H //高さ
 <% /def %>
 <table id="post_table">
  <tr>
-  <td class="post_table_title">NAME<% def(usename) %>*<% /def %></td>
+  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
   <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
  </tr>
  <tr>
@@ -337,7 +337,7 @@ PMAX_H //高さ
   <td><input type="file" name="upfile" accept="image/*">
 	<% def(hide_the_checkbox_for_nofile) %>
 	<% elsedef %>
-	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on" checked>我没有附图片</label>
+	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on" checked>不附圖片</label>
 	<% /def %>
  </td>
  </tr>
@@ -356,7 +356,7 @@ PMAX_H //高さ
 	<ul class="howtowrite">
 		<% def(hide_the_checkbox_for_nofile) %>
 		<% elsedef %>
-		<li>如果要附加图像，请取消选中“无图像”。</li>
+		<li>如果要附加圖像，請取消選中“不附圖片”。</li>
 		<% /def %>
 	<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。</li>
 	<% echo (addinfo) %>

@@ -2,7 +2,7 @@
 <!--********** お絵かきテンプレート **********
 // このテンプレートは、以下のモード用テンプレートです
 // ・お絵かきモード
-// ・動画表示モード
+// ・動畫表示モード
 // ・コンティニューモード
 -->
 <% /def %>
@@ -100,9 +100,9 @@
 // undo_in_mg…アンドゥを幾つにまとめて保存しておくか
 // mode…投稿モード指示
 // stime…描画開始時間(UNIXタイムスタンプ)
-// anime…動画記録ONなら true が入る
-// pchfile…動画ファイル名(動画から続きを描く場合)
-// imgfile…画像ファイル名(画像から続きを描く場合)
+// anime…動畫記録ONなら true が入る
+// pchfile…動畫ファイル名(動畫から畫更多場合)
+// imgfile…画像ファイル名(画像から畫更多場合)
 // usercode…ユーザーコード(投稿者認識用)
 // security…セキュリティが有効な場合 true が入る
 // security_click…セキュリティクリック数
@@ -115,12 +115,12 @@
 // palette…パレット選択用データ(selectタグ用option配列)
 // newpaint…新規お絵かきのとき true が入る(コンティニューは false)
 // savetypes…保存タイプ選択用データ(selectタグ用option配列)
-// animeform…動画記録出来るときに true が入る(画像から続きを描く場合は false)
+// animeform…動畫記録出来るときに true が入る(画像から畫更多場合は false)
 // qualitys…クオリティ値選択用データ(selectタグ用option配列)
 // resno…レス時の親記事No
 // no…記事No(コンティニュー)
-// pch…動画ファイル名(コンティニュー)
-// ctype…動画からの続きか、画像からの続きか(コンティニュー)
+// pch…動畫ファイル名(コンティニュー)
+// ctype…動畫からの続きか、画像からの続きか(コンティニュー)
 // type…差し換えか、新規投稿か(コンティニュー)
 // pwd…記事Pass(コンティニュー)
 // ext…画像拡張子(コンティニュー)
@@ -341,20 +341,20 @@ if(DynamicColor) PaletteListSetColor();
 <!--PaintBBS HELP END-->
 <% /def %>
 <% ========== お絵かきモード ここまで ========== %>
-<% ========== 動画表示モード ========== %>
+<% ========== 動畫表示モード ========== %>
 <% def(n) %>
 <!--
 //
-// pch_mode…動画表示モードのとき true が入る
+// pch_mode…動畫表示モードのとき true が入る
 // paintbbs…PaintBBSのPCHファイルなら true が入る
 // normal…しぃペインターのSPCHファイルなら true が入る
 // w…アプレット領域サイズ(横)
 // h…アプレット領域サイズ(縦)
 // picw…キャンバスサイズ(横)
 // pich…キャンバスサイズ(縦)
-// pchfile…動画ファイル名(.pch or .spch)
-// speed…動画再生スピード初期値
-// datasize…動画ファイルサイズ(Byte)
+// pchfile…動畫ファイル名(.pch or .spch)
+// speed…動畫再生スピード初期値
+// datasize…動畫ファイルサイズ(Byte)
 -->
 <% /def %>
 <% def(pch_mode) %>
@@ -389,7 +389,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 	<a href="<% echo(self2) %>"><% echo(title) %></a> / <a href="javascript:close()">閉じる</a>
 </div>
 <% /def %>
-<% ========== 動画表示モード ここまで ========== %>
+<% ========== 動畫表示モード ここまで ========== %>
 <% ========== コンティニューモード ==========  %>
 <% def(n) %>
 <!--
@@ -402,9 +402,9 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 // pich…画像サイズ(縦)
 // painttime…描画時間
 // no…記事No
-// pch…動画ファイル名
+// pch…動畫ファイル名
 // ext…画像拡張子
-// ctype_pch…動画より続きが描けるとき true が入る
+// ctype_pch…動畫より続きが描けるとき true が入る
 // ctype_img…画像より続きが描けるとき true が入る
 // applet…しぃペインターが使用できるとき true が入る
 // usepbbs…しぃペインターとPaintBBSの両方が使用できるとき true が入る

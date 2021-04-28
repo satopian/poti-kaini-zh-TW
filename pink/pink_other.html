@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
-<title><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>投稿フォーム<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編集モード<% /def %><% def(admin_in) %>管理用<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %> 管理人による投稿<% /def %><% def(admin_del) %>記事削除<% /def %><% def(err_mode) %>エラー！<% /def %> - <% echo(title) %></title>
+<title><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>郵寄表格<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編輯模式<% /def %><% def(admin_in) %>對於管理<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %>由管理員發布<% /def %><% def(admin_del) %>文章刪除<% /def %><% def(err_mode) %>錯誤！<% /def %> - <% echo(title) %></title>
 <% def(n) %>
 <!-- 
 // title…掲示板タイトル
@@ -24,7 +24,7 @@
 <body>
 <div id="body">
 <header>
-<h1 id="bbs_title"><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>投稿フォーム<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編集モード<% /def %><% def(admin_in) %>管理用<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %> 管理人による投稿<% /def %><% def(admin_del) %>記事削除<% /def %><% def(err_mode) %>エラー！<% /def %> - <span class="title_name_wrap"><% echo(title) %></span></h1>
+<h1 id="bbs_title"><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>郵寄表格<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編輯模式<% /def %><% def(admin_in) %>對於管理<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %>由管理員發布<% /def %><% def(admin_del) %>文章刪除<% /def %><% def(err_mode) %>錯誤！<% /def %> - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <% def(n) %>
 <!-- 
 投稿モード
@@ -122,20 +122,20 @@ PMAX_H //高さ
 	</select>&nbsp;
 <% ===キャンバスサイズ ここまで === %>
 <label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />NEOを使う</label>
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>動画記録</label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>動畫保存</label>
 <% /def %>
 <input name="pch_upload" type="file" />
 <input type="hidden" name="admin" value="<% echo(admin) %>">
 <input type="hidden" name="mode" value="paint"></form>
 <% /def %>
 
-<div class="centering">タグがつかえます</div>
+<div class="centering">您可以使用標籤</div>
 <% /def %>
 <% ========== 投稿待ちのお絵かき画像表示 ========== %>
 <% def(pictmp) %>
 <div class="centering">
 <% def(notmp) %>
-画像が見当たりません
+我找不到圖片
 <% /def %>
 <% def(tmp) %>
 <% each(tmp) %>
@@ -148,7 +148,7 @@ PMAX_H //高さ
 <% /def %>
 <% def(ptime) %>
 <div class="centering">
-描画時間： <% echo(ptime) %>
+Paint Time： <% echo(ptime) %>
 </div>
 <% /def %>
 <form action="<% echo(self) %>" method="POST" enctype="multipart/form-data">
@@ -177,9 +177,9 @@ PMAX_H //高さ
 <% /def %>
 <input type="hidden" name="MAX_FILE_SIZE" value="<% echo(maxbyte) %>">
 <table id="post_table">
-<% def(ipcheck) %> <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder">- IPアドレスチェック中 -</td></tr><% /def %>
+
  <tr>
-  <td class="post_table_title">名前<% def(usename) %>(必須)<% /def %></td>
+  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
 <% ========== 編集時、valueに名前をセット ========== %>
   <td><input type="text" name="name" <% def(name) %> value="<% echo(name) %>"<% /def %> class="post_input_text" autocomplete="username"></td>
  </tr>
@@ -194,24 +194,24 @@ PMAX_H //高さ
   <td><input type="url" name="url" <% def(url) %> value="<% echo(url) %>"<% /def %> class="post_input_text" autocomplete="url"></td>
  </tr>
  <tr>
-  <td class="post_table_title">題名<% def(usesub) %>(必須)<% /def %></td>
+  <td class="post_table_title">標題<% def(usesub) %>*<% /def %></td>
 <% ========== 編集時、valueに題名をセット ========== %>
   <td><input type="text" name="sub" <% def(sub) %> value="<% echo(sub) %>"<% /def %> class="post_input_text" autocomplete="off"
 ></td>
  </tr>
  <tr>
-  <td class="post_table_title">本文<% def(usecom) %>(必須)<% /def %></td>
+  <td class="post_table_title">文本<% def(usecom) %>*<% /def %></td>
 <% ========== 編集時、textarea内に本文をセット ========== %>
   <td><textarea name="com" wrap="soft" class="post_input_com"><% def(com) %><% echo(com) %><% /def %></textarea></td>
  </tr>
 <% ========== ファイルアップロード欄 ========== %>
 <% def(upfile) %>
 <tr>
-<td class="post_table_title">添付画像</td>
+<td class="post_table_title">附图片</td>
   <td><input type="file" name="upfile" accept="image/*">
 	<% def(hide_the_checkbox_for_nofile) %>
 	<% elsedef %>
-	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on">画像なし</label>
+	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on">不附圖片</label>
 	<% /def %>
  </td>
  </tr>
@@ -219,7 +219,7 @@ PMAX_H //高さ
 <% ========== お絵かき画像選択欄 ========== %>
 <% def(tmp) %>
  <tr>
-  <td class="post_table_title">画像</td>
+  <td class="post_table_title">圖像</td>
   <td><select name="picfile" class="post_select_image">
 <% each(tmp) %><option value="<% echo(tmp/srcname) %>"><% echo(tmp/srcname) %></option><% /each %>
   </select></td>
@@ -228,9 +228,9 @@ PMAX_H //高さ
 <% ========== 新規投稿時は削除キー入力 ========== %>
 <% def(regist) %>
  <tr>
-  <td class="post_table_title">削除キー</td>
+  <td class="post_table_title">密碼</td>
   <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password">
-<span class="howtoedit">(記事の編集削除用。英数字で)</span></td>
+<span class="howtoedit">(用于编辑和删除文章。用字母数字)</span></td>
  </tr><% /def %>
  <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送信する" class="post_submit"></td></tr>
  <tr>
@@ -241,15 +241,15 @@ PMAX_H //高さ
 <% def(upfile) %>
 <% def(hide_the_checkbox_for_nofile) %>
 <% elsedef %>
-<li>画像を添付する場合は画像なしのチェックを外してください。</li>
+<li>如果要附加圖像，請取消選中“不附圖片”。</li>
 <% /def %>
-<li>最大投稿データ量は <% echo(maxkb) %> KB までです。sage機能付き。</li>
+<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。</li>
 <% /def %>
 <% /def %>
 <% ========== 編集説明 ========== %>
 <% def(rewrite) %>
-<li>E-mail以外の項目は 未入力(空白)にすると内容はそのままです。</li>
-<li>編集では クッキーは保存されません。さらにsageを入れても位置は変わりません。</li>
+<li>如果將電子郵件以外的其他項目留空（空白），則內容將保持不變。</li>
+<li>編輯時不保存Cookie。</li>
 <% /def %>
 <% ========== 以下共通 ========== %>
 </ul></td>
@@ -291,13 +291,13 @@ l(); //LoadCookie
 <form action="<% echo(self) %>" method="post">
   <div class="centering">
 <div class="margin_radio">
-<label class="radio"><input type="radio" name="admin" value="update" checked>ログ更新 </label>
-<label class="radio"><input type="radio" name="admin" value="del">記事削除 </label>
-<label class="radio"><input type="radio" name="admin" value="post">管理人投稿</label>
+<label class="radio"><input type="radio" name="admin" value="update" checked>HTML更新</label>
+<label class="radio"><input type="radio" name="admin" value="del">文章刪除 </label>
+<label class="radio"><input type="radio" name="admin" value="post">由管理員發布</label>
 </div>
 <input type="hidden" name="mode" value="admin">
 <input type="password" name="pass" size="8" autocomplete="current-password" class="adminpass">
-<input type="submit" value=" 認証 " class="admin_submit">
+<input type="submit" value=" 認證 " class="admin_submit">
 
 </div>
 </form>
@@ -332,14 +332,14 @@ l(); //LoadCookie
 </header>
   <div class="centering">
 <p>
-削除したい記事のチェックボックスにチェックを入れ、削除ボタンを押して下さい。<br>
-<span class="hensyu">（記事Noをクリックすると編集できます）</span></p>
+	選中您要刪除的文章的複選框，然後單擊刪除按鈕。<br>
+<span class="hensyu"></span></p>
 <p>
 <form action="<% echo(self) %>" method="post">
 <input type="hidden" name="admin" value="update">
 <input type="hidden" name="mode" value="admin">
 <input type="hidden" name="pass" value="<% echo(pass) %>">
-<input type="submit" value="ログ更新" class="admin_submit">
+<input type="submit" value="HTML更新" class="admin_submit">
 	</form>
 	</p>
 	<p>
@@ -348,20 +348,20 @@ l(); //LoadCookie
 <input type="hidden" name="admin" value="del">
 <input type="hidden" name="pass" value="<% echo(pass) %>">
 
-<input type="submit" value="削除する"><input type="reset" value="リセット">
-<label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">画像だけ消す</label>
+<input type="submit" value="刪除"><input type="reset" value="復位">
+<label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖像</label>
 	</form>
 </p>
 <table class="admindel_table">
  <tr bgcolor="#FFB5E6">
-  <th class="nobreak">削除</th>
-  <th class="nobreak">記事No</th>
-  <th class="nobreak">投稿日</th>
-  <th class="nobreak">題名</th>
-  <th class="nobreak">投稿者</th>
-  <th class="nobreak">コメント</th>
-  <th class="column_non">ホスト名</th>
-  <th class="column_non">添付(Bytes)</th>
+  <th class="nobreak">刪除</th>
+  <th class="nobreak">文書番號</th>
+  <th class="nobreak">發表日期</th>
+  <th class="nobreak">標題</th>
+  <th class="nobreak">張貼者</th>
+  <th class="nobreak">文本</th>
+  <th class="column_non">主機名</th>
+  <th class="column_non">附件(Bytes)</th>
   <th class="column_non">md5</th>
  </tr>
 <% def(del) %><% each(del) %>
@@ -385,11 +385,11 @@ l(); //LoadCookie
 <% /each %><% /def %>
 </table>
 <p>
-<input form="delete" type="submit" value="削除する"><input form="delete" type="reset" value="リセット">
-<label class="checkbox"><input form="delete" type="checkbox" name="onlyimgdel" value="on">画像だけ消す</label>
+<input form="delete" type="submit" value="刪除"><input form="delete" type="reset" value="復位">
+<label class="checkbox"><input form="delete" type="checkbox" name="onlyimgdel" value="on">僅刪除圖像</label>
 </p>
 
-<p>【 画像データ合計 : <b><% echo(all) %></b> KB 】</p>
+<p>【 圖像數據總計 : <b><% echo(all) %></b> KB 】</p>
   </div>
 <% /def %>
 <% ========== 管理モード(削除) ここまで ========== %>
@@ -411,7 +411,7 @@ l(); //LoadCookie
 </header>
 <div class="error_mesage">
 <% echo(mes) %>
-<br><a href="#" onclick="javascript:window.history.back(-1);return false;">もどる</a>
+<br><a href="#" onclick="javascript:window.history.back(-1);return false;">返回</a>
 <!-- <a href="<% echo(self2) %>">リロード</a> -->
 </div>
 

@@ -117,12 +117,12 @@ PMAX_H //高さ
 <!-- NEOを使う -->
 <label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
 
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>保存播放</span></label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>動畫保存</span></label>
 	<% /def %>
 	<% def(n) %>
 	<!--
-	// anime…動画記録機能を使用するとき true が入る
-	// animechk…動画記録をデフォルトでチェックするとき ' checked' が入る
+	// anime…動畫記録機能を使用するとき true が入る
+	// animechk…動畫記録をデフォルトでチェックするとき ' checked' が入る
 	-->
 <% /def %>
 <input type="hidden" name="mode" value="paint"></form>
@@ -132,7 +132,7 @@ PMAX_H //高さ
 <div class="howtopaint">
 <ul id="up_desc">
 	畫布尺寸需設定在 400 至 1024 像素之間。
-<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至<% echo (pmaxh) %>。</li>
+<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至 <% echo (pmaxh) %>。</li>
 <li>如果图像宽度超过<% echo (maxw) %>像素，高度超过<% echo (maxh) %>像素，则图像将按比例缩小。</li>
 <% echo (addinfo) %>
 </ul>
@@ -165,7 +165,7 @@ PMAX_H //高さ
 	
 		<table id="post_table">
 	 <tr>
-	  <td class="post_table_title">NAME<% def(usename) %>*<% /def %></td>
+	  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
 	  <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
 	 </tr>
 	 <tr>
@@ -200,7 +200,7 @@ PMAX_H //高さ
 	  <td><input type="file" name="upfile" accept="image/*">
 		<% def(hide_the_checkbox_for_nofile) %>
 		<% elsedef %>
-		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">我没有附图片</label>
+		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">不附圖片</label>
 		<% /def %>
 		
 	</td>
@@ -208,7 +208,7 @@ PMAX_H //高さ
 	<% /def %>
 	 <tr>
 	  <td class="post_table_title">密码</td>
-	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用于编辑和删除文章。 用字母数字)</span></td>
+	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用于编辑和删除文章。用字母数字)</span></td>
 	 </tr>
 	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="发送" class="post_submit">
 	</td></tr>
@@ -252,7 +252,7 @@ PMAX_H //高さ
 </div>
 <% def(oya/src) %>
 <div class="article_img_info">
-<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">続きを描く</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動画</a></span><% /def %>
+<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">畫更多</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動畫</a></span><% /def %>
 </div>
 <% /def %>
 <% ========== 親記事ヘッダここまで ========== %>
@@ -270,7 +270,7 @@ PMAX_H //高さ
 // oya/id…ID
 // oya/painttime…描画時間
 // oya/src…画像URL
-// oya/pch…動画ファイル用引数(フラグ兼用)
+// oya/pch…動畫ファイル用引数(フラグ兼用)
 // oya/continue…コンティニュー用引数(フラグ兼用)
 // oya/thumb…サムネイルがあるとき true が入る
 -->
@@ -301,9 +301,9 @@ PMAX_H //高さ
 <% def(resform) %><% def(oya/skipres) %><hr><div class="article_skipres">
 	
 	
-	<% echo (oya/skipres) %>个答复已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;显示所有</a></div><% /def %><% /def %>
+	<% echo (oya/skipres) %>個答复已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;顯示所有</a></div><% /def %><% /def %>
 <% def(resform) %><% elsedef %><% def(oya/skipres) %>
-<hr><div class="article_skipres"><% echo (oya/skipres) %>个答复已被省略。按回复按钮以阅读全部内容。</div>
+<hr><div class="article_skipres"><% echo (oya/skipres) %>個答复已被省略。按回复按鈕以閱讀全部內容。</div>
 <% /def %><% /def %>
 <% def(n) %>
 <!--
@@ -330,7 +330,7 @@ PMAX_H //高さ
 </div>
 <% def(oya/res/src) %>
 <div class="article_img_info">
-<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">続きを描く</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動画</a></span><% /def %>
+<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">畫更多</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動畫</a></span><% /def %>
 </div>
 <% /def %>
 <% レス記事ヘッダここまで %>
@@ -349,7 +349,7 @@ PMAX_H //高さ
 // oya/res/id…ID
 // oya/res/painttime…描画時間
 // oya/res/src…画像URL
-// oya/res/pch…動画ファイル用引数(フラグ兼用)
+// oya/res/pch…動畫ファイル用引数(フラグ兼用)
 // oya/res/continue…コンティニュー用引数(フラグ兼用)
 // oya/res/thumb…サムネイルがあるとき true が入る
 -->
@@ -384,7 +384,7 @@ PMAX_H //高さ
 <input type="hidden" name="resto" value="<% echo (oya/no) %>">
 <input type="hidden" name="textonly" value="on">
 <% ========== ←v1.3b3以降必須 ========== %>
-<tr><td class="minres_title">NAME<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
+<tr><td class="minres_title">名E<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
 <td class="minres_title">標題<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
 </tr>
 <tr>
