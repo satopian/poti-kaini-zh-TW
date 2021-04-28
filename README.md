@@ -11,6 +11,10 @@ We also need to translate the body of `search.php` and` search.html`.
 However, POTI-board.php externalizes all language settings, so no changes are needed.  
 Translation of config.php requires translation of the descriptive text for the end user to set.    
 
+### [2021/04/29]  
+I have translated all the major files except `config.php`.  
+However, it relies on Google Translate, and we don't know what words are used on the bulletin board in the case of Traditional Chinese, so we need to replace them with the appropriate translations.  
+
 ### [2021/04/28]  
 開始翻譯. 
 Translated the const in template_ini.php.  
