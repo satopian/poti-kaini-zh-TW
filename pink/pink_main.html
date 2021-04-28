@@ -5,7 +5,7 @@
 -->
 <% /def %>
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-TW">
 <head>
 <meta charset="utf-8">
 <!--SNS-->
@@ -41,13 +41,13 @@
 
 <nav>
 <div class="bbsmenu">
-[<a href="<% echo (home) %>" target="_top">ホーム</a>]
-[<a href="<% echo (self) %>?mode=catalog">カタログ</a>]
+[<a href="<% echo (home) %>" target="_top">HOME</a>]
+[<a href="<% echo (self) %>?mode=catalog">目录</a>]
 <% def(upfile) %>
-[<a href="<% echo (self) %>?mode=newpost"><span class="txtnon">新規</span>投稿</a>]
+[<a href="<% echo (self) %>?mode=newpost"><span class="txtnon">張貼</a>]
 <% /def %>
-<span class="txtnon">[<a href="<% echo (self) %>?mode=piccom">未投稿画像</a>]</span>
-[<a href="<% echo (self) %>?mode=admin">管理<span class="txtnon">用</span></a>]
+<span class="txtnon">[<a href="<% echo (self) %>?mode=piccom">未发布的图片</a>]</span>
+[<a href="<% echo (self) %>?mode=admin">管理</a>]
 <a href="#bottom">▽</a>
 <% def(n) %>
 <!--
@@ -115,9 +115,9 @@ PMAX_H //高さ
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="パレット" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
 	<% /def %>
 <!-- NEOを使う -->
-<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />NEOを使う</label>
+<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
 
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>動画記録</span></label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>保存播放</span></label>
 	<% /def %>
 	<% def(n) %>
 	<!--
@@ -131,8 +131,9 @@ PMAX_H //高さ
 <% def(paint2) %>
 <div class="howtopaint">
 <ul id="up_desc">
-<li>お絵かきできる画像のサイズは横 300～<% echo (pmaxw) %>、縦 300～<% echo (pmaxh) %>の範囲内です。</li>
-<li>画像は横 <% echo (maxw) %>ピクセル、縦 <% echo (maxh) %>ピクセルを超えると縮小表示されます。sage機能付き。</li>
+	畫布尺寸需設定在 400 至 1024 像素之間。
+<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至<% echo (pmaxh) %>の範囲内です。</li>
+<li>如果图像宽度超过<% echo (maxw) %>像素，高度超过<% echo (maxh) %>像素，则图像将按比例缩小。</li>
 <% echo (addinfo) %>
 </ul>
 </div>
@@ -164,7 +165,7 @@ PMAX_H //高さ
 	
 		<table id="post_table">
 	 <tr>
-	  <td class="post_table_title">名前<% def(usename) %>(必須)<% /def %></td>
+	  <td class="post_table_title">NAME<% def(usename) %>*<% /def %></td>
 	  <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
 	 </tr>
 	 <tr>
@@ -176,11 +177,11 @@ PMAX_H //高さ
 	  <td><input type="text" name="url" class="post_input_text" autocomplete="url"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">題名<% def(usesub) %>(必須)<% /def %></td>
+	  <td class="post_table_title">TITLE<% def(usesub) %>*<% /def %></td>
 	  <td><input type="text" name="sub" class="post_input_text" autocomplete="off"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">本文<% def(usecom) %>(必須)<% /def %></td>
+	  <td class="post_table_title">COMMENT<% def(usecom) %>*<% /def %></td>
 	  <td><textarea name="com" wrap="soft" class="post_input_com"></textarea></td>
 	 </tr>
 	 <% def(n) %>
@@ -195,21 +196,21 @@ PMAX_H //高さ
 	<% ========== ファイルアップロード欄 ========== %>
 	<% def(upfile) %>
 	 <tr>
-	  <td class="post_table_title">添付画像</td>
+	  <td class="post_table_title">附图片</td>
 	  <td><input type="file" name="upfile" accept="image/*">
 		<% def(hide_the_checkbox_for_nofile) %>
 		<% elsedef %>
-		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">画像なし</label>
+		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">我没有附图片</label>
 		<% /def %>
 		
 	</td>
 	 </tr>
 	<% /def %>
 	 <tr>
-	  <td class="post_table_title">削除キー</td>
-	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(記事の編集削除用。英数字で)</span></td>
+	  <td class="post_table_title">密码</td>
+	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用于编辑和删除文章。 用字母数字)</span></td>
 	 </tr>
-	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送信する" class="post_submit">
+	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="发送" class="post_submit">
 	</td></tr>
 	 <tr>
 	  <td colspan="2" class="td_noborder">
@@ -217,8 +218,8 @@ PMAX_H //高さ
 	<% def(upfile) %>
 	<div class="howtowrite">
 		<ul id="up_desc">
-			<li>画像は横 <% echo (maxw) %>ピクセル、縦 <% echo (maxh) %>ピクセルを超えると縮小表示されます。</li>
-		<li>最大投稿データ量は <% echo (maxkb) %> KB までです。
+			<li>图像将缩小到超过宽度<% echo (maxw) %>像素和高度<% echo (maxh) %>像素。</li>
+		<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。
 			<% echo (addinfo) %>
 		</ul>
 	</div>
@@ -229,10 +230,10 @@ PMAX_H //高さ
 	<% /def %>
 <nav>
 <div class="pagelink">
-<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪前へ</a><% /def %>
+<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
 <div class="pagelink_top"><a href="<% echo (self2) %>">掲示板トップ</a></div>
-<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">次へ≫</a><% /def %></div>
+<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div>
 	</nav>
 
@@ -246,7 +247,7 @@ PMAX_H //高さ
 <span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/name) %></a></span><% def(oya/url) %><span class="article_info_desc">[<a href="<% echo (oya/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
 <% def(oya/id) %><span class="article_info_desc">ID:<% echo (oya/id) %></span> <% /def %>
 <span class="article_info_desc"><% echo (oya/now) %></span>
-<% def(oya/src) %><% def(oya/painttime) %><span class="article_info_painttime">描画時間:<% echo (oya/painttime) %></span><% /def %><% /def %>
+<% def(oya/src) %><% def(oya/painttime) %><span class="article_info_painttime">Paint Time:<% echo (oya/painttime) %></span><% /def %><% /def %>
 <% def(oya/updatemark) %><span class="article_info_desc"><% echo (oya/updatemark) %></span> <% /def %>
 </div>
 <% def(oya/src) %>
@@ -290,16 +291,19 @@ PMAX_H //高さ
 -->
 <% /def %>
 
-<% def(oya/limit) %><hr><div class="article_limit">このスレッドは古いのでもうすぐ消えます。</div><% /def %>
+<% def(oya/limit) %><hr><div class="article_limit">该线程很旧，很快就会消失。</div><% /def %>
 <% def(n) %>
 <!--
 // oya/limit…消える(ログ落ち)間近のとき true が入る
 -->
 <% /def %>
 
-<% def(resform) %><% def(oya/skipres) %><hr><div class="article_skipres">返信が<% echo (oya/skipres) %>件省略されています。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;全て表示</a></div><% /def %><% /def %>
+<% def(resform) %><% def(oya/skipres) %><hr><div class="article_skipres">
+	
+	
+	<% echo (oya/skipres) %>个答复已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;显示所有</a></div><% /def %><% /def %>
 <% def(resform) %><% elsedef %><% def(oya/skipres) %>
-<hr><div class="article_skipres">返信が<% echo (oya/skipres) %>件省略されています。全て読むには返信ボタンを押してください。</div>
+<hr><div class="article_skipres"><% echo (oya/skipres) %>个答复已被省略。按回复按钮以阅读全部内容。</div>
 <% /def %><% /def %>
 <% def(n) %>
 <!--
@@ -321,7 +325,7 @@ PMAX_H //高さ
 <span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/res/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/res/name) %></a></span><% def(oya/res/url) %><span class="article_info_desc">[<a href="<% echo (oya/res/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
 <% def(oya/res/id) %><span class="article_info_desc">ID:<% echo (oya/res/id) %></span> <% /def %>
 <span class="article_info_desc"><% echo (oya/res/now) %></span>
-<% def(oya/res/src) %><% def(oya/res/painttime) %><span class="article_info_painttime">描画時間:<% echo (oya/res/painttime) %></span><% /def %><% /def %>
+<% def(oya/res/src) %><% def(oya/res/painttime) %><span class="article_info_painttime">Paint Time:<% echo (oya/res/painttime) %></span><% /def %><% /def %>
 <% def(oya/res/updatemark) %><span class="article_info_desc"><% echo (oya/res/updatemark) %></span> <% /def %>
 </div>
 <% def(oya/res/src) %>
@@ -380,19 +384,19 @@ PMAX_H //高さ
 <input type="hidden" name="resto" value="<% echo (oya/no) %>">
 <input type="hidden" name="textonly" value="on">
 <% ========== ←v1.3b3以降必須 ========== %>
-<tr><td class="minres_title">名前<% def(usename) %>(必須)<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
-<td class="minres_title">題名<% def(usesub) %>(必須)<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
+<tr><td class="minres_title">NAME<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
+<td class="minres_title">TITLE<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
 </tr>
 <tr>
 <td class="minres_title">E-mail</td><td><input type="text" name="email" class="minres_input_text" autocomplete="email"></td>
 <td class="minres_title">URL</td><td><input type="url" name="url" class="minres_input_text" autocomplete="url"></td>
 </tr>
-<tr><td class="minres_title">本文</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
+<tr><td class="minres_title">COMMENT</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
 <tr><td colspan="2">
 </td>
-<td colspan="2">削除キー<input type="password" name="pwd" value="" class="minres_input_other" autocomplete="current-password"></td>
+<td colspan="2">密码<input type="password" name="pwd" value="" class="minres_input_other" autocomplete="current-password"></td>
 </tr>
-<tr><td colspan="4"><input type="submit" value="返信" class="res_button"></td></tr>
+<tr><td colspan="4"><input type="submit" value="回复" class="res_button"></td></tr>
 </table>
 </div>
 </form>
@@ -422,10 +426,10 @@ PMAX_H //高さ
 <nav>
 <div id="paging_wrap"><% echo (paging) %></div>
 <div class="pagelink">
-<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪前へ</a><% /def %>
+<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
 <div class="pagelink_top"><a href="<% echo (self2) %>">掲示板トップ</a></div>
-<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">次へ≫</a><% /def %></div>
+<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div></nav>
 <% def(n) %>
 <!--
@@ -438,12 +442,12 @@ PMAX_H //高さ
 <% ========== メンテナンスフォーム欄 ========== %>
 <form action="<% echo (self) %>" method="post">
 <div class="mente_wrap">
-<span class="nk">記事No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
-<span class="nk">削除キー<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
+<span class="nk">记事No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+<span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
 <select name="mode">
-<option value="edit">編集</option>
+<option value="edit">编辑</option>
 <% def(userdel) %>
-<option value="usrdel">削除</option>
+<option value="usrdel">删除</option>
 <% /def %>
 <% def(n) %>
 <!--
@@ -451,7 +455,7 @@ PMAX_H //高さ
 -->
 <% /def %>
 </select>
-<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">画像だけ消す</label></span>
+<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">仅删除图像</label></span>
 <input type="submit" value="OK">
 </div>
 </form>
@@ -473,7 +477,7 @@ l(); //LoadCookie
 OekakiApplet - <a href="http://hp.vector.co.jp/authors/VA016309/" target="_blank" rel="noopener noreferrer" title="by しぃちゃん">Shi-Painter</a>
 <br>
 <% /def %>
-UseFunction - <span title="by WonderCatStudio">動的パレットスクリプト</span>
+UseFunction - <span title="by WonderCatStudio">DynamicPalette</span>
 <!--http://wondercatstudio.com/-->
 ，<a href="http://skinny.sx68.net/" target="_blank" rel="noopener noreferrer" title="Skinny">Skinny</a>
 ，<a href="http://github.com/funige/neo/" target="_blank" rel="noopener noreferrer" title="by funige">PaintBBS NEO</a>
