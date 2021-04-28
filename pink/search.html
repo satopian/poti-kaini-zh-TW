@@ -27,16 +27,16 @@
 <div id="main">
 <header>
 	<div class="title">
-	<h1><% echo(h1) %><span class="title_wrap"><% echo(img_or_com) %><% echo(pageno) %></span></h1>
+	<h1><% echo(h1) %><% echo(img_or_com) %><span class="title_wrap"><% echo(pageno) %></span></h1>
 	</div>
 </header>
 <nav>
 	<div class="menu">
-	[<a href="./">掲示板にもどる</a>]
+	[<a href="./">返回公告欄</a>]
 	<% def(imgsearch) %>
-	 [<a href="?page=1&imgsearch=off<% echo(query_l) %>">コメント</a>]
+	 [<a href="?page=1&imgsearch=off<% echo(query_l) %>">插圖</a>]
 	 <% else %>
-	 [<a href="?page=1&imgsearch=on<% echo(query_l) %>">イラスト</a>]
+	 [<a href="?page=1&imgsearch=on<% echo(query_l) %>">插圖</a>]
 	 <% /def %>
 	 
 
@@ -46,7 +46,7 @@
 	<% def(comments) %>
 	<% def(imgsearch) %>
 	<div class="newimg">
-		<ul><% each(comments) %><li class="catalog"><a href="<% echo(comments/link) %>" target="_blank"><img src="<% echo(comments/img) %>" alt="「<% echo(comments/sub) %>」イラスト/<% echo(comments/name) %><% echo(comments/postedtime) %>" title="「<% echo(comments/sub) %>」by <% echo(comments/name) %> <% echo(comments/postedtime) %>"/></a></li><% /each %></ul>
+		<ul><% each(comments) %><li class="catalog"><a href="<% echo(comments/link) %>" target="_blank"><img src="<% echo(comments/img) %>" alt="「<% echo(comments/sub) %>」插圖/<% echo(comments/name) %><% echo(comments/postedtime) %>" title="「<% echo(comments/sub) %>」by <% echo(comments/name) %> <% echo(comments/postedtime) %>"/></a></li><% /each %></ul>
 	</div>
 	<% else %>
 	<% each(comments) %>
@@ -69,7 +69,7 @@
 	<% /def %>
 	<p></p>
 
-<p>掲示板から新規投稿順に<% echo(img_or_com) %>を呼び出しています。</p>
+<p>從公告板按照新帖子的順序調用<% echo(img_or_com) %>。</p>
 <!-- 最終更新日時 -->
 <% def(lastmodified) %>
 <p>last modified: <% echo(lastmodified) %></p>
@@ -78,9 +78,9 @@
 <p></p>
 <form method="get" action="./search.php">
 <span class="radio">
-<input type="radio" name="radio" id="author" value="1" <% echo(radio_chk1) %>><label for="author" class="label">名前</label>
+<input type="radio" name="radio" id="author" value="1" <% echo(radio_chk1) %>><label for="author" class="label">名</label>
 <input type="radio" name="radio" id="exact" value="2" <% echo(radio_chk2) %>><label for="exact" class="label">完全一致</label>
-<input type="radio" name="radio" id="fulltext" value="3" <% echo(radio_chk3) %>><label for="fulltext" class="label">本文題名</label>
+<input type="radio" name="radio" id="fulltext" value="3" <% echo(radio_chk3) %>><label for="fulltext" class="label">文本標題</label>
 </span>
 <br>
 <% def(imgsearch) %>
