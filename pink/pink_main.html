@@ -51,7 +51,7 @@
 <a href="#bottom">▽</a>
 <% def(n) %>
 <!--
-// home…ホームページURL
+// home…HOMEページURL
 // self…POTI-boardのスクリプト名
 // self2…入口(TOP)ページのURL
 // resno…レス時の親記事No
@@ -112,7 +112,7 @@ PMAX_H //高さ
 	</select> 
 <% ===キャンバスサイズ ここまで === %>
 <% def(use_select_palettes) %>
-	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="パレット" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
+	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
 	<% /def %>
 <!-- NEOを使う -->
 <label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
@@ -132,7 +132,7 @@ PMAX_H //高さ
 <div class="howtopaint">
 <ul id="up_desc">
 	畫布尺寸需設定在 400 至 1024 像素之間。
-<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至<% echo (pmaxh) %>の範囲内です。</li>
+<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至<% echo (pmaxh) %>。</li>
 <li>如果图像宽度超过<% echo (maxw) %>像素，高度超过<% echo (maxh) %>像素，则图像将按比例缩小。</li>
 <% echo (addinfo) %>
 </ul>
@@ -177,11 +177,11 @@ PMAX_H //高さ
 	  <td><input type="text" name="url" class="post_input_text" autocomplete="url"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">TITLE<% def(usesub) %>*<% /def %></td>
+	  <td class="post_table_title">標題<% def(usesub) %>*<% /def %></td>
 	  <td><input type="text" name="sub" class="post_input_text" autocomplete="off"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">COMMENT<% def(usecom) %>*<% /def %></td>
+	  <td class="post_table_title">文本<% def(usecom) %>*<% /def %></td>
 	  <td><textarea name="com" wrap="soft" class="post_input_com"></textarea></td>
 	 </tr>
 	 <% def(n) %>
@@ -189,7 +189,7 @@ PMAX_H //高さ
 	 // usename…名前が必須だと ' *' が入る
 	// usesub…題名が必須だと ' *' が入る
 	// usecom…本文が必須だと ' *' が入る
-	// resub…レス時の返信用題名(Re: ～)
+	// resub…レス時の回复用題名(Re: ～)
 	-->
 	<% /def %>
 	<% ========== 文字色指定(■に色付けてチェックボタンで選択する方法) ========== %>
@@ -232,7 +232,7 @@ PMAX_H //高さ
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">掲示板トップ</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div>
 	</nav>
@@ -385,13 +385,13 @@ PMAX_H //高さ
 <input type="hidden" name="textonly" value="on">
 <% ========== ←v1.3b3以降必須 ========== %>
 <tr><td class="minres_title">NAME<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
-<td class="minres_title">TITLE<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
+<td class="minres_title">標題<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
 </tr>
 <tr>
 <td class="minres_title">E-mail</td><td><input type="text" name="email" class="minres_input_text" autocomplete="email"></td>
 <td class="minres_title">URL</td><td><input type="url" name="url" class="minres_input_text" autocomplete="url"></td>
 </tr>
-<tr><td class="minres_title">COMMENT</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
+<tr><td class="minres_title">文本</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
 <tr><td colspan="2">
 </td>
 <td colspan="2">密码<input type="password" name="pwd" value="" class="minres_input_other" autocomplete="current-password"></td>
@@ -402,7 +402,7 @@ PMAX_H //高さ
 </form>
 <% /def %>
 <% elsedef %>
-<% ========== ミニレスフォームを表示させない場合は返信ボタンを表示 ========== %>
+<% ========== ミニレスフォームを表示させない場合は回复ボタンを表示 ========== %>
 
 <div class="res_button_wrap">
 	<% def(sharebutton) %>
@@ -411,9 +411,9 @@ PMAX_H //高さ
 		<a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-facebook2"></span>share</a>
 	</span>
 	<% /def %>
-	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="返信" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
+	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="回复" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
 	<% /def %>
-<% ========== 返信ボタンここまで ========== %>
+<% ========== 回复ボタンここまで ========== %>
 
 	<hr>
 
@@ -428,7 +428,7 @@ PMAX_H //高さ
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">掲示板トップ</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div></nav>
 <% def(n) %>
@@ -442,7 +442,7 @@ PMAX_H //高さ
 <% ========== メンテナンスフォーム欄 ========== %>
 <form action="<% echo (self) %>" method="post">
 <div class="mente_wrap">
-<span class="nk">记事No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+<span class="nk">文章No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
 <span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
 <select name="mode">
 <option value="edit">编辑</option>

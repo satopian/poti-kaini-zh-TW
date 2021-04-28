@@ -1,6 +1,6 @@
 <% def(n) %>
 <!--(********** カタログテンプレート **********
-// このテンプレートは、カタログモード用テンプレートです
+// このテンプレートは、目录模式用テンプレートです
 -->
 <% /def %>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
-<title>カタログモード - <% echo (title) %></title>
+<title>目录模式 - <% echo (title) %></title>
 <% def(n) %>
 <!--
 // title…掲示板タイトル
@@ -22,19 +22,19 @@
 </head><body>
 <div id="body">
 <header>
-<h1 id="bbs_title">カタログモード - <span class="title_name_wrap"><% echo(title) %></span></h1>
+<h1 id="bbs_title">目录模式 - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <nav>
 <div id="self2">
 [<a href="<% echo (self2) %>"><% echo (title) %></a>]
 <span class="menu_home_wrap">
-[<a href="<% echo (home) %>" target="_top">ホーム</a>]</span>
+[<a href="<% echo (home) %>" target="_top">HOME</a>]</span>
 <a href="#bottom">▽</a>
 	</div>
 	</nav>
 </header>
 <% def(n) %>
 <!-- 
-// home…ホームページURL
+// home…HOMEページURL
 // self…POTI-boardのスクリプト名
 // self2…入口(TOP)ページのURL
 -->
@@ -55,7 +55,7 @@
 <div class="catalog_img"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>"><img src="<% echo (y/x/imgsrc) %>" alt="<% echo (y/x/sub) %> by <% echo (y/x/name) %>" title="<% echo (y/x/sub) %> by <% echo (y/x/name) %>" width="<% echo (y/x/w) %>" <% def(y/x/h) %>height="<% echo (y/x/h) %>"<% /def %>></a></div>
 <% /def %>
 <% ========== 文字のみならば・・・ ========== %><% def(y/x/txt) %>
-<div class="catalog_noimg"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>">画像なし</a></div>
+<div class="catalog_noimg"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>">没有图像</a></div>
 <% /def %></div><% /def %>
 <% ========== 記事が無い場合 ========== %><% def(y/x/noimg) %><div class="catalog_wrap no_article"></div><% /def %>
 <% /each %>
@@ -86,7 +86,7 @@
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">&#x226A;前へ</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">掲示板トップ</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">次へ&#x226B;</a><% /def %></div>
 </div></nav>
 <% def(n) %>
@@ -97,28 +97,27 @@
  -->
  <% /def %>
 
-<% ========== メンテナンスフォーム欄 ========== %>
-<form action="<% echo (self) %>" method="post">
-<div class="mente_wrap">
-<span class="nk">記事No.<input type="number" min="1" name="del[]" size="5" autocomplete="off" class="edit_number"></span>
-<span class="nk">削除キー<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
-<select name="mode">
-<option value="edit">編集</option>
-<% def(userdel) %>
-<option value="usrdel">削除</option>
-<% /def %>
-<% def(n) %>
-<!-- 
-// userdel…ユーザー削除権限(0は削除不可)
+ <% ========== メンテナンスフォーム欄 ========== %>
+ <form action="<% echo (self) %>" method="post">
+ <div class="mente_wrap">
+ <span class="nk">文章No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+ <span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
+ <select name="mode">
+ <option value="edit">编辑</option>
+ <% def(userdel) %>
+ <option value="usrdel">删除</option>
+ <% /def %>
+ <% def(n) %>
+ <!--
+ // userdel…ユーザー削除権限(0は削除不可)
  -->
-<% /def %>
-</select>
-<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">画像だけ消す</label></span>
-<input type="submit" value="OK">
-</div>
-</form>
-
-<% ========== JavaScriptの実行(クッキーを読込み、フォームに値をセット) ========== %>
+ <% /def %>
+ </select>
+ <span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">仅删除图像</label></span>
+ <input type="submit" value="OK">
+ </div>
+ </form>
+ <% ========== JavaScriptの実行(クッキーを読込み、フォームに値をセット) ========== %>
 <script>
 l(); //LoadCookie
 </script>
