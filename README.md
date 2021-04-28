@@ -17,4 +17,8 @@ Translated the const in template_ini.php.
 Some translations remain in English or Japanese.  
 This is because the translation of that part did not go well.  
 I would like help from those who understand Chinese.  
+- template_ini.php 
+- I translated template_ini.php.  
+This is an incomplete translation.  
+Please pull request and fix this.  
 
