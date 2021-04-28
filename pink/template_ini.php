@@ -10,7 +10,7 @@ define('TEMPLATE_VER', "lot.210309");
 //General message
 
 //Honorific title when quoting the poster name
-define('HONORIFIC_SUFFIX', 'さん');
+define('HONORIFIC_SUFFIX', 'さん');//hogeさん, in Chinese?
 //Uploaded object type name
 define('UPLOADED_OBJECT_NAME', '圖片');
 //Message when upload is successful
@@ -19,22 +19,22 @@ define('UPLOAD_SUCCESSFUL', '上傳成功');
 define('THE_SCREEN_CHANGES', '切換畫面');
 
 //Message for notification mail
-define('NOTICE_MAIL_TITLE', 'Title');
-define('NOTICE_MAIL_IMG', 'Picture');
-define('NOTICE_MAIL_THUMBNAIL', 'Thumbnail');
-define('NOTICE_MAIL_ANIME', 'Timelapse');
-define('NOTICE_MAIL_URL', 'Fixed link');
-define('NOTICE_MAIL_REPLY', ' Notification: There is a new reply to a post.');
-define('NOTICE_MAIL_NEWPOST', ' Notification: There is a new post');
+define('NOTICE_MAIL_TITLE', '標題');
+define('NOTICE_MAIL_IMG', '圖片');
+define('NOTICE_MAIL_THUMBNAIL', '縮圖');
+define('NOTICE_MAIL_ANIME', '遊戲中時光倒流');
+define('NOTICE_MAIL_URL', '固定鏈接');
+define('NOTICE_MAIL_REPLY', '通知：帖子有新回复。');
+define('NOTICE_MAIL_NEWPOST', '通知：有一個新帖子');
 
 /* ---------- ADD:2004/06/22 ---------- */
 //エラーメッセージ
 define('MSG001', "找不到日誌");
-define('MSG002', "您尚未選擇圖片，您必須上傳圖片！");
+define('MSG002', "您尚未選擇圖片，您必須上傳圖片。");
 define('MSG003', "上傳失敗<br>服務器可能不支持它");
-define('MSG004', "上傳失敗<br>只能上傳圖片");
+define('MSG004', "上傳失敗<br>僅可以附加圖像文件");
 define('MSG005', "上傳失敗<br>圖片已存在");
-define('MSG006', "不正な投稿をしないで下さい<br>POST以外での投稿は受け付けません");
+define('MSG006', "請不要獲得未經授權的訪問。<br>您只能以POST發布。");
 define('MSG007', "圖片不存在");
 define('MSG008', "請寫點東西");
 define('MSG009', "請輸入你的名字");
@@ -43,10 +43,8 @@ define('MSG011', "評論太長");
 define('MSG012', "名字太長");
 define('MSG013', "電子郵件太長");
 define('MSG014', "主題太長");
-define('MSG015', "[Unknown error]");
-define('MSG016', "發布被拒絕<br>[This HOST has been banned from posting.]");
-// define('MSG017', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(80)");
-// define('MSG018', "ＥＲＲＯＲ！　公開ＰＲＯＸＹ規制中！！(8080)");
+define('MSG015', "未知錯誤");
+define('MSG016', "發布被拒絕<br>此主機已被禁止發布。");
 define('MSG019', "未能讀取日誌");
 define('MSG020', "請稍等一下再發表");
 define('MSG021', "請稍等一下再發表");
@@ -63,7 +61,7 @@ define('MSG031', "請輸入編號");
 define('MSG032', "發布被拒絕<br>非法字符串。");
 define('MSG033', "刪除失敗<br>用戶沒有刪除權限");
 define('MSG034', "上傳圖片失敗<br>圖片尺寸太大");//? File size kb, not with height
-define('MSG035', "cjk You need to enter characters from the Kanji cultural sphere");
+define('MSG035', "必須輸入CJK漢字字符。");
 define('MSG036', "您無法在正文中張貼網址");
 define('MSG037', "您不能使用該名稱。");
 define('MSG038', "包含無法使用的TAG。");
@@ -73,8 +71,7 @@ define('MSG041', "不存在");
 define('MSG042', "不可讀");
 define('MSG043', "不可寫");
 define('MSG044', "未設置MAX LOG，或者它包含非數字字符串。");
-define('MSG045', "請上傳繪圖動畫文件。<br>支持的格式為pch和spch。");
-
+define('MSG045', "請上載記錄圖紙的視頻文件。<br>支持的格式為pch和spch。");
 
 
 /* ---------- ADD:2004/02/03 ---------- */
@@ -83,10 +80,10 @@ define('MSG045', "請上傳繪圖動畫文件。<br>支持的格式為pch和spch
 //※日本語だと、"1日1時間1分1秒"
 //※英語だと、"1day 1hr 1min 1sec"
 
-define('PTIME_D', '日');//I don't know the format for Chinese
-define('PTIME_H', '時間');
-define('PTIME_M', '分');
-define('PTIME_S', '秒');
+define('PTIME_D', 'day');//I don't know the format for Chinese.
+define('PTIME_H', 'hr');//Therefore, the items here are in English.
+define('PTIME_M', 'min');
+define('PTIME_S', 'sec');
 
 //＞が付いた時の書式
 //※RE_STARTとRE_ENDで囲むのでそれを考慮して
