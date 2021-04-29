@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
-<title><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>郵寄表格<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編輯模式<% /def %><% def(admin_in) %>對於管理<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %>由管理員發布<% /def %><% def(admin_del) %>文章刪除<% /def %><% def(err_mode) %>錯誤！<% /def %> - <% echo(title) %></title>
+<title><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>投稿表單<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編輯模式<% /def %><% def(admin_in) %>對於管理<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %>管理人投稿<% /def %><% def(admin_del) %>刪除文章<% /def %><% def(err_mode) %>錯誤！<% /def %> - <% echo(title) %></title>
 <% def(n) %>
 <!-- 
 // title…掲示板タイトル
@@ -24,7 +24,6 @@
 <body>
 <div id="body">
 <header>
-<h1 id="bbs_title"><% def(post_mode) %><% def(rewrite) %><% elsedef %><% def(admin_del) %><% elsedef %><% def(admin) %><% elsedef %>郵寄表格<% /def %><% /def %><% /def %><% /def %><% def(rewrite) %>編輯模式<% /def %><% def(admin_in) %>對於管理<% /def %><% def(admin) %><% def(rewrite) %> - <% /def %><% /def %><% def(admin) %>由管理員發布<% /def %><% def(admin_del) %>文章刪除<% /def %><% def(err_mode) %>錯誤！<% /def %> - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <% def(n) %>
 <!-- 
 投稿モード
@@ -121,21 +120,21 @@ PMAX_H //高さ
 	?>
 	</select>&nbsp;
 <% ===キャンバスサイズ ここまで === %>
-<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>動畫保存</label>
+<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用 NEO</label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>保存過程</label>
 <% /def %>
 <input name="pch_upload" type="file" />
 <input type="hidden" name="admin" value="<% echo(admin) %>">
 <input type="hidden" name="mode" value="paint"></form>
 <% /def %>
 
-<div class="centering">您可以使用標籤</div>
+<div class="centering">您可以使用 HTML 標籤</div>
 <% /def %>
 <% ========== 投稿待ちのお絵かき画像表示 ========== %>
 <% def(pictmp) %>
 <div class="centering">
 <% def(notmp) %>
-我找不到圖片
+找不到圖片
 <% /def %>
 <% def(tmp) %>
 <% each(tmp) %>
@@ -179,7 +178,7 @@ Paint Time： <% echo(ptime) %>
 <table id="post_table">
 
  <tr>
-  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
+  <td class="post_table_title">名稱<% def(usename) %>*<% /def %></td>
 <% ========== 編集時、valueに名前をセット ========== %>
   <td><input type="text" name="name" <% def(name) %> value="<% echo(name) %>"<% /def %> class="post_input_text" autocomplete="username"></td>
  </tr>
@@ -200,14 +199,14 @@ Paint Time： <% echo(ptime) %>
 ></td>
  </tr>
  <tr>
-  <td class="post_table_title">文本<% def(usecom) %>*<% /def %></td>
+  <td class="post_table_title">內文<% def(usecom) %>*<% /def %></td>
 <% ========== 編集時、textarea内に本文をセット ========== %>
   <td><textarea name="com" wrap="soft" class="post_input_com"><% def(com) %><% echo(com) %><% /def %></textarea></td>
  </tr>
 <% ========== ファイルアップロード欄 ========== %>
 <% def(upfile) %>
 <tr>
-<td class="post_table_title">附图片</td>
+<td class="post_table_title">附加圖片</td>
   <td><input type="file" name="upfile" accept="image/*">
 	<% def(hide_the_checkbox_for_nofile) %>
 	<% elsedef %>
@@ -230,9 +229,9 @@ Paint Time： <% echo(ptime) %>
  <tr>
   <td class="post_table_title">密碼</td>
   <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password">
-<span class="howtoedit">(用于编辑和删除文章。用字母数字)</span></td>
+<span class="howtoedit">(用於编辑和删除文章，請使用英數組合)</span></td>
  </tr><% /def %>
- <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送信する" class="post_submit"></td></tr>
+ <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送出" class="post_submit"></td></tr>
  <tr>
   <td colspan="2" class="td_noborder">
 <% ========== 新規投稿説明 ========== %>
@@ -243,7 +242,7 @@ Paint Time： <% echo(ptime) %>
 <% elsedef %>
 <li>如果要附加圖像，請取消選中“不附圖片”。</li>
 <% /def %>
-<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。</li>
+<li>圖片檔案大小限制為 <% echo (maxkb) %> KB。</li>
 <% /def %>
 <% /def %>
 <% ========== 編集説明 ========== %>
@@ -291,9 +290,9 @@ l(); //LoadCookie
 <form action="<% echo(self) %>" method="post">
   <div class="centering">
 <div class="margin_radio">
-<label class="radio"><input type="radio" name="admin" value="update" checked>HTML更新</label>
-<label class="radio"><input type="radio" name="admin" value="del">文章刪除 </label>
-<label class="radio"><input type="radio" name="admin" value="post">由管理員發布</label>
+<label class="radio"><input type="radio" name="admin" value="update" checked>更新 HTML</label>
+<label class="radio"><input type="radio" name="admin" value="del">刪除文章</label>
+<label class="radio"><input type="radio" name="admin" value="post">管理人投稿</label>
 </div>
 <input type="hidden" name="mode" value="admin">
 <input type="password" name="pass" size="8" autocomplete="current-password" class="adminpass">
@@ -332,14 +331,14 @@ l(); //LoadCookie
 </header>
   <div class="centering">
 <p>
-	選中您要刪除的文章的複選框，然後單擊刪除按鈕。<br>
+	選取您要刪除文章的複選框，然後點擊刪除安鈕。<br>
 <span class="hensyu"></span></p>
 <p>
 <form action="<% echo(self) %>" method="post">
 <input type="hidden" name="admin" value="update">
 <input type="hidden" name="mode" value="admin">
 <input type="hidden" name="pass" value="<% echo(pass) %>">
-<input type="submit" value="HTML更新" class="admin_submit">
+<input type="submit" value="更新 HTML" class="admin_submit">
 	</form>
 	</p>
 	<p>
@@ -348,20 +347,20 @@ l(); //LoadCookie
 <input type="hidden" name="admin" value="del">
 <input type="hidden" name="pass" value="<% echo(pass) %>">
 
-<input type="submit" value="刪除"><input type="reset" value="復位">
-<label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖像</label>
+<input type="submit" value="刪除"><input type="reset" value="取消">
+<label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖片</label>
 	</form>
 </p>
 <table class="admindel_table">
  <tr bgcolor="#FFB5E6">
   <th class="nobreak">刪除</th>
-  <th class="nobreak">文書番號</th>
+  <th class="nobreak">文章 ID</th>
   <th class="nobreak">發表日期</th>
   <th class="nobreak">標題</th>
-  <th class="nobreak">張貼者</th>
-  <th class="nobreak">文本</th>
-  <th class="column_non">主機名</th>
-  <th class="column_non">附件(Bytes)</th>
+  <th class="nobreak">投稿者</th>
+  <th class="nobreak">內文</th>
+  <th class="column_non">主機名稱</th>
+  <th class="column_non">附件 (Bytes)</th>
   <th class="column_non">md5</th>
  </tr>
 <% def(del) %><% each(del) %>
@@ -385,11 +384,11 @@ l(); //LoadCookie
 <% /each %><% /def %>
 </table>
 <p>
-<input form="delete" type="submit" value="刪除"><input form="delete" type="reset" value="復位">
-<label class="checkbox"><input form="delete" type="checkbox" name="onlyimgdel" value="on">僅刪除圖像</label>
+<input form="delete" type="submit" value="刪除"><input form="delete" type="reset" value="取消">
+<label class="checkbox"><input form="delete" type="checkbox" name="onlyimgdel" value="on">僅刪除圖片</label>
 </p>
 
-<p>【 圖像數據總計 : <b><% echo(all) %></b> KB 】</p>
+<p>【 圖片檔案合計 : <b><% echo(all) %></b> KB 】</p>
   </div>
 <% /def %>
 <% ========== 管理モード(削除) ここまで ========== %>
