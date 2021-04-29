@@ -12,10 +12,8 @@ However, POTI-board.php externalizes all language settings, so no changes are ne
 Translation of config.php requires translation of the descriptive text for the end user to set.    
 
 ### [2021/04/29]  
-- I translated only a part of `config.php`. I was careful not to change the meaning, but this also needs to be replaced with an appropriate translation.  
-- お絵かき設定(paint mode settings).This item will be translated from now on. Advanced settings will not be translated.  
-- I have translated all the major files except `config.php`.  
-However, it relies on Google Translate, and we don't know what words are used on the bulletin board in the case of Traditional Chinese, so we need to replace them with the appropriate translations.  
+- I translated `config.php` except for the detailed settings. I took care not to change the meaning, but I need to replace it with an appropriate translation.   
+- Advanced settings are not translated.
 
 ### [2021/04/28]  
 開始翻譯. 
