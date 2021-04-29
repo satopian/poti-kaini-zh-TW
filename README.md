@@ -6,7 +6,7 @@ This is the traditional Chinese translation version of POTI-board kai ni.
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
-The HTML of the template uses Japanese, so you need to translate it.  
+The HTML of the template uses Japanese, so we need to translate it.  
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
