@@ -9,7 +9,7 @@ There is a language resource for messages in `template_ini.php`, such as error m
 The HTML of the template uses Japanese, so you need to translate it.  
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
-Translation of `config.php` requires translation of the descriptive text for the end user to set.    
+Translation of `config.php`. We need to translate the description of the settings.    
 
 ### [2021/04/29]  
 - I translated `config.php` except for the detailed settings. I took care not to change the meaning, but I need to replace it with an appropriate translation.   
