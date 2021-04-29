@@ -274,93 +274,89 @@ define('DO_NOT_CHANGE_POSTS_TIME', '0');
 // 通常為 改變:0。
 // 這是不希望在日記中更改發布日期的人的設置項目。
 
-/* ---------- 從這裡開始通常是不變的 ---------- */
-
-// 如果您確實需要更改它，請使用Google翻譯。
-// 不便之處，敬請原諒。
 
 /* ---------- お絵かき設定(paint mode settings) ---------- */
 
-// お絵かき機能を使用する お絵かきのみ:2 する:1 しない:0
+// 使用繪圖小程序 用作繪圖板:2 添加到內文留言板並使用:1 不使用繪圖小程序:0
 // USE PAINT
 // To only allow paint mode, set it to '2'. 
 // To allow both paint mode and text mode, set it to '1'
 // To allow text mode only, set it to '0'
 define('USE_PAINT', '2');
 
-// 利用するアプレット PaintBBS:0 しぃペインター:1 両方:2
+// 設置繪圖小程序以使用 PaintBBS:0 shi-Painter:1 同時使用:2
 // Which Applet to use.
 // Possible values are: PaintBBS:'0' Shi-Painter:'1' both:'2'
 define('APPLET', '2');
 
-// お絵描き最大サイズ（これ以上は強制でこの値
-// 最小値は幅、高さともに 300 固定です
+// 最大圖紙尺寸（不會大於這個值
+// 寬 和 高 的最小值固定為300。
 // Maximum drawing dimensions. Drawings can't be bigger
 // than the vaules specified here for each dimension.
-define('PMAX_W', '700');	//幅 (width)
-define('PMAX_H', '700');	//高さ (height)
+define('PMAX_W', '700');	//寬 (width)
+define('PMAX_H', '700');	//高 (height)
 
-// お絵描きデフォルトサイズ
+// 繪圖時的默認尺寸
 // paint mode default size
-define('PDEF_W', '300');	//幅 (width)
-define('PDEF_H', '300');	//高さ (height)
+define('PDEF_W', '300');	//寬 (width)
+define('PDEF_H', '300');	//高 (height)
 
-// 描画時間の表示 する:1 しない:0
+// 顯示繪圖時間 是:1 否:0
 // Display the drawing time (1: Enabled, 0: Disabled)
 // Displays for how long you have been drawing
 define('DSP_PAINTTIME', '1');
 
-// パレットデータファイル名
+// 調色板數據文件名
 // File name of palette data
 define('PALETTEFILE', 'palette.txt');
 
-// パレットデータファイル切り替え機能を使用する する:1 しない:0 
-// 切り替えるパレットデータファイルが用意できない場合は しない:0
-// 要対応テーマ
+// 使用調色板數據文件切換功能 是:1 否:0 
+// 如果無法準備要切換的調色板數據文件，則設置為“否”。
 // Use the palette data file switching function (1: Enabled, 0: Disabled)
 // If the palette data file to be switched cannot be prepared, set this to '0'.
-// Needed a corresponding theme.
 define('USE_SELECT_PALETTES', '0');
 
 
-// パレットデータファイル切り替え機能を使用する する:1 の時のパレットデーターファイル名
+// 使用調色板數據文件切換功能  是:1 。進行此設置時的調色板數據文件名。
 // File name of palette data when Use the palette data file switching function:'1'
-// 初期パレットpalette.txtとやこうさんパレットpalette.datを切り替えて使う時
+// 在初始調色板 Palette.txt 和 Yakou-san調色板 Palette.dat 之間切換時。
 // ↓
 $pallets_dat=array(['normal','palette.txt'],['pro','palette.dat']);
 // ['パレット名','ファイル名']でひとつ。それをコンマで区切ります。
 // パレット名とファイル名は''で囲ってください。
-// 設定例
-// $pallets_dat=array(['パレット1','1.txt'],['パレット2','2.txt'],['パレット3','3.txt']);
-// Enclose in quotes palette name and file name.
-// Setting example,
-// $pallets_dat=array(['palette1','1.txt'],['palette2','2.txt'],['palette3','3.txt']);
+// 設定範例
+// $pallets_dat=array(['調色板1','1.txt'],['調色板2','2.txt'],['調色板3','3.txt']);
 
-// 動画機能を使用する する:1 しない:0
+// 使用“保存過程” 是:1 否:0
 // Enable animations (1: Enabled, 0: Disabled)
 define('USE_ANIME', '1');
 
-// 動画記録デフォルトスイッチ ON:1 OFF:0
+// “保存過程”的默認複選框 checkd:1　notcheckd:0
 // Use the animation function by default (1: Enabled, 0: Disabled)
 define('DEF_ANIME', '1');
 
 
-// 動画再生スピード 超高速:-1 高速:0 中速:10 低速:100 超低速:1000
+// 過程再生速度 超高速 :-1 高速:0 中速:10 低速:100 超低速:1000
 // Speed of animation playback. Possible values are:
 // super fast:'-1', fast:'0', normal:'10', slow:'100', super slow:'1000'
 define('PCH_SPEED', '0');
 
-// コンティニューを使用する する:1 しない:0
+// 使用續繪功能 是:1 否:0
 // Allow to continue drawings after leaving: (1: Enabled, 0: Disabled)
 define('USE_CONTINUE', '1');
 
-// 新規投稿でコンティニューする時にも削除キーが必要 必要:1 不要:0
-// 不要:0 で新規投稿なら誰でも続きを描く事ができるようになります。
+// 在“續繪”時。即使發布新帖子也需要密碼 要求輸入密碼:1 無需密碼:0
+// 如果將其設置為“無需密碼:0”。 選擇新帖子後，任何人都可以繪製延續。
 // CONTINUE PASSWORD
 // If set to 1, you  will need the delete password to continue with newly posted pictures.
 // (1: The deletion password will be required, 0: No password required)
 // However, anyone will be able to continue with a drawing when the mode is set to '0'.
 define('CONTINUE_PASS', '0');
+
+/* ---------- 從這裡開始通常是不變的 ---------- */
+
+// 如果您確實需要更改它，請使用Google翻譯。
+// 不便之處，敬請原諒。
 
 /* ---------- 詳細設定(Advanced Setting) ---------- */
 // このスクリプト名。変更することをおすすめしません。
