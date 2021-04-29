@@ -10,93 +10,93 @@
 /* ---------- 最初に設定する項目 (set first) ---------- */
 // 管理者パスワード
 // 必ず変更してください。
-// Administrator password, make sure to change it.
-$ADMIN_PASS = 'Adminpass';
+// 管理員密碼，請確保更改它。
+$ADMIN_PASS = 'adminpass';
 
 // 最大ログ数
 // 古いログから順番に消えます
-// Maximum number of posts. Disappears in chronological order.
+// 最大帖子數。 最舊的日誌將按順序消失。
 define('LOG_MAX', '2000');
 
 // テーマ(テンプレート)のディレクトリ。'/'まで
 // themeディレクトリに使いたいtemplateをいれて使ってください。(推奨)
 // 別のディレクトリにしたい場合は設定してください。
 // 例えばおまけのnee2を使いたい場合は theme_nee2/ とすることができます。初期値は theme/ です。
-// Theme directory, requires '/' at the end.
+//主題文件目錄設置。 請在末尾添加'/'。
+
 define('SKIN_DIR', 'pink/');
 
 // 設置場所のURL。phpのあるディレクトリの'/'まで
 // メール通知のほか、シェアボタンなどで使用
-// Installation URL. Directory of php-files, and need last '/'.
-// Be used notification by email, and share button, etc.
+// poti-board.php所在的目錄。
+// 請在末尾添加'/'。
 define('ROOT_URL', 'https://example.com/oekaki/');
 
 //掲示板のタイトル（<title>とTOP）
-//Board title (appears in <title> and site header)
+//留言板標題（<title>和TOP）
 define('TITLE', 'Paint BBS');
 
 //「ホーム」へのリンク
 // 自分のサイトにお絵かき掲示板がある、という慣習からのものです。
-// 自分のサイトのURL（絶対パスも可）をどうぞ。
-// URL to link your own site. They had own sites ago.
-// Absolute path is OK.
+// 自分のサイトのURL（相対パスも可）をどうぞ。
+// 設置HOME鏈接。
+// 鏈接到您自己的網站的URL。
 define('HOME', '../');
 
 // 画像アップロード機能を 使う:1 使わない:0
-// 使わない:0 でも お絵かき機能は使えますし、
+// 使わない:0 でも お絵かき機能は使えます。
 // 管理画面で画像アップロードできます。
-// Whether to enable image uploads, '1' to enable.
-// Drawing is still enabled even with this disabled.
-// Administrators can still upload images in management mode.
+// 您要使用圖片上傳功能嗎？
+// 使用：1 不使用：0
+// 管理員不受此設置的影響。
 define('USE_IMG_UPLOAD','1');
 
 // 画像のないコメントのみの新規投稿を拒否する する:1 しない:0
 // する:1 でも管理画面からはコメントのみの投稿ができます。
-// They CANNOT post that has no image if setting '1'. be able to do, set '0'.
-// if '0', Administrator can do in management mode.
+// 如果設置，他們將無法發布沒有圖片的信息。
+// 拒絕:1 不要拒絕:0
+// 管理員不受此設置的影響。
 define('DENY_COMMENTS_ONLY', '0');
 
 
 /*----------絶対に設定が必要な項目はここまでです。ここから下は必要に応じて。----------*/
-/* That's all the necessary settings. From here on as needed. */
+/* 這樣就完成了基本設置。從這裡開始，根據需要進行設置。 */
 
 /* ------------- タイムゾーン (timezone) ------------- */
 
-// List of Supported Timezones is here. 
+// List of Supported Timezo	nes is here. 
 // https://www.php.net/manual/en/timezones.php
-define('DEFAULT_TIMEZONE','Asia/Tokyo');
+define('DEFAULT_TIMEZONE','Asia/Taipei');
 
 /* ---------- SNS連携 (Link with SNS) ---------- */
 
 // シェアボタンを表示する する:1 しない:0
-// 対応テンプレートが必要
-// 設置場所のURL ROOT_URL で設定したurlをもとにリンクを作成
-// Whether to show the share button, '1' to enable.
+// 顯示共享按鈕 是：1 否：0
+// 根據在安裝位置的URL中設置的ROOT_URL的URL創建一個鏈接
 define('SHARE_BUTTON', '0');
 
-/* ---------- スパム対策 (Anti-spam posting) ---------- */
+/* ---------- スパム対策 (反垃圾郵件) ---------- */
 
 // 正規表現を使うことができます
 // 全角半角スペース改行を考慮する必要はありません
 // スペースと改行を除去した文字列をチェックします
-// Do not specify spaces or line breaks.
-// This is because the character string without spaces and line breaks is checked.
-// 設定しないなら array();
-// To disable, type array();
+//不要指定空格或換行符。
+//這是因為檢查了沒有空格和換行符的字符串。
+// 未設定時 array();
 
 // 拒絶する文字列
-// String blacklists and regular expressions are supported.
+// 字符串黑名單。支持正則表達式。
 $badstring = array("irc.s16.xrea.com","Unsolicitedad");
 
-// 使用できない名前
+// 名稱字符串黑名單
 // Prohibited names (supports regular expressions)
-$badname = array("brandedgoods","mailorder","sale");
+$badname = array("ブランド","郵購","通販");
 
 // 初期設定では「"通販"を含む名前」の投稿を拒絶します
 // ここで設定したNGワードが有効になるのは「名前」だけです
 // 本文に「通販で買いました」と書いて投稿する事はできます
-// By default setting, Rejected that name contain "Mail order".
-// Unusable name is only unusable name, They csn be used in letter body.
+//默認情況下，它拒絕在其名稱中包含“郵購”。
+//唯一不能使用的名稱是不能使用的名稱。 
 
 // 名前以外の項目も設定する場合は
 // こことは別の設定項目
@@ -105,55 +105,57 @@ $badname = array("brandedgoods","mailorder","sale");
 // Anti-spam posting -> Character string that cannot be posted
 
 // AとBが両方あったら拒絶。
-// Reject post if both conditions A and B are met (supports regular expressions, use array(""); to disable).
+// 如果同時滿足條件 A 和 B，則拒絕發布。
 $badstr_A = array("cheep","lowprice","copy","focusonquality","massarrival");
 $badstr_B = array("Chanel","Supreme","Balenciaga","brand");
 
-// AとBの単語が2つあったら拒絶します。
-// 初期設定では「ブランド品のコピー」という投稿を拒絶します。
-// 1つの単語では拒絶されないので「コピー」のみ「ブランド」のみの投稿はできます。
-// For example, Rejecting only "brand copy" by default.
-// Only "brand", or only "copy" in the post, it is not rejected.
+// 支持正則表達式
+// 未設定時 array();
+
+// 在出現兩個NG詞 A 和 B 的情況下拒絕。
+// 這放寬了限制。
 
 // 一つの単語で拒絶する場合は
 // こことは別の設定項目
 // 拒絶する文字列で
 
-// 本文に日本語がなければ拒絶
-// Reject non-Japanese posts (used for spam).
+// 如果沒有CJK漢字或日文字符，則拒絕  拒絶:1 不拒絕 :0
 define('USE_JAPANESEFILTER', '0');
 
-// 本文へのURLの書き込みを禁止する する:1 しない:0
-// 管理者は設定にかかわらず許可
 // Reject posts with links.
-define('DENY_COMMENTS_URL', '0');
+// 禁止將URL寫入內文並拒絕 拒絶:1 不拒絕 :0
 
+define('DENY_COMMENTS_URL', '0');
+// 管理員不受此設置的影響。
+
+//古いスレッドへのフォームを閉じて投稿を拒否する
+// 關閉表格到舊線程並拒絕發布
 // define('ELAPSED_DAYS','0');
 // 設定しないなら '0'で。フォームを閉じません。
+//如果不想設置，請使用'0'。 該表格將不會關閉。
 // define('ELAPSED_DAYS','365');
-//	↑ 365日
-// で1年以上経過したスレッドに返信できなくなります。
+//	↑ 365days
+// 此設置將關閉一年以上的舊線程的表單。
 // Close threads after X days. Set to 0 to disable.
 define('ELAPSED_DAYS','365');
 
 // 拒絶するファイルのmd5
-// Reject files with following MD5 hashes.
+// 檢查文件md5並拒絕
 $badfile = array("dummy","dummy2");
 
 // 拒絶するホスト
-// Block following IPs
+//要拒绝的主机名黑名单
 $badip = array("addr.dummy.com","addr2.dummy.com");
 
 /* ---------- メール通知設定(email notification settings) ---------- */
 // メール通知機能を使う使わないを設定する項目はここにはありません。
 // noticemail.inc を potiboard.php と同じディレクトリにアップロードすると
 // メール通知機能が自動的にオンになります。
-// The mail server configuration is performed in the 'noticemail.inc' file.
-// To enable this feature, upload 'noticemail.inc' to the same directory
-// where 'potiboard.php' is, and modify it's parameters accordingly.
-// When you do that, email notifications will be rurned on automatically.
+//沒有可以設置是否使用電子郵件通知功能的項目。
+//當noticemail.inc檢測到它已被上載到potiboard.php所在的目錄時
+//電子郵件通知功能將自動打開。
 
-// 管理者が投稿したものもメールで通知 しない:1 する:0
+// 即使管理員發布，我們也會通過電子郵件通知您 不發送郵件:1 發送郵件:0
 // Notify by email what the administrator posted (OFF:'1', ON'0').
 define('NOTICE_NOADMIN', '0');
 
@@ -166,23 +168,23 @@ define('TO_MAIL', 'root@example.com');
 define('SEND_COM', '1');
 
 /* ---------- メイン設定(main settings) ---------- */
-// 名前の制限文字数。半角で
+// 名稱字符數限制。設置半角數字。
 // Maximum number of characters that can be used in the 'name' field.
 define('MAX_NAME', '100');
 
-// メールアドレスの制限文字数。半角で
+// 電子郵件地址字符數限制。設置半角數字。
 // Maximum number of characters that can be used in the 'mail address' field.
 define('MAX_EMAIL', '100');
 
-// 題名の制限文字数。半角で
+// 標題字符數限制。設置半角數字。
 // Maximum number of characters that can be used in the 'subject' field.
 define('MAX_SUB', '100');
 
-// 本文の制限文字数。半角で
+// 內文字符數限制。設置半角數字。
 // Maximum number of characters that can be used in the 'body' field.
 define('MAX_COM', '1000');
 
-// 1ページに表示する記事
+// 一頁顯示的線程數
 // Number of articles to display per page
 define('PAGE_DEF', '10');
 
@@ -204,24 +206,24 @@ define('DSP_RES', '7');
 define('USE_FONTCOLOR', '0');
 
 
-// 投稿容量制限 KB phpの設定により2M(2048)まで
+// 可以發布的文件大小限制 KB 
 // Maximum size allowed for the images in the posts (in KB).
 // By php limit, it is allowed up to 2048.
 define('MAX_KB', '1000');
 
-// 表示サイズ（これ以上はサイズを縮小
+// 顯示圖像的最大尺寸（如果超出限制，它將減少。
 // Maximum display size of posted images.
 // If any size is bigger than these values, the image will be shrinken
 // to the maximum value.
 define('MAX_W', '600');	//幅(width)
 define('MAX_H', '600');	//高さ(height)
 
-// レスで画像貼りを許可する する:1 しない:0
-// ※お絵かきも連動
+// 回复時發送圖像 是：1 否：0
+// ※繪圖小程序的使用也已鏈接。
 // Allow image comments, '1' to enable.
 define('RES_UPLOAD', '1');
 
-// レス用表示サイズ（これ以上はサイズを縮小
+// 顯示回复時使用的圖像尺寸（如果超出限制，它將減少。
 // Maximum display size of posted images.
 // When posting a response.
 define('MAX_RESW', '400');	//幅 (width)
@@ -236,46 +238,46 @@ define('MAX_RESH', '400');	//高さ (height)
 // All items will be displayed on the reply mode.
 define('DSP_RESIMG', '2');
 
-// IDを表示する する:1 しない:0
+// 顯示ID 是:1 否:0
 // To show ID, set '1', if not, set '0'.
 define('DISP_ID', '0');
 
-// URLを自動リンクする する:1 しない:0
+// 自動鏈接網址 是:1 否:0
 // Automatically transform URLs to links (Yes: 1, No: 0)
 define('AUTOLINK', '1');
 
-// 名前を必須にする する:1 しない:0
+// 將名稱作為必填項 是:1 否:0
 // Force new posts to have a NAME (Yes: 1, No: 0)
 define('USE_NAME', '0');
-define('DEF_NAME', 'anonymous');	//未入力時の名前(default name)
+define('DEF_NAME', 'anonymous');//未輸入時要分配的字符(default name)
 
-// 本文を必須にする する:1 しない:0
+// 將内分作為必填項 是:1 否:0
 // Force new posts to have a BODY message (Yes: 1, No: 0)
 define('USE_COM', '0');
-define('DEF_COM', 'no body');	//未入力時の本文(default letter body)
+define('DEF_COM', 'no body');	//未輸入時要分配的字符(default letter body)
 
-// 題名を必須にする する:1 しない:0
+// 將標題作為必填項 是:1 否:0
 // Force new posts to have a title (Must have a title: 1, Must not have a title: 0)
 define('USE_SUB', '0');
-define('DEF_SUB', 'no title');	//未入力時の題名(default title)
+define('DEF_SUB', 'no title');	//未輸入時要分配的字符(default title)
 
-// レス時にスレ題名を引用する する:1 しない:0
+// 回复時引用線程標題 是:1 否:0
 // Quote the thread title in new responses (Yes: 1, No: 0)
 define('USE_RESUB', '1');
 
-// 各スレにレスフォームを表示する する:1 しない:0
+// 在每個主題中顯示回复表單 する:1 しない:0
 // Display the post form in each thread (Yes: 1, No: 0)
 define('RES_FORM', '0');
 
-// 編集しても投稿日時を変更しないようにする する:1 しない:0 
-// To keep the posting date and time even if they edit articles,
-// set '1', if not, set '0'.
-// する:1 にすると投稿を編集しても投稿日時は変更されず最初の投稿日時のままになります。
-// 編集マークも付きません。
-// if set to '1', the posting date and time will not be changed when editing a post.
-// and will remain the same as the first posting date and time.
-// The post will not be marked as "Edited" either.
+// 即使您進行編輯，也不要更改發布日期和時間 不會改變:1 改變:0 
 define('DO_NOT_CHANGE_POSTS_TIME', '0');
+// 通常為 改變:0。
+// 這是不希望在日記中更改發布日期的人的設置項目。
+
+/* ---------- 從這裡開始通常是不變的 ---------- */
+
+// 如果您確實需要更改它，請使用Google翻譯。
+// 不便之處，敬請原諒。
 
 /* ---------- お絵かき設定(paint mode settings) ---------- */
 
