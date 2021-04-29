@@ -1,4 +1,4 @@
-# 繪圖板 PHP script POTI-board 改二的中文翻譯version
+# 繪圖留言板 PHP script POTI-board 改二的中文翻譯version
 ## 這是POTI-board 改二的繁體中文翻譯version.
 This is the traditional Chinese translation version of POTI-board kai ni.  
 這是日語顯示的原文.  
