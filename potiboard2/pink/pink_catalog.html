@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
-<title>目录模式 - <% echo (title) %></title>
+<title>目錄模式 - <% echo (title) %></title>
 <% def(n) %>
 <!--
 // title…掲示板タイトル
@@ -22,7 +22,7 @@
 </head><body>
 <div id="body">
 <header>
-<h1 id="bbs_title">目录模式 - <span class="title_name_wrap"><% echo(title) %></span></h1>
+<h1 id="bbs_title">目錄模式 - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <nav>
 <div id="self2">
 [<a href="<% echo (self2) %>"><% echo (title) %></a>]
@@ -55,7 +55,7 @@
 <div class="catalog_img"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>"><img src="<% echo (y/x/imgsrc) %>" alt="<% echo (y/x/sub) %> by <% echo (y/x/name) %>" title="<% echo (y/x/sub) %> by <% echo (y/x/name) %>" width="<% echo (y/x/w) %>" <% def(y/x/h) %>height="<% echo (y/x/h) %>"<% /def %>></a></div>
 <% /def %>
 <% ========== 文字のみならば・・・ ========== %><% def(y/x/txt) %>
-<div class="catalog_noimg"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>">没有图像</a></div>
+<div class="catalog_noimg"><a href="<% echo (self) %>?res=<% echo (y/x/no) %>">沒有圖片</a></div>
 <% /def %></div><% /def %>
 <% ========== 記事が無い場合 ========== %><% def(y/x/noimg) %><div class="catalog_wrap no_article"></div><% /def %>
 <% /each %>
@@ -86,7 +86,7 @@
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">&#x226A;前へ</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">留言板頂部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">次へ&#x226B;</a><% /def %></div>
 </div></nav>
 <% def(n) %>
@@ -100,12 +100,12 @@
  <% ========== メンテナンスフォーム欄 ========== %>
  <form action="<% echo (self) %>" method="post">
  <div class="mente_wrap">
- <span class="nk">文章No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
- <span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
+ <span class="nk">文章 No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+ <span class="nk">密碼<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
  <select name="mode">
- <option value="edit">编辑</option>
+ <option value="edit">編輯</option>
  <% def(userdel) %>
- <option value="usrdel">删除</option>
+ <option value="usrdel">刪除</option>
  <% /def %>
  <% def(n) %>
  <!--
@@ -113,7 +113,7 @@
  -->
  <% /def %>
  </select>
- <span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">仅删除图像</label></span>
+ <span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖片</label></span>
  <input type="submit" value="OK">
  </div>
  </form>

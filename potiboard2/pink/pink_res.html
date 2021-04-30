@@ -40,7 +40,7 @@
 <div id="top"></div>
 <div id="body">
 <header>
-<h1 id="bbs_title">[<% echo (oya/no) %>] <% echo (oya/sub) %> <span class="title_name_wrap">by <% echo (oya/name) %> さんへ返信</span></h1>
+<h1 id="bbs_title">[<% echo (oya/no) %>] <% echo (oya/sub) %> <span class="title_name_wrap">by <% echo (oya/name) %> 回覆</span></h1>
 <% /each %>
 <nav>
 <div id="self2">
@@ -74,7 +74,7 @@
 	</div>
 	<% def(oya/src) %>
 	<div class="article_img_info">
-	<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">畫更多</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動畫</a></span><% /def %>
+	<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">續繪</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">過程</a></span><% /def %>
 	</div>
 	<% /def %>
 	<% ========== 親記事ヘッダここまで ========== %>
@@ -113,7 +113,7 @@
 -->
 <% /def %>
 
-<% def(oya/limit) %><hr><div class="article_limit">該線程很舊，很快就會消失。</div><% /def %>
+<% def(oya/limit) %><hr><div class="article_limit">本留言串即將因達到儲存上限而刪除。</div><% /def %>
 <% def(n) %>
 <!--
 // oya/limit…消える(ログ落ち)間近のとき true が入る
@@ -137,7 +137,7 @@
 	</div>
 	<% def(oya/res/src) %>
 	<div class="article_img_info">
-	<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">畫更多</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動畫</a></span><% /def %>
+	<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">續繪</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">過程</a></span><% /def %>
 	</div>
 	<% /def %>
 	<% レス記事ヘッダここまで %>
@@ -162,7 +162,7 @@
 -->
 <% /def %>
 
-<% def(oya/res/src) %><div class="posted_image"><% def(oya/res/thumb) %><a href="<% echo (oya/res/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/res/imgsrc) %>" width="<% echo (oya/res/w) %>" height="<% echo (oya/res/h) %>" alt="<% echo (oya/res/sub) %>  by <% echo (oya/res/name) %> (<% echo (oya/res/size) %> B)" title="<% echo (oya/res/sub) %>  by <% echo (oya/res/name) %> (<% echo (oya/res/size) %> B) <% def(oya/res/thumb) %>サムネイル縮小表示<% /def %>"><% def(oya/res/thumb) %></a><% /def %>
+<% def(oya/res/src) %><div class="posted_image"><% def(oya/res/thumb) %><a href="<% echo (oya/res/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/res/imgsrc) %>" width="<% echo (oya/res/w) %>" height="<% echo (oya/res/h) %>" alt="<% echo (oya/res/sub) %>  by <% echo (oya/res/name) %> (<% echo (oya/res/size) %> B)" title="<% echo (oya/res/sub) %>  by <% echo (oya/res/name) %> (<% echo (oya/res/size) %> B) <% def(oya/res/thumb) %>縮圖顯示<% /def %>"><% def(oya/res/thumb) %></a><% /def %>
 </div><% /def %>
 <div class="comment"> <% echo (oya/res/com) %></div>
 <% def(n) %>
@@ -190,7 +190,7 @@
 		document.getElementById("p_input_com").value += "<% echo(resname) %><% def(_san)%><% echo(_san) %><% elsedef %>さん<% /def %>";
 	}</script>
 	
-	<% コピーボタン %><button class="copy_button" onclick="add_to_com()">引用海报名字</button>
+	<% コピーボタン %><button class="copy_button" onclick="add_to_com()">複製投稿者名稱</button>
 	<% /def %>
 	<% /def %>
 	
@@ -231,7 +231,7 @@ PMAX_H //高さ
 が入ります。
 -->
 <% /def %>
-<span class="canvas_size">Size</span> <select name="picw" title="幅" class="canvas_select">
+<span class="canvas_size">Size</span> <select name="picw" title="寬" class="canvas_select">
 	<?php
 	//幅 300から、PMAX_W で設定した最大値まで。
 		for($i = 300; $i <=PMAX_W ; $i+=50){//50ずつ増える
@@ -245,7 +245,7 @@ PMAX_H //高さ
 	?>
 	</select>
 	x
-	<select name="pich" title="高さ" class="canvas_select">
+	<select name="pich" title="高" class="canvas_select">
 	<?php
 	//高さ 300から、PMAX_H で設定した最大値まで。
 		for($i = 300; $i <=PMAX_H ; $i+=50){//50ずつ増える
@@ -264,8 +264,8 @@ PMAX_H //高さ
 	<% /def %>
 	
 <!-- NEOを使う -->
-<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>動畫保存</label><% /def %>
+<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用 NEO</label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime"<% echo (animechk) %>>保存過程</label><% /def %>
 <% def(n) %>
 <!--
 // anime…動畫記録機能を使用するとき true が入る
@@ -302,7 +302,7 @@ PMAX_H //高さ
 <% /def %>
 <table id="post_table">
  <tr>
-  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
+  <td class="post_table_title">名稱<% def(usename) %>*<% /def %></td>
   <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
  </tr>
  <tr>
@@ -318,7 +318,7 @@ PMAX_H //高さ
   <td><input type="text" name="sub" value="<% echo (resub) %>" class="post_input_text" autocomplete="off"></td>
  </tr>
  <tr>
-  <td class="post_table_title">文本<% def(usecom) %>*<% /def %></td>
+  <td class="post_table_title">內文<% def(usecom) %>*<% /def %></td>
   <td><textarea name="com" class="post_input_com" id="p_input_com"></textarea></td>
  </tr>
  <% def(n) %>
@@ -333,22 +333,22 @@ PMAX_H //高さ
 <% def(upfile) %>
 
 	 <tr>
-  <td class="post_table_title">附图片</td>
+  <td class="post_table_title">附加圖片</td>
   <td><input type="file" name="upfile" accept="image/*">
 	<% def(hide_the_checkbox_for_nofile) %>
 	<% elsedef %>
-	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on" checked>不附圖片</label>
+	<label class="checkbox textonly"> <input type="checkbox" name="textonly" value="on" checked>不附加圖片</label>
 	<% /def %>
  </td>
  </tr>
 <% /def %>
  <tr>
-  <td class="post_table_title">密码</td>
+  <td class="post_table_title">密碼</td>
   <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password">
-  <span class="howtoedit">(用于编辑和删除文章。 用字母数字)</span>
+  <span class="howtoedit">(用於编辑和删除文章，請使用英數組合)</span>
 </td>
  </tr>
- <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="发送" class="post_submit"></td></tr>
+ <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送出" class="post_submit"></td></tr>
  <tr>
   <td colspan="2" class="td_noborder">
 <% ========== ファイルアップロード時の説明 ========== %>
@@ -356,9 +356,9 @@ PMAX_H //高さ
 	<ul class="howtowrite">
 		<% def(hide_the_checkbox_for_nofile) %>
 		<% elsedef %>
-		<li>如果要附加圖像，請取消選中“不附圖片”。</li>
+		<li>如果要附加圖片，請取消“不附加圖片”。</li>
 		<% /def %>
-	<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。</li>
+	<li>圖片檔案大小限制為 <% echo (maxkb) %> KB。</li>
 	<% echo (addinfo) %>
 	</ul>
 <% /def %>
@@ -375,7 +375,7 @@ PMAX_H //高さ
 	<% ========== メンテナンスフォーム欄 ========== %>
 	<form action="<% echo (self) %>" method="post">
 	<div class="mente_wrap">
-	<span class="nk">文章No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+	<span class="nk">文章 No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
 	<span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
 	<select name="mode">
 	<option value="edit">编辑</option>
@@ -388,7 +388,7 @@ PMAX_H //高さ
 	-->
 	<% /def %>
 	</select>
-	<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">仅删除图像</label></span>
+	<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖片</label></span>
 	<input type="submit" value="OK">
 	</div>
 	</form>

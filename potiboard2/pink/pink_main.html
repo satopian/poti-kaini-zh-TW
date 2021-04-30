@@ -42,11 +42,11 @@
 <nav>
 <div class="bbsmenu">
 [<a href="<% echo (home) %>" target="_top">HOME</a>]
-[<a href="<% echo (self) %>?mode=catalog">目录</a>]
+[<a href="<% echo (self) %>?mode=catalog">目錄</a>]
 <% def(upfile) %>
-[<a href="<% echo (self) %>?mode=newpost"><span class="txtnon">張貼</a>]
+[<a href="<% echo (self) %>?mode=newpost"><span class="txtnon">投稿</a>]
 <% /def %>
-<span class="txtnon">[<a href="<% echo (self) %>?mode=piccom">未发布的图片</a>]</span>
+<span class="txtnon">[<a href="<% echo (self) %>?mode=piccom">未發布的圖片</a>]</span>
 [<a href="<% echo (self) %>?mode=admin">管理</a>]
 <a href="#bottom">▽</a>
 <% def(n) %>
@@ -83,7 +83,7 @@ PMAX_H //高さ
 -->
 <% /def %>
 <span class="canvas_size">Size</span>
-<select name="picw" title="幅" class="canvas_select">
+<select name="picw" title="寬" class="canvas_select">
 	<?php
 	//幅 300から、PMAX_W で設定した最大値まで。
 		for($i = 300; $i <=PMAX_W ; $i+=50){//50ずつ増える
@@ -97,7 +97,7 @@ PMAX_H //高さ
 	?>
 	</select>
 	x
-	<select name="pich" title="高さ" class="canvas_select">
+	<select name="pich" title="高" class="canvas_select">
 	<?php
 	//高さ 300から、PMAX_H で設定した最大値まで。
 		for($i = 300; $i <=PMAX_H ; $i+=50){//50ずつ増える
@@ -115,9 +115,9 @@ PMAX_H //高さ
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
 	<% /def %>
 <!-- NEOを使う -->
-<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用NEO</label>
+<label class="checkbox use_neo"><input type="checkbox" name="useneo" checked="checked" />使用 NEO</label>
 
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>動畫保存</span></label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>保存過程</span></label>
 	<% /def %>
 	<% def(n) %>
 	<!--
@@ -131,9 +131,8 @@ PMAX_H //高さ
 <% def(paint2) %>
 <div class="howtopaint">
 <ul id="up_desc">
-	畫布尺寸需設定在 400 至 1024 像素之間。
-<li>畫布尺寸需設定在 宽和300 至 <% echo (pmaxw) %>、高 300 至 <% echo (pmaxh) %>。</li>
-<li>如果图像宽度超过<% echo (maxw) %>像素，高度超过<% echo (maxh) %>像素，则图像将按比例缩小。</li>
+<li>畫布尺寸需設定在宽 300 至 <% echo (pmaxw) %> 像素和高 300 至 <% echo (pmaxh) %> 像素間。</li>
+<li>當寬超過 <% echo (maxw) %> 像素，高超過 <% echo (maxh) %> 像素，圖片將會按比例縮小顯示。</li>
 <% echo (addinfo) %>
 </ul>
 </div>
@@ -165,7 +164,7 @@ PMAX_H //高さ
 	
 		<table id="post_table">
 	 <tr>
-	  <td class="post_table_title">名<% def(usename) %>*<% /def %></td>
+	  <td class="post_table_title">名稱<% def(usename) %>*<% /def %></td>
 	  <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
 	 </tr>
 	 <tr>
@@ -181,7 +180,7 @@ PMAX_H //高さ
 	  <td><input type="text" name="sub" class="post_input_text" autocomplete="off"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">文本<% def(usecom) %>*<% /def %></td>
+	  <td class="post_table_title">內文<% def(usecom) %>*<% /def %></td>
 	  <td><textarea name="com" wrap="soft" class="post_input_com"></textarea></td>
 	 </tr>
 	 <% def(n) %>
@@ -196,21 +195,21 @@ PMAX_H //高さ
 	<% ========== ファイルアップロード欄 ========== %>
 	<% def(upfile) %>
 	 <tr>
-	  <td class="post_table_title">附图片</td>
+	  <td class="post_table_title">附加圖片</td>
 	  <td><input type="file" name="upfile" accept="image/*">
 		<% def(hide_the_checkbox_for_nofile) %>
 		<% elsedef %>
-		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">不附圖片</label>
+		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">不附加圖片</label>
 		<% /def %>
 		
 	</td>
 	 </tr>
 	<% /def %>
 	 <tr>
-	  <td class="post_table_title">密码</td>
-	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用于编辑和删除文章。用字母数字)</span></td>
+	  <td class="post_table_title">密碼</td>
+	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用於编辑和删除文章，請使用英數組合)</span></td>
 	 </tr>
-	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="发送" class="post_submit">
+	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送出" class="post_submit">
 	</td></tr>
 	 <tr>
 	  <td colspan="2" class="td_noborder">
@@ -218,8 +217,8 @@ PMAX_H //高さ
 	<% def(upfile) %>
 	<div class="howtowrite">
 		<ul id="up_desc">
-			<li>图像将缩小到超过宽度<% echo (maxw) %>像素和高度<% echo (maxh) %>像素。</li>
-		<li>已发布数据的最大数量为 <% echo (maxkb) %> KB。
+			<li>圖片寬超過 <% echo (maxw) %> 像素，高超過 <% echo (maxh) %> 像素將按比例縮小。</li>
+		<li>圖片檔案大小限制為 <% echo (maxkb) %> KB。
 			<% echo (addinfo) %>
 		</ul>
 	</div>
@@ -232,7 +231,7 @@ PMAX_H //高さ
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">留言板頂部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div>
 	</nav>
@@ -252,7 +251,7 @@ PMAX_H //高さ
 </div>
 <% def(oya/src) %>
 <div class="article_img_info">
-<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">畫更多</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">動畫</a></span><% /def %>
+<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">續繪</a></span> <% /def %> <% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">過程</a></span><% /def %>
 </div>
 <% /def %>
 <% ========== 親記事ヘッダここまで ========== %>
@@ -275,7 +274,7 @@ PMAX_H //高さ
 // oya/thumb…サムネイルがあるとき true が入る
 -->
 <% /def %>
-<% def(oya/src) %><div class="posted_image" <% if(oya/w,>=,750) %>style="margin-right:0"<% /if %>><% def(oya/thumb) %><a href="<% echo (oya/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/imgsrc) %>" width="<% echo (oya/w) %>" height="<% echo (oya/h) %>" alt="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B)" title="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B) <% def(oya/thumb) %>サムネイル縮小表示<% /def %>"><% def(oya/thumb) %></a><% /def %>
+<% def(oya/src) %><div class="posted_image" <% if(oya/w,>=,750) %>style="margin-right:0"<% /if %>><% def(oya/thumb) %><a href="<% echo (oya/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/imgsrc) %>" width="<% echo (oya/w) %>" height="<% echo (oya/h) %>" alt="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B)" title="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B) <% def(oya/thumb) %>縮圖顯示<% /def %>"><% def(oya/thumb) %></a><% /def %>
 </div>
   <% /def %><div class="comment"> <% echo (oya/com) %></div>
   <% def(n) %>
@@ -291,7 +290,7 @@ PMAX_H //高さ
 -->
 <% /def %>
 
-<% def(oya/limit) %><hr><div class="article_limit">该线程很旧，很快就会消失。</div><% /def %>
+<% def(oya/limit) %><hr><div class="article_limit">本留言串即將因達到儲存上限而刪除。</div><% /def %>
 <% def(n) %>
 <!--
 // oya/limit…消える(ログ落ち)間近のとき true が入る
@@ -301,9 +300,9 @@ PMAX_H //高さ
 <% def(resform) %><% def(oya/skipres) %><hr><div class="article_skipres">
 	
 	
-	<% echo (oya/skipres) %>個答复已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;顯示所有</a></div><% /def %><% /def %>
+	<% echo (oya/skipres) %> 個回覆已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;全部顯示</a></div><% /def %><% /def %>
 <% def(resform) %><% elsedef %><% def(oya/skipres) %>
-<hr><div class="article_skipres"><% echo (oya/skipres) %>個答复已被省略。按回复按鈕以閱讀全部內容。</div>
+<hr><div class="article_skipres"><% echo (oya/skipres) %> 個回覆已被省略。按回覆按鈕閱讀全部內容。</div>
 <% /def %><% /def %>
 <% def(n) %>
 <!--
@@ -330,7 +329,7 @@ PMAX_H //高さ
 </div>
 <% def(oya/res/src) %>
 <div class="article_img_info">
-<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">畫更多</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">動畫</a></span><% /def %>
+<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">續繪</a></span><% /def %> <% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">過程</a></span><% /def %>
 </div>
 <% /def %>
 <% レス記事ヘッダここまで %>
@@ -384,19 +383,19 @@ PMAX_H //高さ
 <input type="hidden" name="resto" value="<% echo (oya/no) %>">
 <input type="hidden" name="textonly" value="on">
 <% ========== ←v1.3b3以降必須 ========== %>
-<tr><td class="minres_title">名E<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
+<tr><td class="minres_title">名稱<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
 <td class="minres_title">標題<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
 </tr>
 <tr>
 <td class="minres_title">E-mail</td><td><input type="text" name="email" class="minres_input_text" autocomplete="email"></td>
 <td class="minres_title">URL</td><td><input type="url" name="url" class="minres_input_text" autocomplete="url"></td>
 </tr>
-<tr><td class="minres_title">文本</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
+<tr><td class="minres_title">內文</td><td colspan="3"><textarea name="com" wrap="soft" class="minres_input_com"></textarea></td></tr>
 <tr><td colspan="2">
 </td>
-<td colspan="2">密码<input type="password" name="pwd" value="" class="minres_input_other" autocomplete="current-password"></td>
+<td colspan="2">密碼<input type="password" name="pwd" value="" class="minres_input_other" autocomplete="current-password"></td>
 </tr>
-<tr><td colspan="4"><input type="submit" value="回复" class="res_button"></td></tr>
+<tr><td colspan="4"><input type="submit" value="回覆" class="res_button"></td></tr>
 </table>
 </div>
 </form>
@@ -411,7 +410,7 @@ PMAX_H //高さ
 		<a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-facebook2"></span>share</a>
 	</span>
 	<% /def %>
-	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="回复" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
+	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="回覆" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
 	<% /def %>
 <% ========== 回复ボタンここまで ========== %>
 
@@ -428,7 +427,7 @@ PMAX_H //高さ
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
 </div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">板顶部</a></div>
+<div class="pagelink_top"><a href="<% echo (self2) %>">留言板頂部</a></div>
 <div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
 </div></nav>
 <% def(n) %>
@@ -442,12 +441,12 @@ PMAX_H //高さ
 <% ========== メンテナンスフォーム欄 ========== %>
 <form action="<% echo (self) %>" method="post">
 <div class="mente_wrap">
-<span class="nk">文章No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
-<span class="nk">密码<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
+<span class="nk">文章 No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
+<span class="nk">密碼<input type="password" name="pwd" size="8" value="" autocomplete="current-password" class="edit_password"></span>
 <select name="mode">
-<option value="edit">编辑</option>
+<option value="edit">編輯</option>
 <% def(userdel) %>
-<option value="usrdel">删除</option>
+<option value="usrdel">刪除</option>
 <% /def %>
 <% def(n) %>
 <!--
@@ -455,7 +454,7 @@ PMAX_H //高さ
 -->
 <% /def %>
 </select>
-<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">仅删除图像</label></span>
+<span class="nk"><label class="checkbox"><input type="checkbox" name="onlyimgdel" value="on">僅刪除圖片</label></span>
 <input type="submit" value="OK">
 </div>
 </form>
