@@ -22,9 +22,9 @@ define('THE_SCREEN_CHANGES', '切換畫面');
 define('NOTICE_MAIL_TITLE', '標題');
 define('NOTICE_MAIL_IMG', '圖片');
 define('NOTICE_MAIL_THUMBNAIL', '縮圖');
-define('NOTICE_MAIL_ANIME', '遊戲中時光倒流');
+define('NOTICE_MAIL_ANIME', '過程');
 define('NOTICE_MAIL_URL', '固定鏈接');
-define('NOTICE_MAIL_REPLY', '通知：帖子有新回复。');
+define('NOTICE_MAIL_REPLY', '通知：帖子有新回覆。');
 define('NOTICE_MAIL_NEWPOST', '通知：有一個新帖子');
 
 /* ---------- ADD:2004/06/22 ---------- */
@@ -42,13 +42,13 @@ define('MSG010', "請輸入標題");
 define('MSG011', "評論太長");
 define('MSG012', "名字太長");
 define('MSG013', "電子郵件太長");
-define('MSG014', "主題太長");
+define('MSG014', "標題太長");
 define('MSG015', "未知錯誤");
 define('MSG016', "發布被拒絕<br>此主機已被禁止發布。");
 define('MSG019', "未能讀取日誌");
 define('MSG020', "請稍等一下再發表");
 define('MSG021', "請稍等一下再發表");
-define('MSG022', "通過此評論發布一次<br>請再發表評論");
+define('MSG022', "不久前，您發表了同樣的留言。<br>請發表另一條留言。");
 define('MSG023', "它沒有更新樹");
 define('MSG024', "刪除樹失敗");
 define('MSG025', "線程不存在");
@@ -71,7 +71,7 @@ define('MSG041', "不存在");
 define('MSG042', "不可讀");
 define('MSG043', "不可寫");
 define('MSG044', "未設置MAX LOG，或者它包含非數字字符串。");
-define('MSG045', "請上載記錄圖紙的視頻文件。<br>支持的格式為pch和spch。");
+define('MSG045', "請上載繪圖過程記錄的文件。<br>支持的格式為pch和spch。");
 
 
 /* ---------- ADD:2004/02/03 ---------- */
