@@ -14,7 +14,7 @@ Translation of `config.php`. We need to translate the description of the setting
 
 minchao Minchao
 ### [2021/04/30]  
-Update the pink templates translation by Minchao.
+- Update the pink templates translation by Minchao.
 ### [2021/04/29]  
 - I translated `config.php` except for the detailed settings. I took care not to change the meaning, but I need to replace it with an appropriate translation.   
 - Advanced settings are not translated.
