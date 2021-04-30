@@ -181,11 +181,11 @@ $search_type='';
 if($imgsearch){
 	$search_type='&imgsearch=on';
 	$dat['imgsearch']=true;
-	$img_or_com='圖像';
+	$img_or_com='插圖';
 	$mai_or_ken=' ';
 }
 else{
-	$img_or_com='評論';
+	$img_or_com='留言';
 	$mai_or_ken=' ';
 }
 
@@ -234,8 +234,8 @@ elseif($query!==''){
 	$dat['h1']=$query.'的';//検索対象は人
 }
 else{
-	$dat['title']='最新'.$img_or_com.'發佈在佈告欄上';
-	$dat['h1']='最新'.$img_or_com.'發佈在佈告欄上';
+	$dat['title']='留言板的最新'.$img_or_com;
+	$dat['h1']='留言板的最新'.$img_or_com;
 }
 
 //ページング
@@ -247,7 +247,7 @@ $dat['prev']=false;
 $dat['nxet']=false;
 
 if($page<=$disp_count_of_page){
-	$dat['prev']='<a href="./">返回公告欄</a>';//前のページ
+	$dat['prev']='<a href="./">返回留言板</a>';//前のページ
 if($countarr>=$nxetpage){
 	$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';//次のページ
 }
@@ -259,7 +259,7 @@ elseif($page>=$disp_count_of_page+1){
 		$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';
 	}
 	else{
-		$dat['nxet']='<a href="./">返回公告欄</a>';
+		$dat['nxet']='<a href="./">返回留言板</a>';
 	}
 }
 //最終更新日時を取得
