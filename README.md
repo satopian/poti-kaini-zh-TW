@@ -4,6 +4,9 @@ This is the traditional Chinese translation version of POTI-board kai ni.
 這是日語顯示的原文.  
 [satopian/poti-kaini: お絵かき掲示板PHPスクリプトPOTI-board改二, for PHP7 (PHP5.5～, 7.x, 8.0)](https://github.com/satopian/poti-kaini)  
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
+
+###
+[繪圖留言板](https://pbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
 The HTML of the template uses Japanese, so we need to translate it.  
