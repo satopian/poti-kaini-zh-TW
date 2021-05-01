@@ -11,11 +11,10 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-
-minchao Minchao
 ### [2021/04/30]  
 - Update the pink templates translation by Minchao.
 - translation search.php and search.html by satopian (It may be wrong because it is translated by groping.) 
+- Improved translation of error messages.But this is still not enough.
 ### [2021/04/29]  
 - I translated `config.php` except for the detailed settings. I took care not to change the meaning, but I need to replace it with an appropriate translation.   
 - Advanced settings are not translated.
