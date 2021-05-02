@@ -149,16 +149,16 @@ var Palettes = new Array();
 <% echo(palettes) %>
 <% /def %>
 function setPalette(){d=document;d.paintbbs.setColors(Palettes[d.Palette.select.selectedIndex]);d.grad.view.checked&&GetPalette()}function PaletteSave(){Palettes[0]=String(document.paintbbs.getColors())}var cutomP=0;
-function PaletteNew(){d=document;p=String(d.paintbbs.getColors());s=d.Palette.select;Palettes[s.length]=p;cutomP++;str=prompt("調色板名稱","調色板"+cutomP);null==str||""==str?cutomP--:(s.options[s.length]=new Option(str),30>s.length&&(s.size=s.length),PaletteListSetColor())}function PaletteRenew(){d=document;Palettes[d.Palette.select.selectedIndex]=String(d.paintbbs.getColors());PaletteListSetColor()}
+function PaletteNew(){d=document;p=String(d.paintbbs.getColors());s=d.Palette.select;Palettes[s.length]=p;cutomP++;str=prompt("調色盤名稱","調色盤"+cutomP);null==str||""==str?cutomP--:(s.options[s.length]=new Option(str),30>s.length&&(s.size=s.length),PaletteListSetColor())}function PaletteRenew(){d=document;Palettes[d.Palette.select.selectedIndex]=String(d.paintbbs.getColors());PaletteListSetColor()}
 function PaletteDel(){p=Palettes.length;s=document.Palette.select;i=s.selectedIndex;if(-1!=i&&(flag=confirm("「"+s.options[i].text + "」您要刪除嗎？"))){for(s.options[i]=null;p>i;)Palettes[i]=Palettes[i+1],i++;30>s.length&&(s.size=s.length)}}
 function P_Effect(a){a=parseInt(a);x=1;255==a&&(x=-1);d=document.paintbbs;p=String(d.getColors()).split("\n");l=p.length;var f="";for(n=0;l>n;n++)R=a+parseInt("0x"+p[n].substr(1,2))*x,G=a+parseInt("0x"+p[n].substr(3,2))*x,B=a+parseInt("0x"+p[n].substr(5,2))*x,255<R?R=255:0>R&&(R=0),255<G?G=255:0>G&&(G=0),255<B?B=255:0>B&&(B=0),f+="#"+Hex(R)+Hex(G)+Hex(B)+"\n";d.setColors(f);PaletteListSetColor()}
-function PaletteMatrixGet(){d=document.Palette;p=Palettes.length;s=d.select;m=d.m_m.selectedIndex;t=d.setr;switch(m){default:t.value="";for(c=n=0;p>n;)null!=s.options[n]&&(t.value=t.value+"\n!"+s.options[n].text+"\n"+Palettes[n],c++),n++;alert("托盤數："+c+"\n我得到了調色板矩陣");break;case 1:t.value="!Palette\n"+String(document.paintbbs.getColors())
-		alert("我得到了當前使用的調色板信息")}t.value=
+function PaletteMatrixGet(){d=document.Palette;p=Palettes.length;s=d.select;m=d.m_m.selectedIndex;t=d.setr;switch(m){default:t.value="";for(c=n=0;p>n;)null!=s.options[n]&&(t.value=t.value+"\n!"+s.options[n].text+"\n"+Palettes[n],c++),n++;alert("調色盤："+c+"\n已取得調色盤矩陣");break;case 1:t.value="!Palette\n"+String(document.paintbbs.getColors())
+		alert("已取得當前使用的調色盤資訊")}t.value=
 t.value.trim()+"\n!Matrix"}
-function PalleteMatrixSet(){m=document.Palette.m_m.selectedIndex;str="設置調色板矩陣。";switch(m){default:flag=confirm(str+"\n當前所有調色板信息都將丟失，可以嗎？");break;case 1:flag=confirm(str+"\n替換為當前使用的調色板，可以嗎？");break;
-case 2:flag=confirm(str+"\n添加到當前調色板信息，可以嗎？")}flag&&(PaletteSet(),s.size=30>s.length?s.length:30,DynamicColor&&PaletteListSetColor())}
-function PalleteMatrixHelp(){alert("★調色板矩陣\n什麼是調色板矩陣\n您可以通過使用列出調色板信息的文本來使用免費的調色板設置。\n\n□獲取矩陣\n1）從“獲取”按鈕獲取調色板矩陣。\n2）檢索到的信息將出現在下面的文本區域中，將其全部複製。\n3）讓我們將此矩陣信息另存為文件中的文本。\n\n□矩陣集\n1）將復制的矩陣粘貼到下面的文本區域中。\n2）如果已將其保存在文件中，請複制並粘貼。\n3）您可以通過按“設置”按鈕使用保存的調色板。\n\n請注意，如果有其他信息，將無法正確設置調色板。")}
-function PaletteSet(){d=document.Palette;se=d.setr.value;s=d.select;m=d.m_m.selectedIndex;l=se.length;if(1>l)alert("マトリクス情報がありません。");else{e=o=n=0;switch(m){default:for(n=s.length;0<n;)n--,s.options[n]=null;case 2:i=s.options.length;n=se.indexOf("!",0)+1;if(0==n)return;Matrix1=1;for(Matrix2=-1;n<l;){e=se.indexOf("\n#",n);if(-1==e)return;pn=se.substring(n,e+Matrix1);o=se.indexOf("!",e);if(-1==o)return;pa=se.substring(e+1,o+Matrix2);
+function PalleteMatrixSet(){m=document.Palette.m_m.selectedIndex;str="設定調色盤矩陣。";switch(m){default:flag=confirm(str+"\n當前所有調色盤資訊都將丟失，可以嗎？");break;case 1:flag=confirm(str+"\n替換為當前使用的調色盤，可以嗎？");break;
+case 2:flag=confirm(str+"\n添加到當前調色盤，可以嗎？")}flag&&(PaletteSet(),s.size=30>s.length?s.length:30,DynamicColor&&PaletteListSetColor())}
+function PalleteMatrixHelp(){alert("★ PALETTE MATRIX\n什麼是調色盤矩陣？您可以通過取得調色盤矩陣的文本資訊來自由設定調色盤。\n\n□ 取得矩陣\n1）從“取得”按鈕獲取調色盤矩陣。\n2）取得的調色盤資訊將出現在下面的文本區域中，將其全部複製。\n3）您可以將此調色盤資訊另存在文本檔案中。\n\n□ 設定矩陣\n1）將復制的調色盤資訊貼到下面的文本輸入框中。\n2）如果已將其保存在文本檔案中，請複制並貼上。\n3）您可以通過按下“設定”按鈕使用保存的調色盤。\n\n請注意，如果有夾雜其他資訊，將無法正確設定調色盤。")}
+function PaletteSet(){d=document.Palette;se=d.setr.value;s=d.select;m=d.m_m.selectedIndex;l=se.length;if(1>l)alert("沒有矩陣資訊。");else{e=o=n=0;switch(m){default:for(n=s.length;0<n;)n--,s.options[n]=null;case 2:i=s.options.length;n=se.indexOf("!",0)+1;if(0==n)return;Matrix1=1;for(Matrix2=-1;n<l;){e=se.indexOf("\n#",n);if(-1==e)return;pn=se.substring(n,e+Matrix1);o=se.indexOf("!",e);if(-1==o)return;pa=se.substring(e+1,o+Matrix2);
 "Palette"!=pn?(0<=i&&(s.options[i]=new Option(pn)),Palettes[i]=pa,i++):document.paintbbs.setColors(pa);n=o+1}break;case 1:n=se.indexOf("!",0)+1;if(0==n)return;e=se.indexOf("\n#",n);o=se.indexOf("!",e);0<=e&&(pa=se.substring(e+1,o-1));document.paintbbs.setColors(pa)}PaletteListSetColor()}}function PaletteListSetColor(){var a=document.Palette.select;for(i=1;a.options.length>i;i++){var f=Palettes[i].split("\n");a.options[i].style.background=f[4];a.options[i].style.color=GetBright(f[4])}}
 function GetBright(a){r=parseInt("0x"+a.substr(1,2));g=parseInt("0x"+a.substr(3,2));b=parseInt("0x"+a.substr(5,2));a=r>=g?r>=b?r:b:g>=b?g:b;return 128>a?"#FFFFFF":"#000000"}function Chenge_(){var a=document.grad.pst.value,f=document.grad.ped.value;isNaN(parseInt("0x"+a))||isNaN(parseInt("0x"+f))||GradView("#"+a,"#"+f)}
 function ChengeGrad(){var a=document,f=a.grad.pst.value,h=a.grad.ped.value;Chenge_();var u=parseInt("0x"+f.substr(0,2)),v=parseInt("0x"+f.substr(2,2));f=parseInt("0x"+f.substr(4,2));var k=parseInt((u-parseInt("0x"+h.substr(0,2)))/15),q=parseInt((v-parseInt("0x"+h.substr(2,2)))/15);h=parseInt((f-parseInt("0x"+h.substr(4,2)))/15);isNaN(k)&&(k=1);isNaN(q)&&(q=1);isNaN(h)&&(h=1);var w=new String;cnt=0;m1=u;m2=v;for(m3=f;14>cnt;cnt++,m1-=k,m2-=q,m3-=h){if(255<m1||0>m1)k*=-1,m1-=k;if(255<m2||0>m2)q*=-1,
@@ -253,9 +253,9 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <% ========== 動的パレット制御関連 ========== %>
 <div class="palette_wrap">
 <div class="palette"><FORM name="Palette">
-<span class="palette_desc">PALETTE</span> <INPUT type="button" VALUE="臨時保存" OnClick="PaletteSave()"><br>
+<span class="palette_desc">PALETTE</span> <INPUT type="button" VALUE="暫存" OnClick="PaletteSave()"><br>
 <select name="select" size="<% echo(palsize) %>" onChange="setPalette()" class="palette_select">
-<option>臨時保存的調色板</option>
+<option>暫存的調色盤</option>
 <% def(dynp) %>
 <% echo (dynp) %>
 <% /def %><% /def %>
@@ -263,17 +263,17 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <INPUT type="button" VALUE="新增" OnClick="PaletteNew()">
 <INPUT type="button" VALUE="更新" OnClick="PaletteRenew()">
 <INPUT type="button" VALUE="刪除" OnClick="PaletteDel()"><br>
-<INPUT type="button" VALUE="明＋" OnClick="P_Effect(10)">
-<INPUT type="button" VALUE="明－" OnClick="P_Effect(-10)">
+<INPUT type="button" VALUE="變亮" OnClick="P_Effect(10)">
+<INPUT type="button" VALUE="變暗" OnClick="P_Effect(-10)">
 <INPUT type="button" VALUE="反轉" OnClick="P_Effect(255)">
 	<hr class="palette_hr"><span class="palette_desc">MATRIX</span>
 <SELECT name="m_m">
-<option value="0">全面的</option>
+<option value="0">全部</option>
 <option value="1">目前</option>
 <option value="2">添加</option>
 </SELECT><br>
-<INPUT name="m_g" type="button" VALUE="得到" OnClick="PaletteMatrixGet()">
-<INPUT name="m_s" type="button" VALUE="放" OnClick="PalleteMatrixSet()">
+<INPUT name="m_g" type="button" VALUE="取得" OnClick="PaletteMatrixGet()">
+<INPUT name="m_s" type="button" VALUE="設定" OnClick="PalleteMatrixSet()">
 <INPUT name="m_h" type="button" VALUE=" ? " OnClick="PalleteMatrixHelp()"><br>
 <TEXTAREA rows="1" name="setr" cols="13" onMouseOver="this.select()"></TEXTAREA><br>
 </FORM></div>
@@ -334,10 +334,10 @@ if(DynamicColor) PaletteListSetColor();
 <p><% def(anime) %>★繪圖過程紀錄中★<% /def %></p>
 <% ========== お絵かき設定値の再設定関連 ========== %>
 <% ========== お絵かき設定値の再設定関連 ここまで ========== %>
-<a href="<% echo(self) %>?mode=piccom<% def(resno) %>&resto=<% echo(resno) %><% /def %>" target="_blank" rel="noopener">未發布的圖片</a>
+<a href="<% echo(self) %>?mode=piccom<% def(resno) %>&resto=<% echo(resno) %><% /def %>" target="_blank" rel="noopener">未投稿的圖片</a>
 </div>
 <!--PaintBBS HELP START-->
-<div class ="paintbbs_memo"> <div>基本行為（可能這是您應該記住的唯一功能）</ div> <div>&lt;基本&gt; <br>右鍵單擊PaintBBS，按住Ctrl鍵並單擊， Alt +單擊的原理相同。 <br>基本上，單擊或右鍵單擊即可完成操作。 （使用Bezier或複制時除外）<br> <br>&lt;工具欄&gt; <br>工具欄上的大多數按鈕可以通過單擊多次來切換。 <br>右鍵單擊以向相反方向旋轉。右鍵單擊以在調色板顏色，蒙版顏色和一個字符保存工具中註冊當前狀態。 <br>相反，您可以通過單擊來檢索調色板的顏色和保存在臨時保存工具中的狀態。 <br> <br>&lt;畫布部件&gt; <br>右鍵單擊以顯示滴管顏色<br>在諸如Bezier的處理過程中單擊鼠標右鍵，或複制以重置。 </ div> <br> <div>特殊行為（不必使用，但習慣後會有用）</ div> <div>&lt;工具欄&gt; <br>用於更改值的欄拖動時位於條形圖的外部。如果將其放入，則更改將是逐漸的，因此可以使用它進行小的更改。 <br>通過Shift +單擊將調色板恢復為默認狀態。 <br> <br>&lt;鍵盤快捷鍵&gt; <br> +進行放大以進行縮小。 <br>使用Ctrl + Z或Ctrl + U撤消，使用Ctrl + Alt + Z或Ctrl + Y重做。 <br> Esc複製並重置Bezier。 （與右鍵單擊相同）。<br>按住空格鍵拖動畫布可自由滾動。 <br>通過Ctrl + Alt +拖動更改線寬。 <br> <br>&lt;複製工具的特殊用途&gt; <br>當前，層之間的唯一移動是複制和層組合。要通過複製進行移動，請首先選擇要移動的圖層上的矩形，然後選擇要移動的圖層，然後繼續正常的複制工作。這樣做將允許您在各層之間移動。 <br> </ div> <br> <div>工具欄上的按鈕和特殊功能的簡要說明</ div> <div> <ul type ="circle"> <li>筆尖（普通筆，水彩筆），文本）<br>自由線主筆和文本<br> <br> </ li> <li>筆尖2（色調，模糊等）<br>具有特殊效果的自由線筆筆<br> <br> </ li> <li>形狀（圓形和矩形）<br>形狀，例如矩形和圓形<br> <br> </ li> <li>特殊（複製，圖層連接，翻轉）等。<br>複製是選擇一次後通過拖動來移動和復制的工具。 <br> <br> </ li> <li>遮罩模式規範（正常，遮罩，反遮罩）<br>禁用在遮罩中註冊的顏色。反面罩則相反。 <br>正常且無遮罩。您也可以通過右鍵單擊來更改蒙版顏色。 <br> <br> </ li> <li>橡皮擦（橡皮擦，方形橡皮擦，所有橡皮擦）<br>如果用白色填充透明層，則下層將不可見。此工具可刪除行。全部擦除是一種使所有內容都透明像素的工具。 <br>如果要使用所有卡片，請選擇此工具，然後單擊畫布。 <br>橡皮擦具有獨立的線寬。 <br> <br> </ li> <li>指定描繪方法。 （筆跡，直線，貝塞爾曲線）<br>未指定筆尖，繪圖功能。 <br>而且，它僅適用於自由線工具。 <br> <br> </ li> <li>調色板組<br>單擊以獲取顏色。右鍵單擊以註冊顏色。按住Shift鍵並單擊以恢復默認值。 <br> <br> </ li> <li> RGB條和alpha條<br>精細的顏色變化和透明度變化。 R是紅色，G是綠色，B是藍色，A是透明度。 <br>可以通過使用Alpha條改變值來改變音調的密度。 <br> <br> </ li> <li>線寬更改工具<br>當選擇水彩筆時更改線寬時，會將默認值分配給alpha值。 <br> <br> </ li> <li>臨時行保存工具<br>單擊以獲取數據。通過右鍵單擊註冊數據。 （未註冊掩碼值）<br> <br> </ li> <li>圖層工具<br> PaintBBS具有類似於兩個透明畫布的結構。 <br>換句話說，它是一種工具，可以在頂部繪製主線，在底部繪製顏色。 <br>由於這是一種稱為普通圖層的事物，因此像用鉛筆繪製的線條可以是透明的。 <br>單擊以切換圖層。通過右鍵單擊顯示/隱藏選定的圖層。 <br> <br> </ li> </ ul> </ div>關於發布：<div>繪圖完成後，使用 Send 按鈕發布。<br>如果發布成功，它將跳轉到指定的 URL。<br>如果發布失敗，它只會報告失敗並且不會跳轉到任何地方。<br>如果發布失敗，請稍等一下，然後嘗試重新發布。<br>在這種情況下，它可能會發布兩次，但這是 Web 服務器或 CGI 方面的程序問題，因此我不太確定。</div></div>
+<div class ="paintbbs_memo"><div>基本操作（這也許是您該記住的唯一功能）</div><div>&lt;基本&gt;<br>在 PaintBBS 中，點擊右鍵、按住 Ctrl 鍵並點擊、按住 Alt 鍵並點擊的作用都相同。<br>基本上點擊右鍵即可完成操作。（使用貝茲曲線或複製時除外）<br><br>&lt;工具列&gt;<br>工具列上的大多數按鈕都可以通過點擊來切換功能，而點擊右鍵可切換回上一個功能。<br>調色盤顏色、遮罩顏色和文字工具都可以通過點擊右鍵來保存當前狀態。<br>反之，透過點擊可以取得調色盤上的顏色和保存在暫存工具的狀態。<br><br>&lt;畫布部分&gt;<br>點擊右鍵取樣顏色。<br>如果在貝茲曲線或複製過程中點擊右鍵將會取消操作。</div><br><div>特殊操作（儘管不是必要功能，但習慣後會有幫助）</div><div>&lt;工具列&gt;<br>在拖動控制條時數值會慢慢變化，因此可以用來做細微的調整。<br>通過 Shift + 點擊可以將調色盤的顏色回復為預設狀態。<br><br>&lt;鍵盤快速鍵&gt;<br>+ 放大，- 縮小。<br>Ctrl + Z 或 Ctrl + U 還原，Ctrl + Alt + Z 或 Ctrl + Y 重做。<br>使用 Esc 複製並重置貝茲曲線。（與點擊右鍵相同）。<br>按住空格鍵時拖動畫布可自由移動。<br>Ctrl + Alt + 拖動可變更線條寬度。<br><br>&lt;複製工具的特殊用途&gt;<br>目前圖案只能通過複製工具在圖層之間移動。透過複製來移動圖案的方法是，先在您想移動的圖層上執行複製，然後再選擇目的地圖層並完成複製。這麼做將允許您在圖層之間移動圖案。<br></div><br><div>工具列上按鈕和特殊功能的簡要說明</div><div><ul type ="circle"><li>筆尖（普通筆、水彩筆、文字）<br>可自由繪製線條的筆型和文字。<br><br></li><li>筆尖2（色調，模糊等）<br>帶有特殊效果。<br><br></li><li>形狀（圓形和矩形）<br>形狀，例如矩形和圓形。<br><br></li><li>特殊（複製、圖層合併，反轉等）等<br>複製是一種可以讓您選擇範圍然後拖拉移動的拷貝工具。<br><br></li><li>遮罩模式（正常、遮罩、反遮罩）<br>禁用在遮罩中設定的顏色。反遮罩則相反。<br>正常是代表無遮罩效果。您也可以通過點擊右鍵來更改遮罩顏色。<br><br></li><li>橡皮擦（橡皮擦筆尖、方形橡皮擦、全部清除）<br>如果用白色來填充透明圖層，則底下圖層會被遮蓋。請使用此工具來清除上面圖層的圖案。全部清除是一種用來消除所有圖案的工具。<br>如果要使用全部清除，請選擇此工具然後點擊畫布。<br>橡皮擦具有獨立的寬度設定。<br><br></li><li>指定繪圖方法。（徒手畫、直線、貝茲曲線）<br>不會指定筆尖和繪圖功能。<br>而且，它僅適用於自由線條工具。<br><br></li><li>調色盤<br>點擊取得顏色。點擊右鍵設定顏色。按住 Shift 鍵並點擊會回復為預設值。<br><br></li><li>RGB 條和 Alpha 控制條<br>可以精細調整顏色和透明度變化。R 是紅色，G 是綠色，B 是藍色，A 是透明度。<br>可以通過調整 Alpha 控制條來改變透明度。<br><br></li><li>線寬更改工具<br>當選擇水彩筆時更改線寬，會使用預設的 Alpha 值。<br><br></li><li>線條暫存工具<br>點擊以取得線條設定。點擊右鍵設定線條。（不會設定遮罩）<br><br></li><li>圖層工具<br>PaintBBS 具有類似於兩個透明畫布的結構。<br>換句話說，它是一種可以在上層繪製主線條，在底層繪製顏色的工具。<br>由於這是一種稱為普通圖層的事物，因此像鉛筆繪製的線條可以是透明的。<br>點擊切換圖層。點擊右鍵顯示/隱藏選擇的圖層。<br><br></li></ul></div>關於投稿：<div>繪圖完成後，使用 Send 按鈕投稿。<br>如果投稿成功，它將跳轉到指定的 URL。<br>如果失敗，它只會報告失敗並且不會跳轉到任何地方。<br>如果處理太久而失敗，請稍等一下，然後嘗試重新投稿。<br>在這種情況下，它可能會投稿兩次，但這是 Web 服務器或 CGI 方面的程序問題，因此我不太確定。</div></div>
 <!--PaintBBS HELP END-->
 <% /def %>
 <% ========== お絵かきモード ここまで ========== %>
@@ -443,8 +443,8 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
         <% def(ctype_img) %><option value="img">使用圖片繼續繪圖</option><% /def %>
       </select>
       <select name="type" class="paint_select">
-	<option value="rep">發布新圖片</option>
-	<option value="new">替換舊圖片</option>
+	<option value="rep">替換舊圖</option>
+	<option value="new">新投稿</option>
        </select>
        </span>
       <br>
