@@ -164,7 +164,7 @@ PMAX_H //高さ
 	
 		<table id="post_table">
 	 <tr>
-	  <td class="post_table_title">名稱<% def(usename) %>*<% /def %></td>
+	  <td class="post_table_title">名稱<% def(usename) %> (必需)<% /def %></td>
 	  <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
 	 </tr>
 	 <tr>
@@ -176,11 +176,11 @@ PMAX_H //高さ
 	  <td><input type="text" name="url" class="post_input_text" autocomplete="url"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">標題<% def(usesub) %>*<% /def %></td>
+	  <td class="post_table_title">標題<% def(usesub) %> (必需)<% /def %></td>
 	  <td><input type="text" name="sub" class="post_input_text" autocomplete="off"></td>
 	 </tr>
 	 <tr>
-	  <td class="post_table_title">內文<% def(usecom) %>*<% /def %></td>
+	  <td class="post_table_title">內文<% def(usecom) %> (必需)<% /def %></td>
 	  <td><textarea name="com" wrap="soft" class="post_input_com"></textarea></td>
 	 </tr>
 	 <% def(n) %>
@@ -383,8 +383,8 @@ PMAX_H //高さ
 <input type="hidden" name="resto" value="<% echo (oya/no) %>">
 <input type="hidden" name="textonly" value="on">
 <% ========== ←v1.3b3以降必須 ========== %>
-<tr><td class="minres_title">名稱<% def(usename) %>*<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
-<td class="minres_title">標題<% def(usesub) %>*<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
+<tr><td class="minres_title">名稱<% def(usename) %> (必需)<% /def %></td><td><input type="text" name="name" class="minres_input_text" autocomplete="username"></td>
+<td class="minres_title">標題<% def(usesub) %> (必需)<% /def %></td><td><input type="text" name="sub" value="<% echo (oya/resub) %>" class="minres_input_text" autocomplete="off"></td>
 </tr>
 <tr>
 <td class="minres_title">E-mail</td><td><input type="text" name="email" class="minres_input_text" autocomplete="email"></td>
