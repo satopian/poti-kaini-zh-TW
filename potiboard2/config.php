@@ -28,6 +28,7 @@ define('SKIN_DIR', 'pink/');
 
 // 設置場所のURL。phpのあるディレクトリの'/'まで
 // メール通知のほか、シェアボタンなどで使用
+// 用於電子郵件通知，共享按鈕等。
 // poti-board.php所在的目錄。
 // 請在末尾添加'/'。
 define('ROOT_URL', 'https://example.com/oekaki/');
@@ -47,13 +48,13 @@ define('HOME', '../');
 // 使わない:0 でも お絵かき機能は使えます。
 // 管理画面で画像アップロードできます。
 // 您要使用圖片上傳功能嗎？
-// 使用：1 不使用：0
+// 用：1 不用：0
 // 管理員不受此設置的影響。
 define('USE_IMG_UPLOAD','1');
 
 // 画像のないコメントのみの新規投稿を拒否する する:1 しない:0
 // する:1 でも管理画面からはコメントのみの投稿ができます。
-// 如果設置，他們將無法發布沒有圖片的信息。
+// 如果設置，他們將無法投稿沒有圖片的信息。
 // 拒絕:1 不要拒絕:0
 // 管理員不受此設置的影響。
 define('DENY_COMMENTS_ONLY', '0');
@@ -82,7 +83,7 @@ define('SHARE_BUTTON', '0');
 // スペースと改行を除去した文字列をチェックします
 //不要指定空格或換行符。
 //這是因為檢查了沒有空格和換行符的字符串。
-// 未設定時 array();
+// 什麼都沒設置的例子 array();
 
 // 拒絶する文字列
 // 字符串黑名單。支持正則表達式。
@@ -96,24 +97,25 @@ $badname = array("ブランド","郵購","通販");
 // ここで設定したNGワードが有効になるのは「名前」だけです
 // 本文に「通販で買いました」と書いて投稿する事はできます
 //默認情況下，它拒絕在其名稱中包含“郵購”。
-//唯一不能使用的名稱是不能使用的名稱。 
 
 // 名前以外の項目も設定する場合は
 // こことは別の設定項目
 // 拒絶する文字列で
-// Settings other than the name,
-// Anti-spam posting -> Character string that cannot be posted
+
+//如果要設置名稱以外的項目
+//請設置“字符字符串黑名單”。
+
 
 // AとBが両方あったら拒絶。
-// 如果同時滿足條件 A 和 B，則拒絕發布。
+// 如果同時滿足條件 A 和 B，則拒絕投稿。
 $badstr_A = array("cheep","lowprice","copy","focusonquality","massarrival");
 $badstr_B = array("Chanel","Supreme","Balenciaga","brand");
 
 // 支持正則表達式
-// 未設定時 array();
+// 什麼都沒設置的例子 array();
 
-// 在出現兩個NG詞 A 和 B 的情況下拒絕。
-// 這放寬了限制。
+//當兩個NG詞 A 和 B 存在時拒絕。
+//這放寬了限制。
 
 // 一つの単語で拒絶する場合は
 // こことは別の設定項目
@@ -123,13 +125,13 @@ $badstr_B = array("Chanel","Supreme","Balenciaga","brand");
 define('USE_JAPANESEFILTER', '0');
 
 // Reject posts with links.
-// 禁止將URL寫入內文並拒絕 拒絶:1 不拒絕 :0
+// 禁止和拒絕將URL寫入内文	 拒絶:1 不拒絕 :0
 
 define('DENY_COMMENTS_URL', '0');
 // 管理員不受此設置的影響。
 
 //古いスレッドへのフォームを閉じて投稿を拒否する
-// 關閉表格到舊線程並拒絕發布
+// 關閉表格到舊線程並拒絕投稿
 // define('ELAPSED_DAYS','0');
 // 設定しないなら '0'で。フォームを閉じません。
 //如果不想設置，請使用'0'。 該表格將不會關閉。
@@ -155,7 +157,7 @@ $badip = array("addr.dummy.com","addr2.dummy.com");
 //當noticemail.inc檢測到它已被上載到potiboard.php所在的目錄時
 //電子郵件通知功能將自動打開。
 
-// 即使管理員發布，我們也會通過電子郵件通知您 不發送郵件:1 發送郵件:0
+// 即使管理員投稿，我們也會通過電子郵件通知您 不發送郵件:1 發送郵件:0
 // Notify by email what the administrator posted (OFF:'1', ON'0').
 define('NOTICE_NOADMIN', '0');
 
@@ -206,7 +208,7 @@ define('DSP_RES', '7');
 define('USE_FONTCOLOR', '0');
 
 
-// 可以發布的文件大小限制 KB 
+// 可以投稿的文件大小限制 KB 
 // Maximum size allowed for the images in the posts (in KB).
 // By php limit, it is allowed up to 2048.
 define('MAX_KB', '1000');
@@ -265,14 +267,14 @@ define('DEF_SUB', 'no title');	//未輸入時要分配的字符(default title)
 // Quote the thread title in new responses (Yes: 1, No: 0)
 define('USE_RESUB', '1');
 
-// 在每個主題中顯示回复表單 する:1 しない:0
+// 在每個主題中顯示回复表單  是:1 否:0
 // Display the post form in each thread (Yes: 1, No: 0)
 define('RES_FORM', '0');
 
-// 即使您進行編輯，也不要更改發布日期和時間 不會改變:1 改變:0 
+// 即使您進行編輯，也不要更改投稿日期和時間 不會改變:1 改變:0 
 define('DO_NOT_CHANGE_POSTS_TIME', '0');
 // 通常為 改變:0。
-// 這是不希望在日記中更改發布日期的人的設置項目。
+// 這是不希望在日記中更改投稿日期的人的設置項目。
 
 
 /* ---------- お絵かき設定(paint mode settings) ---------- */
@@ -345,7 +347,7 @@ define('PCH_SPEED', '0');
 // Allow to continue drawings after leaving: (1: Enabled, 0: Disabled)
 define('USE_CONTINUE', '1');
 
-// 在“續繪”時。即使發布新帖子也需要密碼 要求輸入密碼:1 無需密碼:0
+// 在“續繪”時。即使投稿新帖子也需要密碼 要求輸入密碼:1 無需密碼:0
 // 如果將其設置為“無需密碼:0”。 選擇新帖子後，任何人都可以繪製延續。
 // CONTINUE PASSWORD
 // If set to 1, you  will need the delete password to continue with newly posted pictures.
