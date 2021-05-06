@@ -7,6 +7,11 @@ This is the traditional Chinese translation version of POTI-board kai ni.
 
 ###
 [繪圖留言板](https://pbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
+  
+###
+  
+![image](https://user-images.githubusercontent.com/44894014/117331996-480b5700-aed2-11eb-8580-297e4c6268e5.png)  
+
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
 The HTML of the template uses Japanese, so we need to translate it.  
