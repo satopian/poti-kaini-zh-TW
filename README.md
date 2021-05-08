@@ -18,6 +18,8 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+### [2021/05/08]  
+- Update config.php translation  by Minchao.
 ### [2021/05/07]  
 - Update config.php translation.
 ### [2021/05/03]  
