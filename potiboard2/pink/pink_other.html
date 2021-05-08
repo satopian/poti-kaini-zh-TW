@@ -218,7 +218,7 @@ Paint Time： <% echo(ptime) %>
 <% ========== お絵かき画像選択欄 ========== %>
 <% def(tmp) %>
  <tr>
-  <td class="post_table_title">圖像</td>
+  <td class="post_table_title">圖片</td>
   <td><select name="picfile" class="post_select_image">
 <% each(tmp) %><option value="<% echo(tmp/srcname) %>"><% echo(tmp/srcname) %></option><% /each %>
   </select></td>
@@ -240,7 +240,7 @@ Paint Time： <% echo(ptime) %>
 <% def(upfile) %>
 <% def(hide_the_checkbox_for_nofile) %>
 <% elsedef %>
-<li>如果要附加圖像，請取消選中“不附圖片”。</li>
+<li>如果要附加圖片，請取消選中“不附圖片”。</li>
 <% /def %>
 <li>圖片檔案大小限制為 <% echo (maxkb) %> KB。</li>
 <% /def %>

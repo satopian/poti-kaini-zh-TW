@@ -23,55 +23,55 @@ define('NOTICE_MAIL_TITLE', '標題');
 define('NOTICE_MAIL_IMG', '圖片');
 define('NOTICE_MAIL_THUMBNAIL', '縮圖');
 define('NOTICE_MAIL_ANIME', '過程');
-define('NOTICE_MAIL_URL', '固定鏈接');
-define('NOTICE_MAIL_REPLY', '通知：帖子有新回覆。');
-define('NOTICE_MAIL_NEWPOST', '通知：有一個新帖子');
+define('NOTICE_MAIL_URL', '文章連結');
+define('NOTICE_MAIL_REPLY', '通知：文章有新回覆。');
+define('NOTICE_MAIL_NEWPOST', '通知：有一個新投稿');
 
 /* ---------- ADD:2004/06/22 ---------- */
 //エラーメッセージ
-define('MSG001', "找不到日誌");
+define('MSG001', "找不到文章");
 define('MSG002', "您尚未選擇圖片，您必須上傳圖片。");
 define('MSG003', "上傳失敗<br>服務器可能不支持它");
-define('MSG004', "上傳失敗<br>僅可以附加圖像文件");
+define('MSG004', "上傳失敗<br>僅可以附加圖片文件");
 define('MSG005', "上傳失敗<br>圖片已存在");
-define('MSG006', "請不要獲得未經授權的訪問。<br>您只能以POST發布。");
+define('MSG006', "請不要違規投稿。<br>不接受 POST 方法以外的投稿。");
 define('MSG007', "圖片不存在");
 define('MSG008', "請寫點東西");
 define('MSG009', "請輸入你的名字");
 define('MSG010', "請輸入標題");
-define('MSG011', "評論太長");
+define('MSG011', "內文太長");
 define('MSG012', "名字太長");
 define('MSG013', "電子郵件太長");
 define('MSG014', "標題太長");
 define('MSG015', "未知錯誤");
-define('MSG016', "發布被拒絕<br>此主機已被禁止發布。");
-define('MSG019', "未能讀取日誌");
-define('MSG020', "請稍等一下再發表");
-define('MSG021', "請稍等一下再發表");
-define('MSG022', "不久前，您發表了同樣的留言。<br>請發表另一條留言。");
-define('MSG023', "它沒有更新樹");
-define('MSG024', "刪除樹失敗");
-define('MSG025', "線程不存在");
-define('MSG026', "這是最後一個線程，無法刪除。");
+define('MSG016', "已拒絕<br>來自此主機的投稿將不被接受。");
+define('MSG019', "無法讀取日誌");
+define('MSG020', "請稍等一下再投稿");
+define('MSG021', "請稍等一下再投稿");
+define('MSG022', "不久前，您投稿過同樣的留言。<br>請投稿新留言。");
+define('MSG023', "更新失敗");
+define('MSG024', "刪除失敗");
+define('MSG025', "留言串不存在");
+define('MSG026', "這是最後一個留言串，無法刪除。");
 define('MSG027', "刪除失敗。（用戶）");
 define('MSG028', "找不到文章或密碼錯誤。");
 define('MSG029', "密碼錯誤。");
-define('MSG030', "刪除失敗。(管理員權限	)");
+define('MSG030', "刪除失敗。(管理員)");
 define('MSG031', "請輸入編號");
-define('MSG032', "發布被拒絕<br>非法字符串。");
+define('MSG032', "投稿被拒絕<br>非法字符串。");
 define('MSG033', "刪除失敗<br>用戶沒有刪除權限");
 define('MSG034', "上傳圖片失敗<br>圖片尺寸太大");//? File size kb, not with height
 define('MSG035', "必須輸入CJK漢字字符。");
-define('MSG036', "您無法在正文中張貼網址");
+define('MSG036', "您無法在內文中張貼網址");
 define('MSG037', "您不能使用該名稱。");
-define('MSG038', "包含無法使用的TAG。");
-define('MSG039', "不能僅發布文本。 我需要一張照片。");
-define('MSG040', "未設置管理員密碼。。");
+define('MSG038', "包含無法使用的標籤。");
+define('MSG039', "不接受僅包含內文的投稿。需要包含圖片。");
+define('MSG040', "未設定管理員密碼。");
 define('MSG041', "不存在");
-define('MSG042', "不可讀");
-define('MSG043', "不可寫");
-define('MSG044', "未設置MAX LOG，或者它包含非數字字符串。");
-define('MSG045', "請上載繪圖過程記錄的文件。<br>支持的格式為pch和spch。");
+define('MSG042', "無法讀取");
+define('MSG043', "無法寫入");
+define('MSG044', "未設定 MAX LOG，或者它包含非數字字串。");
+define('MSG045', "請上傳繪圖過程記錄的檔案。<br>支持的格式為 pch 和 spch。");
 
 
 /* ---------- ADD:2004/02/03 ---------- */
@@ -80,10 +80,10 @@ define('MSG045', "請上載繪圖過程記錄的文件。<br>支持的格式為p
 //※日本語だと、"1日1時間1分1秒"
 //※英語だと、"1day 1hr 1min 1sec"
 
-define('PTIME_D', 'day');//I don't know the format for Chinese.
-define('PTIME_H', 'hr');//Therefore, the items here are in English.
-define('PTIME_M', 'min');
-define('PTIME_S', 'sec');
+define('PTIME_D', '天');
+define('PTIME_H', '小時');
+define('PTIME_M', '分');
+define('PTIME_S', '秒');
 
 //＞が付いた時の書式
 //※RE_STARTとRE_ENDで囲むのでそれを考慮して
