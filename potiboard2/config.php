@@ -213,7 +213,7 @@ define('USE_FONTCOLOR', '0');
 // By php limit, it is allowed up to 2048.
 define('MAX_KB', '1000');
 
-// 顯示圖像的最大尺寸（如果超出限制，它將減少。
+// 顯示圖片的最大尺寸（如果超出限制，它將減少。
 // Maximum display size of posted images.
 // If any size is bigger than these values, the image will be shrinken
 // to the maximum value.
