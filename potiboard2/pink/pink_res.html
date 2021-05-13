@@ -69,7 +69,7 @@
 	<span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/name) %></a></span><% def(oya/url) %><span class="article_info_desc">[<a href="<% echo (oya/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
 	<% def(oya/id) %><span class="article_info_desc">ID:<% echo (oya/id) %></span> <% /def %>
 	<span class="article_info_desc"><% echo (oya/now) %></span>
-	<% def(oya/src) %><% def(oya/painttime) %><span class="article_info_painttime">Paint Time:<% echo (oya/painttime) %></span><% /def %><% /def %>
+	<% def(oya/src) %><% def(oya/painttime) %><span class="article_info_painttime">繪圖時間:<% echo (oya/painttime) %></span><% /def %><% /def %>
 	<% def(oya/updatemark) %><span class="article_info_desc"><% echo (oya/updatemark) %></span> <% /def %>
 	</div>
 	<% def(oya/src) %>
@@ -97,7 +97,7 @@
 // oya/thumb…サムネイルがあるとき true が入る
 -->
 <% /def %>
-<% def(oya/src) %><div class="posted_image" <% if(oya/w,>=,750) %>style="margin-right:0"<% /if %>><% def(oya/thumb) %><a href="<% echo (oya/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/imgsrc) %>" width="<% echo (oya/w) %>" height="<% echo (oya/h) %>" alt="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B)" title="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B) <% def(oya/thumb) %>サムネイル縮小表示<% /def %>"><% def(oya/thumb) %></a><% /def %>
+<% def(oya/src) %><div class="posted_image" <% if(oya/w,>=,750) %>style="margin-right:0;float:none;"<% /if %>><% def(oya/thumb) %><a href="<% echo (oya/src) %>" target="_blank" rel="noopener"><% /def %><img src="<% echo (oya/imgsrc) %>" width="<% echo (oya/w) %>" height="<% echo (oya/h) %>" alt="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B)" title="<% echo (oya/sub) %> by <% echo (oya/name) %> (<% echo (oya/size) %> B) <% def(oya/thumb) %>サムネイル縮小表示<% /def %>"><% def(oya/thumb) %></a><% /def %>
 </div>
   <% /def %><div class="comment"> <% echo (oya/com) %></div>
   <% def(n) %>
@@ -132,7 +132,7 @@
 	<span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/res/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/res/name) %></a></span><% def(oya/res/url) %><span class="article_info_desc">[<a href="<% echo (oya/res/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
 	<% def(oya/res/id) %><span class="article_info_desc">ID:<% echo (oya/res/id) %></span> <% /def %>
 	<span class="article_info_desc"><% echo (oya/res/now) %></span>
-	<% def(oya/res/src) %><% def(oya/res/painttime) %><span class="article_info_painttime">Paint Time:<% echo (oya/res/painttime) %></span><% /def %><% /def %>
+	<% def(oya/res/src) %><% def(oya/res/painttime) %><span class="article_info_painttime">繪圖時間:<% echo (oya/res/painttime) %></span><% /def %><% /def %>
 	<% def(oya/res/updatemark) %><span class="article_info_desc"><% echo (oya/res/updatemark) %></span> <% /def %>
 	</div>
 	<% def(oya/res/src) %>
