@@ -7,7 +7,7 @@
 ぷにゅねっと http://www.punyu.net/php/
 のPOTI-boardをphp7で使えるように改造した
 
-POTI-board改二 v2.6
+POTI-board EVO v2.6
 https://pbbs.sakura.ne.jp/poti/
 
 以降に対応したテンプレートです。
@@ -28,7 +28,7 @@ MONO WHITEと、Cool Solid ( 黒鋼彗牙さん作・ https://draclaw.com )を�
 
 POTI改公式サイト https://pbbs.sakura.ne.jp/poti/
 
-から、POTI-board改二をダウンロードしアップロードします。
+から、POTI-board EVOをダウンロードしアップロードします。
 
 このテーマの以下のファイルがpinkというフォルダに入っています。
 このpinkフォルダをpotiboard.phpと同じディレクトリにアップロードします。
