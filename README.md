@@ -18,6 +18,9 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+### [2021/05/15]v.3.00.1
+- In v3.0, the HTML5 version of the high-performance paint application [ChickenPaint](https://github.com/thenickdude/chickenpaint) is available.  
+The HTML5 version of [PaintBBS NEO](https://github.com/funige/neo/) is still available.  
 ### [2021/05/08]  
 - Update config.php translation  by Minchao.
 ### [2021/05/07]  
