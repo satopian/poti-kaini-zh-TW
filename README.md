@@ -18,6 +18,16 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+### [2021/06/05] v3.01.9 lot.210605
+- Updated to the latest version of "ChickenPaint".  
+If the browser language is other than Japanese, it will be displayed in English. If the browser language is Japanese, it will be displayed in Japanese.
+- Management screen paging Page breaks in units of 2000.  
+Improved paging on the main page and catalog page.  
+Shifted to a method of paging in 35-page units.  
+
+- Addressed the version of CheerpJ where the "shi-painter" does not start.  
+The JavaScript url required to start CheerpJ is managed in potiboard.php.  
+
 ### [2021/05/15]v.3.00.1
 - In v3.0, the HTML5 version of the high-performance paint application [ChickenPaint](https://github.com/thenickdude/chickenpaint) is available.  
 The HTML5 version of [PaintBBS NEO](https://github.com/funige/neo/) is still available.  
