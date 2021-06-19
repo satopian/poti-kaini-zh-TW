@@ -18,6 +18,10 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+### [2021/06/17] v3.02.0 lot.210617
+- Addressed an issue where the Chicken Paint screen would be selected.
+- Prevents returning to the previous screen with Windows ink and two-finger gestures when drawing with PaintBBS NEO and shi-Painter.
+
 ### [2021/06/05] v3.01.9 lot.210605
 - Updated to the latest version of "ChickenPaint".  
 If the browser language is other than Japanese, it will be displayed in English. If the browser language is Japanese, it will be displayed in Japanese.
