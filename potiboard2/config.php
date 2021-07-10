@@ -248,6 +248,10 @@ define('DISP_ID', '0');
 // Automatically transform URLs to links (Yes: 1, No: 0)
 define('AUTOLINK', '1');
 
+//使用 Markdown 語法鏈接 是:1 否:0
+//Use Markdown syntax links (Yes: 1, No: 0)
+defined('MD_LINK') or define('MD_LINK', '0');
+
 // 將名稱作為必填項 是:1 否:0
 // Force new posts to have a NAME (Yes: 1, No: 0)
 define('USE_NAME', '0');
