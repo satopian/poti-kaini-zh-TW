@@ -64,7 +64,7 @@ define('USE_SHI_PAINTER', '1');
 //使用ChickenPaint 是:1 否:0 
 define('USE_CHICKENPAINT', '1');
 //PaintBBS NEOはどの設定でも起動します。
-// PaintBBSNEO 可以從任何設置啟動。
+//PaintBBS NEO 可用於任何設置。
 
 /*----------絶対に設定が必要な項目はここまでです。ここから下は必要に応じて。----------*/
 /* 這樣就完成了基本設置。從這裡開始，根據需要進行設置。 */
