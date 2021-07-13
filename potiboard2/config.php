@@ -59,6 +59,12 @@ define('USE_IMG_UPLOAD','1');
 // 管理員不受此設置的影響。
 define('DENY_COMMENTS_ONLY', '0');
 
+//使用shi-painter 是:1 否:0 
+define('USE_SHI_PAINTER', '1');
+//使用ChickenPaint 是:1 否:0 
+define('USE_CHICKENPAINT', '1');
+//PaintBBS NEOはどの設定でも起動します。
+// PaintBBSNEO 可以從任何設置啟動。
 
 /*----------絶対に設定が必要な項目はここまでです。ここから下は必要に応じて。----------*/
 /* 這樣就完成了基本設置。從這裡開始，根據需要進行設置。 */
@@ -250,7 +256,7 @@ define('AUTOLINK', '1');
 
 //使用 Markdown 語法鏈接 是:1 否:0
 //Use Markdown syntax links (Yes: 1, No: 0)
-defined('MD_LINK') or define('MD_LINK', '0');
+define('MD_LINK', '0');
 
 // 將名稱作為必填項 是:1 否:0
 // Force new posts to have a NAME (Yes: 1, No: 0)
@@ -283,17 +289,8 @@ define('DO_NOT_CHANGE_POSTS_TIME', '0');
 
 /* ---------- お絵かき設定(paint mode settings) ---------- */
 
-// 使用繪圖小程序 用作繪圖板:2 添加到內文留言板並使用:1 不使用繪圖小程序:0
-// USE PAINT
-// To only allow paint mode, set it to '2'. 
-// To allow both paint mode and text mode, set it to '1'
-// To allow text mode only, set it to '0'
-define('USE_PAINT', '2');
-
-// 設置繪圖小程序以使用 PaintBBS:0 shi-Painter:1 同時使用:2
-// Which Applet to use.
-// Possible values are: PaintBBS:'0' Shi-Painter:'1' both:'2'
-define('APPLET', '2');
+// 使用繪圖小程序 用作繪圖板: 1 不使用繪圖小程序:0
+define('USE_PAINT', '1');
 
 // 最大圖紙尺寸（不會大於這個值
 // 寬 和 高 的最小值固定為300。
@@ -583,6 +580,11 @@ define('TOTAL_PAINTTIME', '1');
 // Templates that do not support this setting, set '1'.
 // If supported, set '0' to hide the checkbox of [no_imane].
 define('USE_CHECK_NO_FILE', '0');
+// 設置繪圖小程序以使用 PaintBBS:0 shi-Painter:1 同時使用:2
+// Which Applet to use.
+// Possible values are: PaintBBS:'0' Shi-Painter:'1' both:'2'
+define('APPLET', '2');
+
 
 /* ------------- トラブルシューティング(trouble shooting) ------------- */
 
@@ -615,3 +617,7 @@ define('PERMISSION_FOR_DIR', 0707);//初期値 0707
 // But if it causes problems, set this to '0' (disabled) 
 define('RE_SAMPLED', '1');
 
+//拒絕使用 csrf 令牌的欺詐性帖子：1 否：0
+define('CHECK_CSRF_TOKEN', '1');
+// 您可以拒絕來自外部站點的未經授權的帖子。
+// 但是如果在舊主題中設置為1，就不能投稿了。
