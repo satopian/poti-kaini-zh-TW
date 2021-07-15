@@ -22,6 +22,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
 <link rel="stylesheet" href="<% echo(skindir) %>icomoon/style.css">
+<style>span.canvas_size_wrap {display: inline-block;padding: 8px 0 0;}</style>
+<style id="for_mobile"></style>
+
 <title><% echo (title) %></title>
 <% def(n) %>
 <!--
@@ -31,6 +34,7 @@
 <% /def %>
 <% ========== クッキー読込み用JavaScript(必須) ========== %>
 <script src="loadcookie.js"></script>
+
 </head>
 <body>
 <div id="top"></div>
@@ -46,8 +50,8 @@
 <% def(upfile) %>
 [<a href="<% echo (self) %>?mode=newpost">投稿</a>]
 <% /def %>
-<span class="menu_none">[<a href="<% echo (self) %>?mode=piccom">未投稿的圖片</a>]</span>
-[<a href="<% echo (self) %>?mode=admin">管理</a>]
+[<a href="<% echo (self) %>?mode=piccom">未<span class="menu_none">投稿的圖片</span></a>]
+[<a href="<% echo (self) %>?mode=admin"><span class="menu_none">管</span>理</a>]
 <a href="#bottom">▽</a>
 <% def(n) %>
 <!--
@@ -64,7 +68,6 @@
 <div class="clear"></div>
 <% ========== お絵かきフォーム欄 ========== %>
 <% ========== 実際のお絵かきフォーム ========== %>
-<style id="for_mobile"></style>
 <script>
 	function is_mobile() {
 	if (navigator.maxTouchPoints && ( window.matchMedia && window.matchMedia('(max-width: 769px)').matches))  return true;
@@ -104,7 +107,7 @@ PMAX_H //高さ
 が入ります。
 -->
 <% /def %>
-<span class="nk">
+<span class="canvas_size_wrap">
 	<span class="canvas_size">Size</span>
 <select name="picw" title="寬" class="canvas_select">
 	<?php
@@ -140,7 +143,7 @@ PMAX_H //高さ
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
 	<% /def %>
 
-<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>保存過程</span></label>
+<% def(anime) %><label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" <% echo (animechk) %>>保存過程</label>
 	<% /def %>
 	<% def(n) %>
 	<!--
@@ -429,7 +432,7 @@ PMAX_H //高さ
 <div class="res_button_wrap">
 	<% def(sharebutton) %>
 	<span class="share_button">
-		<a target="_blank" href="https://twitter.com/intent/tweet?text=%5B<% echo(oya/no|urlencode) %>%5D <% echo(oya/sub|urlencode) %> by <% echo(oya/name|urlencode) %> - <% echo(title|urlencode) %>&url=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-twitter"></span>tweet</a>
+		<a target="_blank" href="https://twitter.com/intent/tweet?text=%5B<% echo(oya/no|urlencode) %>%5D%20<% echo(oya/sub|urlencode) %>%20by%20<% echo(oya/name|urlencode) %>%20-%20<% echo(title|urlencode) %>&url=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-twitter"></span>tweet</a>
 		<a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-facebook2"></span>share</a>
 	</span>
 	<% /def %>
