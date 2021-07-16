@@ -12,6 +12,25 @@ This is the traditional Chinese translation version of POTI-board EVO.
   
 ![image](https://user-images.githubusercontent.com/44894014/117331996-480b5700-aed2-11eb-8580-297e4c6268e5.png)  
 
+### [2021/07/16] v3.03.10 lot.210614
+- CSRF measures using fixed tokens have been introduced. You can reject unauthorized posts from outside the site.  
+If the theme HTML does not support tokens  
+`define('CHECK_CSRF_TOKEN', '1');`  
+To
+Change to   
+`define('CHECK_CSRF_TOKEN', '0');`.
+If you enable this setting when the theme is not supported, you will not be able to post.
+If this setting is not present in `config.php`  
+`define('CHECK_CSRF_TOKEN', '0');`  
+Is treated the same as.
+- Moved to the method of checking HTML at the time of output.  
+Administrators can no longer use HTML tags.  
+HTML tags that have already been entered will be deleted.  
+The output is the HTML tags removed and escaped.  
+- The form on the top page and the mini-less form displayed in each thread have been abolished.  
+This is because you cannot set the CSRF token in a static HTML file.  
+- ChickenPaint is now available on your smartphone.  
+
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
 The HTML of the template uses Japanese, so we need to translate it.  
