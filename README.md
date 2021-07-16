@@ -19,7 +19,7 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-### [2021/07/16] v3.03.10 lot.210614
+### [2021/07/16] v3.03.10 lot.210714
 - CSRF measures using fixed tokens have been introduced. You can reject unauthorized posts from outside the site.  
 If the theme HTML does not support tokens  
 `define('CHECK_CSRF_TOKEN', '1');`  
