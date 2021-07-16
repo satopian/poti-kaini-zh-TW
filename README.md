@@ -12,6 +12,13 @@ This is the traditional Chinese translation version of POTI-board EVO.
   
 ![image](https://user-images.githubusercontent.com/44894014/117331996-480b5700-aed2-11eb-8580-297e4c6268e5.png)  
 
+### Overview of required work.
+There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
+The HTML of the template uses Japanese, so we need to translate it.  
+We also need to translate the external search programs `search.php` and `search.html`.    
+However, potiboard.php externalizes all language settings, so no changes are needed.  
+Translation of `config.php`. We need to translate the description of the settings.    
+
 ### [2021/07/16] v3.03.10 lot.210614
 - CSRF measures using fixed tokens have been introduced. You can reject unauthorized posts from outside the site.  
 If the theme HTML does not support tokens  
@@ -31,12 +38,7 @@ The output is the HTML tags removed and escaped.
 This is because you cannot set the CSRF token in a static HTML file.  
 - ChickenPaint is now available on your smartphone.  
 
-### Overview of required work.
-There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
-The HTML of the template uses Japanese, so we need to translate it.  
-We also need to translate the external search programs `search.php` and `search.html`.    
-However, potiboard.php externalizes all language settings, so no changes are needed.  
-Translation of `config.php`. We need to translate the description of the settings.    
+
 ### [2021/06/17] v3.02.0 lot.210617
 - Addressed an issue where the Chicken Paint screen would be selected.
 - Prevents returning to the previous screen with Windows ink and two-finger gestures when drawing with PaintBBS NEO and shi-Painter.
