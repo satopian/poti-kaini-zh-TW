@@ -18,6 +18,27 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+
+### [2021/07/16] v3.03.10 lot.210714
+- CSRF measures using fixed tokens have been introduced. You can reject unauthorized posts from outside the site.  
+If the theme HTML does not support tokens  
+`define('CHECK_CSRF_TOKEN', '1');`  
+To
+Change to   
+`define('CHECK_CSRF_TOKEN', '0');`.
+If you enable this setting when the theme is not supported, you will not be able to post.
+If this setting is not present in `config.php`  
+`define('CHECK_CSRF_TOKEN', '0');`  
+Is treated the same as.
+- Moved to the method of checking HTML at the time of output.  
+Administrators can no longer use HTML tags.  
+HTML tags that have already been entered will be deleted.  
+The output is the HTML tags removed and escaped.  
+- The form on the top page and the mini-less form displayed in each thread have been abolished.  
+This is because you cannot set the CSRF token in a static HTML file.  
+- ChickenPaint is now available on your smartphone.  
+
+
 ### [2021/06/17] v3.02.0 lot.210617
 - Addressed an issue where the Chicken Paint screen would be selected.
 - Prevents returning to the previous screen with Windows ink and two-finger gestures when drawing with PaintBBS NEO and shi-Painter.
