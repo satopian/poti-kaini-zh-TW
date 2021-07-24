@@ -19,7 +19,7 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-### [2021/07/17] v3.05.0 lot.210616
+### [2021/07/18] v3.05.1 lot.210616
 - CSRF measures using fixed tokens have been introduced. You can reject unauthorized posts from outside the site.  
 If the theme HTML does not support tokens  
 `define('CHECK_CSRF_TOKEN', '1');`  
@@ -39,7 +39,7 @@ This is because you cannot set the CSRF token in a static HTML file.
 - ChickenPaint is now available on your smartphone.  
 
 More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.05.0](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.0)
+[Release POTI-board EVO zh-TW v3.05.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.1)
 
 ### [2021/06/17] v3.02.0 lot.210617
 - Addressed an issue where the Chicken Paint screen would be selected.
