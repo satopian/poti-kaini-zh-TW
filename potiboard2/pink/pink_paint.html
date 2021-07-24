@@ -21,19 +21,6 @@
 <% def(pch_mode) %><meta name="viewport" content="width=device-width,initial-scale=1.0"><% /def %>
 <% def(continue_mode) %><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0"><% /def %>
 <link rel="stylesheet" type="text/css" href="<% echo(skindir) %>pink.css">
-<style>
-	div#chickenpaint-parent {
-		letter-spacing: initial;word-break:initial;
-	}
-	div#chickenpaint-parent :not(input){
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
-	li{margin:0 0 0 1em;}
-</style> 
-	
 <title><% def(paint_mode) %>繪圖模式<% /def %><% def(continue_mode) %>續繪<% /def %><% def(pch_mode) %>過程顯示模式<% /def %> - <% echo(title) %></title>
 <% def(n) %>
 <!-- 
@@ -42,12 +29,26 @@
 -->
 <% /def %>
 <% def(chickenpaint)%>
-<script type="text/javascript">
-	/* Check for native pointer event support before PEP adds its polyfill */
-	if (window.PointerEvent) {
-		window.hasNativePointerEvents = true;
+<style>
+	div#chickenpaint-parent {
+		letter-spacing: initial;word-break:initial;
 	}
-
+	div#chickenpaint-parent :not(input){
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+</style> 
+<script>
+	var lastTouchEnd = 0;
+	document.addEventListener('touchend', function (event) {
+	var now = (new Date()).getTime();
+	if (now - lastTouchEnd <= 300) {
+	event.preventDefault();
+	}
+	lastTouchEnd = now;
+	}, false);
 </script>
 
 <script src="chickenpaint/js/chickenpaint.min.js<% def(parameter_day) %>?<% echo(parameter_day)%><% /def %>"></script>
@@ -96,11 +97,11 @@
 <style id="for_mobile"></style>
 </head>
 <body>
+	
+	<% def(paint_mode) %>
+	<% def(chickenpaint)%>
+	<% elsedef %>
 <header>
-
-<% def(paint_mode) %>
-<% def(chickenpaint)%>
-<% elsedef %>
 <h1 style= "min-width:calc(<% echo(w) %>px + 176px)" id="bbs_title">繪圖模式 - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <% /def %>
 
