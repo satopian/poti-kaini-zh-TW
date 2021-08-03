@@ -31,15 +31,23 @@
 <% def(chickenpaint)%>
 <style>
 	div#chickenpaint-parent {
-		letter-spacing: initial;word-break:initial;
+		letter-spacing: initial;
+		word-break:initial;
 	}
-	div#chickenpaint-parent :not(input){
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	li{margin:0 0 0 1em;}
+	:not(input),div#chickenpaint-parent :not(input){
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
-</style> 
+</style>
+<script>
+	function load() {
+	document.addEventListener("dblclick", function(e){ e.preventDefault();}, { passive: false });
+	}
+	window.onload = load;
+</script>
 
 <script src="chickenpaint/js/chickenpaint.min.js<% def(parameter_day) %>?<% echo(parameter_day)%><% /def %>"></script>
 
