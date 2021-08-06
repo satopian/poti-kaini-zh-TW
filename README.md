@@ -23,7 +23,7 @@ Translation of `config.php`. We need to translate the description of the setting
 You can now recognize your palm and Apple Pencil. Until now, unintended straight lines have occurred.  
 
 More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.05.2.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.2.1)
+[Release POTI-board EVO zh-TW v3.05.2.2](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.2.2)
 
 ### [2021/08/03] v3.05.2 lot.210803
 - Resolved an issue where using ChickenPaint on an iPad would cause unintended double-tap zoom issues that would make drawing difficult.  
