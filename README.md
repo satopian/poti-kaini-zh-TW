@@ -18,7 +18,7 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
-### [2021/08/03] v3.05.2.1
+### [2021/08/06] v3.05.2.2
 - ChickenPaint has been updated to fix many iOS related bugs. Bugs related to palm rejection have been resolved.  
 You can now recognize your palm and Apple Pencil. Until now, unintended straight lines have occurred.  
 
