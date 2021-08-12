@@ -18,6 +18,16 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+### [2021/08/11] v3.05.3 lot.210811
+- Added decoding process because Tweet and notification emails are HTML-escaped garbled characters.
+- Added output variables corresponding to the title and name used for Tweet.
+#### Information for theme authors
+`<% def(oya/share_sub)><% echo(oya/share_sub) %><% else %><% echo(oya/sub|urlencode) %><% /def %>`    
+`<% def(oya/share_name)><% echo(oya/share_name) %><% else %><% echo(oya/name|urlencode) %><% /def %>`  
+If the version of the POTI board itself is low and the newly added variables are undefined, use the variables for the old Tweet.  
+When a newly added variable is defined.  
+Use a new variable.  
+
 ### [2021/08/06] v3.05.2.2
 - ChickenPaint has been updated to fix many iOS related bugs. Bugs related to palm rejection have been resolved.  
 You can now recognize your palm and Apple Pencil. Until now, unintended straight lines have occurred.  
