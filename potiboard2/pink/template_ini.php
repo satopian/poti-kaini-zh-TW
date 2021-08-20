@@ -34,7 +34,7 @@ define('MSG002', "您尚未選擇圖片，您必須上傳圖片。");
 define('MSG003', "上傳失敗<br>服務器可能不支持它");
 define('MSG004', "上傳失敗<br>僅可以附加圖片文件");
 define('MSG005', "上傳失敗<br>圖片已存在");
-define('MSG006', "請不要違規投稿。<br>不接受 POST 方法以外的投稿。");
+define('MSG006', "請不要違規投稿。");
 define('MSG007', "圖片不存在");
 define('MSG008', "請寫點東西");
 define('MSG009', "請輸入你的名字");
@@ -71,7 +71,7 @@ define('MSG041', "不存在");
 define('MSG042', "無法讀取");
 define('MSG043', "無法寫入");
 define('MSG044', "未設定 MAX LOG，或者它包含非數字字串。");
-define('MSG045', "請上傳繪圖過程記錄的檔案。<br>支持的格式為 pch 和 spch。");
+define('MSG045', "請上傳繪圖應用程序的檔案<br>支持的格式有 pch、spch 和 chi");
 
 
 /* ---------- ADD:2004/02/03 ---------- */
