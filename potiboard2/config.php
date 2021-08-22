@@ -296,8 +296,8 @@ define('USE_PAINT', '1');
 // 寬 和 高 的最小值固定為300。
 // Maximum drawing dimensions. Drawings can't be bigger
 // than the vaules specified here for each dimension.
-define('PMAX_W', '700');	//寬 (width)
-define('PMAX_H', '700');	//高 (height)
+define('PMAX_W', '800');	//寬 (width)
+define('PMAX_H', '800');	//高 (height)
 
 // 繪圖時的默認尺寸
 // paint mode default size
