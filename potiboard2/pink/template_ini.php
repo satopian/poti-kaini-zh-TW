@@ -71,7 +71,7 @@ define('MSG041', "不存在");
 define('MSG042', "無法讀取");
 define('MSG043', "無法寫入");
 define('MSG044', "未設定 MAX LOG，或者它包含非數字字串。");
-define('MSG045', "請上傳繪圖應用程序的檔案<br>支持的格式有 pch、spch 和 chi");
+define('MSG045', "將上傳的檔案加載到畫布上的能力不支持此檔案。<br>支持的格式有 pch、spch 和 chi");
 
 
 /* ---------- ADD:2004/02/03 ---------- */
