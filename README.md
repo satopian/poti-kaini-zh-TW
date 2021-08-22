@@ -27,6 +27,21 @@ Translation of `config.php`. We need to translate the description of the setting
 If the version of the POTI board itself is low and the newly added variables are undefined, use the variables for the old Tweet.  
 When a newly added variable is defined.  
 Use a new variable.  
+### [2021/08/22] v3.06.8 lot.210822
+
+- The chickenpaint icon has been updated
+
+- Fix garbled characters  
+Fixed the problem that the character string posted on the Twitter screen when the Tweet button was pressed was garbled.  
+Fixed garbled characters in post notification emails.  
+- Administrator deletion screen  
+Improved security. Strengthened XSS measures.  
+Changed the number of items displayed on one page from 2000 to 1000.
+- Fixed error message  
+"chi" has been added to the description of supported formats because you can use "chi" files for the ability to upload files and load them onto the canvas.
+
+More information can be found in the release.  
+[Release POTI-board EVO zh-TW v3.06.8](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.06.8)
 
 ### [2021/08/06] v3.05.2.2
 - ChickenPaint has been updated to fix many iOS related bugs. Bugs related to palm rejection have been resolved.  
