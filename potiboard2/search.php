@@ -1,6 +1,6 @@
 <?php
 //POTI-board plugin search(C)2020-2021 さとぴあ(@satopian)
-//v1.7.0 lot.210710
+//v1.7.1 lot.210825
 //
 //https://pbbs.sakura.ne.jp/
 //フリーウェアですが著作権は放棄しません。
@@ -31,6 +31,7 @@ $max_search=120;
 
 //更新履歴
 
+//v1.7.1 2021.08.25 ツリーの照合方式を変更。config.phpで設定したタイムゾーンが反映されるようにした。
 //v1.7.0 2021.07.07 v3.03.1 対応。マークダウン記法による自動リンクの文字部分だけを表示。出力時のエスケープ処理追加。
 //v1.6.9 2021.03.10 ２重エンコードにならないようにした。
 //v1.6.8 2021.03.10 未定義エラーを修正。
@@ -63,7 +64,8 @@ defined('SKIN_DIR') or define('SKIN_DIR','theme/');//config.php で未定義な�
 $dat['skindir']=SKIN_DIR;
 
 //タイムゾーン
-date_default_timezone_set('Asia/Tokyo');
+defined('DEFAULT_TIMEZONE') or define('DEFAULT_TIMEZONE','Asia/Tokyo');
+date_default_timezone_set(DEFAULT_TIMEZONE);
 
 //マークダウン記法のリンクをHTMLに する:1 しない:0
 defined('MD_LINK') or define('MD_LINK', '0');
@@ -90,12 +92,23 @@ else{
 
 //ログの読み込み
 $i=0;$j=0;
-$arr=array();
-// $files=array();
+$arr=[];
 $tree=file(TREEFILE);
+$oya = [];
+foreach ($tree as $line) {
+	$tree_nos = explode(',', trim($line));
+	foreach ($tree_nos as $tree_no) {
+		$oya[$tree_no] = $tree_nos[0]; //キーにres no、値にoya no
+	}
+}
+
 $fp = fopen(LOGFILE, "r");
 while ($line = fgets($fp)) {
 	list($no,,$name,,$sub,$com,,,,$ext,,,$time,,,) = explode(",", $line);
+	if(!isset($oya[$no])){
+		continue;
+	}
+
 	$continue_to_search=true;
 	if($imgsearch){//画像検索の場合
 		$continue_to_search=($ext&&is_file(IMG_DIR.$time.$ext));//画像があったら
@@ -124,19 +137,10 @@ while ($line = fgets($fp)) {
 				$query!==''&&($radio===2&&$s_name===$query)//作者名完全一致
 		){
 			$link='';
-			foreach($tree as $treeline){
-				$treeline=','.rtrim($treeline).',';//行の両端にコンマを追加
-				if(strpos($treeline,','.$no.',')!==false){
-					$treenos=explode(",",$treeline);
-					$no=$treenos[1];//スレッドの親
-						$link=PHP_SELF.'?res='.$no;
-						$arr[]=compact('no','name','sub','com','ext','time','link');
-						++$i;
-					break;
-				}
-			}
-				
-	}
+			$link=PHP_SELF.'?res='.$oya[$no];
+			$arr[]=compact('no','name','sub','com','ext','time','link');
+			++$i;
+		}
 			if($i>=$max_search){break;}//1掲示板あたりの最大検索数
 		
 	}
@@ -167,7 +171,6 @@ if($arr){
 			$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
 			$sub=h(strip_tags($sub));
 			$com=str_replace('<br />',' ',$com);
-			$com=strip_tags($com);
 			if(MD_LINK){
 				$com= preg_replace("{\[([^\[\]\(\)]+?)\]\((https?://[[:alnum:]\+\$\;\?\.%,!#~*/:@&=_-]+)\)}","\\1",$com);
 			}
@@ -199,7 +202,7 @@ else{
 }
 
 //クエリを検索窓に入ったままにする
-$dat['query']=$query;
+$dat['query']=h($query);
 //ラジオボタンのチェック
 $dat['radio_chk1']='';//作者名
 $dat['radio_chk2']='';//完全一致
@@ -223,7 +226,7 @@ else{//作者名
 }
 $dat['query_l']=$query_l;
 
-$dat['page']=$page;
+$dat['page']=(int)$page;
 
 $dat['img_or_com']=$img_or_com;
 $dat['pageno']='';
