@@ -96,17 +96,15 @@
 <style id="for_mobile"></style>
 </head>
 <body>
-	
+	<header>
 	<% def(paint_mode) %>
 	<% def(chickenpaint)%>
 	<% elsedef %>
-<header>
 <h1 style= "min-width:calc(<% echo(w) %>px + 176px)" id="bbs_title">繪圖模式 - <span class="title_name_wrap"><% echo(title) %></span></h1>
 <% /def %>
 
 <% elsedef %>
 <h1 id="bbs_title"><% def(continue_mode) %>續繪<% /def %><% def(pch_mode) %>過程顯示模式<% /def %> - <span class="title_name_wrap"><% echo(title) %></span></h1><% /def %>
-<% def(paint_mode) %>
 <% ========== お絵かきモード ========== %>
 <% def(n) %>
 <!-- 
@@ -160,7 +158,6 @@
 // mode2…現在のモード
 -->
 <% /def %>
-
 <% def(paint_mode) %>
 <% def(chickenpaint)%>
 
@@ -321,7 +318,7 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <option>暫存的調色盤</option>
 <% def(dynp) %>
 <% echo (dynp) %>
-<% /def %><% /def %>
+<% /def %>
 <% /def %>
 <% def(chickenpaint)%>
 <% elsedef %>
