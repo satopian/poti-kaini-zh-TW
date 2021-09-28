@@ -35,10 +35,6 @@ When editing or deleting an article, if you enter the article number and press t
 To avoid this problem, I created a separate input field hidden by CSS.
 This makes it easier to save passwords that use your name as your username.
 
-
-What you can see for a moment in this GIF video is the hidden input field.
-For the sake of explanation, the CSS is switched so that it can be seen.
-
 More information can be found in the release.  
 [Release POTI-board EVO v3.07.5 released · satopian/poti-kaini-zh-TW](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.07.5)
 
