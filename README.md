@@ -18,6 +18,26 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+
+### [2021/09/28] v3.07.5
+
+#### Minor bug fixes
+ - Fixed the problem that the Paint BBS menu was displayed strangely when the browser language was other than Japanese.
+
+ - Fixed the processing specification that determines whether to start the drawing time calculation.
+ - Even if an error occurs during the posting process, you can repost the drawing image from the unposted image. Moved work file deletion to almost the end of the post process. Previously, if an error occurred in the second half of the posting process, the posted illustration would remain on the server but could not be displayed on the bulletin board.
+
+#### Improved auto-complete for Chrome and Firefox
+
+When editing or deleting an article, if you enter the article number and press the edit button, the password may be saved as a set with the user name as the article number.
+
+
+To avoid this problem, I created a separate input field hidden by CSS.
+This makes it easier to save passwords that use your name as your username.
+
+More information can be found in the release.  
+[Release POTI-board EVO v3.07.5 released · satopian/poti-kaini-zh-TW](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.07.5)
+
 ### [2021/08/11] v3.05.3 lot.210811
 - Added decoding process because Tweet and notification emails are HTML-escaped garbled characters.
 - Added output variables corresponding to the title and name used for Tweet.
