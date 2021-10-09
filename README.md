@@ -19,6 +19,13 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+### [2021/09/28] v3.08.1
+#### bug fixes
+- Fixed an issue where the submit button was not enabled when using the browser's "History Back" or error screen "Back" links.  
+More information can be found in the release.  
+[Release POTI-board EVO zh-TW v3.08.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.08.1)
+
+
 ### [2021/09/28] v3.07.5
 
 #### Minor bug fixes
