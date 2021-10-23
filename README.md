@@ -6,7 +6,7 @@ This is the traditional Chinese translation version of POTI-board EVO.
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
 
 ###
-[繪圖留言板](https://pbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
+[繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
   
 ###
   
