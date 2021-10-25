@@ -1,7 +1,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
            POTI-board用テンプレート「PINK」
-                 by さとぴあ ( https://pbbs.sakura.ne.jp/ )
+                 by さとぴあ ( https://paintbbs.sakura.ne.jp/ )
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ぷにゅねっと http://www.punyu.net/php/
