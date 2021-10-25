@@ -8,7 +8,7 @@
 のPOTI-boardをphp7で使えるように改造した
 
 POTI-board EVO v2.6
-https://pbbs.sakura.ne.jp/poti/
+https://paintbbs.sakura.ne.jp/poti/
 
 以降に対応したテンプレートです。
 
@@ -26,7 +26,7 @@ MONO WHITEと、Cool Solid ( 黒鋼彗牙さん作・ https://draclaw.com )を�
 
 ■アップロード
 
-POTI改公式サイト https://pbbs.sakura.ne.jp/poti/
+POTI改公式サイト https://paintbbs.sakura.ne.jp/poti/
 
 から、POTI-board EVOをダウンロードしアップロードします。
 

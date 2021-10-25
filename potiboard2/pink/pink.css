@@ -562,7 +562,7 @@ input.pch_upload {
 }
 
 .pagelink_prev a {
-	padding-left: 14px;
+	/* padding-left: 14px; */
 }
 
 .pagelink_top {
@@ -580,7 +580,7 @@ input.pch_upload {
 }
 
 .pagelink_next a {
-	padding-right: 14px;
+	/* padding-right: 14px; */
 }
 
 /* 記事メンテナンス */
