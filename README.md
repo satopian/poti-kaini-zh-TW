@@ -19,6 +19,16 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2021/10/30] v3.10.0 Fixed a serious bug
+
+- A serious flaw was found in all previous versions of POTI-board.
+The url length was not checked. Please upgrade to the latest version as soon as possible.  
+For those who are using POTI-board v2.  
+You cannot use all the functions of v3 system just by replacing `potiboard.php`, but you can deal with this problem.  
+
+Please update `potiboard.php` by overwriting.
+
+
 ### [2021/10/27] v3.09.5
 
 - To prevent the use of weak passwords, an error message will be displayed when the password is 5 characters or less. The error message is "Password is too short. At least 6 characters."
