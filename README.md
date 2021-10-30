@@ -19,6 +19,15 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2021/10/31] v3.10.1 
+- Added password length check. 
+
+Moved the length check of each input item to the first half of the process.
+Fixed a minor error that occurred when displaying the management screen.
+The file needed to fix this issue is potiboard.php.
+Please update `potiboard.php` by overwriting.
+
+
 ## [2021/10/30] v3.10.0 Fixed a serious bug
 
 - A serious flaw was found in all previous versions of POTI-board.
