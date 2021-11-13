@@ -49,6 +49,10 @@ Please update `potiboard.php`.
 
 Please update `picpost.php` and `save.php`.
 
+More information can be found in the release.  
+
+[Release POTI-board EVO zh-TW v3.12.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.12.2)
+
 
 ## [2021/10/31] v3.10.1 
 - Added password length check. 
