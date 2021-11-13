@@ -9,10 +9,10 @@ This is the traditional Chinese translation version of POTI-board EVO.
 [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 
 ## Serious bugs in older versions
-- POTI-board prior to v2.26.0 is vulnerable to XSS.
+- POTI-board prior to v2.26.0 is vulnerable to XSS.  
 Malicious JavaScript can be executed.
 
-- All versions of POTI-board prior to v3.09.5 have a serious bug.  
+- All versions of POTI-board prior to v3.09.5 have a serious bug.    
 You may lose all log files.
 
 Please update `potiboard.php` with v3.10.1 or later by overwriting.
