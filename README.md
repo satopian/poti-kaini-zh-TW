@@ -7,6 +7,17 @@ This is the traditional Chinese translation version of POTI-board EVO.
 
 ###
 [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
+
+## Serious bugs in older versions
+- POTI-board prior to v2.26.0 is vulnerable to XSS.  
+Malicious JavaScript can be executed.
+
+- All versions of POTI-board prior to v3.09.5 have a serious bug.    
+You may lose all log files.
+
+Please update `potiboard.php` with v3.10.1 or later by overwriting.
+For those who are using the old version v2.x system.
+Please update `potiboard.php` by overwriting. Overwriting updates to `potiboard.php` alone can address the above two major issues.
   
 ###
   
@@ -19,6 +30,30 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2021/11/08] v3.12.2
+
+### `potiboard.php` updates
+
+- Fixed the calculation method of the width and height of the thumbnail image and the width and height of the HTML image when drawing the continuation.
+The setting value of connfig.php is set as the maximum value and the calculation is restarted from the beginning.
+In ChickenPaint, you can change the height and width of the image by rotating it, but until now, the size of the thumbnail image became smaller each time it was rotated.
+- The actual canvas size is now set in the cookie. Previously, the value entered by the user was set as is. Since there is a maximum value for the canvas size, for example, when the maximum is 800px, even if you enter 8000px, the actual canvas size that opens is 800px.
+Previously, the cookie was set to 8000px even in such cases.
+- An error is now returned when a file name with an invalid length is entered.
+- Checks the length of the reply number and returns an error if the length is incorrect.
+- Fixed the specification that the full text of the parent's comment is displayed in the description of the article displayed on the reply screen, and now omits 300 bytes or more.
+
+Please update `potiboard.php`.
+### `picpost.php` and `save.php` updates
+- In order to mitigate unauthorized posting from external sites, the usercode set in the usercode and cookie during post processing is now checked.
+
+Please update `picpost.php` and `save.php`.
+
+More information can be found in the release.  
+
+[Release POTI-board EVO zh-TW v3.12.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.12.2)
+
+
 ## [2021/10/31] v3.10.1 
 - Added password length check. 
 - Moved the length check of each input item to the first half of the process.
@@ -30,8 +65,9 @@ Please update `potiboard.php` by overwriting.
 
 ## [2021/10/30] v3.10.0 Fixed a serious bug
 
-- A serious flaw was found in all previous versions of POTI-board.
-The url length was not checked. Please upgrade to the latest version as soon as possible.  
+- All versions of POTI-board prior to v3.09.5 have a serious bug.
+You may lose all log files.
+
 For those who are using POTI-board v2.  
 You cannot use all the functions of v3 system just by replacing `potiboard.php`, but you can deal with this problem.  
 
