@@ -42,7 +42,7 @@ Previously it was a fatal PHP error.
 If you select a rectangle to perform a copy and layer combination operation, the pen may protrude slightly from the canvas.  
 At this time, the PaintBBS NEO's canvas may move up and down.  
 Occurs when using Windows ink or Apple Pencil.  
-When a screen width wider than the iPad is detected, the screen does not move even if I swipe the NEO canvas with a mesh.  
+If a screen width wider than the iPad is detected, the screen will not move even if you swipe the mesh part around the canvas of PaintBBSNEO.  
 When using a smartphone, the operation is the same as before. This is because if you can't pinch out and swipe to enlarge the canvas, you won't be able to work.  
 
 Please update `pink_paint.html` to resolve these issues.
