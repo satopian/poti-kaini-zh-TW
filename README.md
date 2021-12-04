@@ -50,6 +50,7 @@ Please update `pink_paint.html` to resolve these issues.
 - picpost.php
 Fixed an issue where the error message for automatic switching between Japanese and English was not compatible with `ja-jp` on the iPad.
 Previously, an English error message was displayed when an error occurred on an iPad or a device that returned `ja-jp`.
+
 More information can be found in the release.
 
 [Release POTI-board EVO zh-TW v3.15.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.15.3)
