@@ -54,6 +54,14 @@ More information can be found in the release.
 
 [Release POTI-board EVO zh-TW v3.15.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.15.3)
 
+## [2021/11/23] v3.15.2
+### Updated contents of `potiboard.php`
+
+- Chi file deletion process after upload painting
+I added it because there was no process to delete the chi file after uploading the ChickenPaint-specific file and the chi format file and loading it on the canvas in the administrator's post.
+This fix removes it from the temporary directory 5 minutes after uploading. Prior to this fix, files that were no longer needed were deleted after a few days.
+- The HTML ALT for images has been fixed. The HTML translation of the theme has been improved.
+
 ## [2021/11/08] v3.12.2
 
 ### `potiboard.php` updates
