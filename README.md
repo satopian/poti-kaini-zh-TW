@@ -36,7 +36,7 @@ Translation of `config.php`. We need to translate the description of the setting
 Even if the PHP version is PHP5.3 or lower, an error message will be displayed indicating that it will not work because the PHP version is low.  
 Previously it was a fatal PHP error.  
 
-- Fixed an issue where holding down the ChickenPaint's palette with the pen would open an unwanted mouse right-click menu.
+- Fixed an issue where longpress the ChickenPaint's palette with the pen would open an unwanted mouse right-click menu.
 
 - Fixed an issue where the screen would move up and down when copying and layer merging with PaintBBS NEO.  
 If you select a rectangle to perform a copy and layer combination operation, the pen may protrude slightly from the canvas.  
@@ -48,7 +48,8 @@ When using a smartphone, the operation is the same as before. This is because if
 Please update `pink_paint.html` to resolve these issues.
 
 - picpost.php
-Fixed language false positives for error messages. 
+Fixed false positives for languages.
+
 More information can be found in the release.  
 
 [Release POTI-board EVO zh-TW v3.15.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.15.3)
