@@ -32,26 +32,24 @@ Translation of `config.php`. We need to translate the description of the setting
 
 ## [2021/12/04] v3.15.3
 
-- Updated index.php required for new installations.
-Even if the PHP version is PHP5.3 or lower, an error message will be displayed indicating that it will not work because the PHP version is low.
-Previously it was a fatal PHP error.
+- Updated index.php required for new installations.  
+Even if the PHP version is PHP5.3 or lower, an error message will be displayed indicating that it will not work because the PHP version is low.  
+Previously it was a fatal PHP error.  
 
 - Fixed an issue where holding down the ChickenPaint's palette with the pen would open an unwanted mouse right-click menu.
 
-- Fixed an issue where the screen would move up and down when copying and layer merging with PaintBBS NEO.
-If you select a rectangle to perform a copy and layer combination operation, the pen may protrude slightly from the canvas.
-At this time, the NEO canvas may move up and down.
-Occurs when using Windows ink or Apple Pencil.
-When a screen width wider than the iPad is detected, the screen does not move even if I swipe the NEO canvas with a mesh.
-When using a smartphone, the operation is the same as before. This is because if you can't pinch out and swipe to enlarge the canvas, you won't be able to work.
+- Fixed an issue where the screen would move up and down when copying and layer merging with PaintBBS NEO.  
+If you select a rectangle to perform a copy and layer combination operation, the pen may protrude slightly from the canvas.  
+At this time, the PaintBBS NEO's canvas may move up and down.  
+Occurs when using Windows ink or Apple Pencil.  
+When a screen width wider than the iPad is detected, the screen does not move even if I swipe the NEO canvas with a mesh.  
+When using a smartphone, the operation is the same as before. This is because if you can't pinch out and swipe to enlarge the canvas, you won't be able to work.  
 
 Please update `pink_paint.html` to resolve these issues.
 
 - picpost.php
-Fixed an issue where the error message for automatic switching between Japanese and English was not compatible with `ja-jp` on the iPad.
-Previously, an English error message was displayed when an error occurred on an iPad or a device that returned `ja-jp`.
-
-More information can be found in the release.
+Fixed language false positives for error messages. 
+More information can be found in the release.  
 
 [Release POTI-board EVO zh-TW v3.15.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.15.3)
 
