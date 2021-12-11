@@ -356,6 +356,11 @@ define('USE_CONTINUE', '1');
 // However, anyone will be able to continue with a drawing when the mode is set to '0'.
 define('CONTINUE_PASS', '0');
 
+// When continuing from the reply image, even if it is'new post', it will be a reply to the current thread.
+// 當從回复圖片繼續繪圖時，即使是“新投稿”，也會是對當前線程的回复。
+// 是:1 否:0
+define('RES_CONTINUE_IN_CURRENT_THREAD', '1');
+
 /* ---------- 從這裡開始通常是不變的 ---------- */
 
 // 如果您確實需要更改它，請使用Google翻譯。
