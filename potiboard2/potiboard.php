@@ -6,8 +6,8 @@ define('USE_DUMP_FOR_DEBUG','0');
 
 // POTI-board EVO
 // バージョン :
-define('POTI_VER','v3.16.5');
-define('POTI_LOT','lot.211212'); 
+define('POTI_VER','v3.16.7');
+define('POTI_LOT','lot.211215'); 
 
 /*
   (C) 2018-2021 POTI改 POTI-board redevelopment team
@@ -598,9 +598,8 @@ function updatelog(){
 		$logfilename = ($page === 0) ? PHP_SELF2 : ($page / PAGE_DEF) . PHP_EXT;
 
 		$fp = fopen($logfilename, "w");
-		set_file_buffer($fp, 0);
 		flock($fp, LOCK_EX); //*
-		fwrite($fp, $buf);
+		writeFile($fp, $buf);
 		closeFile($fp);
 		if(PHP_EXT!='.php'){chmod($logfilename,PERMISSION_FOR_DEST);}
 	}
@@ -630,15 +629,9 @@ function res($resno = 0){
 	}
 
 	$_line = $line[$lineindex[$resno]];
-
-	$dat = form($resno);
-
 	$res = create_res($_line, ['pch' => 1]);
 
-	if(!check_elapsed_days($res['time'])){//レスフォームの表示有無
-		$dat['form'] = false;//フォームを閉じる
-		$dat['paintform'] = false;
-	}
+	$dat = form($resno);
 
 	// レスフォーム用
 	$resub = USE_RESUB ? 'Re: ' . $res['sub'] : '';
@@ -663,12 +656,12 @@ function res($resno = 0){
 		if(!isset($lineindex[$disptree])) continue;
 		$j=$lineindex[$disptree];
 
-		$res = create_res($line[$j], ['pch' => 1]);
-		$rres[0][] = $res;
+		$_res = create_res($line[$j], ['pch' => 1]);
+		$rres[0][] = $_res;
 
 		// 投稿者名を配列にいれる
-		if ($oyaname != $res['name'] && !in_array($res['name'], $rresname)) { // 重複チェックと親投稿者除外
-			$rresname[] = $res['name'];
+		if ($oyaname != $_res['name'] && !in_array($_res['name'], $rresname)) { // 重複チェックと親投稿者除外
+			$rresname[] = $_res['name'];
 		}
 	}
 
@@ -677,6 +670,13 @@ function res($resno = 0){
 		$dat['resname'] = $rresname ? implode(HONORIFIC_SUFFIX.' ',$rresname) : false; // レス投稿者一覧
 		$dat['oya'][0]['res'] = $rres[0];
 	}
+
+	if(!check_elapsed_days($res['time'])){//親の値
+		$dat['form'] = false;//フォームを閉じる
+		$dat['paintform'] = false;
+		$dat['resname'] = false;//投稿者名をコピーを閉じる
+	}
+
 	//前のスレッド、次のスレッド
 	$n=$i+1;
 	$p=$i-1;
@@ -1772,7 +1772,7 @@ function paintcom(){
 	$dat['post_mode'] = true;
 	$dat['regist'] = true;
 	$dat['ipcheck'] = true;//常にtrue
-	if(count($tmp)==0){
+	if(empty($tmp)){
 		$dat['notmp'] = true;
 		$dat['pictmp'] = 1;
 	}else{
