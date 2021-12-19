@@ -447,25 +447,29 @@ PMAX_H //高さ
 
 <% ========== 親記事グループここまで ========== %>
 <footer>
-<% ========== メイン時ページング表示 ========== %>
-<nav>
-<div id="paging_wrap"><% echo (paging) %></div>
-<div class="pagelink">
-<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
-</div>
-<div class="pagelink_top"><a href="<% echo (self2) %>">留言板頂部</a></div>
-<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
-</div></nav>
-<% def(n) %>
-<!--
-// prev…前ページURL
-// paging…ページングデータ
-// next…次ページURL
--->
-<% /def %>
+
+	<% ========== メイン時ページング表示 ========== %>
+	<nav>
+		<div id="paging_wrap"><% echo (paging) %></div>
+		<div class="pagelink">
+			<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
+			</div>
+			<div class="pagelink_top"><a href="<% echo (self2) %>">留言板頂部</a></div>
+			<div class="pagelink_next"><% def(next) %><a href="<% echo (next) %>">下一頁≫</a><% /def %></div>
+	</div>
+	</nav>
+	<% def(n) %>
+	<!--
+	// prev…前ページURL
+	// paging…ページングデータ
+	// next…次ページURL
+	-->
+	<% /def %>
+	
 
 <% ========== メンテナンスフォーム欄 ========== %>
 <form action="<% echo (self) %>" method="post">
+<input type="hidden" name="logfilename" value="<% def(logfilename)%><% echo(logfilename)%><% /def %>">
 <div class="mente_wrap">
 <span class="nk">文章 No.<input type="number" min="1" name="del[]" autocomplete="off" class="edit_number"></span>
 <span class="input_disp_none"><input type="text" value="" autocomplete="username"></span>
