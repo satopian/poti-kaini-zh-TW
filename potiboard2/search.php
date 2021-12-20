@@ -62,6 +62,8 @@ require_once(__DIR__.'/Skinny.php');
 defined('SKIN_DIR') or define('SKIN_DIR','theme/');//config.php で未定義なら /theme
 
 $dat['skindir']=SKIN_DIR;
+$dat['php_self2']=h(PHP_SELF2);
+
 
 //タイムゾーン
 defined('DEFAULT_TIMEZONE') or define('DEFAULT_TIMEZONE','Asia/Tokyo');
@@ -207,7 +209,7 @@ $dat['query']=h($query);
 $dat['radio_chk1']='';//作者名
 $dat['radio_chk2']='';//完全一致
 $dat['radio_chk3']='';//本文題名	
-$query_l='&query='.urlencode($query);//クエリを次ページにgetで渡す
+$query_l='&query='.urlencode(h($query));//クエリを次ページにgetで渡す
 if($query!==''&&$radio===3){//本文題名
 	$query_l.='&radio=3';
 	$dat['radio_chk3']='checked="checked"';
@@ -258,7 +260,7 @@ $dat['prev']=false;
 $dat['nxet']=false;
 
 if($page<=$disp_count_of_page){
-	$dat['prev']='<a href="./">返回留言板</a>';//前のページ
+	$dat['prev']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';//前のページ
 if($countarr>=$nxetpage){
 	$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';//次のページ
 }
@@ -270,7 +272,7 @@ elseif($page>=$disp_count_of_page+1){
 		$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';
 	}
 	else{
-		$dat['nxet']='<a href="./">返回留言板</a>';
+		$dat['nxet']='<a href="/'.h(PHP_SELF2).'">返回留言板</a>';
 	}
 }
 //最終更新日時を取得

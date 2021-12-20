@@ -32,7 +32,8 @@
 </header>
 <nav>
 	<div class="menu">
-	[<a href="./">返回留言板</a>]
+	[<a href="./<% def(PHP_SELF2)%><% echo(PHP_SELF2)%><% /def %>">返回留言板</a>]
+
 	<% def(imgsearch) %>
 	 [<a href="?page=1&imgsearch=off<% echo(query_l) %>">留言</a>]
 	 <% else %>
