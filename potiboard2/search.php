@@ -272,7 +272,7 @@ elseif($page>=$disp_count_of_page+1){
 		$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';
 	}
 	else{
-		$dat['nxet']='<a href="/'.h(PHP_SELF2).'">返回留言板</a>';
+		$dat['nxet']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';
 	}
 }
 //最終更新日時を取得
