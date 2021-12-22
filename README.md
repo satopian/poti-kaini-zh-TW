@@ -39,7 +39,9 @@ Previously, if you continue and draw from the image of Reply, a new thread was c
 
 - After replying, the screen of each thread that replied is now displayed.
 Previously, the top page was displayed regardless of where you replied to the thread.
-- When editing / deleting from reply mode or catalog mode, the same mode and page as before work are displayed after the work is completed.
+- The display method when editing / deleting in reply mode or catalog mode to complete the work has been changed.  
+For example, if you edit / delete on the second page of catalog mode, the second page of catalog mode will be displayed.  
+Until now, the top page was displayed.  
 - Individual threads are now displayed when you continue drawing and the post is complete.
 Until now, the top page was displayed.
 If the image you want to continue is many pages away from the top page, you had to find the image from many pages.
