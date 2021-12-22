@@ -1,6 +1,6 @@
 <?php
 /*
-  * POTI-board Kai Ni v2.26.6 lot.210320
+  * POTI-board EVO v3.19.5 lot.221222
   * by POTI-kai >> https://paintbbs.sakura.ne.jp/poti/
   *
   * setting file of POTI-board Kai Ni
@@ -286,6 +286,9 @@ define('DO_NOT_CHANGE_POSTS_TIME', '0');
 // 通常為 改變:0。
 // 這是不希望在日記中更改投稿日期的人的設置項目。
 
+// 在回複視圖中顯示下一個和上一個線程的圖像 是:1 否:0
+// Show images of next and previous threads in reply view
+define('VIEW_OTHER_WORKS', '1');
 
 /* ---------- お絵かき設定(paint mode settings) ---------- */
 
