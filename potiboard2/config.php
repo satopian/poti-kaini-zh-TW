@@ -1,6 +1,6 @@
 <?php
 /*
-  * POTI-board EVO v3.19.5 lot.221222
+  * POTI-board EVO v3.20.0 lot.220106
   * by POTI-kai >> https://paintbbs.sakura.ne.jp/poti/
   *
   * setting file of POTI-board Kai Ni
@@ -87,8 +87,8 @@ define('SHARE_BUTTON', '0');
 // 正規表現を使うことができます
 // 全角半角スペース改行を考慮する必要はありません
 // スペースと改行を除去した文字列をチェックします
-//不要指定空格或換行符。
-//這是因為檢查了沒有空格和換行符的字符串。
+// 即使投稿的字符串包含換行符或空格，也會被判斷為相同的字符串並被拒絕。
+// 這是因為檢查了沒有空格和換行符的字符串。
 // 什麼都沒設置的例子 array();
 
 // 拒絶する文字列
