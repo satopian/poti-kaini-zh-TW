@@ -30,6 +30,28 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2021/12/22] v3.19.5
+
+- Added the ability to display images of the next and previous threads in the reply view.  
+  
+- When you continue from the Reply image with a "new post", that image becomes the Reply image.  
+Previously, if you continue and draw from the image of Reply, a new thread was created.  
+
+- After replying, the screen of each thread that replied is now displayed.
+Previously, the top page was displayed regardless of where you replied to the thread.
+- The display method when editing / deleting in reply mode or catalog mode to complete the work has been changed.  
+For example, if you edit / delete on the second page of catalog mode, the second page of catalog mode will be displayed.  
+Until now, the top page was displayed.  
+- Individual threads are now displayed when you continue drawing and the post is complete.
+Until now, the top page was displayed.
+If the image you want to continue is many pages away from the top page, you had to find the image from many pages.
+
+- ChickenPaint Swipe a specific part of the screen to prevent it from moving up or down. The relevant parts are controlled by JavaScript.  
+  
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v3.19.5 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.19.5)
+
+
 ## [2021/12/04] v3.15.3
 
 - Updated index.php required for new installations.  
