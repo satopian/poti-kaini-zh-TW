@@ -136,8 +136,8 @@ PMAX_H //高さ
 		}
 	?>
 	</select> 
-<% ===キャンバスサイズ ここまで === %>
 </span>
+<% ===キャンバスサイズ ここまで === %>
 
 <% def(use_select_palettes) %>
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
@@ -157,8 +157,8 @@ PMAX_H //高さ
 <% def(paint2) %>
 <div class="howtopaint">
 <ul id="up_desc">
-<li>畫布尺寸需設定在宽 300 至 <% echo (pmaxw) %> 像素和高 300 至 <% echo (pmaxh) %> 像素間。</li>
-<li>當寬超過 <% echo (maxw) %> 像素，高超過 <% echo (maxh) %> 像素，圖片將會按比例縮小顯示。</li>
+<li>畫布尺寸需設定在宽 300 至 <% echo (pmaxw) %> 像素和高 300px 至 <% echo (pmaxh) %>px間。</li>
+<li>當寬超過 <% echo (maxw) %>px，高超過 <% echo (maxh) %>px，圖片將會按比例縮小顯示。</li>
 <% echo (addinfo) %>
 </ul>
 </div>
@@ -323,20 +323,8 @@ PMAX_H //高さ
 -->
 <% /def %>
 
-<% def(resform) %><% def(oya/skipres) %><hr><div class="article_skipres">
-	
-	
-	<% echo (oya/skipres) %> 個回覆已被省略。<a href="<% echo (self) %>?res=<% echo (oya/no) %>">&#187;全部顯示</a></div><% /def %><% /def %>
-<% def(resform) %><% elsedef %><% def(oya/skipres) %>
-<hr><div class="article_skipres"><% echo (oya/skipres) %> 個回覆已被省略。按回覆按鈕閱讀全部內容。</div>
-<% /def %><% /def %>
-<% def(n) %>
-<!--
-// ※上段、ミニレスフォームを使わない場合(なぜかndefの挙動がオカシイのでifneで代用)
-// ※下段、ミニレスフォームを使う場合
-// resform…ミニレスフォームを表示させるとき true が入る
-// oya/skipres…未表示レス数
--->
+<% def(oya/skipres) %>
+<hr><div class="article_skipres"><% echo (oya/skipres) %>個回覆已被省略。</div>
 <% /def %>
 <% ========== レスがあれば・・・ ========== %>
 <% def(oya/res) %>
@@ -436,7 +424,7 @@ PMAX_H //高さ
 		<a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=<% echo(rooturl|urlencode) %><% echo(self|urlencode) %>?res=<% echo(oya/no|urlencode) %>"><span class="icon-facebook2"></span>share</a>
 	</span>
 	<% /def %>
-	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="回覆" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
+	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="<% def(oya/disp_resform)%>回覆<% elsedef %>顯示<% /def %>" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
 	<% /def %>
 <% ========== 回复ボタンここまで ========== %>
 
