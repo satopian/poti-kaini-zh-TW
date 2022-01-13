@@ -18,7 +18,7 @@
 <meta property="og:description" content="">
 <meta property="og:image" content="">
 <% /def %>
-<!--/SNS-->
+<!-- ENDSNS-->
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="<% echo(skindir) %>pink.css">
 <link rel="stylesheet" href="<% echo(skindir) %>icomoon/style.css">
@@ -32,7 +32,7 @@
 // charset…文字コード
 -->
 <% /def %>
-<% ========== クッキー読込み用JavaScript(必須) ========== %>
+<!--クッキー読込み用JavaScript(必須)-->
 <script src="loadcookie.js"></script>
 
 </head>
@@ -41,7 +41,7 @@
 <div id="body">
 <header>
 <h1 id="bbs_title"><% echo (title) %></h1>
-<% ========== resnoがある＝レスモード ========== %>
+<!--resnoがある＝レスモード-->
 
 <nav>
 <div class="bbsmenu">
@@ -66,8 +66,8 @@
 <!-- 1行広告用 -->
 <div class="menu_pr"></div>
 <div class="clear"></div>
-<% ========== お絵かきフォーム欄 ========== %>
-<% ========== 実際のお絵かきフォーム ========== %>
+<!--お絵かきフォーム欄-->
+<!--実際のお絵かきフォーム-->
 <script>
 	function is_mobile() {
 	if (navigator.maxTouchPoints && ( window.matchMedia && window.matchMedia('(max-width: 768px)').matches))  return true;
@@ -94,19 +94,7 @@
 <% /def %>
 <!-- <input type="hidden" name="is_mobile" id="is_mobile" value> -->
 
-<% ===キャンバスサイズ 設定はconfig.phpで === %>
-<% def(n) %>
-<!--
-config.phpで設定した
-//お絵描きデフォルトサイズ(最初に選択される数値)
-PDEF_W //幅
-PDEF_H// 高さ
-//お絵描き最大サイズ
-PMAX_W //幅
-PMAX_H //高さ
-が入ります。
--->
-<% /def %>
+<!-- キャンバスサイズ 設定はconfig.phpで-->
 <span class="canvas_size_wrap">
 	<span class="canvas_size">Size</span>
 <select name="picw" title="寬" class="canvas_select">
@@ -137,7 +125,7 @@ PMAX_H //高さ
 	?>
 	</select> 
 </span>
-<% ===キャンバスサイズ ここまで === %>
+<!-- キャンバスサイズ ここまで-->
 
 <% def(use_select_palettes) %>
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type"><% echo(palette_select_tags) %></select>
@@ -150,10 +138,23 @@ PMAX_H //高さ
 	// anime…動畫記録機能を使用するとき true が入る
 	// animechk…動畫記録をデフォルトでチェックするとき ' checked' が入る
 	-->
-<% /def %>
+	<% /def %>
 <input type="hidden" name="mode" value="paint"></form>
 <% /def %>
-<% ========== お絵かきフォーム欄のみ時に表示 ========== %>
+<% def(n) %>
+<!--
+config.phpで設定した
+//お絵描きデフォルトサイズ(最初に選択される数値)
+PDEF_W //幅
+PDEF_H// 高さ
+//お絵描き最大サイズ
+PMAX_W //幅
+PMAX_H //高さ
+が入ります。
+-->
+<% /def %>
+
+<!--お絵かきフォーム欄のみ時に表示-->
 <% def(paint2) %>
 <div class="howtopaint">
 <ul id="up_desc">
@@ -173,86 +174,6 @@ PMAX_H //高さ
   -->
   <% /def %>
 </header>
-<% ========== 投稿フォーム欄 ========== %>
-<% def(form) %>
-<form action="<% echo (self) %>" method="POST" enctype="multipart/form-data" id="top_post_form">
-	<input type="hidden" name="mode" value="regist">
-	<input type="hidden" name="MAX_FILE_SIZE" value="<% echo (maxbyte) %>">
-	<% def(n) %>
-	<!--
-		// maxbyte…最大投稿サイズ(Byte)
-	-->
-	<% /def %>
-	<% def(paint) %>
-	<div class="post_t_margin">
-	</div>
-	<% /def %>
-	
-		<table id="post_table">
-	 <tr>
-	  <td class="post_table_title">名稱<% def(usename) %> (必需)<% /def %></td>
-	  <td><input type="text" name="name" class="post_input_text" autocomplete="username"></td>
-	 </tr>
-	 <tr>
-	  <td class="post_table_title">E-mail</td>
-	  <td><input type="text" name="email" class="post_input_text" autocomplete="email"></td>
-	 </tr>
-	 <tr>
-	  <td class="post_table_title">URL</td>
-	  <td><input type="text" name="url" class="post_input_text" autocomplete="url"></td>
-	 </tr>
-	 <tr>
-	  <td class="post_table_title">標題<% def(usesub) %> (必需)<% /def %></td>
-	  <td><input type="text" name="sub" class="post_input_text" autocomplete="off"></td>
-	 </tr>
-	 <tr>
-	  <td class="post_table_title">內文<% def(usecom) %> (必需)<% /def %></td>
-	  <td><textarea name="com" wrap="soft" class="post_input_com"></textarea></td>
-	 </tr>
-	 <% def(n) %>
-	 <!--
-	 // usename…名前が必須だと ' *' が入る
-	// usesub…題名が必須だと ' *' が入る
-	// usecom…本文が必須だと ' *' が入る
-	// resub…レス時の回复用題名(Re: ～)
-	-->
-	<% /def %>
-	<% ========== 文字色指定(■に色付けてチェックボタンで選択する方法) ========== %>
-	<% ========== ファイルアップロード欄 ========== %>
-	<% def(upfile) %>
-	 <tr>
-	  <td class="post_table_title">附加圖片</td>
-	  <td><input type="file" name="upfile" accept="image/*">
-		<% def(hide_the_checkbox_for_nofile) %>
-		<% elsedef %>
-		<label class="howtoedit"><input type="checkbox" name="textonly" value="on">不附加圖片</label>
-		<% /def %>
-		
-	</td>
-	 </tr>
-	<% /def %>
-	 <tr>
-	  <td class="post_table_title">密碼</td>
-	  <td><input type="password" name="pwd" value="" class="post_input_pass" autocomplete="current-password"><span class="howtoedit">(用於編輯和删除文章，請使用英數組合)</span></td>
-	 </tr>
-	 <tr><td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input type="submit" value="送出" class="post_submit">
-	</td></tr>
-	 <tr>
-	  <td colspan="2" class="td_noborder">
-	<% ========== ファイルアップロード時の説明 ========== %>
-	<% def(upfile) %>
-	<div class="howtowrite">
-		<ul id="up_desc">
-			<li>圖片寬超過 <% echo (maxw) %> 像素，高超過 <% echo (maxh) %> 像素將按比例縮小。</li>
-		<li>圖片檔案大小限制為 <% echo (maxkb) %> KB。
-			<% echo (addinfo) %>
-		</ul>
-	</div>
-	<% /def %>
-	</td></tr>
-	</table>
-	</form>
-	<% /def %>
 <nav>
 <div class="pagelink">
 <div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
@@ -262,12 +183,12 @@ PMAX_H //高さ
 </div>
 	</nav>
 
-<% ========== 親記事グループ ========== %>
+<!--親記事グループ-->
 <% each(oya) %>
 
 <article>
-	<% ========== 親記事ヘッダここから ========== %>
-	<h2 class="article_title"><a href="<% echo (self) %>?res=<% echo (oya/no) %>">[<% echo (oya/no) %>] <% echo (oya/sub) %></a></h2>
+<!--親記事ヘッダここから-->
+<h2 class="article_title"><a href="<% echo (self) %>?res=<% echo (oya/no) %>">[<% echo (oya/no) %>] <% echo (oya/sub) %></a></h2>
 	<div class="article_info">
 	<span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/name) %></a></span><% def(oya/url) %><span class="article_info_desc">[<a href="<% echo (oya/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
 	<% def(oya/id) %><span class="article_info_desc">ID:<% echo (oya/id) %></span> <% /def %>
@@ -281,7 +202,7 @@ PMAX_H //高さ
 	<% def(oya/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/continue) %>">續繪</a></span> <% /def %> <% def(oya/spch)%><span class="for_pc"><% /def %><% def(oya/pch) %><% def(oya/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/pch) %>" target="_blank">過程</a></span><% /def %><% def(oya/spch)%></span><% /def %>
 	</div>
 	<% /def %>
-	<% ========== 親記事ヘッダここまで ========== %>
+<!--親記事ヘッダここまで-->
 <% def(n) %>
 <!--
 // oya…親記事配列
@@ -327,13 +248,13 @@ PMAX_H //高さ
 <% def(oya/skipres) %>
 <hr><div class="article_skipres"><% echo (oya/skipres) %>個回覆已被省略。</div>
 <% /def %>
-<% ========== レスがあれば・・・ ========== %>
+<!--レスがあれば・・・-->
 <% def(oya/res) %>
-<% ========== レス記事グループ ========== %>
+<!--レス記事グループ-->
 <% each(oya/res) %>
 <hr>
 <div class="res_article_wrap">
-	<% レス記事ヘッダここから %>
+	<!-- レス記事ヘッダここから -->
 	<div class="res_article_title">[<% echo (oya/res/no) %>] <% echo (oya/res/sub) %></div>
 	<div class="article_info">
 	<span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query=<% echo (oya/res/encoded_name) %>&radio=2" target="_blank" rel="noopener"><% echo (oya/res/name) %></a></span><% def(oya/res/url) %><span class="article_info_desc">[<a href="<% echo (oya/res/url) %>" target="_blank" rel="nofollow noopener noreferrer">URL</a>]</span> <% /def %>
@@ -349,7 +270,7 @@ PMAX_H //高さ
 	<% def(oya/res/continue) %><span class="article_info_continue">☆<a href="<% echo (self) %>?mode=continue&no=<% echo (oya/res/continue) %>">續繪</a></span><% /def %> <% def(oya/res/spch)%><span class="for_pc"><% /def %><% def(oya/res/pch) %><% def(oya/res/continue) %>| <% /def %><span class="article_info_animation">☆<a href="<% echo (self) %>?mode=openpch&pch=<% echo (oya/res/pch) %>" target="_blank">過程</a></span><% /def %><% def(oya/res/spch)%></span><% /def %>
 	</div>
 	<% /def %>
-	<% レス記事ヘッダここまで %>
+	<!-- レス記事ヘッダここまで -->
 
 <% def(n) %>
 <!--
@@ -387,10 +308,10 @@ PMAX_H //高さ
 <% /def %>
 </div>
 <% /each %>
-<% ========== レス記事グループここまで ========== %>
+<!--レス記事グループここまで-->
 <% /def %>
-<% ========== 回复ボタンを表示 ========== %>
-
+<!--返信ボタンを表示-->
+<div class="clear"></div>
 <div class="res_button_wrap">
 	<% def(sharebutton) %>
 	<span class="share_button">
@@ -399,17 +320,16 @@ PMAX_H //高さ
 	</span>
 	<% /def %>
 	<form action="<% echo (self) %>?res=<% echo (oya/no) %>" method="post"><input type="submit" value="<% def(oya/disp_resform)%>回覆<% elsedef %>顯示<% /def %>" class="res_button"></form><span class="page_top"><a href="#top">△</a></span></div>
-<% ========== 回复ボタンここまで ========== %>
+<!--返信ボタンここまで-->
 
 	<hr>
 
 </article>
 <% /each %>
 
-<% ========== 親記事グループここまで ========== %>
-
-	<% ========== メイン時ページング表示 ========== %>
-	<nav>
+<!--親記事グループここまで-->
+<!--メイン時ページング表示-->
+<nav>
 		<div id="paging_wrap"><% echo (paging) %></div>
 		<div class="pagelink">
 			<div class="pagelink_prev"><% def(prev) %><a href="<% echo (prev) %>">≪上一頁</a><% /def %>
@@ -427,7 +347,7 @@ PMAX_H //高さ
 	<% /def %>
 	
 <footer>
-<% ========== メンテナンスフォーム欄 ========== %>
+<!--メンテナンスフォーム欄-->
 <form action="<% echo (self) %>" method="post">
 <input type="hidden" name="logfilename" value="<% def(logfilename)%><% echo(logfilename)%><% /def %>">
 <div class="mente_wrap">
@@ -450,7 +370,7 @@ PMAX_H //高さ
 </div>
 </form>
 
-<% ========== JavaScriptの実行(クッキーを読込み、フォームに値をセット) ========== %>
+<!--JavaScriptの実行(クッキーを読込み、フォームに値をセット-->
 <script>
 l(); //LoadCookie
 </script>
