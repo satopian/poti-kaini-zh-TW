@@ -3,7 +3,7 @@
 // ・メインモード
 --> --}}
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-tw">
 
 <head>
 	<meta charset="utf-8">
@@ -76,7 +76,7 @@
 			//use_chickenpaint を使う設定の時にtrueが入る
 			--> --}}
 
-			@if ($paint)
+			@if ($paint and !$diary)
 			{{-- ペイントフォームの外部化 --}}
 			@include('parts.paint_form')
 			@endif

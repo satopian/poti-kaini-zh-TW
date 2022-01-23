@@ -6,7 +6,7 @@
 --> --}}
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="zh-tw">
 <head>
 <meta charset="utf-8">
 @if($paint_mode)
