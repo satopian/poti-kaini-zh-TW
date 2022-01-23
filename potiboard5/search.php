@@ -8,10 +8,12 @@
 //使用条件。
 
 //著作表記のリンクを削除したり見えなくしないでください。
+// Do not delete or obscure the copyrighted link.
 
 //免責
 
 //このプログラムを利用した事によって発生したいかなる損害も作者は一切の責任を負いません。
+// The author does not take any responsibility for any damage caused by using this program.
 
 //サポート
 
@@ -22,8 +24,8 @@
 //https://github.com/satopian/potiboard_plugin/
 
 //設定
-//何件までしらべるか？
-//初期値120 あまり大きくしないでください。
+// How many cases can you search?
+// Initial value 120 Do not make it too large.
 $max_search=120;
 //設定を変更すればより多く検索できるようになりますが、サーバの負荷が高くなります。
 
@@ -146,7 +148,7 @@ while ($line = fgets($fp)) {
 		){
 			$link='';
 			$link=PHP_SELF.'?res='.$oya[$no];
-			$arr[]=compact('no','name','sub','com','ext','time','link');
+			$arr[]=[$no,$name,$sub,$com,$ext,$time,$link];
 			++$i;
 		}
 			if($i>=$max_search){break;}//1掲示板あたりの最大検索数
@@ -165,7 +167,7 @@ $dat['comments']=[];
 if($arr){
 	foreach($arr as $i => $val){
 		if($i > $page-2){//$iが表示するページになるまで待つ
-			extract($val);
+			list($no,$name,$sub,$com,$ext,$time,$link)=$val;
 			$img='';
 			if($ext){
 				if(is_file(THUMB_DIR.$time.'s.jpg')){//サムネイルはあるか？
@@ -201,12 +203,12 @@ unset($i,$val);
 $search_type='';
 if($imgsearch){
 	$search_type='&imgsearch=on';
-	$img_or_com='イラスト';
-	$mai_or_ken='枚';
+	$img_or_com='插圖';
+	$mai_or_ken=' ';
 }
 else{
-	$img_or_com='コメント';
-	$mai_or_ken='件';
+	$img_or_com='留言';
+	$mai_or_ken=' ';
 }
 $dat['imgsearch']= $imgsearch ? true : false;
 
@@ -246,16 +248,16 @@ elseif($j){
 		$dat['pageno'] = $j.$mai_or_ken;
 }
 if($query!==''&&$radio===3){
-	$dat['title']=$query.'の'.$img_or_com;//titleタグに入る
-	$dat['h1']=$query.'の';//h1タグに入る
+	$dat['title']=$query.'的'.$img_or_com;//titleタグに入る
+	$dat['h1']=$query.'的';//h1タグに入る
 }
 elseif($query!==''){
-	$dat['title']=$query.'さんの'.$img_or_com;
-	$dat['h1']=$query.	'さんの';
+	$dat['title']=$query.'的'.$img_or_com;//検索対象は人
+	$dat['h1']=$query.'的';//検索対象は人
 }
 else{
-	$dat['title']='掲示板に投稿された最新の'.$img_or_com;
-	$dat['h1']='掲示板に投稿された最新の';
+	$dat['title']='留言板的最新'.$img_or_com;
+	$dat['h1']='留言板的最新'.$img_or_com;
 }
 
 //ページング
@@ -267,25 +269,29 @@ $dat['prev']=false;
 $dat['nxet']=false;
 
 if($page<=$disp_count_of_page){
-	$dat['prev']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';//前のページ
+	$dat['prev']='<a href="./">返回留言板</a>';//前のページ
 if($countarr>=$nxetpage){
-	$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">次の'.$disp_count_of_page.$mai_or_ken.'≫</a>';//次のページ
+	$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';//次のページ
 }
 }
 
 elseif($page>=$disp_count_of_page+1){
-	$dat['prev']= '<a href="?page='.$prevpage.$search_type.$query_l.'">≪前の'.$disp_count_of_page.$mai_or_ken.'</a>'; 
+	$dat['prev']= '<a href="?page='.$prevpage.$search_type.$query_l.'">≪prev '.$disp_count_of_page.$mai_or_ken.'</a>'; 
 	if($countarr>=$nxetpage){
-		$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">次の'.$disp_count_of_page.$mai_or_ken.'≫</a>';
+		$dat['nxet']='<a href="?page='.$nxetpage.$search_type.$query_l.'">next '.$disp_count_of_page.$mai_or_ken.'≫</a>';
 	}
 	else{
-		$dat['nxet']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';
+		$dat['nxet']='<a href="./">返回留言板</a>';
 	}
 }
 //最終更新日時を取得
-$postedtime= $arr ? $arr[0]['time']:'';
-$postedtime=(int)substr($postedtime,-13,10);
-$dat['lastmodified']=$arr ? ($postedtime ? (date("Y/m/d G:i", $postedtime)) : '') :'';
+$postedtime='';
+$dat['lastmodified']='';
+if(!empty($arr)){
+	list($no,$name,$sub,$com,$ext,$postedtime,$link)=$arr[0];
+	$postedtime=(int)substr($postedtime,-13,10);
+	$dat['lastmodified']=date("Y/m/d G:i", $postedtime);
+}
 
 unset($arr);
 
