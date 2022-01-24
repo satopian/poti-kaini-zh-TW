@@ -196,13 +196,12 @@ a:hover {
 .margin_radio {
 	margin-bottom: 15px;
 }
-
 #post_table td {
-	padding: 2px;
+	padding: 2px 5px 2px 0;
 }
 
 .post_table_title {
-	width: 5.5em;
+	min-width: 5.5em;
 }
 
 .td_noborder {
@@ -481,7 +480,6 @@ input.pch_upload {
 
 .pagelink_prev {
 	text-align: right;
-	width: 120px;
 	margin: 1px 0;
 }
 
@@ -499,7 +497,6 @@ input.pch_upload {
 
 .pagelink_next {
 	text-align: left;
-	width: 120px;
 	margin: 1px 0;
 }
 
