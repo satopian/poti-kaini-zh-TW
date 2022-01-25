@@ -89,12 +89,11 @@
 	window.addEventListener('DOMContentLoaded',fixneo,false);
 </script>
 @endif
-@if($pch_mode) 
-@if($type_neo) 
+@if($pch_mode and $type_neo) 
 <link rel="stylesheet" href="neo.css?{{$parameter_day}}" type="text/css" />
 <script src="neo.js?{{$parameter_day}}" charset="UTF-8"></script>
 @endif
-@endif
+	@if(($paint_mode and !$useneo) or ($pch_mode and !$type_neo))
 <!-- Javaが使えるかどうか判定 -->
 <script>
         function cheerpJLoad() {
@@ -109,9 +108,19 @@
         }
         window.addEventListener("load", function() { cheerpJLoad(); }, false);
 </script>
-
+	@endif
 @endif
 <style id="for_mobile"></style>
+<script>
+	function is_mobile() {
+	if (navigator.maxTouchPoints && ( window.matchMedia && window.matchMedia('(max-width: 768px)').matches))  return true;
+	return false;
+	}
+	if(is_mobile()){
+		document.getElementById("for_mobile").textContent=".for_pc{display: none;}";
+	}
+</script>
+
 </head>
 <body>
 <header>
@@ -491,15 +500,6 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 --}}
 
 @if($continue_mode) 
-<script>
-function is_mobile() {
-if (navigator.maxTouchPoints && ( window.matchMedia && window.matchMedia('(max-width: 768px)').matches))  return true;
-return false;
-}
-if(is_mobile()){
-	document.getElementById("for_mobile").textContent=".for_pc{display: none;}";
-}
-</script>
 
 <nav>
 <div id="self2">

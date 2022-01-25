@@ -149,10 +149,6 @@
 			@endif
 			<input type="hidden" name="MAX_FILE_SIZE" value="{{$maxbyte}}">
 			<table id="post_table">
-				@if($ipcheck) <tr>
-					<td colspan="2" style="text-align: center;" class="post_table_submit td_noborder">- IPアドレスチェック中 -
-					</td>
-				</tr> @endif
 				<tr>
 					<td class="post_table_title">名稱 @if($usename) (必需) @endif</td>
 					<!--編集時、valueに名前をセット-->
@@ -212,7 +208,7 @@
 				</tr> @endif
 				<tr>
 					<td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input
-							type="submit" value="送信する" class="post_submit"></td>
+							type="submit" value="送出" class="post_submit"></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="td_noborder">

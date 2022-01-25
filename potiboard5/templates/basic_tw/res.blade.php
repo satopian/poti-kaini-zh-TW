@@ -247,7 +247,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" style="text-align: center;" class="post_table_submit td_noborder"><input
-							type="submit" value="送信する" class="post_submit"></td>
+							type="submit" value="送出" class="post_submit"></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="td_noborder">

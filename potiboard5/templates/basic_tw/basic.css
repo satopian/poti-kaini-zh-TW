@@ -5,12 +5,11 @@ body {
 	background-color: #fffffe;
 	margin: 1px 10.5px 1em;
 	padding: 2px 0;
-	color: #555;
 }
 
 body,
 td {
-	color: #555;
+	color: #363a3a;
 	font-family: "Hiragino Sans", meiryo, ヒラギノ角ゴシック, メイリオ, sans-serif;
 	font-size: 16px;
 	letter-spacing: 0.09em;
@@ -52,7 +51,7 @@ img {
 
 /* チェックボックスの色 */
 input {
-    accent-color: #5686d5;
+    accent-color: #7590d4;
 }
 
 input[type="text"],
@@ -481,6 +480,14 @@ input.pch_upload {
 	display: inline-block;
 	padding: 2px 3px;
 }
+.pagelink_next {
+	text-align: left;
+	margin: 1px 0;
+}
+
+.pagelink_next a {
+	padding-right: 14px;
+}
 
 .pagelink_prev {
 	text-align: right;
@@ -499,14 +506,6 @@ input.pch_upload {
 	margin: 1px 0;
 }
 
-.pagelink_next {
-	text-align: left;
-	margin: 1px 0;
-}
-
-.pagelink_next a {
-	padding-right: 14px;
-}
 
 /* 記事メンテナンス */
 .mente_wrap {
