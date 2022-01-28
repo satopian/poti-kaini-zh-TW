@@ -2,7 +2,7 @@
 ## 這是POTI-board EVO 的繁體中文翻譯本.
 This is the traditional Chinese translation version of POTI-board EVO.  
 這是日語顯示的原文.  
-[satopian/poti-kaini: ｢お絵かき掲示板PHPスクリプトPOTI-board EVO｣ for PaintBBS NEO and ChickenPaint, (PHP5.5～7.x , 8.0)](https://github.com/satopian/poti-kaini)
+[satopian/poti-kaini: ｢お絵かき掲示板PHPスクリプトPOTI-board EVO｣ for PaintBBS NEO and ChickenPaint](https://github.com/satopian/poti-kaini)
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
 
 ###
