@@ -34,7 +34,7 @@ Translation of `config.php`. We need to translate the description of the setting
 I changed the template engine to BladeOne because I get a deprecated error from Skinny.php in PHP8.1 environment.
 However, that means that the templates will be incompatible.
 Templates with the extension `HTML` have been replaced with templates with the extension `blade.php`.
-When you open the content, it's not much different from a traditional template. However, it may seem difficult because the extension is not `HTML`. 
+When you open the content, it's not much different from a traditional template. However, it may seem difficult because the extension is not HTML. 
 
 ### What has changed due to the change of the template engine
 #### PHP7.1
@@ -43,7 +43,7 @@ POTI-board EVO v5.x requires PHP 7.1 or higher.
 
 #### Information for those who customize and use templates.
 The thread display process has changed significantly.
-Previously, there was processing for the parent of the thread, and there was separate processing for less.
+Previously, there was processing for the parent of the thread, and there was separate processing for reply.
 
 In v5.x, the loop of the array of one thread is ended at once.
 
