@@ -155,7 +155,7 @@
 			@endif
 
 			{{-- <!--お絵かきフォーム欄のみ時に表示--> --}}
-			@if ($paint2)
+			@if ($paint2 and !$diary)
 			<div class="howtopaint">
 				<ul id="up_desc">
 					<li>畫布尺寸需設定在宽 300 至 {{$pmaxw}} px 和高 300px 至 {{$pmaxh}}px間。</li>
