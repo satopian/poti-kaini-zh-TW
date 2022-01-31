@@ -121,13 +121,12 @@ label.palette_desc{
 
 /* リンクの色 */
 a {
-	color: #666;
+	color: #5b5c6c;
 	text-decoration: underline;
 	text-decoration-skip-ink: none;
 }
 
 a:hover {
-	color: #666;
 	text-decoration: none;
 }
 
@@ -166,10 +165,6 @@ a:hover {
 .clear {
 	clear: both;
 }
-.bbsmenu,
-.menu_pr {
-	margin-bottom: 15px;
-}
 .res_bbsmenu,
 .res_menu_pr {
 	margin-bottom: 0;
@@ -202,7 +197,6 @@ a:hover {
 #post_table td {
 	padding: 2px 5px 2px 0;
 }
-
 .post_table_title {
 	min-width: 5.5em;
 }
@@ -327,14 +321,6 @@ input.pch_upload {
 	min-width: 350px;
 	line-height: 185%;
 	/*	letter-spacing: 0.08em;*/
-}
-
-/* img max-width */
-
-.article_limit {
-	font-weight: 700;
-	text-align: right;
-	color: #fd95d0;
 }
 
 .article_skipres {
@@ -480,6 +466,7 @@ input.pch_upload {
 	display: inline-block;
 	padding: 2px 3px;
 }
+
 .pagelink_next {
 	text-align: left;
 	margin: 1px 0;
@@ -876,6 +863,10 @@ tr.deltable_tr{
 
 
 /* ペイントボタン */
+form.paint_form{
+	margin: 15px 0;
+}
+
 .paint_button {
 	width: 78px;
 	height: 25px;
