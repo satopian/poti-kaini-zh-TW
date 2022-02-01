@@ -29,40 +29,40 @@ define('NOTICE_MAIL_NEWPOST', '通知：有一個新投稿');
 
 /* ---------- ADD:2004/06/22 ---------- */
 //エラーメッセージ
-define('MSG001', "找不到文章");
+define('MSG001', "找不到文章。");
 define('MSG002', "您尚未選擇圖片，您必須上傳圖片。");
-define('MSG003', "上傳失敗<br>服務器可能不支持它");
-define('MSG004', "上傳失敗<br>僅可以附加圖片文件");
-define('MSG005', "上傳失敗<br>圖片已存在");
+define('MSG003', "上傳失敗<br>服務器可能不支持它。");
+define('MSG004', "上傳失敗<br>僅可以附加圖片文件。");
+define('MSG005', "上傳失敗<br>圖片已存在。");
 define('MSG006', "請不要違規投稿。");
-define('MSG007', "圖片不存在");
-define('MSG008', "請寫點東西");
-define('MSG009', "請輸入你的名字");
-define('MSG010', "請輸入標題");
-define('MSG011', "內文太長");
-define('MSG012', "名字太長");
-define('MSG013', "電子郵件太長");
-define('MSG014', "標題太長");
-define('MSG015', "未知錯誤");
+define('MSG007', "圖片不存在。");
+define('MSG008', "請寫點東西。");
+define('MSG009', "請輸入你的名字。");
+define('MSG010', "請輸入標題。");
+define('MSG011', "內文太長。");
+define('MSG012', "名字太長。");
+define('MSG013', "電子郵件太長。");
+define('MSG014', "標題太長。");
+define('MSG015', "未知錯誤。");
 define('MSG016', "已拒絕<br>來自此主機的投稿將不被接受。");
-define('MSG019', "無法讀取日誌");
-define('MSG020', "請稍等一下再投稿");
-define('MSG021', "請稍等一下再投稿");
+define('MSG019', "無法讀取日誌。");
+define('MSG020', "請稍等一下再投稿。");
+define('MSG021', "請稍等一下再投稿。");
 define('MSG022', "不久前，您投稿過同樣的留言。<br>請投稿新留言。");
-define('MSG023', "更新失敗");
-define('MSG024', "刪除失敗");
-define('MSG025', "留言串不存在");
+define('MSG023', "更新失敗。");
+define('MSG024', "刪除失敗。");
+define('MSG025', "留言串不存在。");
 define('MSG026', "這是最後一個留言串，無法刪除。");
 define('MSG027', "刪除失敗。（用戶）");
 define('MSG028', "找不到文章或密碼錯誤。");
 define('MSG029', "密碼錯誤。");
 define('MSG030', "刪除失敗。(管理員)");
-define('MSG031', "請輸入編號");
-define('MSG032', "投稿被拒絕<br>非法字符串。");
-define('MSG033', "刪除失敗<br>用戶沒有刪除權限");
-define('MSG034', "上傳圖片失敗<br>圖片尺寸太大");//? File size kb, not with height
+define('MSG031', "請輸入編號。");
+define('MSG032', "存在不適當的字符串。");
+define('MSG033', "刪除失敗<br>用戶沒有刪除權限。");
+define('MSG034', "上傳圖片失敗<br>圖片尺寸太大。");//? File size kb, not with height
 define('MSG035', "必須輸入CJK漢字字符。");
-define('MSG036', "您無法在內文中張貼網址");
+define('MSG036', "您無法在內文中張貼網址。");
 define('MSG037', "您不能使用該名稱。");
 define('MSG038', "包含無法使用的標籤。");
 define('MSG039', "不接受僅包含內文的投稿。需要包含圖片。");
@@ -71,9 +71,10 @@ define('MSG041', "不存在");
 define('MSG042', "無法讀取");
 define('MSG043', "無法寫入");
 define('MSG044', "未設定 MAX LOG，或者它包含非數字字串。");
-define('MSG045', "將上傳的檔案加載到畫布上的能力不支持此檔案。<br>支持的格式有 pch、spch 和 chi");
+define('MSG045', "將上傳的檔案加載到畫布上的能力不支持此檔案。<br>支持的格式有 pch、spch 和 chi。");
 define('MSG046', "密碼太短。至少 6 個字符。");
 define('MSG047', "圖片尺寸過大。不能繼續。");
+define('MSG048', "存在不適當的 URL。");
 
 
 /* ---------- ADD:2004/02/03 ---------- */

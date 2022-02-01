@@ -95,6 +95,10 @@ define('SHARE_BUTTON', '0');
 // 字符串黑名單。支持正則表達式。
 $badstring = array("irc.s16.xrea.com","Unsolicitedad");
 
+//拒絶するurl
+//網址黑名單
+$badurl = array("example.com","www.example.com");
+
 // 名稱字符串黑名單
 // Prohibited names (supports regular expressions)
 $badname = array("ブランド","郵購","通販");
@@ -430,7 +434,7 @@ define('LOG_LIMIT', '92');
 // する(1)にした場合、管理者パス以外での新規投稿はできません
 // Only admins can post new articles (Yes: 1, No: 0)
 // If set to '1', the administrator will require to enter their password when creating new articles.
-define('DIARY', '0');
+define('DIARY', '1');
 
 // PNG画像のファイルサイズが設定値より大きな時はJPEGに変換
 // アップロードしたPNG画像もJPEGに変換します
