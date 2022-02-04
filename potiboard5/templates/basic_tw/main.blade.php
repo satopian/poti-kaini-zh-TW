@@ -76,7 +76,7 @@
 			//use_chickenpaint を使う設定の時にtrueが入る
 			--> --}}
 
-			@if ($paint and !$diary)
+		@if ($paint and !$diary)
 
 			{{-- ペイントボタン --}}
 
@@ -129,9 +129,9 @@
 
 			@if ($use_select_palettes)
 				<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type">{!!$palette_select_tags!!}</select>
-				@endif
+			@endif
 			@if ($anime)<label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" {{$animechk}}>保存過程</label>
-				@endif
+			@endif
 				{{-- <!--
 				// // anime…動画記録機能を使用するとき true が入る
 				// // animechk…動画記録をデフォルトでチェックするとき ' checked' が入る
@@ -151,15 +151,16 @@
 			// が入ります。
 			// --> --}}
 
-
-			@endif
+		@endif
 
 			{{-- <!--お絵かきフォーム欄のみ時に表示--> --}}
-			@if ($paint2 and !$diary)
+			@if (!$diary or $addinfo)
 			<div class="howtopaint">
 				<ul id="up_desc">
+					@if ($paint2 and !$diary)
 					<li>畫布尺寸需設定在宽 300 至 {{$pmaxw}} px 和高 300px 至 {{$pmaxh}}px間。</li>
 					<li>當寬超過 {{$maxw}}px，高超過 {{$maxw}}px，圖片將會按比例縮小顯示。</li>
+					@endif
 					{!!$addinfo!!}
 				</ul>
 			</div>
