@@ -216,7 +216,7 @@
 							target="_blank">過程</a></span>@endif @if($res['spch'])</span>@endif
 				@endif			
 			</div>
-
+		</div>
 
 			{{-- <!-- 記事共通ヘッダここまで --> --}}
 
@@ -242,7 +242,6 @@
 			<div class="article_skipres">{{$res['skipres']}}個回覆已被省略。</div>
 			@endif
 			@endif
-		</div>
 	@if (!$loop->first)
 	</div>
 	@endif
