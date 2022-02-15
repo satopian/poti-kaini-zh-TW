@@ -263,13 +263,13 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
  <param name="neo_confirm_unload" value="true">
  <param name="neo_show_right_button" value="true">
 @endif
-<!--しぃペインター個別設定-->
+{{-- しぃペインター個別設定 --}}
 @if($normal) 
 <applet code="c.ShiPainter.class" archive="spainter_all.jar" name="paintbbs" WIDTH="{{$w}}" HEIGHT="{{$h}}" MAYSCRIPT>
 <param name=dir_resource value="./">
 <param name="tt.zip" value="tt_def.zip">
 <param name="res.zip" value="res.zip">
-<% しぃペインターv1.05_9以前を使うなら res_normal.zip に変更 %>
+{{-- しぃペインターv1.05_9以前を使うなら res_normal.zip に変更 --}}
 <param name=tools value="normal">
 <param name=layer_count value="{{$layer_count}}">
 @if($quality) 
