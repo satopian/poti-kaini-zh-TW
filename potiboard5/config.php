@@ -63,6 +63,9 @@ define('DENY_COMMENTS_ONLY', '0');
 define('USE_SHI_PAINTER', '1');
 //使用ChickenPaint 是:1 否:0 
 define('USE_CHICKENPAINT', '1');
+//使用Klecks 是:1 否:0 
+define('USE_KLECKS', '1');
+
 //PaintBBS NEOはどの設定でも起動します。
 //PaintBBS NEO 可用於任何設置。
 
