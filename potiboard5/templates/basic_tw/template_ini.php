@@ -71,7 +71,7 @@ define('MSG041', "不存在");
 define('MSG042', "無法讀取");
 define('MSG043', "無法寫入");
 define('MSG044', "未設定 MAX LOG，或者它包含非數字字串。");
-define('MSG045', "將上傳的檔案加載到畫布上的能力不支持此檔案。<br>支持的格式有 pch、spch 和 chi。");
+define('MSG045', "將上傳的檔案加載到畫布上的能力不支持此檔案。<br>支持的格式有 pch、spch、chi 和 psd。");
 define('MSG046', "密碼太短。至少 6 個字符。");
 define('MSG047', "圖片尺寸過大。不能繼續。");
 define('MSG048', "存在不適當的 URL。");
