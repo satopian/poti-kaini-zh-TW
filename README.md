@@ -15,7 +15,9 @@ Malicious JavaScript can be executed.
 - All versions of POTI-board prior to v3.09.5 have a serious bug.    
 You may lose all log files.
 
-Please update to v3.10.1 or higher.
+- POTI-board v3.x gives a deprecated error in PHP8.1 It will not work with future versions of PHP.
+
+Please update to v5.x or higher.
   
 ###
   
