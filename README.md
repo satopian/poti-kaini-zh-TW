@@ -41,7 +41,7 @@ You can use 8 layers.
 Many minor bugs have been fixed.
 
 More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.10.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.10.0)
+[Release POTI-board EVO zh-TW v5.10.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.10.0.1)
 
 
 
@@ -76,11 +76,6 @@ If set to `0`, it will not be locked.
 
 - If the specified number of days has passed while drawing, it will be a new post.
 Also, when the thread is deleted while drawing, it will be a new post.
-
-More information can be found in the release.    
-
-[Release POTI-board EVO zh-TW v5.05.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.05.0)
-
 
 ## [2022/01/27] v5.01.03
 ### Change to BladeOne for template engine
