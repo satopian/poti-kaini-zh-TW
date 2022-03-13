@@ -30,6 +30,19 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2022/03/12] v5.12.0
+### Bug fixes
+- Fixed the issues that the menu could not be operated with Apple Pencil.
+Fixed that the menu operation of ChickenPaint and Klecks could not be operated with.
+It was caused by Javascript added to the paint related template in v3.19.5.
+I deleted the corresponding Javascript and confirmed that it works normally.
+### Updated Klecks
+- Updated Klecks to the latest version.
+A new brush has been added. You can now do mirror painting.
+
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v5.12.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.12.0)
+
 ## [2022/03/8] v5.10.0
 
 ### new function
@@ -41,10 +54,6 @@ Easy-to-understand UI, powerful brushes, and filter functions.
 You can use 8 layers.
 ### fix
 Many minor bugs have been fixed.
-
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.10.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.10.0.1)
-
 
 
 ## [2022/02/10] v5.05.0
@@ -131,8 +140,6 @@ We apologize for the incompatibility of the template and the resetting of config
 
 Also, please use the PHP script for the Oekaki bulletin board called [Petit Note](https://github.com/satopian/Petit_Note), which was newly recreated from scratch.
 
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW 5.01.03 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.01.03)
 
 ## [2021/12/22] v3.19.5
 
@@ -152,8 +159,6 @@ If the image you want to continue is many pages away from the top page, you had 
 
 - ChickenPaint Swipe a specific part of the screen to prevent it from moving up or down. The relevant parts are controlled by JavaScript.  
   
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v3.19.5 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.19.5)
 
 
 ## [2021/12/04] v3.15.3
@@ -176,9 +181,6 @@ Please update `pink_paint.html` to resolve these issues.
 - picpost.php
 Fixed false positives for languages.
 
-More information can be found in the release.  
-
-[Release POTI-board EVO zh-TW v3.15.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.15.3)
 
 ## [2021/11/23] v3.15.2
 ### Updated contents of `potiboard.php`
@@ -206,10 +208,6 @@ Please update `potiboard.php`.
 - In order to mitigate unauthorized posting from external sites, the usercode set in the usercode and cookie during post processing is now checked.
 
 Please update `picpost.php` and `save.php`.
-
-More information can be found in the release.  
-
-[Release POTI-board EVO zh-TW v3.12.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.12.2)
 
 
 ## [2021/10/31] v3.10.1 
@@ -249,9 +247,6 @@ Previously, even if you were using a new theme HTML file, you had to check or un
 ### [2021/09/28] v3.08.1
 #### bug fixes
 - Fixed an issue where the submit button was not enabled when using the browser's "History Back" or error screen "Back" links.  
-More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.08.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.08.1)
-
 
 ### [2021/09/28] v3.07.5
 
@@ -269,8 +264,6 @@ When editing or deleting an article, if you enter the article number and press t
 To avoid this problem, I created a separate input field hidden by CSS.
 This makes it easier to save passwords that use your name as your username.
 
-More information can be found in the release.  
-[Release POTI-board EVO v3.07.5 released · satopian/poti-kaini-zh-TW](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.07.5)
 
 ### [2021/08/11] v3.05.3 lot.210811
 - Added decoding process because Tweet and notification emails are HTML-escaped garbled characters.
@@ -298,15 +291,10 @@ Changed the number of items displayed on one page from 2000 to 1000.
 I apologize for any inconvenience, but please overwrite and update the ChickenPaint directory.
 It has been fixed in (v3.06.8.1).
   
-More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.06.8.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.06.8.1)
 
 ### [2021/08/06] v3.05.2.2
 - ChickenPaint has been updated to fix many iOS related bugs. Bugs related to palm rejection have been resolved.  
 You can now recognize your palm and Apple Pencil. Until now, unintended straight lines have occurred.  
-
-More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.05.2.2](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.2.2)
 
 ### [2021/08/03] v3.05.2 lot.210803
 - Resolved an issue where using ChickenPaint on an iPad would cause unintended double-tap zoom issues that would make drawing difficult.  
@@ -332,9 +320,6 @@ The output is the HTML tags removed and escaped.
 - The form on the top page and the mini-less form displayed in each thread have been abolished.  
 This is because you cannot set the CSRF token in a static HTML file.  
 - ChickenPaint is now available on your smartphone.  
-
-More information can be found in the release.  
-[Release POTI-board EVO zh-TW v3.05.1](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v3.05.1)
 
 
 ### [2021/08/03] v3.05.2 lot.210803
