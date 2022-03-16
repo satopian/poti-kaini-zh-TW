@@ -521,6 +521,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 		<input type="hidden" name="mode" value="download">
 		<input type="hidden" name="no" value="{{$no}}">
 		<input type="hidden" name="pch_ext" value="{{$pch_ext}}">
+		<span class="input_disp_none"><input type="text" value="" autocomplete="username"></span>
 		<span class="nk">密碼<input type="password" name="pwd" value="" class="paint_password" autocomplete="current-password"></span>
 		<input type="submit" value="下載 {{$pch_ext}} 文件">
 		</form>
