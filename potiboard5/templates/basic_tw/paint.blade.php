@@ -429,10 +429,9 @@ if(DynamicColor) PaletteListSetColor();
 <!--PaintBBS HELP END-->
 @endif
 @endif
-{{-- <!--お絵かきモード ここまで--> --}}
-{{-- <!--動画表示モード--> --}}
-{{-- <!--
-//
+{{-- お絵かきモード ここまで --}}
+{{-- 動画表示モード --}}
+{{-- 
 // pch_mode…動画表示モードのとき true が入る
 // paintbbs…PaintBBSのPCHファイルなら true が入る
 // normal…しぃペインターのSPCHファイルなら true が入る
@@ -443,7 +442,7 @@ if(DynamicColor) PaletteListSetColor();
 // pchfile…動画ファイル名(.pch or .spch)
 // speed…動画再生スピード初期値
 // datasize…動画ファイルサイズ(Byte)
---> --}}
+--}}
 @if($pch_mode) 
 	</header>
 <div class="appstage" style="width:{{$w}}px; height:{{$h}}px">
@@ -516,7 +515,18 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
    </div>
     <div class="continue_painttime">@if($painttime) 繪圖時間：{{$painttime}}@endif</div>
     <!--コンティニューフォーム欄-->
-    <form action="{{$self}}" method="post">
+	<div class="continue_post_form">
+	@if($download_app_dat)
+	<form action="{{$self}}" method="post">
+		<input type="hidden" name="mode" value="download">
+		<input type="hidden" name="no" value="{{$no}}">
+		<input type="hidden" name="pch_ext" value="{{$pch_ext}}">
+		<span class="nk">密碼<input type="password" name="pwd" value="" class="paint_password" autocomplete="current-password"></span>
+		<input type="submit" value="下載 {{$pch_ext}} 文件">
+		</form>
+	@endif	  
+		
+	<form action="{{$self}}" method="post">
       <input type="hidden" name="mode" value="contpaint">
       <input type="hidden" name="anime" value="true">
       <input type="hidden" name="picw" value="{{$picw}}">
@@ -535,14 +545,12 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
        </select>
        </span>
       <br>
-@if($n) 
-<!--
+{{-- 
 //select_app ツールの選択メニューを出す時にtrueが入る
 //use_shi_painter しぃペインターを使う設定の時にtrueが入る
 //use_chickenpaint を使う設定の時にtrueが入る
 //app_to_use 動画やレイヤー情報などの固有形式があるときに対応するアプリが入る
--->
-@endif
+ --}}
 
 @if($select_app)
 <select name="shi" class="paint_select">
@@ -577,6 +585,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 @endif
 	</ul>
 </div>
+
 <!--JavaScriptの実行(クッキーを読込み、フォームに値をセット)-->
 <script>
 l(); //LoadCookie
