@@ -34,7 +34,7 @@ define('MSG002', "您尚未選擇圖片，您必須上傳圖片。");
 define('MSG003', "上傳失敗<br>服務器可能不支持它。");
 define('MSG004', "上傳失敗<br>僅可以附加圖片文件。");
 define('MSG005', "上傳失敗<br>圖片已存在。");
-define('MSG006', "請不要違規投稿。");
+define('MSG006', "CSRF 令牌不匹配。");
 define('MSG007', "圖片不存在。");
 define('MSG008', "請寫點東西。");
 define('MSG009', "請輸入你的名字。");
