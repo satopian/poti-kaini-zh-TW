@@ -29,6 +29,43 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+## [2022/03/25] v5.16.5
+
+### Improvement
+### Klecks Japanese translation
+![image](https://user-images.githubusercontent.com/44894014/160145766-395c519f-e90e-4397-a92e-03005648906e.png)
+
+- Translated Klecks into Japanese.
+I was able to bundle a Japanese version with POTI-board.
+This new version of Klecks will automatically detect your browser's language priority and switch languages ​​for you.
+You can also specify the language to use regardless of the browser language setting.
+You can select English, German, or Japanese.
+Chinese is only in Simplified Chinese and details are still in English.
+Japanese translation resources have already been merged into the klecks repository.
+
+### The download button for the application-specific file has been created.
+![image](https://user-images.githubusercontent.com/44894014/160227733-b57a5783-d95a-4648-b484-5e065b2b7402.png)
+
+#### App-specific format list
+- `. Pch` file (PaintBBS)
+- `. Chi` file (ChickenPaint)
+- `. Psd` file (Klecks)
+
+The file containing the layer information for Klecks is a `.psd` file in Photoshop format.
+The downloaded `.psd` file can be opened by CSP, SAI and many other apps.
+`.pch` and` .chi` can be opened with NEO and ChickenPaint, respectively.
+If you attach `.pch`,` .chi`, `.psd` from the administrator posting screen and press the paint button, you can load it on the canvas and post it.
+
+#### Transparent PNG, change the transparent part of the thumbnail of transparent GIF to white
+
+- Fixed the problem that the transparent part of transparent PNG was black when it was converted to JPEG.
+It is not a mistake that the transparent color is black, but since it often results in unintended results, when converting from transparent GIF or transparent PNG to JPEG, the transparent color is converted to white.
+
+### Bug fixes
+
+- Fixed the case where a minor error occurred when operating the upload format specific to the paint application used when logging in to the administrator, and the automatic deletion function of unnecessary temporary files such as pch, chi, and psd.
+### BladeOne update
+Updated template engine BladeOne to v4.5.
 
 ## [2022/03/12] v5.12.0
 ### Bug fixes
