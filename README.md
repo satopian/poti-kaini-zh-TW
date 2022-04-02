@@ -29,6 +29,17 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+
+## [2022/04/02] v5.16.5.1
+- fix search template.
+Fixed a grammatical error in the HTML of the search screen.
+Fixed an issue where links from image lists could not be opened correctly.
+- klecks updated
+The number of layers that can be used has been increased from 8 to 16.
+
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v5.16.5.1 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
 ## [2022/03/25] v5.16.5
 
 ### Improvement
@@ -77,8 +88,6 @@ I deleted the corresponding Javascript and confirmed that it works normally.
 - Updated Klecks to the latest version.
 A new brush has been added. You can now do mirror painting.
 
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.12.0 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/tag/v5.12.0)
 
 ## [2022/03/8] v5.10.0
 
