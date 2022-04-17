@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- mocked drawing page -->
-<html lang="zh-tw">
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
 	<title>繪圖模式 - {{$title}}</title> 

@@ -8,7 +8,7 @@
 -->
 @endif
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="zh-Hant-TW">
 
 <head>
 	<meta charset="utf-8">
