@@ -51,6 +51,7 @@ Even if the process fails and the working files are left behind, they are now au
 ### Bug fixes
 - When the `.pch` save directory was specified other than`'src/'`, the automatic directory creation function did not work and the required files could not be saved.
 Changed to be created automatically when the directory does not exist.
+
 More information can be found in the release.    
 [Release POTI-board EVO zh-TW v5.16.8 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
