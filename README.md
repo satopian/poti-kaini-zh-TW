@@ -30,6 +30,31 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2022/04/28] v5.16.8
+
+### Klecks has been updated.
+- Several issues with the iPad OS have been fixed.
+- Traditional Chinese has been added to the available languages.
+
+### The template engine BladeOne has been updated.
+
+- BladeOne has been updated to v4.5.3.
+
+### Improvement
+
+- If the cause of the transmission failure of klecks is a server error, the error number is displayed as an alert.
+For example, if `saveklecks.php` does not exist ," Error 404 "will be displayed in the alert.
+
+- Changed the working directory of the PNGtoJPEG process to `TEMP_DIR`.
+Even if the process fails and the working files are left behind, they are now automatically deleted over time.
+
+### Bug fixes
+- When the `.pch` save directory was specified other than`'src/'`, the automatic directory creation function did not work and the required files could not be saved.
+Changed to be created automatically when the directory does not exist.
+
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v5.16.8 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
 ## [2022/04/02] v5.16.5.1
 - fix search template.
 Fixed a grammatical error in the HTML of the search screen.
@@ -37,8 +62,6 @@ Fixed an issue where links from image lists could not be opened correctly.
 - klecks updated
 The number of layers that can be used has been increased from 8 to 16.
 
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.16.5.1 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/03/25] v5.16.5
 
