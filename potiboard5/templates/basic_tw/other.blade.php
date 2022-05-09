@@ -176,7 +176,7 @@
 				<tr>
 					<td class="post_table_title">內文 @if($usecom) (必需) @endif</td>
 					<!--編集時、textarea内に本文をセット-->
-					<td><textarea name="com" wrap="soft" class="post_input_com">@if($com) {{$com}} @endif</textarea>
+					<td><textarea name="com" wrap="soft" class="post_input_com">@if($com){{$com}}@endif</textarea>
 					</td>
 				</tr>
 				<!--ファイルアップロード欄-->
