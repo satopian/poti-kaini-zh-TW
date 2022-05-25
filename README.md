@@ -30,6 +30,21 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2022/05/25] v5.18.9
+### Klecks update
+Updated Klecks to the latest version.
+### CheerpJ update to v2.3
+Updated CheerpJ, which converts Java applets to JavaScript when using the painter, to v2.3.
+### Bug fixes
+ - Fixed a bug where unnecessary spaces were inserted when editing text.
+ - Fixed a bug that the rejected character string and rejected url for anti-spam could not be processed correctly if they contained `/` (slash).
+ - Fixed a minor error when calculating the number of days elapsed for deleting temporary unnecessary files.
+ - Fixed the problem that the date and time when closing the reply in the specified number of days was not the parent's posting date and time but the latest reply posting date and time.
+ - Fixed the problem that the color specification of "Size" text on the Paint form was different from other text.
+
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v5.18.9 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
 ## [2022/04/28] v5.16.8
 
 ### Klecks has been updated.
@@ -52,8 +67,6 @@ Even if the process fails and the working files are left behind, they are now au
 - When the `.pch` save directory was specified other than`'src/'`, the automatic directory creation function did not work and the required files could not be saved.
 Changed to be created automatically when the directory does not exist.
 
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.16.8 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/04/02] v5.16.5.1
 - fix search template.
