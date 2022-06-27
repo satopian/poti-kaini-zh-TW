@@ -29,6 +29,12 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+## [2022/05/25] v5.18.25
+### Improvement
+- ChickenPaint now launches in full screen.
+
+More information can be found in the release.    
+[Release POTI-board EVO zh-TW v5.18.25 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/05/25] v5.18.9
 ### Klecks update
@@ -42,8 +48,6 @@ Updated CheerpJ, which converts Java applets to JavaScript when using the painte
  - Fixed the problem that the date and time when closing the reply in the specified number of days was not the parent's posting date and time but the latest reply posting date and time.
  - Fixed the problem that the color specification of "Size" text on the Paint form was different from other text.
 
-More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.18.9 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/04/28] v5.16.8
 
