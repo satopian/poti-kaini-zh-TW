@@ -36,7 +36,8 @@ Translation of `config.php`. We need to translate the description of the setting
 - Add a process to check if there is a posted image, make sure that the drawn image is sent to the server, and then move from the drawing screen.
 ### Update
 - Klecks has been updated. Added a grid to the editing function.
-- BladeOne has been updated. A minor bug has been fixed.
+- BladeOne has been updated. A minor bug has been fixed.  
+
 [Release POTI-board EVO zh-TW v5.20.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/05/25] v5.18.25
