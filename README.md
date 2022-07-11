@@ -37,13 +37,13 @@ Translation of `config.php`. We need to translate the description of the setting
 ### Update
 - Klecks has been updated. Added a grid to the editing function.
 - BladeOne has been updated. A minor bug has been fixed.
+[Release POTI-board EVO zh-TW v5.20.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/05/25] v5.18.25
 ### Improvement
 - ChickenPaint now launches in full screen.
 
 More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.18.25 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/06/30] v5.19.1
 - Since it was confirmed that it does not work with PHP7.1, the required operating environment has been changed to PHP7.2 or higher.
