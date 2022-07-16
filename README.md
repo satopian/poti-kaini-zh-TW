@@ -29,12 +29,22 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+## [2022/07/11] v5.20.2
+### Improvement
+- Reduced the probability of duplicate file names when posting drawing images to 1/1000.
+- Even if it is duplicated, 1 second will be added to the posting time.
+- Add a process to check if there is a posted image, make sure that the drawn image is sent to the server, and then move from the drawing screen.
+### Update
+- Klecks has been updated. Added a grid to the editing function.
+- BladeOne has been updated. A minor bug has been fixed.  
+
+[Release POTI-board EVO zh-TW v5.20.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
 ## [2022/05/25] v5.18.25
 ### Improvement
 - ChickenPaint now launches in full screen.
 
 More information can be found in the release.    
-[Release POTI-board EVO zh-TW v5.18.25 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/06/30] v5.19.1
 - Since it was confirmed that it does not work with PHP7.1, the required operating environment has been changed to PHP7.2 or higher.
