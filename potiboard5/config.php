@@ -1,9 +1,9 @@
 <?php
 /*
-  * POTI-board EVO v3.20.0 lot.220106
+  * POTI-board EVO v5.21.0 lot.220715
   * by POTI-kai >> https://paintbbs.sakura.ne.jp/poti/
   *
-  * setting file of POTI-board Kai Ni
+  * setting file of POTI-board EVO
   * Japanese is left in the comments for the convenience of translation.
   *
 */
@@ -216,7 +216,7 @@ define('DSP_RES', '7');
 
 // 文字色選択を使用する する:1 しない:0
 // 要対応テーマ
-// Use font color selection, do:'1', do not:'0'
+// Use font color selection, (1: Enabled, 0: Disabled)
 // Needed a theme for this feature
 define('USE_FONTCOLOR', '0');
 
@@ -255,7 +255,7 @@ define('DSP_RESIMG', '2');
 
 // 顯示ID 是:1 否:0
 // To show ID, set '1', if not, set '0'.
-define('DISP_ID', '0');
+define('DISP_ID', '1');
 
 // 自動鏈接網址 是:1 否:0
 // Automatically transform URLs to links (Yes: 1, No: 0)
@@ -604,3 +604,6 @@ define('PERMISSION_FOR_DIR', 0707);//初期値 0707
 // But if it causes problems, set this to '0' (disabled) 
 define('RE_SAMPLED', '1');
 
+// Deny display in iframe:  (1: Deny, 0: Allow)
+// For security reasons, we strongly recommend "Deny".
+define('X_FRAME_OPTIONS_DENY', '1');
