@@ -223,7 +223,7 @@
 						src="{{$res['imgsrc']}}" width="{{$res['w']}}" height="{{$res['h']}}"
 						alt="{{$res['sub']}} by {{$res['name']}} ({{$res['size']}} B)"
 						title="{{$res['sub']}} by {{$res['name']}} ({{$res['size']}} B) @if($res['thumb'])縮圖顯示 @endif"
-						loading="lazy">@if($res['thumb'])</a>@endif
+						@if($i>4)loading="lazy"@endif>@if($res['thumb'])</a>@endif
 			</div>
 			@endif
 			<div class="comment"> {!!$res['com']!!}</div>
