@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="{{$skindir}}basic.css">
 	<link rel="stylesheet" href="{{$skindir}}icomoon/style.css">
 	<style id="for_mobile"></style>
+	<link rel="preload" as="script" href="lib/{{JQUERY}}">
 	<script>
 		function is_mobile() {
 			if (navigator.maxTouchPoints && (window.matchMedia && window.matchMedia('(max-width: 768px)').matches))
@@ -293,7 +294,7 @@
 	</div>
 	<div id="bottom"></div>
 	<div id="page_top"><a href="#" class="icon-angles-up-solid"></a></div>
-	<script src="{{$skindir}}jquery-3.5.1.min.js"></script>
+	<script src="lib/{{JQUERY}}"></script>
 	<script>
 		window.onpageshow = function () {
 			var $btn = $('[type="submit"]');
