@@ -39,7 +39,7 @@
 	// title…掲示板タイトル
 	 --}}
 	{{-- クッキー読込み用JavaScript(必須) --}}
-	<script src="loadcookie.js"></script>
+	<link rel="preload" as="script" href="loadcookie.js">
 </head>
 
 <body>
@@ -282,9 +282,9 @@
 		@include('parts.prev_next')
 		{{-- メンテナンスフォーム欄 --}}
 		@include('parts.mainte_form')
-
+		<script src="loadcookie.js"></script>
 		<script>
-			l(); //LoadCookie
+		document.addEventListener('DOMContentLoaded',l,false); //LoadCookie
 		</script>
 
 		<footer>
