@@ -263,7 +263,7 @@
 					</span>
 					@endif
 					<form action="{{$self}}?res={{$ress[0]['no']}}" method="post"><input type="submit"
-							value="@if($ress[0]['disp_resbutton']) 回覆 @else 顯示 @endif" class="res_button"></form><span
+						value="@if($ress[0]['disp_resbutton']) 回覆 @else 顯示 @endif" class="res_button"></form><span
 						class="page_top"><a href="#top">△</a></span></div>
 			</div>
 			{{-- end thread --}}
@@ -294,7 +294,7 @@
 		</footer>
 	</div>
 	<div id="bottom"></div>
-	<div id="page_top"><a href="#" class="icon-angles-up-solid"></a></div>
+	<div id="page_top"><a class="icon-angles-up-solid"></a></div>
 	<script src="lib/{{JQUERY}}"></script>
 	<script>
 	jQuery(function() {
