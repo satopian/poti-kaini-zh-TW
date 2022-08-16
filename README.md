@@ -5,6 +5,9 @@ This is the traditional Chinese translation version of POTI-board EVO.
 [satopian/poti-kaini: ｢お絵かき掲示板PHPスクリプトPOTI-board EVO｣ for PaintBBS NEO and ChickenPaint](https://github.com/satopian/poti-kaini)
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
 
+ 
+![image](https://user-images.githubusercontent.com/44894014/184851937-4dadefac-a987-4c10-a47c-812b3e720dc6.png)
+
 ###
 [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 
@@ -19,9 +22,6 @@ You may lose all log files.
 
 Please update to v5.x or higher.
   
-###
-  
-![image](https://user-images.githubusercontent.com/44894014/117331996-480b5700-aed2-11eb-8580-297e4c6268e5.png)  
 
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
@@ -34,8 +34,9 @@ Translation of `config.php`. We need to translate the description of the setting
 ### Update
 - Updated Klecks to the latest version.
 Added noise filter.
-  
-![image](https://user-images.githubusercontent.com/44894014/184850356-18f6db4a-030a-4953-8c25-5c753d7f2035.png)
+    
+![image](https://user-images.githubusercontent.com/44894014/184851491-b2f1bccb-c55e-40c8-b40a-87304725c811.png)
+
 - Updated BladeOne to v4.5.5.
 - Updated jQuery to v3.6.0.
 Since the existence of the file is checked, the program will not run if the included jQuery does not exist.
