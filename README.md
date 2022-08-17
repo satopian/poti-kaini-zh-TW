@@ -5,6 +5,9 @@ This is the traditional Chinese translation version of POTI-board EVO.
 [satopian/poti-kaini: ｢お絵かき掲示板PHPスクリプトPOTI-board EVO｣ for PaintBBS NEO and ChickenPaint](https://github.com/satopian/poti-kaini)
 存儲庫管理員依靠Google翻譯，因為它只懂日語.  
 
+ 
+![image](https://user-images.githubusercontent.com/44894014/184851937-4dadefac-a987-4c10-a47c-812b3e720dc6.png)
+
 ###
 [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 
@@ -19,9 +22,6 @@ You may lose all log files.
 
 Please update to v5.x or higher.
   
-###
-  
-![image](https://user-images.githubusercontent.com/44894014/117331996-480b5700-aed2-11eb-8580-297e4c6268e5.png)  
 
 ### Overview of required work.
 There is a language resource for messages in `template_ini.php`, such as error messages and messages used when images are uploaded successfully.  
@@ -29,6 +29,49 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+
+## [2022/08/16] v5.23.8
+### Update
+- Updated Klecks to the latest version.
+Added noise filter.
+    
+![image](https://user-images.githubusercontent.com/44894014/184851491-b2f1bccb-c55e-40c8-b40a-87304725c811.png)
+
+- Updated BladeOne to v4.5.5.
+- Updated jQuery to v3.6.0.
+Since the existence of the file is checked, the program will not run if the included jQuery does not exist.
+The  case an error message telling you that the file does not exist.
+
+### Improvements
+- Fixed clickjacking vulnerability.
+It will not be possible to display in frames or iframes.
+It's more secure, but I know some people want to display it in a frame.
+Therefore, we added a new setting item to config.php so that you can select whether or not to display it in the frame.
+If you do not need to display in the frame, you do not need to add setting items.
+```
+// Deny display in iframe:  (1: Deny, 0: Allow)
+// We strongly recommend "Deny" to avoid security risks.
+define('X_FRAME_OPTIONS_DENY', '1');
+
+```
+I think it is difficult to rewrite config.php from scratch, so if you add the above setting items anywhere, you will be able to display it in the frame.
+
+- Improved mobile usability.
+Optimized tap target size and spacing.
+
+- Improved page loading speed
+Prefetch externally loaded JavaScript such as jQuery and loadcookie.js to avoid rendering blocking.
+- JavaScript execution timing to `DOMContentLoaded`.
+
+- Fixed a fatal error if not written carefully. error() function to built-in function die().
+  
+- Enabled to change the jQuery version without touching the template directly.
+- Added width and height of image in search screen.
+- In order to speed up loading speed, loading="lazy" is not applied to the range displayed from the beginning.
+- The JavaScript description of the timer under the PaintBBS startup screen was deprecated, so it has been fixed.
+[After setting the content security policy, the clock on the drawing screen of POTI-board stopped working. ｜Satopian｜note](https://note.com/satopian/n/n7b757ee05975)
+
+
 ## [2022/07/11] v5.20.2
 ### Improvement
 - Reduced the probability of duplicate file names when posting drawing images to 1/1000.
