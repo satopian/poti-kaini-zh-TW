@@ -348,7 +348,7 @@
 					<th class="nobreak">投稿者</th>
 					<th class="nobreak">內文</th>
 					<th class="column_non">主機名稱</th>
-					<th class="column_non">附件 (Bytes)</th>
+					<th class="column_non">附件 (KB)</th>
 					<th class="column_non">MD5</th>
 				</tr>
 
@@ -370,7 +370,7 @@
 					<td class="nobreak"><b>{!!$del['name']!!}</b></td>
 					<td><small>{{$del['com']}}</small></td>
 					<td class="column_non">{{$del['host']}}</td>
-					<td class="column_non">{!!$del['clip']!!}({{$del['size']}})</td>
+					<td class="column_non">{!!$del['clip']!!}({{$del['size_kb']}})</td>
 					<td class="column_non">{{$del['chk']}}</td>
 				</tr>
 				@endforeach
