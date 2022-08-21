@@ -96,7 +96,7 @@ define('RE_END', '');
 //Format when > is attached
 //Since it is sandwiched between RE_START and RE_END, 
 //it is recommended to set it with css considering. (do not change it here)
-define('NOW_PAGE', '<span class="parentheses">[<span class="page_number"><PAGE></span>]</span>');
+define('NOW_PAGE', '<span class="parentheses">[<span class="page_number"><strong><PAGE></strong></span>]</span>');
 
 //Format of other pages
 //The number of pages is entered in <PAGE>
