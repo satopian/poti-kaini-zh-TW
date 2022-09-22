@@ -30,6 +30,24 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2022/09/20] v5.26.3
+### Update
+- Updated Klecks to latest version.
+Gradient tool and pattern filter added.
+- Updated BladeOne to v4.6.
+### Bug fixes
+- Fixed a bug that an E-WARNING level PHP error occurred when specifying an article number other than the article number of the thread's parent on the reply screen.
+Please update `potiboard.php`.
+### Improvements
+- If the password field is blank for password authentication when drawing a continuation or download authentication of pch, chi, psd, the cookie password will be used instead.
+Unified to the same behavior as password authentication during edit function.  
+- Fixed function `check_password()` for password checking. Password authentication will not succeed if no password is entered and the password is not present in the cookie.  
+- Fixed the multilingual support of the mail notification function was insufficient.
+- Fixed paint screen's clock javascript .
+- Changed the unit of file size on the managed post screen from bytes to kb.
+
+[Release POTI-board EVO zh-TW v5.26.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
 ## [2022/08/16] v5.23.8
 ### Update
 - Updated Klecks to the latest version.
@@ -81,7 +99,6 @@ Prefetch externally loaded JavaScript such as jQuery and loadcookie.js to avoid 
 - Klecks has been updated. Added a grid to the editing function.
 - BladeOne has been updated. A minor bug has been fixed.  
 
-[Release POTI-board EVO zh-TW v5.20.2 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/05/25] v5.18.25
 ### Improvement
