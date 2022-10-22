@@ -163,10 +163,6 @@
 // pchfile…動画ファイル名(動画から続きを描く場合)
 // imgfile…画像ファイル名(画像から続きを描く場合)
 // usercode…ユーザーコード(投稿者認識用)
-// security…セキュリティが有効な場合 true が入る
-// security_click…セキュリティクリック数
-// security_timer…セキュリティタイマー(秒)
-// security_url…セキュリティにヒットした場合の飛び先
 // palsize…パレット総数
 // dynp…パレットの名前配列データ
 // applet…しぃペインターを使用するとき true が入る
@@ -292,6 +288,8 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 @endif
 @endif
 <!--共通設定(変更不可)-->
+<param name="send_header_count" value="true">
+<param name="send_header_timer" value="true">
 <param name="image_width" value="{{$picw}}">
 <param name="image_height" value="{{$pich}}">
 <param name="image_jpeg" value="{{$image_jpeg}}">
@@ -316,16 +314,6 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <param name="image_canvas" value="{{$imgfile}}">
 @endif
 <param name="send_header" value="usercode={{$usercode}}">
-@if($security) 
-@if($security_click) 
-<param name="security_click" value="{{$security_click}}">
-@endif
-@if($security_timer) 
-<param name="security_timer" value="{{$security_timer}}">
-@endif
-<param name="security_url" value="{{$security_url}}">
-<param name="security_post" value="false">
-@endif
 <!--共通設定(変更不可) ここまで-->
 <!--アプレットのカラー設定(変更可)-->
 <!--アプレットのカラー設定(変更可) ここまで-->
