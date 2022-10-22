@@ -544,17 +544,6 @@ define("SECURITY_CLICK", "");
 // Minimum required drawing time(Seconds); Not set:""
 define("SECURITY_TIMER", "");
 
-// URL to go if they violate the above
-define("SECURITY_URL", "./security_c.html");
-
-// 続きを描くときのセキュリティ。利用しないなら両方""で
-// 続きを描くときのセキュリティクリック数。設定しないなら""で
-// Clicks for security of continue mode; Not set:""
-define("C_SECURITY_CLICK", "");
-// 続きを描くときのセキュリティタイマー(単位:秒)。設定しないなら""で
-// Timer for security(Seconds) of continue mode; Not set:""
-define("C_SECURITY_TIMER", "");
-
 // ペイント画面のパスワードの暗号鍵
 // あまり頻繁に変えないように
 // Encryption key for paint mode. (don"t change it too often)
