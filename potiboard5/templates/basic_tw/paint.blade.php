@@ -134,8 +134,8 @@
 
 @else
 <h1 id="bbs_title">@if($continue_mode) 續繪@endif @if($pch_mode) 過程顯示模式@endif - <span class="title_name_wrap">{{$title}}</span></h1>@endif
-{{-- <!--お絵かきモード--> --}}
-{{-- <!-- 
+{{-- お絵かきモード --}}
+{{-- 
 // 【お絵かき(通常/続き)】
 //
 // paint_mode…お絵かきモードのとき true が入る
@@ -179,8 +179,7 @@
 // type…差し換えか、新規投稿か(コンティニュー)
 // pwd…記事Pass(コンティニュー)
 // ext…画像拡張子(コンティニュー)
-// mode2…現在のモード
---> --}}
+ --}}
 @if($paint_mode) 
 @if($chickenpaint)
 
@@ -262,7 +261,7 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
  <param name="neo_confirm_unload" value="true">
  <param name="neo_show_right_button" value="true">
 @endif
-{{-- しぃペインター個別設定 --}}
+<!--しぃペインター個別設定-->
 @if($normal) 
 <applet code="c.ShiPainter.class" archive="spainter_all.jar" name="paintbbs" WIDTH="{{$w}}" HEIGHT="{{$h}}" MAYSCRIPT>
 <param name=dir_resource value="./">
