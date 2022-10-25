@@ -5,7 +5,7 @@
 */
 
 //theme version
-define('TEMPLATE_VER', "v5.00.0 lot.220121");
+define('TEMPLATE_VER', "v5.33.1 lot.221025");
 
 //General message
 
@@ -135,7 +135,7 @@ define('UPDATE_MARK', ' *');
 define('DATE_FORMAT', 'Y/m/d(D) H:i');
 
 //管理画面(削除モード)の奇数行カラー
-define('ADMIN_DELKISU', 'none');
+define('ADMIN_DELKISU', '#fff');
 
 //管理画面(削除モード)の偶数行カラー
 define('ADMIN_DELGUSU', '#fff0f3');
