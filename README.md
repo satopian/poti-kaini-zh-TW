@@ -76,6 +76,10 @@ Click the image to view the original GIF animation.
 ### update Klecks
 Fixes an issue where white fills after using distortion tool show lines that follow the shape of the Liquify.
 Added how-to video link to help page and added gradient shortcut keys section.
+
+[Release POTI-board EVO zh-TW v5.35.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
+
 ## [2022/10/03] v5.26.8
 
 ### Updated ChickenPaint to the latest version.
@@ -111,7 +115,6 @@ Unified to the same behavior as password authentication during edit function.
 - Fixed paint screen's clock javascript .
 - Changed the unit of file size on the managed post screen from bytes to kb.
 
-[Release POTI-board EVO zh-TW v5.26.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
 
 ## [2022/08/16] v5.23.8
 ### Update
