@@ -29,6 +29,32 @@ The HTML of the template uses Japanese, so we need to translate it.
 We also need to translate the external search programs `search.php` and `search.html`.    
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
+
+## [2022/11/30] v5.36.8
+
+### update
+- Updated Klecks.
+ Fixed brush shortcut key behavior.
+- Updated BladeOne to v4.7.1.
+
+### improvement
+- Even if the timestamps used in the working files overlap, advance the post time by 1 second so that the timestamps do not overlap.
+Previously, the working file could be overwritten by another file.
+
+- An error does not occur when the post time to be compared is in the future.
+In the post waiting time calculation process, even if the post time after the current time is detected, it will not be an error.
+For example, if the posting time is delayed by one year due to some mistake, the next posting will not be possible until one year has passed. To avoid this, if the waiting time is a negative value, it will pass without generating an error.
+
+- BladeOne v4.7.1. Along with that, I changed potiboard.php to automatically generate the cache directory.
+The cache directory auto-generation feature has been removed from BladeOne. As an alternative function, added a cache directory auto-creation function to potiboard.php.
+
+- Change the permission of files that need to be written in advance to 0606 (606). The log file that cannot be viewed externally is 0600 (600).
+
+- The types of error messages have increased when posting OEKAKI images fails.
+
+[Release POTI-board EVO zh-TW v5.36.8 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
+
+
 ## POTI-board EVO v5.35.3 release
 ## [2022/10/29] v5.35.3
 
@@ -76,9 +102,6 @@ Click the image to view the original GIF animation.
 ### update Klecks
 Fixes an issue where white fills after using distortion tool show lines that follow the shape of the Liquify.
 Added how-to video link to help page and added gradient shortcut keys section.
-
-[Release POTI-board EVO zh-TW v5.35.3 released.](https://github.com/satopian/poti-kaini-zh-TW/releases/latest)
-
 
 ## [2022/10/03] v5.26.8
 
