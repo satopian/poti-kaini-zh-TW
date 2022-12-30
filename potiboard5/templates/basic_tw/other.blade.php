@@ -26,6 +26,9 @@
 	.del_page {
 		display: inline-block;
 	}
+	.pchup_button {
+	margin: 0 0 10px 0;
+	}
 	</style>
 	<style id="for_mobile"></style>
 <script>
