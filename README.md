@@ -30,6 +30,14 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2022/12/30] v5.52.8
+
+### It is now possible to extract the width and height from the old Java version pch file and load it into the canvas.
+All apps no longer require canvas size input when uploading an app specific file and loading it into the canvas.
+
+![221227_006](https://user-images.githubusercontent.com/44894014/210079467-e7e3d80b-cf15-4dc1-8cb2-89dfc3f52800.gif)
+
+
 ## [2022/12/28] v5.52.2
 
 ### Improved. PaintBBS NEO animation file upload painting made easy.
