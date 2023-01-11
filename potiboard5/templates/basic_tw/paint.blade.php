@@ -546,17 +546,18 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 //app_to_use 動画やレイヤー情報などの固有形式があるときに対応するアプリが入る
  --}}
 
-@if($select_app)
-<select name="shi" class="paint_select">
-	<option value="neo">PaintBBS NEO</option>
-	@if($use_shi_painter) <option value="1" class="for_pc">Shi-Painter</option>@endif
-	@if($use_chickenpaint) <option value="chicken">ChickenPaint</option>@endif
+ @if($select_app)
+ <select name="shi" class="paint_select">
+	@if($use_neo)<option value="neo">PaintBBS NEO</option>@endif
+	@if($use_shi_painter)<option value="1" class="for_pc">Shi-Painter</option>@endif
+	@if($use_chickenpaint)<option value="chicken">ChickenPaint</option>@endif
 	@if($use_klecks)<option value="klecks">Klecks</option>@endif
-</select>
-@endif
-@if($app_to_use) 
-<input type="hidden" name="shi" value="{{$app_to_use}}">
-@endif
+ </select>
+ @endif 
+ {{-- 選択メニューを出さない時に起動するアプリ --}}
+ @if($app_to_use)
+ <input type="hidden" name="shi" value="{{$app_to_use}}">
+ @endif
 
 @if($use_select_palettes) 
 <span class="palette_type">PALETTE</span> <select name="selected_palette_no" title="パレット" class="paint_select palette_type">{!!$palette_select_tags!!}</select>
