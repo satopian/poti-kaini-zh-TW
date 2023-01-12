@@ -67,6 +67,9 @@ define("USE_SHI_PAINTER", "1");
 define("USE_CHICKENPAINT", "1");
 //使用Klecks 是:1 否:0 
 define("USE_KLECKS", "1");
+//無論設置如何，都允許管理員使用所有應用程序
+// 是:1 否:0 
+define('ALLOW_ADMINS_TO_USE_ALL_APPS_REGARDLESS_OF_SETTINGS', '1');
 
 /*----------絶対に設定が必要な項目はここまでです。ここから下は必要に応じて。----------*/
 /* 這樣就完成了基本設置。從這裡開始，根據需要進行設置。 */

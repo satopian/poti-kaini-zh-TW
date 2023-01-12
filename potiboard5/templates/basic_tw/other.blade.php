@@ -97,10 +97,10 @@
 		</header>
 		@if($admin)
 		@if($regist)
-
+		@if($paint)
 		{{-- ペイントフォーム --}}
 		@include('parts.paint_form',['admin'=>$admin])
-
+		@endif
 		@endif
 		@endif
 		<!--投稿待ちのお絵かき画像表示-->
