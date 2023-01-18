@@ -30,13 +30,6 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-## [2023/01/14] v5.55.8.2
-### Bug fix
-
-Fixed a bug where setting the minimum number of seconds required to draw would cause all alerts that should have been displayed as "15 sec" to be displayed as "0 seconds".
-Even if this bug exists, if you set it to 60 seconds, you can post normally when it exceeds 60 seconds.
-The problem was that the remaining time was not displayed accurately, and it was all "remaining 0 sec".
-
 ## [2023/01/19] v5.55.8.3
 ### Bug fixes
 - PaintBBS NEO data was not received at all in the environment of PHP5.6 to PHP7.x. Since it works without causing an error in PHP8.1 and PHP8.2, the discovery was delayed.
