@@ -30,6 +30,14 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/01/14] v5.55.8.2
+### Bug fix
+
+Fixed a bug where setting the minimum number of seconds required to draw would cause all alerts that should have been displayed as "15 sec" to be displayed as "0 seconds".
+Even if this bug exists, if you set it to 60 seconds, you can post normally when it exceeds 60 seconds.
+The problem was that the remaining time was not displayed accurately, and it was all "remaining 0 sec".
+
+
 ## [2023/01/14] v5.55.8.1
 - fixd saveneo.php
 
