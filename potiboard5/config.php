@@ -145,15 +145,19 @@ define("USE_JAPANESEFILTER", "0");
 define("DENY_COMMENTS_URL", "0");
 // 管理員不受此設置的影響。
 
-//古いスレッドへのフォームを閉じて投稿を拒否する
-// 關閉表格到舊線程並拒絕投稿
-// define("ELAPSED_DAYS","0");
-// 設定しないなら "0"で。フォームを閉じません。
-//如果不想設置，請使用"0"。 該表格將不會關閉。
-// define("ELAPSED_DAYS","365");
-//	↑ 365days
-// 此設置將關閉一年以上的舊線程的表單。
-// Close threads after X days. Set to 0 to disable.
+//使用 URL 輸入字段 是:1 否:0
+define("USE_URL_INPUT_FIELD", "1");
+//否：0，URL字段從表單輸入字段中消失。
+// 即使表單是偽造的，也不會輸入 URL。
+//No: 0, the URL field disappears from the form input fields.
+// Even if the form is faked, the URL will not be entered.
+
+// Close threads after X days. 
+// Setting "365" days will close threads older than 1 year.
+// Set to 0 to disable.
+// X 天后關閉線程。
+// 設置“365”天將關閉超過 1 年的線程。
+// 設置為 0 以禁用。
 define("ELAPSED_DAYS","365");
 
 // 拒絶するファイルのmd5
