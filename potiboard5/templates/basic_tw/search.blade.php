@@ -29,14 +29,14 @@
 		}
 	</style>
 	@endif
-	<title>{{$title}}{{$pageno}}</title>
+	<title>{{$h1}} {{$pageno}}</title>
 </head>
 
 <body>
 	<div id="main">
 		<header>
 			<div class="title">
-				<h1>{{$h1}}<span class="title_wrap">{{$pageno}}</span></h1>
+				<h1>{{$h1}} <span class="title_wrap"> {{$pageno}}</span></h1>
 			</div>
 		</header>
 		<nav>

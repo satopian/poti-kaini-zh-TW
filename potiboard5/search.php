@@ -261,16 +261,13 @@ if($j&&$page>=2){
 	$pageno = $j.$mai_or_ken;
 }
 if($query!==''&&$radio===3){
-	$dat['title']=$query.'的'.$img_or_com;//titleタグに入る
-	$dat['h1']=$query.'的';//h1タグに入る
+	$dat['h1']=$query.'的搜索結果';//h1タグに入る
 }
 elseif($query!==''){
-	$dat['title']=$query.'的'.$img_or_com;//検索対象は人
-	$dat['h1']=$query.'的';//検索対象は人
+	$dat['h1']=$query.'的貼文';//検索対象は人
 }
 else{
-	$dat['title']='留言板的最新'.$img_or_com;
-	$dat['h1']='留言板的最新'.$img_or_com;
+	$dat['h1']='留言板的最新'.$img_or_com.'貼文';
 }
 $dat['pageno']=$pageno;
 //ページング
