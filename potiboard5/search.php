@@ -91,10 +91,10 @@ defined('MD_LINK') or define('MD_LINK', '0');
 
 //filter_input
 
-$imgsearch=filter_input(INPUT_GET,'imgsearch',FILTER_VALIDATE_BOOLEAN) ? true : false;
-$page=filter_input(INPUT_GET,'page',FILTER_VALIDATE_INT);
+$imgsearch=(bool)filter_input(INPUT_GET,'imgsearch',FILTER_VALIDATE_BOOLEAN) ? true : false;
+$page=(int)filter_input(INPUT_GET,'page',FILTER_VALIDATE_INT);
 $page= $page ? $page : 1;
-$query=filter_input(INPUT_GET,'query');
+$query=(string)filter_input(INPUT_GET,'query');
 $query=urldecode($query);
 $query=mb_convert_kana($query, 'rn', 'UTF-8');
 $query=str_replace(array(" ", "　"), "", $query);
@@ -164,17 +164,16 @@ while ($line = fgets($fp)) {
 			$link=PHP_SELF.'?res='.$oya[$no];
 			$arr[]=[$no,$name,$sub,$com,$ext,$w,$h,$time,$link];
 			++$i;
-		}
 			if($i>=$max_search){break;}//1掲示板あたりの最大検索数
+		}
 		
 	}
 
-	if($j>=5000){break;}//1掲示板あたりの最大行数
 	++$j;
+	if($j>=5000){break;}//1掲示板あたりの最大行数
 
 }
 	fclose($fp);
-
 //検索結果の出力
 $j=0;
 $dat['comments']=[];
@@ -211,6 +210,7 @@ if($arr){
 			if($i >= $page+$disp_count_of_page-2){break;}
 	}
 }
+
 unset($sub,$name,$no,$boardname);
 unset($i,$val);
 
@@ -256,10 +256,9 @@ $dat['page']=(int)$page;
 $dat['img_or_com']=$img_or_com;
 $dat['pageno']='';
 if($j&&$page>=2){
-	$dat['pageno'] = $page.'-'.$j.$mai_or_ken;
-}
-elseif($j){
-		$dat['pageno'] = $j.$mai_or_ken;
+	$pageno = $page.'-'.$j.$mai_or_ken;
+}else{
+	$pageno = $j.$mai_or_ken;
 }
 if($query!==''&&$radio===3){
 	$dat['title']=$query.'的'.$img_or_com;//titleタグに入る
@@ -273,7 +272,7 @@ else{
 	$dat['title']='留言板的最新'.$img_or_com;
 	$dat['h1']='留言板的最新'.$img_or_com;
 }
-
+$dat['pageno']=$pageno;
 //ページング
 
 $nxetpage=$page+$disp_count_of_page;//次ページ
