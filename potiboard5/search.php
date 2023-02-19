@@ -133,6 +133,8 @@ while ($line = fgets($fp)) {
 		continue;
 	}
 
+	$key_time=substr($time,-13);
+
 	$continue_to_search=true;
 	if($imgsearch){//画像検索の場合
 		$continue_to_search=($ext&&is_file(IMG_DIR.$time.$ext));//画像があったら
@@ -163,7 +165,7 @@ while ($line = fgets($fp)) {
 		){
 			$link='';
 			$link=PHP_SELF.'?res='.$oya[$no];
-			$arr[(int)substr($time,-13)]=[$no,$name,$sub,$com,$ext,$w,$h,$time,$link];
+			$arr[$key_time]=[$no,$name,$sub,$com,$ext,$w,$h,$time,$link];
 			++$i;
 			if($i>=$max_search){break;}//1掲示板あたりの最大検索数
 		}
@@ -269,7 +271,7 @@ elseif($query!==''){
 	$dat['h1']=$query.'的貼文';//検索対象は人
 }
 else{
-	$dat['h1']='留言板的最新'.$img_or_com.'貼文';
+	$dat['h1']='留言板的最新貼文';
 }
 $dat['pageno']=$pageno;
 //ページング
@@ -283,14 +285,14 @@ $dat['nxet']=false;
 if($page<=$disp_count_of_page){
 	$dat['prev']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';//前のページ
 if($countarr>=$nxetpage){
-	$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">next '.h($disp_count_of_page.$mai_or_ken).'≫</a>';//次のページ
+	$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';//次のページ
 }
 }
 
 elseif($page>=$disp_count_of_page+1){
-	$dat['prev']= '<a href="?page='.h($prevpage.$search_type.$query_l).'">≪prev '.h($disp_count_of_page.$mai_or_ken).'</a>'; 
+	$dat['prev']= '<a href="?page='.h($prevpage.$search_type.$query_l).'">≪上一頁</a>'; 
 	if($countarr>=$nxetpage){
-		$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">next '.h($disp_count_of_page.$mai_or_ken).'≫</a>';
+		$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';
 	}else{
 		$dat['nxet']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';
 	}
