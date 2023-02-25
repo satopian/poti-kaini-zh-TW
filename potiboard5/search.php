@@ -185,6 +185,7 @@ if(!empty($arr)){
 	krsort($arr);
 	
 	$articles=array_slice($arr,((int)$page-1),$disp_count_of_page,false);
+	$articles = array_values($articles);
 
 	foreach($articles as $i => $val){
 		list($no,$name,$sub,$com,$ext,$w,$h,$time,$link)=$val;
