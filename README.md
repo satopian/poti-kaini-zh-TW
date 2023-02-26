@@ -30,7 +30,7 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-## [2023/02/11] v5.56.3
+## [2023/02/26] v5.56.3
 
 ### Updated Klecks to latest version
 
@@ -45,19 +45,6 @@ Translation of `config.php`. We need to translate the description of the setting
 ### Improvements
 - Fixed that the order of the search screen was not in the latest order.
 - Improved search screen code.
-
-### changed directory
-- klecks/ directory
-- BladeOne/ directory
-
-### changed files
-
--potiboard.php
--search.php
-
-### changed Templates
-- templates/basic_tw/search.blade.php
-Improved translations on the search screen.
 
 ## [2023/02/11] v5.56.2.3
 ### Bug fix
