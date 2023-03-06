@@ -807,6 +807,8 @@ tr.deltable_tr{
 /*  続から描くフォーム */
 .continue_post_form {
 	line-height: 1.8;
+	text-align: initial;
+	display: inline-block;
 }
 /* レス書き込みの説明 */
 .howtowrite {
