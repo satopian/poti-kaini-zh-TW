@@ -181,6 +181,7 @@ a:hover {
 }
 
 /* フォーム */
+
 #self2 {
 	margin: 10px auto 15px;
 	max-width: 928px;
@@ -627,14 +628,12 @@ input.pch_upload {
 
 
 .paint_password {
-	color: #666666;
 	width: 80px;
 	height: 16px;
 	padding: 1px;
 }
 
 .paint_select {
-	color: #666666;
 	height: 21px;
 }
 
