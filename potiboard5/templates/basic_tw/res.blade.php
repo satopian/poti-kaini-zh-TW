@@ -86,6 +86,7 @@
 				<div class="res_article_title">[{{$res['no']}}] {{$res['sub']}}</div>
 				@endif
 				{{-- <!-- 記事共通ヘッダ --> --}}
+				@if(!isset($res['not_deleted'])||$res['not_deleted'])
 				<div class="article_info">
 					<span class="article_info_name"><a href="search.php?page=1&imgsearch=on&query={{$res['encoded_name']}}&radio=2"
 							target="_blank" rel="noopener">{{$res['name']}}</a></span>@if($res['url'])<span
@@ -106,7 +107,7 @@
 						@endif			
 					</div>
 				</div>
-
+				@endif
 		
 					{{-- <!-- 記事共通ヘッダここまで --> --}}
 		
@@ -118,8 +119,13 @@
 								loading="lazy"></a>
 					</div>
 					@endif
-					<div class="comment"> {!!$res['com']!!}</div>
-					{{-- // $res/tab…TAB順用連番
+					<div class="comment">
+						 {!!$res['com']!!}
+						@if(isset($res['not_deleted'])&&!$res['not_deleted'])
+						這個貼文不存在。
+						@endif
+					</div>
+					{{-- 
 					// $res/imgsrc…サムネイルがあるとき、サムネイルURL。サムネイルがないとき、画像URL
 					// $res/w…画像サイズ(横)
 					// $res/h…画像サイズ(縦)
