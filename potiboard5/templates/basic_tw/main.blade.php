@@ -209,7 +209,6 @@
 				@endif			
 			</div>
 		</div>
-		@endif
 			{{-- 記事共通ヘッダここまで --}}
 
 			@if($res['src'])<div class="posted_image" @if($res['w']>=750) style="margin-right:0;float:none;" @endif >
@@ -229,7 +228,7 @@
 			// $res/srcname…画像ファイル名
 			// $res/size…画像ファイルサイズ
 			// $res/com…本文 --}}
-			@endif
+		@endif
 			@if(isset($res['not_deleted'])&&!$res['not_deleted'])
 			這個貼文不存在。
 			@endif
