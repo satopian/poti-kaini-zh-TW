@@ -45,8 +45,8 @@
 	<div id="top"></div>
 	<div id="body">
 		<header>
-			<h1 id="bbs_title">[{{$oya[0][0]['no']}}] {{$oya[0][0]['sub']}} <span class="title_name_wrap">by
-					{{$oya[0][0]['name']}} 回覆</span></h1>
+			<h1 id="bbs_title">[{{$oya[0][0]['no']}}] {{$oya[0][0]['sub']}} @if($oya[0][0]['name'])<span class="title_name_wrap">by
+					{{$oya[0][0]['name']}} 回覆</span>@endif</h1>
 			<nav>
 				<div id="self2">
 					[<a href="{{$self2}}">{{$title}}</a>]
@@ -72,7 +72,7 @@
 		<article>
 			@if(isset($ress) and !@empty($ress))
 		
-			@foreach ($ress as $res)
+			@foreach ($ress as $i => $res)
 			{{-- <!--親記事ヘッダ--> --}}
 			@if ($loop->first)
 			{{-- 最初のループ --}}
@@ -107,7 +107,6 @@
 						@endif			
 					</div>
 				</div>
-				@endif
 		
 					{{-- <!-- 記事共通ヘッダここまで --> --}}
 		
@@ -115,16 +114,12 @@
 						<a href="{{$res['src']}}" target="_blank" rel="noopener" class="luminous"><img
 								src="{{$res['imgsrc']}}" width="{{$res['w']}}" height="{{$res['h']}}"
 								alt="{{$res['sub']}} by {{$res['name']}} ({{$res['size_kb']}} KB)"
-								title="{{$res['sub']}} by {{$res['name']}} ({{$res['size_kb']}} KB) @if($res['thumb'])縮圖顯示 @endif"
-								loading="lazy"></a>
+								title="{{$res['sub']}} by {{$res['name']}} ({{$res['size_kb']}} KB) @if($res['thumb'])縮圖顯示 @endif" 
+								@if($i>4)loading="lazy"@endif
+								></a>
 					</div>
 					@endif
-					<div class="comment">
-						 {!!$res['com']!!}
-						@if(isset($res['not_deleted'])&&!$res['not_deleted'])
-						這個貼文不存在。
-						@endif
-					</div>
+					<div class="comment">{!!$res['com']!!}</div>
 					{{-- 
 					// $res/imgsrc…サムネイルがあるとき、サムネイルURL。サムネイルがないとき、画像URL
 					// $res/w…画像サイズ(横)
@@ -132,7 +127,11 @@
 					// $res/srcname…画像ファイル名
 					// $res/size…画像ファイルサイズ
 					// $res/com…本文 --}}
-			@if (!$loop->first)
+					@endif
+					@if(isset($res['not_deleted'])&&!$res['not_deleted'])
+					這個貼文不存在。
+					@endif
+				@if (!$loop->first)
 			</div>
 			@endif
 		
@@ -160,11 +159,11 @@
 					{{-- シェアボタン --}}
 					<span class="share_button">
 						<a target="_blank"
-							href="https://twitter.com/intent/tweet?text=%5B{{$ress[0]['encoded_no']}}%5D%20{{$ress[0]['share_sub']}}%20by%20{{$ress[0]['share_name']}}%20-%20{{$encoded_title}}&url={{$encoded_rooturl}}{{$encoded_self}}?res={{$ress[0]['encoded_no']}}"><span
-								class="icon-twitter"></span>Tweet</a>
+						href="https://twitter.com/intent/tweet?text={{$ress[0]['encoded_t']}}&url={{$ress[0]['encoded_u']}}"><span
+						class="icon-twitter"></span>Tweet</a>
 						<a target="_blank" class="fb btn"
-							href="http://www.facebook.com/share.php?u={{$encoded_rooturl}}{{$encoded_self}}?res={{$ress[0]['encoded_no']}}"><span
-								class="icon-facebook2"></span>Share</a>
+						href="http://www.facebook.com/share.php?u={{$ress[0]['encoded_u']}}"><span
+						class="icon-facebook2"></span>Share</a>
 					</span>
 					@endif
 

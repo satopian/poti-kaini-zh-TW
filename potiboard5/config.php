@@ -85,7 +85,7 @@ define("DEFAULT_TIMEZONE","Asia/Taipei");
 // シェアボタンを表示する する:1 しない:0
 // 顯示共享按鈕 是：1 否：0
 // 根據在安裝位置的URL中設置的ROOT_URL的URL創建一個鏈接
-define("SHARE_BUTTON", "0");
+define("SHARE_BUTTON", "1");
 
 /* ---------- スパム対策 (反垃圾郵件) ---------- */
 

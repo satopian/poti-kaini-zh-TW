@@ -79,7 +79,7 @@
 
 			<form action="{{$self}}" method="post" enctype="multipart/form-data" class="paint_form" id="paint_form">
 				<input type="submit" value="PAINT" class="paint_button">
-			@if ($select_app)
+			@if($select_app)
 			<span class="bold_gray">Tool</span>
 			<select name="shi" class="select_applet">
 				@if ($use_neo)<option value="neo">PaintBBS NEO</option>@endif
@@ -220,19 +220,20 @@
 						@if($i>4)loading="lazy"@endif></a>
 			</div>
 			@endif
-			<div class="comment">
-				{!!$res['com']!!}
-				@if(isset($res['not_deleted'])&&!$res['not_deleted'])
-				這個貼文不存在。
-				@endif
-			</div>
-				{{-- // $res/tab…TAB順用連番
+			<div class="comment">{!!$res['com']!!}</div>
+
+			{{-- // $res/tab…TAB順用連番
 			// $res/imgsrc…サムネイルがあるとき、サムネイルURL。サムネイルがないとき、画像URL
 			// $res/w…画像サイズ(横)
 			// $res/h…画像サイズ(縦)
 			// $res/srcname…画像ファイル名
 			// $res/size…画像ファイルサイズ
 			// $res/com…本文 --}}
+			@endif
+			@if(isset($res['not_deleted'])&&!$res['not_deleted'])
+			這個貼文不存在。
+			@endif
+
 			@if ($loop->first)
 			@if ($res['skipres'])
 			<hr>
@@ -254,11 +255,11 @@
 					{{-- シェアボタン --}}
 					<span class="share_button">
 						<a target="_blank"
-							href="https://twitter.com/intent/tweet?text=%5B{{$ress[0]['encoded_no']}}%5D%20{{$ress[0]['share_sub']}}%20by%20{{$ress[0]['share_name']}}%20-%20{{$encoded_title}}&url={{$encoded_rooturl}}{{$encoded_self}}?res={{$ress[0]['encoded_no']}}"><span
-								class="icon-twitter"></span>Tweet</a>
+						href="https://twitter.com/intent/tweet?text={{$ress[0]['encoded_t']}}&url={{$ress[0]['encoded_u']}}"><span
+						class="icon-twitter"></span>Tweet</a>
 						<a target="_blank" class="fb btn"
-							href="http://www.facebook.com/share.php?u={{$encoded_rooturl}}{{$encoded_self}}?res={{$ress[0]['encoded_no']}}"><span
-								class="icon-facebook2"></span>Share</a>
+						href="http://www.facebook.com/share.php?u={{$ress[0]['encoded_u']}}"><span
+						class="icon-facebook2"></span>Share</a>
 					</span>
 					@endif
 					<form action="{{$self}}?res={{$ress[0]['no']}}" method="post"><input type="submit"
