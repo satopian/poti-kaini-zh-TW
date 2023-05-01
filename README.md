@@ -30,6 +30,11 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/04/25] v5.58.8
+### ChickenPaint update
+
+- Fixed an issue where the canvas aspect ratio was incorrect when ChickenPaint was launched in full screen mode on an iPad.
+
 ## [2023/04/13] v5.58.5
 
 ### ChickenPaint update
