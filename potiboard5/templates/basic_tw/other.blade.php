@@ -15,6 +15,7 @@
 	<link rel="preload" as="style" href="{{$skindir}}icomoon/style.css" onload="this.rel='stylesheet'">
 	<link rel="preload" as="script" href="lib/{{$jquery}}">
 	<link rel="preload" as="style" href="lib/luminous/luminous-basic.min.css" onload="this.rel='stylesheet'">
+	<link rel="preload" as="script" href="loadcookie.js">
 	<link rel="preload" as="script" href="lib/luminous/luminous.min.js">
 	<title>@if($post_mode and !$rewrite) 投稿表單 @endif @if($rewrite)
 		編輯模式 @endif @if($admin_in) 對於管理 @endif @if($admin) @endif @if($admin) 管理人投稿 @endif
@@ -248,21 +249,6 @@
 			</table>
 		</form>
 		@endif
-		<script src="lib/{{$jquery}}"></script>
-		<script>
-		jQuery(function() {
-			window.onpageshow = function () {
-				var $btn = $('[type="submit"]');
-				//disbledを解除
-				$btn.prop('disabled', false);
-				$btn.click(function () { //送信ボタン2度押し対策
-					$(this).prop('disabled', true);
-					$(this).closest('form').submit();
-				});
-			}
-		});
-		</script>
-
 		<!--新規投稿のみクッキーを読込み-->
 		@if($regist)
 		<script>
