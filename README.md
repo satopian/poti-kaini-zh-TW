@@ -30,6 +30,16 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/05/07] v5.58.9.1
+- Klecks update
+- Blade One update
+
+### Changed Templates
+(fixes deprecated jQuery syntax)
+
+## [2023/05/03] v5.58.9
+- klecks update
+
 ## [2023/04/25] v5.58.8
 ### ChickenPaint update
 
