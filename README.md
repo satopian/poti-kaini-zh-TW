@@ -30,6 +30,14 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/06/11] v5.60.0
+### Fixed deprecated JavaScript syntax in paint app
+- Updated PaintBBS NEO to v1.6.0.
+- Updated to original modified version of ChickenPaint.
+- The paint app Klecks has two layers at startup.
+
+![Image](https://github.com/satopian/poti-kaini/assets/44894014/23eec76c-969a-458b-931a-2c3bb56e9201)
+
 ## [2023/05/07] v5.58.9.1
 - Klecks update
 - Blade One update
