@@ -65,6 +65,8 @@ define("USE_PAINTBBS_NEO", "1");
 define("USE_SHI_PAINTER", "1");
 //使用ChickenPaint 是:1 否:0 
 define("USE_CHICKENPAINT", "1");
+//使用 Tegaki  是:1 否:0
+define("USE_TEGAKI", "1");
 //使用Klecks 是:1 否:0 
 define("USE_KLECKS", "1");
 //無論設置如何，都允許管理員使用所有應用程序
