@@ -30,6 +30,13 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/05/20] v5.61.2
+### Added support for the drawing application tegaki.js.
+![230621_tegaki_sukumizu_001](https://github.com/satopian/Petit_Note/assets/44894014/02a75d17-f94a-4e6b-8ec3-8e762d26713e)
+### Improved "copy poster name" functionality.
+It now add at the cursor position in the text field.
+Previously, it was added at the end of the line.
+
 ## [2023/06/11] v5.60.0
 ### Fixed deprecated JavaScript syntax in paint app
 - Updated PaintBBS NEO to v1.6.0.
