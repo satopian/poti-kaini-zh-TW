@@ -24,7 +24,7 @@
 	<link rel="preload" as="script" href="lib/{{$jquery}}">
 	<link rel="preload" as="style" href="lib/luminous/luminous-basic.min.css" onload="this.rel='stylesheet'">
 	<link rel="preload" as="script" href="lib/luminous/luminous.min.js">
-	<link rel="preload" as="script" href="{{$skindir}}js/basic_common.js">
+	<link rel="preload" as="script" href="{{$skindir}}js/basic_common.js?{{$ver}}">
 	<link rel="preload" as="script" href="loadcookie.js">
 	<style id="for_mobile"></style>
 	<script>
@@ -166,15 +166,10 @@
 					@if($sharebutton)
 					{{-- シェアボタン --}}
 					<span class="share_button">
-						<a target="_blank"
-						href="https://twitter.com/intent/tweet?text={{$ress[0]['encoded_t']}}&url={{$ress[0]['encoded_u']}}"><span
-						class="icon-twitter"></span>Tweet</a>
-						<a target="_blank" class="fb btn"
-						href="http://www.facebook.com/share.php?u={{$ress[0]['encoded_u']}}"><span
-						class="icon-facebook2"></span>Share</a>
+						<a href="{{$self}}?mode=set_share_server&encoded_t={{$ress[0]['encoded_t']}}&amp;encoded_u={{$ress[0]['encoded_u']}}" onclick="open_sns_server_window(event)"><span class="icon-share-from-square-solid"></span>
+							Share on SNS</a>
 					</span>
 					@endif
-
 
 				</div>
 			</div>
@@ -314,6 +309,6 @@
 	<div id="page_top"><a class="icon-angles-up-solid"></a></div>
 	<script src="lib/{{$jquery}}"></script>
 	<script src="lib/luminous/luminous.min.js"></script>
-	<script src="{{$skindir}}js/basic_common.js"></script>
+	<script src="{{$skindir}}js/basic_common.js?{{$ver}}"></script>
 </body>
 </html>
