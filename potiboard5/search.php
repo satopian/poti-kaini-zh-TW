@@ -8,10 +8,12 @@
 //使用条件。
 
 //著作表記のリンクを削除したり見えなくしないでください。
+// Do not delete or obscure the copyrighted link.
 
 //免責
 
 //このプログラムを利用した事によって発生したいかなる損害も作者は一切の責任を負いません。
+// The author does not take any responsibility for any damage caused by using this program.
 
 //サポート
 
@@ -22,13 +24,14 @@
 //https://github.com/satopian/potiboard_plugin/
 
 //設定
-//何件までしらべるか？
-//初期値120 あまり大きくしないでください。
+// How many cases can you search?
+// Initial value 120 Do not make it too large.
 $max_search=120;
 //設定を変更すればより多く検索できるようになりますが、サーバの負荷が高くなります。
 
 //更新履歴
 
+//v5.5.1 2023.07.07 jQuery。
 //v5.5.0 2022.09.30 翻訳の改善。記事の並び方が最新順になっていなかったのを修正。
 //v5.3.0 2022.09.30 jQuery。
 //v5.2.0 2022.07.27 画像の縦横比を算出するための画像の幅と高さを出力。
@@ -220,12 +223,12 @@ unset($i,$val);
 $search_type='';
 if($imgsearch){
 	$search_type='&imgsearch=on';
-	$img_or_com='イラスト';
-	$mai_or_ken='枚';
+	$img_or_com='插圖';
+	$mai_or_ken=' ';
 }
 else{
-	$img_or_com='コメント';
-	$mai_or_ken='件';
+	$img_or_com='留言';
+	$mai_or_ken=' ';
 }
 $dat['imgsearch']= $imgsearch ? true : false;
 
@@ -264,16 +267,13 @@ if($j&&$page>=2){
 	$pageno = $j.$mai_or_ken;
 }
 if($query!==''&&$radio===3){
-	$dat['title']=$query.'の'.$img_or_com;//titleタグに入る
-	$dat['h1']=$query.'の';//h1タグに入る
+	$dat['h1']=$query.'的搜索結果';//h1タグに入る
 }
 elseif($query!==''){
-	$dat['title']=$query.'さんの'.$img_or_com;
-	$dat['h1']=$query.	'さんの';
+	$dat['h1']=$query.'的貼文';//検索対象は人
 }
 else{
-	$dat['title']='掲示板に投稿された最新の'.$img_or_com;
-	$dat['h1']='掲示板に投稿された最新の';
+	$dat['h1']='留言板的最新貼文';
 }
 $dat['pageno']=$pageno;
 //ページング
@@ -285,18 +285,18 @@ $dat['prev']=false;
 $dat['nxet']=false;
 
 if($page<=$disp_count_of_page){
-	$dat['prev']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';//前のページ
+	$dat['prev']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';//前のページ
 if($countarr>=$nxetpage){
-	$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">次の'.h($disp_count_of_page.$mai_or_ken).'≫</a>';//次のページ
+	$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';//次のページ
 }
 }
 
 elseif($page>=$disp_count_of_page+1){
-	$dat['prev']= '<a href="?page='.h($prevpage.$search_type.$query_l).'">≪前の'.h($disp_count_of_page.$mai_or_ken).'</a>'; 
+	$dat['prev']= '<a href="?page='.h($prevpage.$search_type.$query_l).'">≪上一頁</a>'; 
 	if($countarr>=$nxetpage){
-		$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">次の'.h($disp_count_of_page.$mai_or_ken).'≫</a>';
+		$dat['nxet']='<a href="?page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';
 	}else{
-		$dat['nxet']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';
+		$dat['nxet']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';
 	}
 }
 //最終更新日時を取得
