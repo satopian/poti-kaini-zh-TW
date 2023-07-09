@@ -30,6 +30,22 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/07/08] v5.62.3
+
+### Bug fixes
+Search function was not working.
+This bug was introduced in v5.58.10 and fixed in v5.62.2.
+
+### From "Tweet button" to "Twitter", "Mastodon" and "Misskey" sharing.
+
+In addition to "Twitter", you can now share posts on short-text posting SNS such as "Mastodon" and "Misskey".
+
+![image](https://github.com/satopian/poti-kaini-zh-TW/assets/44894014/0937a37c-ce3a-4c1a-8d01-5c33df48a904)  
+
+You can also change it to a conventional tweet button by setting it in config.php.
+You can also edit the list of "Mastodon" and "Misskey" servers.
+
+
 ## [2023/05/20] v5.61.2
 ### Added support for the drawing application tegaki.js.
 ![230621_tegaki_sukumizu_001](https://github.com/satopian/Petit_Note/assets/44894014/02a75d17-f94a-4e6b-8ec3-8e762d26713e)
