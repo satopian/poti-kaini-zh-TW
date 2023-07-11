@@ -30,6 +30,15 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## [2023/07/11] v5.63.1
+### Replace search.php with search.inc.php
+The structure of jsearch.php has been fundamentally overhauled, modified and incorporated into potiboard.php.
+Search results that were previously displayed with a URL like `search.php?`. The URL will be changed like `potiboard.php?mode=search&`.
+
+### Search is not case sensitive
+
+Name searches are now case insensitive when the exact match option is selected.
+
 ## [2023/07/08] v5.62.3
 
 ### Bug fixes
