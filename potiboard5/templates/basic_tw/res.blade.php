@@ -167,7 +167,7 @@
 					{{-- シェアボタン --}}
 					<span class="share_button">
 						@if($switch_sns)
-						<a href="{{$self}}?mode=set_share_server&encoded_t={{$ress[0]['encoded_t']}}&amp;encoded_u={{$ress[0]['encoded_u']}}" onclick="open_sns_server_window(event)"><span class="icon-share-from-square-solid"></span>
+						<a href="{{$self}}?mode=set_share_server&encoded_t={{$ress[0]['encoded_t']}}&amp;encoded_u={{$ress[0]['encoded_u']}}" onclick="open_sns_server_window(event,{{$sns_window_width}},{{$sns_window_height}})"><span class="icon-share-from-square-solid"></span>
 							Share on SNS</a>
 						@else
 						<a target="_blank"
