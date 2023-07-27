@@ -17,7 +17,12 @@
 		user-select: none;
 		}
 	</style>
-</head>
+	<script>
+		function fixtegaki() {
+			document.addEventListener('dblclick', function(e){ e.preventDefault()}, { passive: false });
+		}
+		window.addEventListener('DOMContentLoaded',fixtegaki,false);
+	</script>
 <body>
 
 <!-- embed start -->
