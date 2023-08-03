@@ -30,6 +30,31 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+POTI board zh-TW  v5.63.6 release
+## 23/07/28 v5.63.6
+
+### Bug fix
+
+- potiboard.php
+- search.inc.php
+(Some variables were undefined.)
+- templates/basic_tw/paint_tegaki.blade.php
+(When used on an iPad, the screen was being magnified by double-tap zoom.)
+
+## 23/07/13 v5.63.3
+
+### You can now set the width and height of the window that opens when sharing on SNS in config.php.
+Added a new setting item to config.php.
+
+## [2023/07/12] v5.63.2
+### Improved selection operability of SNS server to share posts
+
+![image](https://github.com/satopian/poti-kaini-zh-TW/assets/44894014/063c68ed-21cc-47b9-a366-0f9e1158e5f1)
+
+Servers to share can be selected not only directly above the label string, but also by tapping the right margin of the label.
+- set_share_server.blade.php
+Fixed HTML grammar errors.
+
 ## [2023/07/11] v5.63.1
 ### Replace search.php with search.inc.php
 The structure of jsearch.php has been fundamentally overhauled, modified and incorporated into potiboard.php.
