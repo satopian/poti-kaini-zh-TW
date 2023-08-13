@@ -305,6 +305,10 @@ define("DO_NOT_CHANGE_POSTS_TIME", "0");
 // Show images of next and previous threads in reply view
 define("VIEW_OTHER_WORKS", "1");
 
+// 顯示[管理模式]的鏈接 是：1 否：0
+define("USE_ADMIN_LINK", "1");
+// 否：0 在管理模式下隱藏鏈接。
+
 /* ---------- お絵かき設定(paint mode settings) ---------- */
 
 // 使用繪圖小程序 用作繪圖板: 1 不使用繪圖小程序:0
