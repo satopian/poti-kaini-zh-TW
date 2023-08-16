@@ -30,7 +30,29 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
-POTI board zh-TW  v5.63.6 release
+## 23/08/13 v5.63.8
+### Added option to hide [Admin mode] link.
+
+#### Added this option to config.php.
+```
+// 顯示[管理模式]的鏈接 是：1 否：0
+define("USE_ADMIN_LINK", "1");
+// 否：0 在管理模式下隱藏鏈接。
+```
+
+## 23/08/07 v5.63.7
+
+- klecks/  (Update directory by overwriting)
+- potiboard.php
+- templates/basic_tw/paint_klecks.blade.php
+
+## 23/08/04 v5.63.6.1
+### Updated Klecks and Tegaki
+
+- klecks/  (Update directory by overwriting)
+- tegaki/  (Update directory by overwriting)
+
+
 ## 23/07/28 v5.63.6
 
 ### Bug fix
