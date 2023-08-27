@@ -198,7 +198,8 @@
 			@if($res['id'])<span class="article_info_desc">ID:{{$res['id']}}</span>@endif
 			<span class="article_info_desc">{{$res['now']}}</span>@if($res['painttime'])<span
 				class="article_info">繪圖時間:{{$res['painttime']}}</span>@endif
-			@if($res['updatemark'])<span class="article_info_desc">{{$res['updatemark']}}</span>@endif
+				@if($res['tool'])<span class="article_info_desc">Tool:{{$res['tool']}}</span>@endif
+				@if($res['updatemark'])<span class="article_info_desc">{{$res['updatemark']}}</span>@endif
 			@if($res['thumb'])<span class="article_info_desc">- 縮圖顯示 -</span>@endif
 			<div class="article_img_info">
 				@if($res['src'])

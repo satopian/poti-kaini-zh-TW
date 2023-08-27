@@ -86,12 +86,12 @@ while ($line = fgets($fp)) {
 	if(!trim($line)){
 		continue;
 	}
-	list($no,,$name,$email,$sub,$com,$url,,,$ext,$w,$h,$time,,,) = explode(",", rtrim($line));
+	list($no,,$name,$email,$sub,$com,$url,,,$ext,$w,$h,$time,,,,,,,$logver) = explode(",", rtrim($line).",,,,,,");
 	if(!isset($oya[$no])||(!$name && !$email && !$url && !$com && !$ext)){
 		continue;
 	}
 
-	$key_time=substr($time,-13);
+	$key_time= ($logver==="6") ? $time : substr($time,-13);
 
 	$continue_to_search=true;
 	if($imgsearch){//画像検索の場合
@@ -126,7 +126,7 @@ while ($line = fgets($fp)) {
 		){
 			$link='';
 			$link=PHP_SELF.'?res='.$oya[$no];
-			$arr[$key_time]=[$no,$name,$sub,$com,$ext,$w,$h,$time,$link];
+			$arr[$key_time]=[$no,$name,$sub,$com,$ext,$w,$h,$time,$link,$logver];
 			++$i;
 			if($i>=MAX_SEARCH){break;}//1掲示板あたりの最大検索数
 		}
@@ -149,7 +149,7 @@ if(!empty($arr)){
 	$articles = array_values($articles);
 
 	foreach($articles as $i => $val){
-		list($no,$name,$sub,$com,$ext,$w,$h,$time,$link)=$val;
+		list($no,$name,$sub,$com,$ext,$w,$h,$time,$link,$logver)=$val;
 		$img='';
 		if($ext){
 			if(is_file(THUMB_DIR.$time.'s.jpg')){//サムネイルはあるか？
@@ -160,8 +160,8 @@ if(!empty($arr)){
 				}
 			}
 
-		$time=(int)substr($time,-13,10);
-		$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
+			$time= ($logver==="6") ? substr($time,0,-3) : (int)substr($time,-13,-3);
+			$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
 		$sub=h($sub);
 		$com=str_replace('<br />',' ',$com);
 		if(MD_LINK){
