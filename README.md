@@ -30,6 +30,18 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## 23/08/28 v6.00.5
+
+### Extended log file
+The name of the paint tool used is now displayed.  
+Addresses the year 2286 problem.  
+The type of timelapse file and the presence or absence of thumbnails are now recorded in the log file. As a result, the load can be reduced because it is not necessary to check the existence of the file each time.   
+  
+Log files are backward compatible.  
+It can also be read with an older version of POTI-board.  
+Conversely, POTI-board v6.x can also read old version log files.  
+Log files do not need to be converted, you can use your existing log files.  
+
 ## 23/08/13 v5.63.8
 ### Added option to hide [Admin mode] link.
 
