@@ -51,6 +51,8 @@ Log files do not need to be converted, you can use your existing log files.
 define("USE_ADMIN_LINK", "1");
 // 否：0 在管理模式下隱藏鏈接。
 ```
+## 23/08/28 v6.00.6
+The image attached and uploaded is now displayed as "Tool:Upload".
 
 ## 23/08/07 v5.63.7
 
