@@ -51,7 +51,7 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 
 //filter_input
 
-$imgsearch=(bool)filter_input(INPUT_GET,'imgsearch',FILTER_VALIDATE_BOOLEAN) ? true : false;
+$imgsearch=(bool)filter_input(INPUT_GET,'imgsearch',FILTER_VALIDATE_BOOLEAN);
 $page=(int)filter_input(INPUT_GET,'page',FILTER_VALIDATE_INT);
 $page= $page ? $page : 1;
 $query=(string)filter_input(INPUT_GET,'query');
@@ -161,8 +161,8 @@ if(!empty($arr)){
 				}
 			}
 
-			$time= ($logver==="6") ? substr($time,0,-3) : (int)substr($time,-13,-3);
-			$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
+		$time= ($logver==="6") ? substr($time,0,-3) : (int)substr($time,-13,-3);
+		$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
 		$sub=h($sub);
 		$com=str_replace('<br />',' ',$com);
 		if(MD_LINK){
@@ -265,7 +265,7 @@ $dat['lastmodified']='';
 if(!empty($arr)){
 
 	$postedtime= key($arr);
-	$postedtime=(int)substr($postedtime,-13,10);
+	$postedtime=(int)substr($postedtime,0,-3);
 	$dat['lastmodified']=date("Y/m/d G:i", $postedtime);
 }
 
