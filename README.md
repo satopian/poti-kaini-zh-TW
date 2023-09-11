@@ -40,10 +40,6 @@ Translation of `config.php`. We need to translate the description of the setting
 - Fixed an issue where the drawing time string was wrapped.
 - Corrected that the calculation part of the last update date on the search screen did not correspond to the year 2286 problem.
 
-## 23/08/31 v6.01.7
-- The first and last page of paging can now be displayed. Click "Last" to display the oldest posts.
-- The number of images displayed on one page when in catalog mode was fixed at 30, but can now be set.
-
 ## 23/08/30 v6.00.6
 The image attached and uploaded is now displayed as "Tool:Upload".
 
