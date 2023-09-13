@@ -30,6 +30,16 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## 23/09/11 v6.01.7
+- The first and last page of paging can now be displayed. Click "Last" to display the oldest posts.
+- The number of images displayed on one page when in catalog mode was fixed at 30, but can now be set.
+
+## 23/09/09 v6.00.10
+- Fixed a minor error that occurred when accessing from a browser other than a browser without a user agent.
+- Reduce the load by checking whether the drawn animation file exists before checking its extension.
+- Fixed an issue where the drawing time string was wrapped.
+- Corrected that the calculation part of the last update date on the search screen did not correspond to the year 2286 problem.
+
 ## 23/08/30 v6.00.6
 The image attached and uploaded is now displayed as "Tool:Upload".
 
