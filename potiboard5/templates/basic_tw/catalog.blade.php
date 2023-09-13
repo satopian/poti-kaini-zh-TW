@@ -71,6 +71,8 @@
 		// $resnoimg…記事が無い場合 true が入る
 		--> --}}
 		<hr>
+		{{-- ページング --}}
+		@include('parts.paging')
 		{{-- 前、次のナビゲーション --}}
 		@include('parts.prev_next')
 
