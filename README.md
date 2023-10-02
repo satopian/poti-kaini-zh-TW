@@ -30,6 +30,29 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## 2023/10/02 v6.06.1
+- Optimized the display conditions for the thumbnail images of the previous and next threads at the bottom of the reply sending screen.
+Split processing before and after the current thread for a more optimal display.
+- Security update.
+Fixed an issue where mime type was not checked when acquiring ChickenPaint specific format files.
+It also checks the mime type when downloading app-specific files.
+
+
+## 2023/09/21 v6.03.0
+
+### Improvement
+
+- Rewritten ChickenPaint's sending process to "fetch API" from old "xhr".
+(PaintBBS NEO, Tegaki, and klecks have already been sent using the "fetch API")
+- Change the template's "Web Style" to "Template".
+
+- The corresponding thread is now displayed when posting a new post or replying to a post.
+Previously, the top of the bulletin board was displayed when a new post was posted, and the corresponding thread was displayed when replying to a post.
+
+### Bug fixes
+Fixed an issue where validation was not performed when logging tool names to log files.
+
+
 ## 23/09/11 v6.01.7
 - The first and last page of paging can now be displayed. Click "Last" to display the oldest posts.
 - The number of images displayed on one page when in catalog mode was fixed at 30, but can now be set.
