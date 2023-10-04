@@ -30,6 +30,14 @@ We also need to translate the external search programs `search.php` and `search.
 However, potiboard.php externalizes all language settings, so no changes are needed.  
 Translation of `config.php`. We need to translate the description of the settings.    
 
+## 2023/10/03 v6.07.8
+### Reduce memory consumption by 50%
+Previously, with POTI-board, if 10,000 comments were recorded in the log file, even if only one comment was displayed on the reply screen, it would read the data for 10,000 comments.
+To solve this problem, we have made it possible to retrieve only the necessary parts from the log file when displaying the reply screen or catalog screen.
+### Improved numerical input of tegaki.js
+We have updated our own modified version of tegaki.js.
+Improved direct numerical input of brush size and opacity. The up arrow key increases the value and the down arrow key decreases the value.
+
 ## 2023/10/02 v6.06.1
 - Optimized the display conditions for the thumbnail images of the previous and next threads at the bottom of the reply sending screen.
 Split processing before and after the current thread for a more optimal display.
