@@ -2,7 +2,7 @@
 <html lang="zh-Hant-TW">
 <head>
 	<meta charset="utf-8">
-	{{-- <!--SNS--> --}}
+	{{-- SNS --}}
 	@if ($sharebutton)
 	<meta name="Description" content="{{$oya[0][0]['descriptioncom']}}">
 
@@ -17,7 +17,7 @@
 	<meta property="og:site_name" content="">
 	<meta property="og:description" content="{{$oya[0][0]['descriptioncom']}}">
 	@endif
-	<!--ENDSNS-->
+	{{-- ENDSNS --}}
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 	<link rel="stylesheet" href="{{$skindir}}basic.css?{{$ver}}">
 	<link rel="preload" as="style" href="{{$skindir}}icomoon/style.css" onload="this.rel='stylesheet'">
@@ -83,7 +83,7 @@
 			<hr>
 			{{-- <!-- レス記事ヘッダ --> --}}
 			<div class="res_article_wrap">
-				<div class="res_article_title">[{{$res['no']}}] {{$res['sub']}}</div>
+				<div class="res_article_title" id="{{$res['time']}}">[{{$res['no']}}] {{$res['sub']}}</div>
 				@endif
 				{{-- <!-- 記事共通ヘッダ --> --}}
 				@if(!isset($res['not_deleted'])||$res['not_deleted'])
