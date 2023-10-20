@@ -28,7 +28,7 @@
 	<span class="bold_gray">Size</span>
 	<select name="picw" title="寬" class="canvas_select">
 	{{-- 幅 300から、PMAX_W で設定した最大値まで。 --}}
-	@for($i = 300; $i <=$pmaxw ; $i+=50){{-- 50ずつ増える --}}
+	@for($i = {{$pminw}}; $i <=$pmaxw ; $i+=50){{-- 50ずつ増える --}}
 	@if($pdefw==$i){{-- デフォルトサイズ --}}
 	<option value="{{$i}}" selected>{{$i}}</option>
 	@else
@@ -38,7 +38,7 @@
 	</select>
 	x
 	<select name="pich" title="高" class="canvas_select">
-		@for($i = 300; $i <=$pmaxh ; $i+=50){{-- 50ずつ増える --}}
+		@for($i = {{$pminh}}; $i <=$pmaxh ; $i+=50){{-- 50ずつ増える --}}
 		@if($pdefh==$i){{-- デフォルトサイズ --}}
 		<option value="{{$i}}" selected>{{$i}}</option>
 		@else
