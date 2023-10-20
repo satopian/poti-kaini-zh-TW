@@ -118,23 +118,23 @@
 <script src="neo.js?{{$parameter_day}}&{{$ver}}"></script>
 @endif
 	@if(($paint_mode and !$useneo) or ($pch_mode and !$type_neo))
-<!-- Javaが使えるかどうか判定 -->
-<script>
-	function cheerpJLoad() {
-	var jEnabled = navigator.javaEnabled();
-	if(!jEnabled){
-		var sN = document.createElement("script");
-		sN.src = "{{$cheerpj_url}}";
-		sN.integrity="{{$cheerpj_hash}}";
-		sN.crossOrigin="anonymous";
-		var s0 = document.getElementsByTagName("script")[0];
-		s0.parentNode.insertBefore(sN, s0);
-		sN.addEventListener("load", function(){ cheerpjInit(); }, false);
+	<!-- Javaが使えるかどうか判定 -->
+	<script>
+		function cheerpJLoad() {
+		var jEnabled = navigator.javaEnabled();
+		if(!jEnabled){
+			var sN = document.createElement("script");
+			sN.src = "{{$cheerpj_url}}";
+			sN.integrity="{{$cheerpj_hash}}";
+			sN.crossOrigin="anonymous";
+			var s0 = document.getElementsByTagName("script")[0];
+			s0.parentNode.insertBefore(sN, s0);
+			sN.addEventListener("load", function(){ cheerpjInit(); }, false);
+			}
 		}
-	}
-	window.addEventListener("load", function() { cheerpJLoad(); }, false);
-</script>
-@endif
+		window.addEventListener("load", function() { cheerpJLoad(); }, false);
+	</script>
+	@endif
 @endif
 <style id="for_mobile"></style>
 <script>
@@ -281,9 +281,9 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 @if($useneo) <applet-dummy @else<applet @endif
 
  CODE="pbbs.PaintBBS.class" ARCHIVE="./PaintBBS.jar" NAME="paintbbs" WIDTH="{{$w}}" HEIGHT="{{$h}}" MAYSCRIPT>
- <param name="neo_send_with_formdata" value="true">
- <param name="neo_confirm_unload" value="true">
- <param name="neo_show_right_button" value="true">
+<param name="neo_send_with_formdata" value="true">
+<param name="neo_confirm_unload" value="true">
+<param name="neo_show_right_button" value="true">
 @endif
 <!--しぃペインター個別設定-->
 @if($normal) 
