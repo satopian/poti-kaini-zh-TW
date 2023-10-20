@@ -318,12 +318,15 @@ define("USE_ADMIN_LINK", "1");
 // 使用繪圖小程序 用作繪圖板: 1 不使用繪圖小程序:0
 define("USE_PAINT", "1");
 
-// 最大圖紙尺寸（不會大於這個值
-// 寬 和 高 的最小值固定為300。
-// Maximum drawing dimensions. Drawings can't be bigger
-// than the vaules specified here for each dimension.
-define("PMAX_W", "800");	//寬 (width)
-define("PMAX_H", "800");	//高 (height)
+// If a drawing size smaller than this is input, it will be the minimum value set here.
+// 如果输入的绘图尺寸小于此值，它将被设置为此处设置的最小值。
+define("PMIN_W", "300");	//幅 (width) Setting the size below 300px might result in layout distortion.
+define("PMIN_H", "300");	//高さ (height)
+
+// If a drawing size larger than this is input, the maximum value set here will be used.
+// 如果输入的绘图尺寸大于此值，将使用此处设置的最大值。
+define("PMAX_W", "800");	//幅 (width)
+define("PMAX_H", "800");	//高さ (height)
 
 // 繪圖時的默認尺寸
 // paint mode default size
