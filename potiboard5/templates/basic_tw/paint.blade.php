@@ -14,7 +14,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 @endif
 @if($pch_mode)<meta name="viewport" content="width=device-width,initial-scale=1.0">@endif
-@if($continue_mode)<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">@endif
+@if($continue_mode)
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="preload" as="script" href="lib/{{$jquery}}">
+<link rel="preload" as="script" href="{{$skindir}}js/basic_common.js?{{$ver}}">
+@endif
 <link rel="stylesheet" type="text/css" href="{{$skindir}}basic.css?{{$ver}}">
 <title>@if($paint_mode)繪圖模式@endif @if($continue_mode)續繪@endif @if($pch_mode)過程顯示模式@endif - {{$title}}</title>
 {{--  
@@ -135,15 +139,6 @@
 	@endif
 @endif
 <style id="for_mobile"></style>
-<script>
-	function is_mobile() {
-		if (navigator.maxTouchPoints && (window.matchMedia && window.matchMedia('(max-width: 768px)').matches)){
-			return	document.getElementById("for_mobile").textContent = ".for_pc{display: none;}";
-		}
-		return false;
-	}
-	document.addEventListener('DOMContentLoaded',is_mobile,false);
-</script>
 
 </head>
 <body>
@@ -642,6 +637,8 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 	document.addEventListener('DOMContentLoaded',l,false);
 </script>
 </div>
+<script src="lib/{{$jquery}}"></script>
+<script src="{{$skindir}}js/basic_common.js?{{$ver}}"></script>
 @endif
 <!--コンティニューモード ここまで--><!--著作権表示 削除しないでください-->
 <footer>
