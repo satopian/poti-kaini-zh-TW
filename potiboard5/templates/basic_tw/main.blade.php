@@ -76,8 +76,8 @@
 				<ul id="up_desc">
 					@if ($paint2 and !$diary)
 					<li>畫布尺寸需設定在宽 {{$pminw}}px 至 {{$pmaxw}} px 和高 {{$pminh}}px 至 {{$pmaxh}}px間。</li>
-					<li>當寬超過 {{$maxw}}px，高超過 {{$maxw}}px，圖片將會按比例縮小顯示。</li>
-					@endif
+					<li>當寬超過 {{$maxw}}px，高超過 {{$maxw}}px，圖片將會顯示為縮略圖。</li>
+			@endif
 					{!!$addinfo!!}
 				</ul>
 			</div>

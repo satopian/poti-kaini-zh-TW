@@ -245,6 +245,11 @@ define("MAX_KB", "1000");
 define("MAX_W", "600");	//幅(width)
 define("MAX_H", "600");	//高さ(height)
 
+// The maximum size for width and height during upload, any larger will be resized.
+// 上傳時寬度和高度的最大尺寸，超出此尺寸將被重新調整大小。
+define("MAX_W_PX", "1024"); //幅(width)
+define("MAX_H_PX", "1024"); //高さ(height)
+
 // 回复時發送圖像 是：1 否：0
 // ※繪圖小程序的使用也已鏈接。
 // Allow image comments, "1" to enable.

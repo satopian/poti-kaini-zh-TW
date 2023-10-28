@@ -255,12 +255,14 @@
 				<tr>
 					<td colspan="2" class="td_noborder">
 						<!--ファイルアップロード時の説明-->
-						@if($upfile)
 						<ul class="howtowrite">
-							<li>圖片檔案大小限制為 {{$maxkb}} KB。</li>
+							@if($upfile)
+							<li>當寬超過 {{$maxw_px}}px，高超過 {{$maxh_px}}px，添附的圖片會按比例縮小。</li>
+							<li>添附的圖片檔案大小限制為 {{$maxkb}} KB。</li>
+							@endif
+							<li>當寬超過 {{$maxw}}px，高超過 {{$maxw}}px，圖片將會顯示為縮略圖。</li>
 							{!!$addinfo!!}
 						</ul>
-						@endif
 					</td>
 				</tr>
 			</table>
