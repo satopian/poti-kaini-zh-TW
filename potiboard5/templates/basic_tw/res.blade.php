@@ -182,14 +182,12 @@
 		{{-- <!--お絵かきフォーム欄--> --}}
 		@if($paintform)
 		{{-- <!--実際のお絵かきフォーム--> --}}
-		@if($paint)
 		<div id="res_paint_form">
 
 			@include('parts.paint_form')
 
 		</div>
 
-		@endif
 		@endif
 
 		{{-- <!--投稿フォーム欄--> --}}
@@ -259,7 +257,7 @@
 							@if($upfile) 
 							<li>當寬超過 {{$maxw_px}}px，高超過 {{$maxh_px}}px，添附的圖片會按比例縮小。</li>
 							@endif
-							@if(($paintform and $paint) or $upfile)
+							@if($paintform or $upfile)
 							<li>當寬超過 {{$maxw}}px，高超過 {{$maxw}}px，圖片將會顯示為縮略圖。</li>
 							<li>添附的圖片檔案大小限制為 {{$maxkb}} KB。</li>
 							@endif
