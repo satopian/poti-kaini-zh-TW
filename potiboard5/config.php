@@ -235,8 +235,7 @@ define("USE_FONTCOLOR", "0");
 
 // 可以投稿的文件大小限制 KB 
 // Maximum size allowed for the images in the posts (in KB).
-// By php limit, it is allowed up to 2048.
-define("MAX_KB", "1000");
+define("MAX_KB", "2048");
 
 // 顯示圖片的最大尺寸（如果超出限制，它將減少。
 // Maximum display size of posted images.
