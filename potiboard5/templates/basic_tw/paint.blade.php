@@ -57,7 +57,7 @@
 	document.addEventListener('DOMContentLoaded',function(){
 		document.addEventListener('dblclick', function(e){ e.preventDefault()}, { passive: false });
 		const chicken=document.querySelector('#chickenpaint-parent');
-		chicken.addEventListener('contextmenu',function(e){
+		chicken.addEventListener('contextmenu', function(e){
 			e.preventDefault();
 			e.stopPropagation();
 		}, { passive: false });
@@ -332,9 +332,9 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <param name="thumbnail_width" value="100%">
 <param name="thumbnail_height" value="100%">
 @if($useneo)
-<param name="url_save" value="{{$self}}?mode=saveimage&tool=neo">
+<param name="url_save" value="{{$self}}?mode=saveimage&amp;tool=neo&amp;usercode={{$usercode}}">
 @else
-<param name="url_save" value="picpost.php">
+<param name="url_save" value="picpost.php?usercode={{$usercode}}&amp;tool={{$tool}}">
 @endif
 <param name="url_exit" value="{{$self}}?mode={{$mode}}&amp;stime={{$stime}}">
 @if($anime) 
