@@ -31,14 +31,17 @@
 			}, 500); //0.5秒かけてトップへ移動
 			return false;
 		});
-		lightbox.option({
+		//Lightbox
+		if(typeof lightbox!=='undefined'){
+			lightbox.option({
 			'alwaysShowNavOnTouchDevices': true,
 			'disableScrolling': true,
 			'fadeDuration': 0,
 			'resizeDuration': 500,
 			'imageFadeDuration': 500,
 			'wrapAround': true
-		});
+			});
+		};
 		//JavaScriptによるCookie発行
 		const paintform = document.getElementById("paint_form");
 		if(paintform){
