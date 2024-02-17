@@ -337,9 +337,9 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <param name="thumbnail_width" value="100%">
 <param name="thumbnail_height" value="100%">
 @if($useneo)
-<param name="url_save" value="{{$self}}?mode=saveimage&amp;tool=neo&amp;usercode={{$usercode}}">
+<param name="url_save" value="{{$self}}?mode=saveimage&amp;tool=neo">
 @else
-<param name="url_save" value="picpost.php?usercode={{$usercode}}&amp;tool={{$tool}}">
+<param name="url_save" value="picpost.php">
 @endif
 <param name="url_exit" value="{{$self}}?mode={{$mode}}&amp;stime={{$stime}}">
 @if($anime) 
