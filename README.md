@@ -8,8 +8,7 @@ This is the traditional Chinese translation version of POTI-board EVO.
  
 ![image](https://user-images.githubusercontent.com/44894014/184851937-4dadefac-a987-4c10-a47c-812b3e720dc6.png)
 
-###
-[繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
+### [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 
 ## Serious bugs in older versions
 - POTI-board v2.26.0 and earlier all versions is vulnerable to XSS.    
@@ -286,20 +285,20 @@ Previously, the top of the bulletin board was displayed when a new post was post
 Fixed an issue where validation was not performed when logging tool names to log files.
 
 
-## 23/09/11 v6.01.7
+## 2023/09/11 v6.01.7
 - The first and last page of paging can now be displayed. Click "Last" to display the oldest posts.
 - The number of images displayed on one page when in catalog mode was fixed at 30, but can now be set.
 
-## 23/09/09 v6.00.10
+## 2023/09/09 v6.00.10
 - Fixed a minor error that occurred when accessing from a browser other than a browser without a user agent.
 - Reduce the load by checking whether the drawn animation file exists before checking its extension.
 - Fixed an issue where the drawing time string was wrapped.
 - Corrected that the calculation part of the last update date on the search screen did not correspond to the year 2286 problem.
 
-## 23/08/30 v6.00.6
+## 2023/08/30 v6.00.6
 The image attached and uploaded is now displayed as "Tool:Upload".
 
-## 23/08/28 v6.00.5
+## 2023/08/28 v6.00.5
 
 ### Extended log file
 The name of the paint tool used is now displayed.  
@@ -311,7 +310,7 @@ It can also be read with an older version of POTI-board.
 Conversely, POTI-board v6.x can also read old version log files.  
 Log files do not need to be converted, you can use your existing log files.  
 
-## 23/08/13 v5.63.8
+## 2023/08/13 v5.63.8
 ### Added option to hide [Admin mode] link.
 
 #### Added this option to config.php.
@@ -320,23 +319,23 @@ Log files do not need to be converted, you can use your existing log files.
 define("USE_ADMIN_LINK", "1");
 // 否：0 在管理模式下隱藏鏈接。
 ```
-## 23/08/28 v6.00.6
+## 2023/08/28 v6.00.6
 The image attached and uploaded is now displayed as "Tool:Upload".
 
-## 23/08/07 v5.63.7
+## 2023/08/07 v5.63.7
 
 - klecks/  (Update directory by overwriting)
 - potiboard.php
 - templates/basic_tw/paint_klecks.blade.php
 
-## 23/08/04 v5.63.6.1
+## 2023/08/04 v5.63.6.1
 ### Updated Klecks and Tegaki
 
 - klecks/  (Update directory by overwriting)
 - tegaki/  (Update directory by overwriting)
 
 
-## 23/07/28 v5.63.6
+## 2023/07/28 v5.63.6
 
 ### Bug fix
 
@@ -346,7 +345,7 @@ The image attached and uploaded is now displayed as "Tool:Upload".
 - templates/basic_tw/paint_tegaki.blade.php
 (When used on an iPad, the screen was being magnified by double-tap zoom.)
 
-## 23/07/13 v5.63.3
+## 2023/07/13 v5.63.3
 
 ### You can now set the width and height of the window that opens when sharing on SNS in config.php.
 Added a new setting item to config.php.
