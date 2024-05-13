@@ -7,7 +7,7 @@
 		if(document_resid){
 			document_resid.scrollIntoView();
 		}
-		
+
 		window.onpageshow = function () {
 			$('[type="submit"]').each(function() {
 				const $btn = $(this);
@@ -42,7 +42,7 @@
 		});
 		//Lightbox
 		if(typeof lightbox!=='undefined'){
-			lightbox.option({
+		lightbox.option({
 			'alwaysShowNavOnTouchDevices': true,
 			'disableScrolling': true,
 			'fadeDuration': 0,
@@ -105,6 +105,13 @@
 			} else {
 			snsWindow = window.open(url, "_blank", windowFeatures); // 新しいウィンドウを開く
 			}
+		// ウィンドウがフォーカスを失った時の処理
+		snsWindow.addEventListener("blur", () => {
+
+			if (snsWindow.location.href === url) {
+				snsWindow.close(); // URLが変更されていない場合はウィンドウを閉じる
+			}
+		});
 	}
 	//モバイルの時はPC用のメニューを非表示
 	document.addEventListener('DOMContentLoaded',()=> {
