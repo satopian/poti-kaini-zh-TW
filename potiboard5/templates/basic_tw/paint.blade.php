@@ -542,11 +542,11 @@ if(DynamicColor) PaletteListSetColor();
 <div class="centering">
 <!--描画時間動的表示-->
 <div class="applet_painttime">
-<form name="watch">繪圖時間
-<input size="20" name="count">
+<form name="watch">繪圖時間 
+	<input type="text" size="20" name="count" class="input_count_timer" readonly>
 </form>
 <script>
-	timerID=10;stime=new Date;function SetTimeCount(){now=new Date;s=Math.floor((now.getTime()-stime.getTime())/1E3);disp="";86400<=s&&(d=Math.floor(s/86400),disp+=d+"\u65e5",s-=86400*d);3600<=s&&(h=Math.floor(s/3600),disp+=h+"\u6642\u9593",s-=3600*h);60<=s&&(m=Math.floor(s/60),disp+=m+"\u5206",s-=60*m);document.watch.count.value=disp+s+"\u79d2";clearTimeout(timerID);timerID=setTimeout(function() { SetTimeCount(); }, 250);};
+	timerID=10;stime=new Date;function SetTimeCount(){now=new Date;s=Math.floor((now.getTime()-stime.getTime())/1E3);disp="";86400<=s&&(d=Math.floor(s/86400),disp+=d+"\u5929",s-=86400*d);3600<=s&&(h=Math.floor(s/3600),disp+=h+"\u5c0f\u6642",s-=3600*h);60<=s&&(m=Math.floor(s/60),disp+=m+"\u5206",s-=60*m);document.watch.count.value=disp+s+"\u79d2";clearTimeout(timerID);timerID=setTimeout(function() { SetTimeCount(); }, 250);};
 	document.addEventListener('DOMContentLoaded',SetTimeCount,false);
 </script>
 	</div>
