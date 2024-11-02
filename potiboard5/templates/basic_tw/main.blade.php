@@ -99,7 +99,7 @@
 {{-- 親記事グループ --}}
 <article>
 	@if(isset($ress) and !@empty($ress))
-		
+
 	@foreach ($ress as $res)
 	{{-- 親記事ヘッダ --}}
 	@if ($loop->first)
@@ -117,14 +117,16 @@
 		@if(!isset($res['not_deleted'])||$res['not_deleted'])
 		<div class="article_info">
 			<span class="article_info_name"><a href="{{$self}}?mode=search&page=1&imgsearch=on&query={{$res['encoded_name']}}&radio=2"
-					target="_blank" rel="noopener">{{$res['name']}}</a></span>@if($res['url'])<span
-				class="article_info_desc">[<a href="{{$res['url']}}" target="_blank"
+			target="_blank" rel="noopener">{{$res['name']}}</a></span>
+			@if($res['trip'])<span class="article_info_desc">{{$res['trip']}}</span>@endif
+			@if($res['url'])<span class="article_info_desc">[<a href="{{$res['url']}}" target="_blank"
 					rel="nofollow noopener noreferrer">URL</a>]</span> @endif
 			@if($res['id'])<span class="article_info_desc">ID:{{$res['id']}}</span>@endif
-			<span class="article_info_desc">{{$res['now']}}</span>@if($res['painttime'])<span
+			<span class="article_info_desc">{{$res['now']}}</span>
+			@if($res['painttime'])<span
 				class="article_info">繪圖時間:{{$res['painttime']}}</span>@endif
-				@if($res['tool'])<span class="article_info_desc">Tool:{{$res['tool']}}</span>@endif
-				@if($res['updatemark'])<span class="article_info_desc">{{$res['updatemark']}}</span>@endif
+			@if($res['tool'])<span class="article_info_desc">Tool:{{$res['tool']}}</span>@endif
+			@if($res['updatemark'])<span class="article_info_desc">{{$res['updatemark']}}</span>@endif
 			@if($res['thumb'])<span class="article_info_desc">- 縮圖顯示 -</span>@endif
 			<div class="article_img_info">
 				@if($res['src'])
@@ -143,7 +145,8 @@
 						src="{{$res['imgsrc']}}" width="{{$res['w']}}" height="{{$res['h']}}"
 						alt="{{$res['sub']}} by {{$res['name']}} ({{$res['size_kb']}} KB)"
 						title="{{$res['sub']}} by {{$res['name']}} ({{$res['size_kb']}} KB) @if($res['thumb'])縮圖顯示 @endif"
-						@if($i>4)loading="lazy"@endif></a>
+						@if($i>4)loading="lazy"@endif>
+					</a>
 			</div>
 			@endif
 			<div class="comment">{!!$res['com']!!}</div>
