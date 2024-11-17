@@ -167,9 +167,9 @@ define("USE_URL_INPUT_FIELD", "1");
 // 設置為 0 以禁用。
 define("ELAPSED_DAYS","365");
 
-// 拒絶するファイルのmd5
-// 檢查文件md5並拒絕
-$badfile = array("dummy","dummy2");
+// Reject files with the following image hashes.
+// 拒絕以下影像檔案的哈希值。
+$badfile = array("dummyhash","dummyhash2");
 
 // 拒絶するホスト
 //要拒绝的主机名黑名单

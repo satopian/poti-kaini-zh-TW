@@ -334,7 +334,7 @@
 					<th class="nobreak">內文</th>
 					<th class="column_non">主機名稱</th>
 					<th class="column_non">附件 (KB)</th>
-					<th class="column_non">MD5</th>
+					<th class="column_non">HASH</th>
 				</tr>
 
 				@if($dels)
