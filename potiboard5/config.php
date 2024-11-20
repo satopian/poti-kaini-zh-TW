@@ -470,6 +470,12 @@ define("DIARY", "0");
 // Files that exceed this value will be compressed as JPEG files.
 define("IMAGE_SIZE", "512");	
 
+// Maximum file size limit for the log file (in MB)
+// Setting a large value may cause instability.
+// 日誌檔案的最大檔案大小限制（單位：MB）
+// 設定過大的值可能會導致不穩定。
+define("MAX_LOG_FILESIZE", "15");
+
 // フォーム下の追加お知らせ
 // (例)"<li>お知らせデース</li>
 //     <li>サーバの規約でアダルト禁止</li>"
