@@ -44,6 +44,7 @@
 
 class processsearch {
 	public static function search() {
+	//設定の読み込み
 	//設定
 
 // How many cases can you search?
@@ -126,7 +127,6 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 
 		++$j;
 		if($j>=5000){break;}//1掲示板あたりの最大行数
-
 	}
 		fclose($fp);
 	//検索結果の出力
@@ -152,11 +152,17 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 				}
 
 			$time=microtime2time($time,$logver);
+
 			$postedtime =$time ? (date("Y/m/d G:i", $time)) : '';
 			$sub=h($sub);
 			$com=str_replace('<br />',' ',$com);
 			if(MD_LINK){
-				$com= preg_replace("{\[([^\[\]\(\)]+?)\]\((https?://[\w!\?/\+\-_~=;:\.,\*&@#\$%\(\)'\[\]]+)\)}","\\1",$com);
+				// 変換処理
+				$pattern = "{\[((?:[^\[\]\\\\]|\\\\.)+?)\]\((https?://[^\s\)]+)\)}";
+				$com = preg_replace_callback($pattern, function($matches){
+					// エスケープされたバックスラッシュを特定の文字だけ解除
+					return str_replace(['\\[', '\\]', '\\(', '\\)'], ['[', ']', '(', ')'], $matches[1]);
+				}, $com);
 			}
 			$com=h(strip_tags($com));
 			$com=mb_strcut($com,0,180);
