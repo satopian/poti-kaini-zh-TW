@@ -130,9 +130,9 @@
 			<div class="article_img_info">
 				@if($res['src'])
 				@if($res['continue'])<span class="article_info_continue">☆<a
-						href="{{$self}}?mode=continue&no={{$res['continue']}}">續繪</a></span>@endif
+						href="{{$self}}?mode=continue&no={{$res['continue']}}&resno={{$ress[0]['no']}}">續繪</a></span>@endif
 				@if($res['spch'])<span class="for_pc">@endif @if($res['pch'])@if($res['continue'])| @endif<span
-						class="article_info_animation">☆<a href="{{$self}}?mode=openpch&pch={{$res['pch']}}"
+						class="article_info_animation">☆<a href="{{$self}}?mode=openpch&pch={{$res['pch']}}&resno={{$ress[0]['no']}}&no={{$res['no']}}"
 							target="_blank">過程</a></span>@endif @if($res['spch'])</span>@endif
 				@endif			
 			</div>
