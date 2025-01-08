@@ -9,7 +9,7 @@
 	<input type="submit" value="PAINT" class="paint_button">
 	@if ($select_app)
 	<span class="bold_gray">Tool</span>
-	<select name="shi" class="select_applet">
+	<select name="shi" class="select_applet" id="select_app">
 		@if ($use_neo)<option value="neo">PaintBBS NEO</option>@endif
 		@if ($use_tegaki)<option value="tegaki">Tegaki</option>@endif
 		@if ($use_axnos)<option value="axnos">Axnos Paint</option>@endif
@@ -28,8 +28,8 @@
 <span class="canvas_size_wrap">
 	<span class="bold_gray">Size</span>
 	<select name="picw" title="寬" class="canvas_select">
-	{{-- 幅 PMIN_Wから、PMAX_W で設定した最大値まで。 --}}
-		@for($i = $pminw; $i <=$pmaxw ; $i+=50){{-- 50ずつ増える --}}
+	{{-- 幅 $pminwから、$pmaxw で設定した最大値まで。 --}}
+	@for($i = $pminw; $i <=$pmaxw ; $i+=50){{-- 50ずつ増える --}}
 		@if($pdefw==$i){{-- デフォルトサイズ --}}
 		<option value="{{$i}}" selected>{{$i}}</option>
 		@else
@@ -54,7 +54,7 @@
 @if ($use_select_palettes)
 	<span class="palette_type bold_gray">PALETTE</span> <select name="selected_palette_no" title="PALETTE" class="canvas_select palette_type">{!!$palette_select_tags!!}</select>
 	@endif
-@if ($anime)<label class="checkbox use_animation"><input type="checkbox" value="true" name="anime" {{$animechk}}>保存過程</label>
+@if ($anime)<label id="save_playback" class="checkbox use_animation"><input type="checkbox" value="true" name="anime" {{$animechk}}>保存過程</label>
 	@endif
 	{{-- 
 	// // anime…動画記録機能を使用するとき true が入る
