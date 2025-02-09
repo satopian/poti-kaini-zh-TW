@@ -6,7 +6,7 @@
 	@if ($sharebutton)
 	<meta name="Description" content="{{$oya[0][0]['descriptioncom']}}">
 
-	<meta name="twitter:card" content="summary">
+	<meta name="twitter:card" content="summary_large_image">
 	<meta property="og:title"
 		content="[{{$oya[0][0]['no']}}] {{$oya[0][0]['sub']}} by {{$oya[0][0]['name']}} - {{$title}}">
 	<meta property="og:type" content="article">
