@@ -1,6 +1,6 @@
 "usestrict";
 function l() {
-    const P = loadCookie("pwdc"),
+    let P = loadCookie("pwdc"),
         N = loadCookie("namec"),
         E = loadCookie("emailc"),
         U = loadCookie("urlc"),
@@ -54,13 +54,17 @@ function l() {
     }
 }
 
-//Cookieと一致したらcheckd
+// Cookieと一致したらチェック
 function checkd_if_formval_equal_cookieval(docformsname, cookieval) {
-    var j;
-    for (j = 0; docformsname.length > j; j++) {
-        if (docformsname[j].value == cookieval) {
-            docformsname[j].checked = true; //チェックボックス
-            docformsname.selectedIndex = j; //プルダウンメニュー
+    if (docformsname instanceof HTMLSelectElement) {
+        // セレクトメニューなら value を直接設定
+        docformsname.value = cookieval;
+    } else if (docformsname.length) {
+        // ラジオボタンやチェックボックス（NodeList）ならループでチェック
+        for (let j = 0; j < docformsname.length; j++) {
+            if (docformsname[j].value == cookieval) {
+                docformsname[j].checked = true;
+            }
         }
     }
 }
