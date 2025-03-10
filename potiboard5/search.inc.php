@@ -56,8 +56,6 @@ class processsearch {
 defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 	//設定を変更すればより多く検索できるようになりますが、サーバの負荷が高くなります。
 
-	//filter_input_data
-
 	$imgsearch=(bool)filter_input_data('GET','imgsearch',FILTER_VALIDATE_BOOLEAN);
 	$page=(int)filter_input_data('GET','page',FILTER_VALIDATE_INT);
 	$page= $page ? $page : 1;
