@@ -17,7 +17,7 @@
 	<link rel="preload" as="style" href="lib/lightbox/css/lightbox.min.css" onload="this.rel='stylesheet'">
 	<link rel="preload" as="script" href="lib/lightbox/js/lightbox.min.js">
 	<link rel="preload" as="script" href="{{$skindir}}js/basic_common.js?{{$ver}}">
-	<link rel="preload" as="script" href="loadcookie.js">
+	<link rel="preload" as="script" href="loadcookie.js?{{$ver}}">
 	<title>@if($post_mode and !$rewrite) 投稿表單 @endif @if($rewrite)
 		編輯模式 @endif @if($admin_in) 對於管理 @endif @if($admin) @endif @if($admin) 管理人投稿 @endif
 		@if($admin_del) 刪除文章 @endif @if($err_mode) 錯誤！ @endif - {{$title}} </title>
@@ -81,7 +81,7 @@
 			@if($post_mode)
 			<!--クッキー読込みは新規投稿のみ-->
 			@if($regist)
-			<script src="loadcookie.js"></script>
+			<script src="loadcookie.js?{{$ver}}"></script>
 			@endif
 			<nav>
 				<div id="self2">

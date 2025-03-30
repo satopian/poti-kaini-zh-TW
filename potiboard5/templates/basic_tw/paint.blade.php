@@ -612,7 +612,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 </header>
  	<div class="centering">
     <!--クッキー読込み用JavaScript(必須)-->
-    <Script src="loadcookie.js"></script>
+    <Script src="loadcookie.js?{{$ver}}"></script>
     <!--画像と描画時間-->
  	<div class="continue_img">
 <img src="{{$picfile}}" width="{{$picw}}" height="{{$pich}}" alt="@if($sub){{$sub}} @endif @if($name) by {{$name}} @endif{{$picw}} x {{$pich}}" title="@if($sub){{$sub}} @endif @if($name) by {{$name}} @endif{{$picw}} x {{$pich}}">

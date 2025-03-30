@@ -13,7 +13,7 @@
 	<link rel="preload" as="style" href="{{$skindir}}icomoon/style.css" onload="this.rel='stylesheet'">
 	<link rel="preload" as="script" href="lib/{{$jquery}}">
 	<link rel="preload" as="script" href="{{$skindir}}js/basic_common.js?{{$ver}}">
-	<link rel="preload" as="script" href="loadcookie.js">
+	<link rel="preload" as="script" href="loadcookie.js?{{$ver}}">
 	<title>目錄模式 - {{$title}}</title>
 </head>
 
@@ -85,7 +85,7 @@
 			@include('parts.copyright')
 		</footer>
 	</div>
-	<script src="loadcookie.js"></script>
+	<script src="loadcookie.js?{{$ver}}"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded',l,false);
 	</script>
