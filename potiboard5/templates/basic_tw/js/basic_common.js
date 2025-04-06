@@ -1,4 +1,4 @@
-jQuery(function () {
+addEventListener("DOMContentLoaded", () => {
     //URLクエリからresidを取得して指定idへページ内を移動
     const urlParams = new URLSearchParams(window.location.search);
     const resid = urlParams.get("resid");
@@ -7,54 +7,28 @@ jQuery(function () {
         document_resid.scrollIntoView();
     }
 
-    window.onpageshow = function () {
-        $('[type="submit"]').each(function () {
-            const $btn = $(this);
-            const $form = $btn.closest("form");
-            const isTargetBlank = $form.prop("target") === "_blank";
+    window.addEventListener("pageshow", function () {
+        // すべてのsubmitボタンを取得
+        const submitButtons = document.querySelectorAll('[type="submit"]');
 
-            $btn.prop("disabled", false);
+        submitButtons.forEach(function (btn) {
+            const form = btn.closest("form");
+            const isTargetBlank = form?.target === "_blank";
+
+            // ボタンを有効化
+            btn.disabled = false;
+
             // ボタンが target="_blank" の場合は無効化しない
             if (!isTargetBlank) {
-                $btn.on("click", function () {
-                    //ボタンをクリックすると
-                    $btn.prop("disabled", true); //ボタンを無効化して
-                    $form.trigger("submit"); //送信する
+                btn.addEventListener("click", function () {
+                    // ボタンをクリックすると
+                    btn.disabled = true; // ボタンを無効化して
+                    form?.submit(); // 送信する
                 });
             }
         });
-    };
-    // https://cotodama.co/pagetop/
-    var pagetop = $("#page_top");
-    pagetop.hide();
-    $(window).on("scroll", function () {
-        if ($(this).scrollTop() > 100) {
-            //100pxスクロールしたら表示
-            pagetop.fadeIn();
-        } else {
-            pagetop.fadeOut();
-        }
     });
-    pagetop.on("click", function () {
-        $("body,html").animate(
-            {
-                scrollTop: 0,
-            },
-            500
-        ); //0.5秒かけてトップへ移動
-        return false;
-    });
-    //Lightbox
-    if (typeof lightbox !== "undefined") {
-        lightbox.option({
-            alwaysShowNavOnTouchDevices: true,
-            disableScrolling: true,
-            fadeDuration: 0,
-            resizeDuration: 500,
-            imageFadeDuration: 500,
-            wrapAround: true,
-        });
-    }
+
     //JavaScriptによるCookie発行
     const paintform = document.getElementById("paint_form");
     if (paintform instanceof HTMLFormElement) {
@@ -96,8 +70,35 @@ jQuery(function () {
         document.cookie =
             key + "=" + encodeURIComponent(val) + ";max-age=31536000;";
     }
-});
 
+    //スマホの時はPC用のメニューを非表示document.addEventListener("DOMContentLoaded", function () {
+    if (navigator.maxTouchPoints && screen.width < 600) {
+        const for_mobile = document.getElementById("for_mobile");
+        if (for_mobile) {
+            for_mobile.textContent = ".for_pc{display: none;}";
+        }
+    }
+    //動画保存するアプリと保存しないアプリの時の表示切り替え
+
+    const toggleHideAnimation = (usePlayback) => {
+        const save_playback = document.getElementById("save_playback");
+        if (save_playback) {
+            save_playback.style.display = usePlayback ? "inline-block" : "none";
+        }
+    };
+    const select_app = document.getElementById("select_app");
+    // セレクトメニューの変更イベント
+    if (select_app instanceof HTMLSelectElement) {
+        const usePlaybackApps = ["neo", "tegaki", "1", "2"];
+
+        select_app.addEventListener("change", (e) => {
+            toggleHideAnimation(usePlaybackApps.includes(e.target?.value));
+        });
+
+        // 初期値の設定を反映
+        toggleHideAnimation(usePlaybackApps.includes(select_app.value));
+    }
+});
 //shareするSNSのserver一覧を開く
 var snsWindow = null; // グローバル変数としてウィンドウオブジェクトを保存する
 
@@ -125,32 +126,37 @@ function open_sns_server_window(event, width = 600, height = 600) {
         }
     });
 }
-//スマホの時はPC用のメニューを非表示
-document.addEventListener("DOMContentLoaded", function () {
-    if (navigator.maxTouchPoints && screen.width < 600) {
-        document.getElementById("for_mobile").textContent =
-            ".for_pc{display: none;}";
-    }
-});
-//動画保存するアプリと保存しないアプリの時の表示切り替え
 
-const toggleHideAnimation = (usePlayback) => {
-    const save_playback = document.getElementById("save_playback");
-    if (save_playback) {
-        save_playback.style.display = usePlayback ? "inline-block" : "none";
-    }
-};
-document.addEventListener("DOMContentLoaded", () => {
-    const select_app = document.getElementById("select_app");
-    // セレクトメニューの変更イベント
-    if (select_app) {
-        const usePlaybackApps = ["neo", "tegaki", "1", "2"];
-
-        select_app.addEventListener("change", (e) => {
-            toggleHideAnimation(usePlaybackApps.includes(e.target.value));
+jQuery(function () {
+    // https://cotodama.co/pagetop/
+    var pagetop = $("#page_top");
+    pagetop.hide();
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 100) {
+            //100pxスクロールしたら表示
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+        }
+    });
+    pagetop.on("click", function () {
+        $("body,html").animate(
+            {
+                scrollTop: 0,
+            },
+            500
+        ); //0.5秒かけてトップへ移動
+        return false;
+    });
+    //Lightbox
+    if (typeof lightbox !== "undefined") {
+        lightbox.option({
+            alwaysShowNavOnTouchDevices: true,
+            disableScrolling: true,
+            fadeDuration: 0,
+            resizeDuration: 500,
+            imageFadeDuration: 500,
+            wrapAround: true,
         });
-
-        // 初期値の設定を反映
-        toggleHideAnimation(usePlaybackApps.includes(select_app.value));
     }
 });
