@@ -10,7 +10,7 @@ body {
 body,
 td {
 	color: #363a3a;
-	font-family: "Hiragino Sans", meiryo, ヒラギノ角ゴシック, メイリオ, sans-serif;
+	font-family: sans-serif;
 	font-size: 16px;
 	letter-spacing: 0.09em;
 	overflow-wrap: anywhere;
