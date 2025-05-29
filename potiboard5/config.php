@@ -650,11 +650,11 @@ define("PERMISSION_FOR_DIR", 0707);//初期値 0707
 // But if it causes problems, set this to "0" (disabled) 
 define("RE_SAMPLED", "1");
 
+/*safety*/
+
 // Deny display in iframe:  (1: Deny, 0: Allow)
 // We strongly recommend "Deny" to avoid security risks.
 define("X_FRAME_OPTIONS_DENY", "1");
-
-/*safety*/
 
 //Reject if admin password is wrong for her 5 times in a row
 // (1: Enabled, 0: Disabled) 
@@ -670,4 +670,4 @@ define("CHECK_PASSWORD_INPUT_ERROR_COUNT", "0");
 // 是：1　否：0
 // 設為 1 時，將拒絕來自已停用 JavaScript 的用戶端的提交。
 // 若 common.js 非相容版本，也會被拒絕。
-define("REJECT_WITHOUT_JAVASCRIPT", "0"); 
+define("REJECT_WITHOUT_JAVASCRIPT", "1"); 
