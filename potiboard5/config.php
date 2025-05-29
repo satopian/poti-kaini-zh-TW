@@ -665,3 +665,9 @@ define("CHECK_PASSWORD_INPUT_ERROR_COUNT", "0");
 // Access via ftp etc.
 // Remove the `templates/errorlog/error.log` and you should be able to login again.
 //This file contains the IP addresses of clients who entered an incorrect admin password.
+
+// 拒絕未經由 JavaScript 提交的文章
+// 是：1　否：0
+// 設為 1 時，將拒絕來自已停用 JavaScript 的用戶端的提交。
+// 若 common.js 非相容版本，也會被拒絕。
+define("REJECT_WITHOUT_JAVASCRIPT", "0"); 
