@@ -1,6 +1,6 @@
 <?php
 /*
-  * POTI-board EVO v5.30.0 lot.221022
+  * POTI-board EVO v6.77.1 lot.20250530
   * POTI-board redevelopment team >> https://paintbbs.sakura.ne.jp/poti/
   *
   * configuration file of POTI-board EVO
@@ -174,6 +174,18 @@ $badfile = array("dummyhash","dummyhash2");
 // 拒絶するホスト
 //要拒绝的主机名黑名单
 $badip = array("addr.dummy.com","addr2.dummy.com");
+
+// Reject posts from IP addresses that cannot be reverse-resolved to a hostname
+// (1: Enabled, 0: Disabled)
+// 拒絕來自無法反向解析為主機名稱的 IP 位址的發文
+//（1：啟用，0：停用）
+define("REJECT_IF_NO_REVERSE_DNS", "0");
+
+// 注意：許多使用者的 IP 位址可能無法進行反向解析。
+// 將此設為 "1" 可能會導致部分合法使用者無法發文。
+
+// Note: Many users may have IP addresses that cannot be reverse-resolved.
+// Setting this to "1" may prevent some legitimate users from posting.
 
 /* ---------- メール通知設定(email notification settings) ---------- */
 // メール通知機能を使う使わないを設定する項目はここにはありません。
