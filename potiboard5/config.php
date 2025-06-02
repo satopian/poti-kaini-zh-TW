@@ -178,7 +178,7 @@ $badip = array("addr.dummy.com","addr2.dummy.com");
 // Reject posts from IP addresses that cannot be reverse-resolved to a hostname
 // (1: Enabled, 0: Disabled)
 // 拒絕來自無法反向解析為主機名稱的 IP 位址的發文
-//（1：啟用，0：停用）
+//（是:1 否:0）
 define("REJECT_IF_NO_REVERSE_DNS", "0");
 
 // 注意：許多使用者的 IP 位址可能無法進行反向解析。
@@ -186,6 +186,16 @@ define("REJECT_IF_NO_REVERSE_DNS", "0");
 
 // Note: Many users may have IP addresses that cannot be reverse-resolved.
 // Setting this to "1" may prevent some legitimate users from posting.
+
+// Store in SESSION when a banned host accesses the site  
+// 當有禁止主機存取時，將其儲存至 SESSION  
+//（是:1 否:0）
+define("USE_BADHOST_SESSION_CACHE", "0");
+
+// 注意：會將禁止主機的判定結果快取至 SESSION。
+// 一旦被標記為禁止主機，除非重新啟動瀏覽器，否則不會解除。
+// Note: Caches bad host detection result in the session.
+// Once flagged, it won't be cleared until the browser is restarted.
 
 /* ---------- メール通知設定(email notification settings) ---------- */
 // メール通知機能を使う使わないを設定する項目はここにはありません。
