@@ -105,7 +105,7 @@ addEventListener("DOMContentLoaded", () => {
             if (target instanceof HTMLInputElement && target.type === "file") {
                 const file = target.files?.[0];
                 if (file && file.size > maxSize) {
-                    alert("檔案大小過大");
+                    alert("檔案大小過大。");
                     target.value = ""; // 入力をクリア
                 }
             }
