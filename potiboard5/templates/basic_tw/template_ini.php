@@ -60,7 +60,7 @@ define('MSG030', "刪除失敗。(管理員)");
 define('MSG031', "請輸入編號。");
 define('MSG032', "存在不適當的字符串。");
 define('MSG033', "刪除失敗<br>用戶沒有刪除權限。");
-define('MSG034', "上傳圖片失敗<br>圖片尺寸太大。");//? File size kb, not with height
+define('MSG034', "上傳圖片失敗<br>檔案大小過大");//File size kb, not width height
 define('MSG035', "必須輸入CJK漢字字符。");
 define('MSG036', "您無法在內文中張貼網址。");
 define('MSG037', "您不能使用該名稱。");

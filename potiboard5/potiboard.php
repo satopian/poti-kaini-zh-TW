@@ -3,8 +3,8 @@
 
 // POTI-board EVO
 // バージョン :
-const POTI_VER = 'v6.80.1';
-const POTI_LOT = 'lot.20250610';
+const POTI_VER = 'v6.80.2';
+const POTI_LOT = 'lot.20250611';
 
 /*
   (C) 2018-2025 POTI改 POTI-board redevelopment team
@@ -1741,7 +1741,9 @@ function paintform(): void {
 	}
 
 	$dat['parameter_day']=date("Ymd");//JavaScriptのキャッシュ制御
-	$pchup_paint_mode = false;//pchファイルアップロードペイント
+
+	//pchファイルアップロードペイント
+	$pchup_paint_mode = false;
 	if(is_adminpass($admin)){
 		
 		$pchtmp= $_FILES['pch_upload']['tmp_name'] ?? '';
