@@ -1,5 +1,5 @@
 <?php
-$search_inc_ver = 20250308;
+$search_inc_ver = 20250906;
 //POTI-board plugin search(C)2020-2025 さとぴあ(@satopian)
 //MIT License
 //v6.68.3 lot.20250308
@@ -65,7 +65,7 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 	}
 
 	$query=(string)filter_input_data('GET','query');
-	$query=urldecode($query);
+	$query=rawurldecode($query);
 	$q_len=strlen((string)$query);
 	$query=1000<$q_len ? "" :$query; 
 
@@ -177,7 +177,7 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 			$com=h(strip_tags($com));
 			$com=mb_strcut($com,0,180);
 			$name=h($name);
-			$encoded_name=urlencode($name);
+			$encoded_name=rawurlencode($name);
 			//変数格納
 			$dat['comments'][]= compact('no','name','encoded_name','sub','img','w','h','com','link','postedtime');
 
@@ -204,7 +204,7 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 	$dat['radio_chk1']=false;//作者名
 	$dat['radio_chk2']=false;//完全一致
 	$dat['radio_chk3']=false;//本文題名	
-	$query_l='&query='.urlencode(h($query));//クエリを次ページにgetで渡す
+	$query_l='&query='.rawurlencode(h($query));//クエリを次ページにgetで渡す
 	if($query!==''&&$radio===3){//本文題名
 		$query_l.='&radio=3';
 		$dat['radio_chk3']=true;
