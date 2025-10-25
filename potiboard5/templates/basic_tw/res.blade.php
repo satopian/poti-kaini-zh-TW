@@ -237,7 +237,9 @@
 
 				<tr>
 					<td class="post_table_title">附加圖片</td>
-					<td><input type="file" name="upfile" accept="image/*">
+					<td>
+						<input type="file" name="upfile" accept="image/*">
+						<img id="attach_preview" style="max-width:100px;max-height:100px; display:block;">
 					</td>
 				</tr>
 				@endif
