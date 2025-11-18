@@ -753,7 +753,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 	@if($use_tegaki)<option value="tegaki">Tegaki</option>@endif
 	@if($use_axnos)<option value="axnos">Axnos Paint</option>@endif
 	@if($use_shi_painter)<option value="1" class="for_pc">Shi-Painter</option>@endif
-	@if($use_chickenpaint)<option value="chicken">ChickenPaint</option>@endif
+	@if($use_chickenpaint)<option value="chicken">litaChit</option>@endif
 	@if($use_klecks)<option value="klecks">Klecks</option>@endif
  </select>
  @endif 
