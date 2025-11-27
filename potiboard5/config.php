@@ -63,7 +63,7 @@ define("DENY_COMMENTS_ONLY", "0");
 define("USE_PAINTBBS_NEO", "1");
 //使用shi-painter 是:1 否:0 
 define("USE_SHI_PAINTER", "1");
-//使用litaChit 是:1 否:0 
+//使用litaChix 是:1 否:0 
 define("USE_CHICKENPAINT", "1");
 //使用 Tegaki  是:1 否:0
 define("USE_TEGAKI", "1");
