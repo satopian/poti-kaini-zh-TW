@@ -9,13 +9,11 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 @if($paint_mode)
 <meta name="robots" content="noindex,follow">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 @endif
-@if($pch_mode)<meta name="viewport" content="width=device-width,initial-scale=1.0">@endif
 @if($continue_mode)
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="preload" as="script" href="lib/{{$jquery}}">
 <link rel="preload" as="script" href="{{$skindir}}js/basic_common.js?{{$ver}}">
 @endif
@@ -659,6 +657,7 @@ name="pch" code="pch.PCHViewer.class" archive="PCHViewer.jar,PaintBBS.jar" width
 <param name="buffer_progress" value="false">
 <param name="buffer_canvas" value="false">
 <param name="neo_enable_zoom_out" value="true">
+<param name="neo_viewer_buttonswrapper_top" value="true">
 @if($type_neo) 
 </applet-dummy>
 @else
