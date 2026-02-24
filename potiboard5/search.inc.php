@@ -1,8 +1,8 @@
 <?php
-$search_inc_ver = 20250906;
-//POTI-board plugin search(C)2020-2025 さとぴあ(@satopian)
+$search_inc_ver = 20260224;
+//POTI-board plugin search(C)2020-2026 さとぴあ(@satopian)
 //MIT License
-//v6.68.3 lot.20250308
+//v6.151.5 lot.20260224
 //POTI-board EVO v6.0 対応版
 //https://paintbbs.sakura.ne.jp/
 
@@ -53,7 +53,7 @@ class processsearch {
 
 // How many cases can you search?
 // Initial value 120 Do not make it too large.
-defined("MAX_SEARCH") or define("MAX_SEARCH","120");
+	defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 	//設定を変更すればより多く検索できるようになりますが、サーバの負荷が高くなります。
 
 	$imgsearch=(bool)filter_input_data('GET','imgsearch',FILTER_VALIDATE_BOOLEAN);
@@ -180,11 +180,12 @@ defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 			$encoded_name=rawurlencode($name);
 			//変数格納
 			$dat['comments'][]= compact('no','name','encoded_name','sub','img','w','h','com','link','postedtime');
-
+			unset($no,$name,$sub,$com,$ext,$w,$h,$time,$link,$logver);
+			unset($articles[$i]);
 		}
 		$j=$page+$i;//表示件数
 	}
-	unset($sub,$name,$no,$boardname);
+	unset($boardname);
 	unset($i,$val);
 
 	$search_type='';
