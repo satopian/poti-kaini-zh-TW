@@ -33,19 +33,30 @@
 @endif	
 @if($paint_mode)
 <style>
-	body{overscroll-behavior-x: none !important; }
-	div#chickenpaint-parent , div.appstage {
-		letter-spacing: initial;
-		word-break:initial;
-		overflow-wrap: initial;
-	}
-	a{text-decoration-skip-ink: initial;}
+		body {
+			overscroll-behavior-x: none !important;
+		}
+
+		div#chickenpaint-parent,
+		div.appstage {
+			letter-spacing: initial;
+			word-break: initial;
+			overflow-wrap: initial;
+		}
+
+		a {
+			text-decoration-skip-ink: initial;
+		}
 </style>
 @endif
 @if($chickenpaint)
 <style>
-	li{margin:0 0 0 1em;}
-	:not(input),div#chickenpaint-parent :not(input){
+		li {
+			margin: 0 0 0 1em;
+		}
+
+		:not(input),
+		div#chickenpaint-parent :not(input) {
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
@@ -128,6 +139,17 @@
 	@endif
 	}
 </script>
+	<style>
+		.nts_radiowrap{
+			display: inline-block;
+		}
+		.stabilizer_label{
+			margin:0 6px;
+		}
+		select:focus {
+		  outline: none;
+		}
+	</style>
 @endif
 @if($paint_mode) 
 	@if(!$chickenpaint)
@@ -238,6 +260,7 @@
 		@if($imgfile) loadImageUrl: "{{$imgfile}}",@endif
 		@if($img_chi) loadChibiFileUrl: "{{$img_chi}}",@endif
 		@if($img_aco ?? '') loadSwatchesUrl: "{{$img_aco}}",@endif
+
 		saveUrl: "?mode=saveimage&tool=chi&usercode={!!$usercode!!}",
 		postUrl: "?mode={!!$mode!!}&stime={{$stime}}",
 		exitUrl: "?mode={!!$mode!!}&stime={{$stime}}",
@@ -297,16 +320,26 @@
 </script>
 
 
-@else
+		@else
 
-<nav>
-<div style= "min-width:calc({{$w}}px + 176px)" id="self2"> [<a href="{{$self2}}">{{$title}}</a>] 
-@if($useneo) 
-<span class="nts_radiowrap">工具
-	<input type="radio" name="1" id="1" onclick="Neo.setToolSide(true)" class="nts_radio"><label class="ntslabel" for="1">置左</label>
-	<input type="radio" name="1" id="2" onclick="Neo.setToolSide(false)" checked="checked" class="nts_radio"><label class="ntslabel" for="2">置右</label>
-</span>
-	@endif
+		<nav>
+			<div style= "min-width:calc({{$w}}px + 176px)" id="self2"> [<a href="{{$self2}}">{{$title}}</a>] 
+				@if($useneo) 
+				<span class="nts_radiowrap">工具
+					<input type="radio" name="1" id="1" onclick="Neo.setToolSide(true)" class="nts_radio"><label class="ntslabel" for="1">置左</label>
+					<input type="radio" name="1" id="2" onclick="Neo.setToolSide(false)" checked="checked" class="nts_radio"><label class="ntslabel" for="2">置右</label>
+				</span>
+				<span class="nts_radiowrap"><span class="stabilizer_label">抖動修正</span>
+					<select onchange="Neo.setStabilizLevel(this.value)">
+						<option value="0">0</option>
+						<option value="1" selected>1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</span>
+				@endif
 </div>
 </nav>
 </header>
