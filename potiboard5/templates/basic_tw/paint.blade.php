@@ -393,6 +393,7 @@ pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var
 <param name="neo_animation_skip" value="true">
 <param name="neo_disable_grid_touch_move" value="true">
 <param name="neo_enable_zoom_out" value="true">
+<param name="neo_disable_turn_original_glitch" value="true">
 @endif
 <!--しぃペインター個別設定-->
 @if($normal) 
