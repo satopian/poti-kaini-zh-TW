@@ -333,7 +333,7 @@
 					<input type="radio" name="1" id="2" onclick="Neo.setToolSide(false)" checked="checked" class="nts_radio"><label class="ntslabel" for="2">置右</label>
 				</span>
 				<span class="nts_radiowrap"><span class="stabilizer_label">抖動修正</span>
-					<select onchange="Neo.setStabilizLevel(this.value)">
+					<select onchange="Neo.setStabilizeLevel(this.value)">
 						<option value="0">0</option>
 						<option value="1" selected>1</option>
 						<option value="2">2</option>
