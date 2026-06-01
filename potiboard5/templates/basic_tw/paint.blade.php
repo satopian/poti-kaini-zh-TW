@@ -703,7 +703,7 @@ if(DynamicColor) PaletteListSetColor();
 
 	<div class="appstage" style="width:{{$w}}px; height:{{$h}}px">
 	@if($type_neo)
-	<div class="neo-applet-pch" width="{{$w}}" height="{{$h}}"></div>
+	<div class="neo-applet-pch" data-width="{{$w}}" data-height="{{$h}}"></div>
 	<script>
 	Neo.param ={
 		pch:{
