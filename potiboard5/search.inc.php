@@ -1,5 +1,5 @@
 <?php
-$search_inc_ver = 20260502;
+$search_inc_ver = 20260614;
 //POTI-board plugin search(C)2020-2026 さとぴあ(@satopian)
 //MIT License
 //v6.173.0 lot.20260502
