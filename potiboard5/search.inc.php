@@ -1,5 +1,5 @@
 <?php
-$search_inc_ver = 20260614;
+$search_inc_ver = 20260502;
 //POTI-board plugin search(C)2020-2026 さとぴあ(@satopian)
 //MIT License
 //v6.173.0 lot.20260502
@@ -48,8 +48,9 @@ $search_inc_ver = 20260614;
 
 class processsearch {
 	public static function search() : void {
-	//設定
-
+//設定
+// How many cases can you search?
+// Initial value 120 Do not make it too large.
 	defined("MAX_SEARCH") or define("MAX_SEARCH","120");
 	//設定を変更すればより多く検索できるようになりますが、サーバの負荷が高くなります。
 
@@ -63,7 +64,7 @@ class processsearch {
 	$radio=filter_input_data('GET','radio',FILTER_VALIDATE_INT);
 	$imgsearch=filter_input_data('GET','imgsearch');
 	$imagSearchOptions =["on","off"];
-	$isAllowedOption = in_array($imgsearch,$imagSearchOptions);
+		$isAllowedOption = in_array($imgsearch,$imagSearchOptions);
 	//フィルタが失敗した時はfalse
 	if(
 		!empty($invalid_keys)||
@@ -216,13 +217,13 @@ class processsearch {
 	$search_type='';
 	if($imgsearch){
 		$search_type='&imgsearch=on';
-		$img_or_com='イラスト';
-		$mai_or_ken='枚';
-	}
+		$img_or_com='插圖';
+		$mai_or_ken=' ';
+		}
 	else{
-		$img_or_com='コメント';
-		$mai_or_ken='件';
-	}
+		$img_or_com='留言';
+		$mai_or_ken=' ';
+		}
 	$dat['imgsearch']= $imgsearch ? true : false;
 	//クエリを検索窓に入ったままにする
 	$dat['query']=h($query);
@@ -258,17 +259,14 @@ class processsearch {
 	}else{
 		$pageno = $j.$mai_or_ken;
 	}
-	if($check_query!==''&&$radio===3){
-		$dat['title']=$query.'の'.$img_or_com;//titleタグに入る
-		$dat['h1']=$query.'の';//h1タグに入る
+	if($query!==''&&$radio===3){
+		$dat['h1']=$query.'的搜索結果';//h1タグに入る
 	}
-	elseif($check_query!==''){
-		$dat['title']=$query.'さんの'.$img_or_com;
-		$dat['h1']=$query.	'さんの';
+	elseif($query!==''){
+		$dat['h1']=$query.'的貼文';//検索対象は人
 	}
 	else{
-		$dat['title']='掲示板に投稿された最新の'.$img_or_com;
-		$dat['h1']='掲示板に投稿された最新の';
+		$dat['h1']='留言板的最新貼文';
 	}
 	$dat['pageno']=$pageno;
 	//ページング
@@ -280,18 +278,18 @@ class processsearch {
 	$dat['nxet']=false;
 
 	if($page<=$disp_count_of_page){
-		$dat['prev']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';//前のページ
-	if($countarr>=$nxetpage){
-		$dat['nxet']='<a href="?mode=search&page='.h($nxetpage.$search_type.$query_l).'">次の'.h($disp_count_of_page.$mai_or_ken).'≫</a>';//次のページ
-	}
+		$dat['prev']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';//前のページ
+		if($countarr>=$nxetpage){
+			$dat['nxet']='<a href="'.h(PHP_SELF).'?mode=search&page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';//次のページ
+		}
 	}
 
 	elseif($page>=$disp_count_of_page+1){
-		$dat['prev']= '<a href="'.h(PHP_SELF).'?mode=search&page='.h($prevpage.$search_type.$query_l).'">≪前の'.h($disp_count_of_page.$mai_or_ken).'</a>'; 
+		$dat['prev']= '<a href="'.h(PHP_SELF).'?mode=search&page='.h($prevpage.$search_type.$query_l).'">≪上一頁</a>'; 
 		if($countarr>=$nxetpage){
-			$dat['nxet']='<a href="'.h(PHP_SELF).'?mode=search&page='.h($nxetpage.$search_type.$query_l).'">次の'.h($disp_count_of_page.$mai_or_ken).'≫</a>';
+			$dat['nxet']='<a href="'.h(PHP_SELF).'?mode=search&page='.h($nxetpage.$search_type.$query_l).'">下一頁≫</a>';
 		}else{
-			$dat['nxet']='<a href="./'.h(PHP_SELF2).'">掲示板にもどる</a>';
+			$dat['nxet']='<a href="./'.h(PHP_SELF2).'">返回留言板</a>';
 		}
 	}
 	//最終更新日時を取得
