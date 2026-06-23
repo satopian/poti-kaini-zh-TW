@@ -153,6 +153,10 @@
 @endif
 @if($paint_mode) 
 	@if(!$chickenpaint)
+	{{-- 動的PaletteのColorPicker --}}
+	<style>
+		.palette_gradation .gradationColorInputText {width: 70px;}.palette_gradation .gradationColorInputColorPicker {border: 0;width: 30px;height: 19px; padding: 0;background-color: transparent;cursor: pointer;}
+	</style>
 	<script src="{{$skindir}}js/visibility-change-title-rewrite.js?{{$ver}}"></script>
 	<script>
 		//Firefoxのメニューバーが開閉するのため、Altキーのデフォルトの処理をキャンセル
@@ -292,7 +296,7 @@
         method: 'POST',
 		mode: 'same-origin',
 		headers: {
-			'X-Requested-With': 'PaintBBS'
+			'X-Requested-With': 'chickenpaint'
 			,
 		},
        body: formData
@@ -349,32 +353,37 @@
 </header>
 <!--動的パレットスクリプト ここから-->
 <script>
+		"use strict";
 //	BBS Note 動的パレット＆マトリクス 2003/06/22
 //	(C) のらネコ WonderCatStudio http://wondercatstudio.com/
-var DynamicColor = 1;	// パレットリストに色表示
-var Palettes = new Array();
+var DynamicColor=1,Palettes=[];
 // パレット配列作成
 @if($palettes) 
 {!!htmlspecialchars($palettes,ENT_NOQUOTES)!!}
 @endif
-function setPalette(){d=document;d.paintbbs.setColors(Palettes[d.Palette.select.selectedIndex]);d.grad.view.checked&&GetPalette()}async function PaletteSave(){Palettes[0]=String(await document.paintbbs.getColors())}var cutomP=0;
-async function PaletteNew(){d=document;p=String(await d.paintbbs.getColors());s=d.Palette.select;Palettes[s.length]=p;cutomP++;str=prompt("調色盤名稱","調色盤"+cutomP);null==str||""==str?cutomP--:(s.options[s.length]=new Option(str),30>s.length&&(s.size=s.length),PaletteListSetColor())}async function PaletteRenew(){d=document;Palettes[d.Palette.select.selectedIndex]=String(await d.paintbbs.getColors());PaletteListSetColor()}
-function PaletteDel(){p=Palettes.length;s=document.Palette.select;i=s.selectedIndex;if(-1!=i&&(flag=confirm("「"+s.options[i].text + "」您要刪除嗎？"))){for(s.options[i]=null;p>i;)Palettes[i]=Palettes[i+1],i++;30>s.length&&(s.size=s.length)}}
-async function P_Effect(a){a=parseInt(a);x=1;255==a&&(x=-1);d=document.paintbbs;p=String(await d.getColors()).split("\n");l=p.length;var f="";for(n=0;l>n;n++)R=a+parseInt("0x"+p[n].substring(1,3))*x,G=a+parseInt("0x"+p[n].substring(3,5))*x,B=a+parseInt("0x"+p[n].substring(5,7))*x,255<R?R=255:0>R&&(R=0),255<G?G=255:0>G&&(G=0),255<B?B=255:0>B&&(B=0),f+="#"+Hex(R)+Hex(G)+Hex(B)+"\n";d.setColors(f);PaletteListSetColor()}
-async function PaletteMatrixGet(){d=document.Palette;p=Palettes.length;s=d.select;m=d.m_m.selectedIndex;t=d.setr;switch(m){default:t.value="";for(c=n=0;p>n;)null!=s.options[n]&&(t.value=t.value+"\n!"+s.options[n].text+"\n"+Palettes[n],c++),n++;alert("調色盤："+c+"\n已取得調色盤矩陣");break;case 1:t.value="!Palette\n"+String(await document.paintbbs.getColors()),
-		alert("已取得當前使用的調色盤資訊")}t.value=
-t.value.trim()+"\n!Matrix"}
-function PalleteMatrixSet(){m=document.Palette.m_m.selectedIndex;str="設定調色盤矩陣。";switch(m){default:flag=confirm(str+"\n當前所有調色盤資訊都將丟失，可以嗎？");break;case 1:flag=confirm(str+"\n替換為當前使用的調色盤，可以嗎？");break;
-case 2:flag=confirm(str+"\n添加到當前調色盤，可以嗎？")}flag&&(PaletteSet(),s.size=30>s.length?s.length:30,DynamicColor&&PaletteListSetColor())}
-function PalleteMatrixHelp(){alert("★ PALETTE MATRIX\n什麼是調色盤矩陣？您可以通過取得調色盤矩陣的文本資訊來自由設定調色盤。\n\n□ 取得矩陣\n1）從“取得”按鈕獲取調色盤矩陣。\n2）取得的調色盤資訊將出現在下面的文本區域中，將其全部複製。\n3）您可以將此調色盤資訊另存在文本檔案中。\n\n□ 設定矩陣\n1）將復制的調色盤資訊貼到下面的文本輸入框中。\n2）如果已將其保存在文本檔案中，請複制並貼上。\n3）您可以通過按下“設定”按鈕使用保存的調色盤。\n\n請注意，如果有夾雜其他資訊，將無法正確設定調色盤。")}
-function PaletteSet(){d=document.Palette;se=d.setr.value;s=d.select;m=d.m_m.selectedIndex;l=se.length;if(1>l)alert("沒有矩陣資訊。");else{e=o=n=0;switch(m){default:for(n=s.length;0<n;)n--,s.options[n]=null;case 2:i=s.options.length;n=se.indexOf("!",0)+1;if(0==n)return;Matrix1=1;for(Matrix2=-1;n<l;){e=se.indexOf("\n#",n);if(-1==e)return;pn=se.substring(n,e+Matrix1);o=se.indexOf("!",e);if(-1==o)return;pa=se.substring(e+1,o+Matrix2);
-"Palette"!=pn?(0<=i&&(s.options[i]=new Option(pn)),Palettes[i]=pa,i++):document.paintbbs.setColors(pa);n=o+1}break;case 1:n=se.indexOf("!",0)+1;if(0==n)return;e=se.indexOf("\n#",n);o=se.indexOf("!",e);0<=e&&(pa=se.substring(e+1,o-1));document.paintbbs.setColors(pa)}PaletteListSetColor()}}function PaletteListSetColor(){var a=document.Palette.select;for(i=1;a.options.length>i;i++){var f=Palettes[i].split("\n");a.options[i].style.background=f[4];a.options[i].style.color=GetBright(f[4])}}
-function GetBright(a){r=parseInt("0x"+a.substring(1,3));g=parseInt("0x"+a.substring(3,5));b=parseInt("0x"+a.substring(5,7));a=r>=g?r>=b?r:b:g>=b?g:b;return 128>a?"#FFFFFF":"#000000"}function Chenge_(){var a=document.grad.pst.value,f=document.grad.ped.value;isNaN(parseInt("0x"+a))||isNaN(parseInt("0x"+f))||GradView("#"+a,"#"+f)}
-function ChengeGrad(){var a=document,f=a.grad.pst.value,h=a.grad.ped.value;Chenge_();var u=parseInt("0x"+f.substring(0,2)),v=parseInt("0x"+f.substring(2,4));f=parseInt("0x"+f.substring(4,6));var k=parseInt((u-parseInt("0x"+h.substring(0,2)))/15),q=parseInt((v-parseInt("0x"+h.substring(2,4)))/15);h=parseInt((f-parseInt("0x"+h.substring(4,6)))/15);isNaN(k)&&(k=1);isNaN(q)&&(q=1);isNaN(h)&&(h=1);var w=new String;cnt=0;m1=u;m2=v;for(m3=f;14>cnt;cnt++,m1-=k,m2-=q,m3-=h){if(255<m1||0>m1)k*=-1,m1-=k;if(255<m2||0>m2)q*=-1,
-m2-=q;if(255<m3||0>m3)h*=-1,m2-=h;w+="#"+Hex(m1)+Hex(m2)+Hex(m3)+"\n"}a.paintbbs.setColors(w)}function Hex(a){a=parseInt(a);0>a&&(a*=-1);for(var f=new String,h;16<a;)h=a,16<a&&(a=parseInt(a/16),h-=16*a),h=Hex_(h),f=h+f;h=Hex_(a);for(f=h+f;2>f.length;)f="0"+f;return f}function Hex_(a){isNaN(a)?a="":10==a?a="A":11==a?a="B":12==a?a="C":13==a?a="D":14==a?a="E":15==a&&(a="F");return a}
-async function GetPalette(){d=document;p=String(await d.paintbbs.getColors());"null"!=p&&""!=p&&(ps=p.split("\n"),st=d.grad.p_st.selectedIndex,ed=d.grad.p_ed.selectedIndex,d.grad.pst.value=ps[st].substring(1,7),d.grad.ped.value=ps[ed].substring(1,7),GradSelC(),GradView(ps[st],ps[ed]),PaletteListSetColor())}
-function GradSelC(){if(d.grad.view.checked){d=document.grad;l=ps.length;pe="";for(n=0;l>n;n++)R=255+-1*parseInt("0x"+ps[n].substring(1,3)),G=255+-1*parseInt("0x"+ps[n].substring(3,5)),B=255+-1*parseInt("0x"+ps[n].substring(5,7)),255<R?R=255:0>R&&(R=0),255<G?G=255:0>G&&(G=0),255<B?B=255:0>B&&(B=0),pe+="#"+Hex(R)+Hex(G)+Hex(B)+"\n";pe=pe.split("\n");for(n=0;l>n;n++)d.p_st.options[n].style.background=ps[n],d.p_st.options[n].style.color=pe[n],d.p_ed.options[n].style.background=ps[n],d.p_ed.options[n].style.color=
-pe[n]}}function GradView(a,f){d=document}function showHideLayer(){d=document;var a=d.layers?d.layers.psft:d.all("psft").style;d.grad.view.checked||(a.visibility="hidden");d.grad.view.checked&&(a.visibility="visible",GetPalette())};
+function setPalette(){var a=document.forms.namedItem("Palette");if(a&&(a=a.elements.namedItem("select"),a instanceof HTMLSelectElement)){document.paintbbs.setColors(Palettes[a.selectedIndex]);a=document.forms.namedItem("grad");var b=a?.elements.namedItem("view");a&&b instanceof HTMLInputElement&&b.checked&&GetPalette()}}async function PaletteSave(){Palettes[0]=String(await document.paintbbs.getColors())}var cutomP=0;
+async function PaletteNew(){var a=String(await document.paintbbs.getColors()),b=document.forms.namedItem("Palette");b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement&&(Palettes[b.length]=a,cutomP++,a=prompt("\u8acb\u8f38\u5165\u8abf\u8272\u76e4\u540d\u7a31","\u8abf\u8272\u76e4"+cutomP),a==null||a==""?cutomP--:(b.options[b.length]=new Option(a),30>b.length&&(b.size=b.length),PaletteListSetColor())))}
+async function PaletteRenew(){var a=document,b=document.forms.namedItem("Palette");b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement&&(Palettes[Number(b.selectedIndex)]=String(await a.paintbbs.getColors()),PaletteListSetColor()))}
+function PaletteDel(){var a=Palettes.length,b=document.forms.namedItem("Palette");if(b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement)){var c=b.selectedIndex;if(c!=-1&&confirm("\u300c"+b.options[c].text+"\u300d\u8981\u522a\u9664\u55ce\uff1f")){for(b.remove(c);a>c;)Palettes[c]=Palettes[c+1],c++;30>b.length&&(b.size=b.length)}}}
+async function P_Effect(a){a=parseInt(a);var b,c=1;a==255&&(c=-1);var e=document.paintbbs,d=String(await e.getColors()).split("\n"),f=d.length,h="";for(b=0;f>b;b++){let g=a+parseInt("0x"+d[b].substring(1,3))*c,k=a+parseInt("0x"+d[b].substring(3,5))*c,l=a+parseInt("0x"+d[b].substring(5,7))*c;g>255?g=255:0>g&&(g=0);k>255?k=255:0>k&&(k=0);l>255?l=255:0>l&&(l=0);h+="#"+Hex(g)+Hex(k)+Hex(l)+"\n"}e.setColors(h);PaletteListSetColor()}
+async function PaletteMatrixGet(){var a=Palettes.length,b=document.forms.namedItem("Palette");if(b){var c=b.elements.namedItem("select");if(c instanceof HTMLSelectElement){var e=b.elements.namedItem("m_m");e=e instanceof HTMLSelectElement?e.selectedIndex:null;if((b=b.elements.namedItem("setr"))&&b instanceof HTMLTextAreaElement){switch(e){default:b.value="";let d=e=0;for(;a>e;)c.options[e]!=null&&(b.value=b.value+"\n!"+c.options[e].text+"\n"+Palettes[e],d++),e++;alert("\u8abf\u8272\u76e4\u6578\uff1a"+
+d+"\n\u5df2\u53d6\u5f97\u8abf\u8272\u76e4\u77e9\u9663");break;case 1:b.value="!Palette\n"+String(await document.paintbbs.getColors()),alert("\u5df2\u53d6\u5f97\u7576\u524d\u4f7f\u7528\u7684\u8abf\u8272\u76e4\u8cc7\u8a0a")}b.value=b.value.trim()+"\n!Matrix"}}}}
+function PalleteMatrixSet(){var a=document.forms.namedItem("Palette");if(a){var b=a.elements.namedItem("m_m");b=b instanceof HTMLSelectElement?b.selectedIndex:null;a=a.elements.namedItem("select");if(a instanceof HTMLSelectElement){switch(b){default:b=confirm("\u532f\u5165\u8abf\u8272\u76e4\u77e9\u9663\u3002\n\u7576\u524d\u6240\u6709\u8abf\u8272\u76e4\u8cc7\u8a0a\u90fd\u5c07\u4e1f\u5931\uff0c\u53ef\u4ee5\u55ce\uff1f");break;case 1:b=confirm("\u532f\u5165\u8abf\u8272\u76e4\u77e9\u9663\u3002\n\u53d6\u4ee3\u70ba\u7576\u524d\u4f7f\u7528\u7684\u8abf\u8272\u76e4\uff0c\u53ef\u4ee5\u55ce\uff1f");
+break;case 2:b=confirm("\u532f\u5165\u8abf\u8272\u76e4\u77e9\u9663\u3002\n\u52a0\u5165\u5230\u7576\u524d\u8abf\u8272\u76e4\uff0c\u53ef\u4ee5\u55ce\uff1f")}b&&(PaletteSet(),a.size=a.length<30?a.length:30,DynamicColor&&PaletteListSetColor())}}}
+function PalleteMatrixHelp(){alert("\u2605 PALETTE MATRIX\n\u8abf\u8272\u76e4\u77e9\u9663\u529f\u80fd\u8b93\u60a8\u53ef\u4ee5\u900f\u904e\u6587\u5b57\u8cc7\u8a0a\u4f86\u532f\u51fa\u6216\u532f\u5165\u8abf\u8272\u76e4\u8a2d\u5b9a\u3002\n\n\u25a1 \u53d6\u5f97\u77e9\u9663\n1\uff09\u9ede\u64ca\u300c\u53d6\u5f97\u300d\u6309\u9215\u3002\n2\uff09\u8907\u88fd\u4e0b\u65b9\u6587\u5b57\u5340\u57df\u7684\u6240\u6709\u5167\u5bb9\u3002\n3\uff09\u60a8\u53ef\u4ee5\u5c07\u5176\u5132\u5b58\u70ba\u6a94\u6848\uff0c\u6216\u662f\u76f4\u63a5\u4f7f\u7528\u3002\n\n\u25a1 \u8a2d\u5b9a\u77e9\u9663\n1\uff09\u5c07\u77e9\u9663\u8cc7\u8a0a\u8cbc\u4e0a\u81f3\u4e0b\u65b9\u7684\u6587\u5b57\u5340\u57df\u3002\n2\uff09\u6309\u4e0b\u300c\u8a2d\u5b9a\u300d\u6309\u9215\u5373\u53ef\u5957\u7528\u3002\n\n\u6ce8\u610f\uff1a\u8acb\u52ff\u52a0\u5165\u5176\u4ed6\u6587\u5b57\uff0c\u4ee5\u514d\u8a2d\u5b9a\u5931\u6557\u3002")}
+function PaletteSet(){var a=document.forms.namedItem("Palette");if(a){var b=a.elements.namedItem("setr");b=b instanceof HTMLTextAreaElement?b.value:null;var c=a.elements.namedItem("select");if(c instanceof HTMLSelectElement){a=a.elements.namedItem("m_m");var e=a instanceof HTMLSelectElement?a.selectedIndex:null;a=b?.length;if(!b||!a||a<1)alert("\u6c92\u6709\u77e9\u9663\u8cc7\u8a0a\u3002");else{var d;switch(e){default:for(d=c.length;d>0;)d--,c.remove(d);case 2:e=c.options.length;d=b.indexOf("!",0)+
+1;if(d==0)return;for(;d<a;){var f=b.indexOf("\n#",d);if(f==-1)return;let g=b.substring(d,f+1);d=b.indexOf("!",f);if(d==-1)return;var h=b.substring(f+1,d+-1);g!="Palette"?(e>=0&&(c.options[e]=new Option(g)),Palettes[e]=h,e++):document.paintbbs.setColors(h);d+=1}break;case 1:d=b.indexOf("!",0)+1;if(d==0)return;f=b.indexOf("\n#",d);d=b.indexOf("!",f);f>=0&&(h=b.substring(f+1,d-1));document.paintbbs.setColors(h)}PaletteListSetColor()}}}}
+function PaletteListSetColor(){var a=document.forms.namedItem("Palette");if(a){var b=a.elements.namedItem("select");if(b instanceof HTMLSelectElement)for(a=1;b.options.length>a;a++){let c=Palettes[a].split("\n");b.options[a].style.background=c[4];b.options[a].style.color=GetBright(c[4])}}}function GetBright(a){var b=parseInt("0x"+a.substring(1,3)),c=parseInt("0x"+a.substring(3,5));a=parseInt("0x"+a.substring(5,7));return 128>(b>=c?b>=a?b:a:c>=a?c:a)?"#FFFFFF":"#000000"}
+function Chenge_(){var a=document.forms.namedItem("grad");if(a){var b=a.elements.namedItem("pst");a=a.elements.namedItem("ped");a=a instanceof HTMLInputElement?a.value:null;isNaN(parseInt("0x"+(b instanceof HTMLInputElement?b.value:null)))||isNaN(parseInt("0x"+a))||GradView()}}
+function colorPickerChange(){var a=document.forms.namedItem("grad");if(a){var b=a.elements.namedItem("colorPickerPst"),c=b instanceof HTMLInputElement?b.value.slice(1).toLocaleUpperCase():null,e=a.elements.namedItem("pst");b=a.elements.namedItem("ped");c&&e instanceof HTMLInputElement&&(e.value=c);a=a.elements.namedItem("colorPickerPed");(a=a instanceof HTMLInputElement?a.value.slice(1).toLocaleUpperCase():null)&&b instanceof HTMLInputElement&&(b.value=a)}}
+function ChengeGrad(){var a=document.forms.namedItem("grad");if(a){var b=a.elements.namedItem("pst");b=b instanceof HTMLInputElement?b.value:null;a=a.elements.namedItem("ped");var c=a instanceof HTMLInputElement?a.value:null;if(b!==null&&c!==null){Chenge_();var e=parseInt("0x"+b.substring(0,2)),d=parseInt("0x"+b.substring(2,4)),f=parseInt("0x"+b.substring(4,6));b=Math.trunc((e-parseInt("0x"+c.substring(0,2)))/15);a=Math.trunc((d-parseInt("0x"+c.substring(2,4)))/15);c=Math.trunc((f-parseInt("0x"+c.substring(4,
+6)))/15);isNaN(b)&&(b=1);isNaN(a)&&(a=1);isNaN(c)&&(c=1);var h="",g;for(g=0;14>g;g++,e-=b,d-=a,f-=c){if(e>255||0>e)b*=-1,e-=b;if(d>255||0>d)a*=-1,d-=a;if(f>255||0>f)c*=-1,d-=c;h+="#"+Hex(e)+Hex(d)+Hex(f)+"\n"}document.paintbbs.setColors(h)}}}function Hex(a){a=Math.trunc(a);0>a&&(a*=-1);for(var b="",c;a>16;)c=a,a>16&&(a=Math.trunc(a/16),c-=a*16),c=Hex_(c),b=c+b;c=Hex_(a);for(b=c+b;2>b.length;)b="0"+b;return b}
+function Hex_(a){isNaN(Number(a))?a="":a==10?a="A":a==11?a="B":a==12?a="C":a==13?a="D":a==14?a="E":a==15&&(a="F");return a}
+async function GetPalette(){var a=String(await document.paintbbs.getColors());if(a!="null"&&a!=""){a=a.split("\n");var b=document.forms.namedItem("grad");if(b){var c=b.elements.namedItem("p_st");c=c instanceof HTMLSelectElement?c.selectedIndex:null;var e=b.elements.namedItem("p_ed");e=e instanceof HTMLSelectElement?e.selectedIndex:null;if(c!==null&&e!==null){var d=b.elements.namedItem("pst"),f=b.elements.namedItem("ped");d instanceof HTMLInputElement&&(d.value=a[c].substring(1,7));f instanceof HTMLInputElement&&
+(f.value=a[e].substring(1,7));d=b.elements.namedItem("colorPickerPst");b=b.elements.namedItem("colorPickerPed");d instanceof HTMLInputElement&&b instanceof HTMLInputElement&&(d.value=a[c].substring(0,7),b.value=a[e].substring(0,7));GradSelC();PaletteListSetColor()}}}}
+async function GradSelC(){var a=String(await document.paintbbs.getColors());if(a!="null"&&a!=""){a=a.split("\n");var b=document.forms.namedItem("grad");if(b){var c=b?.elements.namedItem("view");if(!(c instanceof HTMLInputElement)||c.checked){var e=a.length,d="";for(c=0;e>c;c++){var f=255+parseInt("0x"+a[c].substring(1,3))*-1;let h=255+parseInt("0x"+a[c].substring(3,5))*-1,g=255+parseInt("0x"+a[c].substring(5,7))*-1;f>255?f=255:0>f&&(f=0);h>255?h=255:0>h&&(h=0);g>255?g=255:0>g&&(g=0);d+="#"+Hex(f)+
+Hex(h)+Hex(g)+"\n"}d=d.split("\n");f=b.elements.namedItem("p_st");b=b.elements.namedItem("p_ed");if(f instanceof HTMLSelectElement&&b instanceof HTMLSelectElement)for(c=0;e>c;c++)f.options[c].style.background=a[c],f.options[c].style.color=d[c],b.options[c].style.background=a[c],b.options[c].style.color=d[c]}}}}function GradView(){var a=document.forms.namedItem("grad");a&&a?.elements.namedItem("view")}
+function showHideLayer(){var a=document.forms.namedItem("grad");if(a){a=a?.elements.namedItem("view");var b=document.getElementById("psft");(b=b?b.style:null)&&a instanceof HTMLInputElement&&!a.checked&&(b.visibility="hidden");b&&a instanceof HTMLInputElement&&a.checked&&(b.visibility="visible",GetPalette())}};
 </script>
 <!--動的パレットスクリプト ここまで-->
 <noscript><h3>由於 JavaScript 無效，因此無法正常工作</h3></noscript>
@@ -417,7 +426,7 @@ Neo.params ={
 	@if($anime)
 		thumbnail_type:"animation",
 	@endif
-	send_header:"usercode={{$usercode}}&tool={{$tool}}&rep={{$rep}}&no={{$no}}",
+	send_header:"usercode={{$usercode}}&tool={{$tool}}&rep={{$rep}}&no={{$no}}&pwd={{$pwd}}",
 	}
 }
 </script>
@@ -498,7 +507,8 @@ Neo.params ={
 </div>
 <!--動的パレット制御関連-->
 <div class="palette_wrap">
-<div class="palette"><FORM name="Palette">
+<div class="palette">
+	<FORM name="Palette">
 <span class="palette_desc">PALETTE</span> <INPUT type="button" VALUE="暫存" OnClick="PaletteSave()"><br>
 <select name="select" size="{{$palsize}}" onChange="setPalette()" class="palette_select">
 <option>暫存的調色盤</option>
@@ -547,7 +557,8 @@ Neo.params ={
 <option>12</option>
 <option>13</option>
 <option>14</option>
-</SELECT><input type="text" name="pst" size="8" onKeyPress="Chenge_()" onChange="Chenge_()"><br>
+					</SELECT><input class="form gradationColorInputText" type="text" name="pst" size="8" onKeyPress="Chenge_()" onChange="Chenge_()">
+					<input class="gradationColorInputColorPicker" type="color" name="colorPickerPst" size="8"  onChange="colorPickerChange()" value="#fff"><br>
 <SELECT name="p_ed" onChange="GetPalette()">
 <option>1</option>
 <option>2</option>
@@ -563,7 +574,8 @@ Neo.params ={
 <option selected>12</option>
 <option>13</option>
 <option>14</option>
-</SELECT><input type="text" name="ped" size="8" onKeyPress="Chenge_()" onChange="Chenge_()">
+				</SELECT><input class="form gradationColorInputText" type="text" name="ped" size="8" onKeyPress="Chenge_()" onChange="Chenge_()">
+				<input class="gradationColorInputColorPicker" type="color" name="colorPickerPed" size="8"  onChange="colorPickerChange()" value="#fff">
 <div id="psft"></div>
 </FORM>
 </div>
