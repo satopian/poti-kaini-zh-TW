@@ -361,7 +361,7 @@ var DynamicColor=1,Palettes=[];
 @if($palettes) 
 {!!htmlspecialchars($palettes,ENT_NOQUOTES)!!}
 @endif
-function setPalette(){var a=document.forms.namedItem("Palette");a&&(a=a.elements.namedItem("select"),a instanceof HTMLSelectElement&&(document.paintbbs.setColors(Palettes[a.selectedIndex]),document.forms.namedItem("grad")&&GetPalette()))}async function PaletteSave(){Palettes[0]=String(await document.paintbbs.getColors())}var cutomP=0;
+function setPalette(){var a=document.forms.namedItem("Palette");if(a&&(a=a.elements.namedItem("select"),a instanceof HTMLSelectElement)){document.paintbbs.setColors(Palettes[a.selectedIndex]);a=document.forms.namedItem("grad");var b=a?.elements.namedItem("view");a&&b instanceof HTMLInputElement&&b.checked&&GetPalette()}}async function PaletteSave(){Palettes[0]=String(await document.paintbbs.getColors())}var cutomP=0;
 async function PaletteNew(){var a=String(await document.paintbbs.getColors()),b=document.forms.namedItem("Palette");b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement&&(Palettes[b.length]=a,cutomP++,a=prompt("\u8acb\u8f38\u5165\u8abf\u8272\u76e4\u540d\u7a31","\u8abf\u8272\u76e4"+cutomP),a==null||a==""?cutomP--:(b.options[b.length]=new Option(a),30>b.length&&(b.size=b.length),PaletteListSetColor())))}
 async function PaletteRenew(){var a=document,b=document.forms.namedItem("Palette");b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement&&(Palettes[Number(b.selectedIndex)]=String(await a.paintbbs.getColors()),PaletteListSetColor()))}
 function PaletteDel(){var a=Palettes.length,b=document.forms.namedItem("Palette");if(b&&(b=b.elements.namedItem("select"),b instanceof HTMLSelectElement)){var c=b.selectedIndex;if(c!=-1&&confirm("\u300c"+b.options[c].text+"\u300d\u8981\u522a\u9664\u55ce\uff1f")){for(b.remove(c);a>c;)Palettes[c]=Palettes[c+1],c++;30>b.length&&(b.size=b.length)}}}
@@ -540,7 +540,7 @@ Neo.params ={
 <TEXTAREA rows="1" name="setr" cols="13" onMouseOver="this.select()"></TEXTAREA><br>
 </FORM></div>
 <div class="palette_gradation"><FORM name="grad">
-	<span class="palette_desc" >GRADATION</span> <INPUT type="button" VALUE=" OK " OnClick="ChengeGrad()"><br>
+	<label class="palette_desc checkbox" ><INPUT type="checkbox" name="view" OnClick="showHideLayer()" id="grdchk">GRADATION&nbsp;</label><INPUT type="button" VALUE=" OK " OnClick="ChengeGrad()"><br>
 <SELECT name="p_st" onChange="GetPalette()">
 <option>1</option>
 <option>2</option>
