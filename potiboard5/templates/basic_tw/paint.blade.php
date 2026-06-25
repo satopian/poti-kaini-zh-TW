@@ -387,7 +387,7 @@ async function GradSelC(){var a=String(await document.paintbbs.getColors());if(a
 if(f instanceof HTMLSelectElement&&b instanceof HTMLSelectElement)for(c=0;e>c;c++)f.options[c].style.background=a[c],f.options[c].style.color=d[c],b.options[c].style.background=a[c],b.options[c].style.color=d[c]}}}function showHideLayer(){}document.addEventListener("DOMContentLoaded",()=>GradSelC());
 </script>
 <!--動的パレットスクリプト ここまで-->
-<noscript><h3>由於 JavaScript 無效，因此無法正常工作</h3></noscript>
+<noscript><p>由於 JavaScript 無效，因此無法正常工作</p></noscript>
 <div class="appstage"><div class="app" style="width:{{$w}}px; height:{{$h}}px">
 <!--applet～の～部分の詳しい事は、PaintBBS及びしぃペインターのReadmeを参照-->
 <!--PaintBBS個別設定-->
@@ -565,7 +565,7 @@ Neo.params ={
 <option>13</option>
 <option>14</option>
 					</SELECT><input class="form gradationColorInputText" type="text" name="pst" size="8" onKeyPress="Chenge_()" onChange="Chenge_()">
-					<input class="gradationColorInputColorPicker" type="color" name="colorPickerPst" size="8"  onChange="colorPickerChange()" value="#fff"><br>
+					<input class="gradationColorInputColorPicker" type="color" name="colorPickerPst" size="8"  onChange="colorPickerChange()" value="#ffffff"><br>
 <SELECT name="p_ed" onChange="GetPalette()">
 <option>1</option>
 <option>2</option>
@@ -582,7 +582,7 @@ Neo.params ={
 <option>13</option>
 <option>14</option>
 				</SELECT><input class="form gradationColorInputText" type="text" name="ped" size="8" onKeyPress="Chenge_()" onChange="Chenge_()">
-				<input class="gradationColorInputColorPicker" type="color" name="colorPickerPed" size="8"  onChange="colorPickerChange()" value="#fff">
+				<input class="gradationColorInputColorPicker" type="color" name="colorPickerPed" size="8"  onChange="colorPickerChange()" value="#ffffff">
 <div id="psft"></div>
 </FORM>
 </div>
