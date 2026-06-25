@@ -155,7 +155,7 @@
 	@if(!$chickenpaint)
 	{{-- 動的PaletteのColorPicker --}}
 	<style>
-		.palette_gradation .gradationColorInputText {width: 70px;}.palette_gradation .gradationColorInputColorPicker {border: 0;width: 30px;height: 19px; padding: 0;background-color: transparent;cursor: pointer; vertical-align:middle;}
+		.palette_gradation .gradationColorInputText {width: 70px;} .palette_gradation .gradationColorInputColorPicker {border: 0;width: 30px;height: 19px; padding: 0;background-color: transparent;cursor: pointer; vertical-align:middle;}input#neo-colorPicker{width:30px;height:25px;border: 0;padding: 0;;background-color: transparent;cursor: pointer;vertical-align:middle;}
 	</style>
 	<script src="{{$skindir}}js/visibility-change-title-rewrite.js?{{$ver}}"></script>
 	<script>
@@ -170,7 +170,8 @@
 			document.addEventListener('dblclick', (e)=>{ e.preventDefault()}, { passive: false });
 		});
 	</script>
-	@endif
+
+@endif
 @endif
 @if($pch_mode and $type_neo) 
 <link rel="stylesheet" href="neo.css?{{$parameter_day}}&{{$ver}}">
@@ -197,6 +198,7 @@
 <style id="for_mobile"></style>
 
 </head>
+
 <body>
 <header>
 @if($paint_mode) 
@@ -404,6 +406,7 @@ Neo.params ={
 	neo_disable_grid_touch_move:true,
 	neo_enable_zoom_out:true,
 	neo_disable_turn_original_glitch:true,
+	neo_color_picker_id:"neo-colorPicker",
 	send_header_count:true,
 	send_header_timer:true,
 	image_width:{{$picw}},
@@ -538,9 +541,14 @@ Neo.params ={
 <INPUT name="m_s" type="button" VALUE="設定" OnClick="PalleteMatrixSet()">
 <INPUT name="m_h" type="button" VALUE=" ? " OnClick="PalleteMatrixHelp()"><br>
 <TEXTAREA rows="1" name="setr" cols="13" onMouseOver="this.select()"></TEXTAREA><br>
-</FORM></div>
-<div class="palette_gradation"><FORM name="grad">
-	<label class="palette_desc checkbox" ><INPUT type="checkbox" name="view" OnClick="showHideLayer()" id="grdchk">GRADATION&nbsp;</label><INPUT type="button" VALUE=" OK " OnClick="ChengeGrad()"><br>
+</FORM>
+				@if($useneo)
+				<input id="neo-colorPicker" type="color" onChange="Neo.setColor(this.value)"> <span class="palette_desc">COLOR</span>
+				@endif
+</div>
+<div class="palette_gradation">
+	<FORM name="grad">
+	<label class="palette_desc checkbox"><INPUT type="checkbox" name="view">GRADATION</label> <INPUT type="button" VALUE=" OK " OnClick="ChengeGrad()"><br>
 <SELECT name="p_st" onChange="GetPalette()">
 <option>1</option>
 <option>2</option>
