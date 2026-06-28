@@ -577,6 +577,7 @@ Neo.params ={
 const pickr = Pickr.create({
     el: "#pickr-container",
     theme: 'classic',
+    position: 'top-start',
     components: {
         preview: true,
         opacity: false,
