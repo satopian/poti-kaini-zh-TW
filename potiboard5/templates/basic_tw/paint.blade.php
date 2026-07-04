@@ -91,7 +91,7 @@
 		}
 	</script>
 @if($useneo) 
-<link rel="stylesheet" href="./lib/pickr/themes/nano.min.css?{{$parameter_day}}&{{$ver}}"/>
+<link rel="stylesheet" href="./lib/pickr/themes/monolith.min.css?{{$parameter_day}}&{{$ver}}"/>
 <script src="./lib/pickr/pickr.min.js?{{$parameter_day}}&{{$ver}}"></script>
 <link rel="stylesheet" href="neo.css?{{$parameter_day}}&{{$ver}}">
 <script src="neo.js?{{$parameter_day}}&{{$ver}}"></script>
@@ -377,16 +377,21 @@ vertical-align: middle;
 					<input type="radio" name="1" id="2" onclick="Neo.setToolSide(false)" checked="checked" class="nts_radio"><label class="ntslabel" for="2">置右</label>
 				</span>
 				<span class="nts_radiowrap"><span class="stabilizer_label">抖動修正</span>
-					<select onchange="Neo.setStabilizeLevel(this.value)">
-						<option value="0">0</option>
-						<option value="1" selected>1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-				</span>
-				@endif
+				<script>
+				document.addEventListener("DOMContentLoaded", (e) => {
+					Neo.setStabilizeLevel(1);//0-5の範囲で手ぶれ補正の初期値を設定する
+				});
+				</script>
+				<select onchange="Neo.setStabilizeLevel(this.value)">
+					<option value="0">0</option>
+					<option value="1" selected>1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</span>
+			@endif
 </div>
 </nav>
 </header>
@@ -576,7 +581,8 @@ Neo.params ={
 // Pickrの初期化
 const pickr = Pickr.create({
     el: "#pickr-container",
-    theme: 'nano',
+    theme: 'monolith', // or 'monolith', or 'nano'
+    comparison: false,
     position: 'top-start',
     components: {
         preview: true,
