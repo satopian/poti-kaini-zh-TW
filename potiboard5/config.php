@@ -187,6 +187,15 @@ define("REJECT_IF_NO_REVERSE_DNS", "0");
 // Note: Many users may have IP addresses that cannot be reverse-resolved.
 // Setting this to "1" may prevent some legitimate users from posting.
 
+// Reject administrator logins from IP addresses that cannot be reverse-resolved to a hostname
+// (1: Enabled, 0: Disabled)
+
+define("REJECT_IF_NO_REVERSE_DNS_ADMIN_LOGIN", "0");
+
+// Note: Setting this to true may prevent legitimate administrators from logging in.
+// Login should generally work over major ISP connections, but on connections where
+// the IP may change—such as public Wi-Fi—legitimate administrators may be unable to log in.
+
 // Store in SESSION when a banned host accesses the site  
 // 當有禁止主機存取時，將其儲存至 SESSION  
 //（是:1 否:0）
