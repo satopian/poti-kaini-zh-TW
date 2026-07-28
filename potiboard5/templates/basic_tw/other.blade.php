@@ -286,7 +286,7 @@
 		<div id="self2">
 			[<a href="{{$self2}}">{{$title}}</a>]</div>
 		</header>
-		<form action="{{$self}}" method="post" id="admin_auth_form">
+		<form action="{{$self}}" method="post">
 			<div class="centering">
 				<div class="margin_radio">
 					<label class="radio"><input type="radio" name="admin" value="update" checked>更新 HTML </label>
@@ -294,6 +294,7 @@
 					<label class="radio"><input type="radio" name="admin" value="post">管理員投稿</label>
 				</div>
 				<input type="hidden" name="mode" value="admin_auth">
+				<input type="hidden" name="token" value="{{$token}}">
 				<input type="password" name="pass" size="8" autocomplete="current-password" class="adminpass">
 				<input type="submit" value=" 驗證 " class="admin_submit">
 
@@ -336,12 +337,14 @@
 			</p>
 			<form action="{{$self}}" method="post">
 				<input type="hidden" name="admin" value="update">
-				<input type="hidden" name="mode" value="admin">
+				<input type="hidden" name="mode" value="admin_auth">
+				<input type="hidden" name="token" value="{{$token}}">
 				<input type="hidden" name="pass" value="{{$pass}}">
 				<input type="submit" value="更新 HTML" class="admin_submit">
 			</form>
 			<form id="delete" action="{{$self}}" method="POST">
-				<input type="hidden" name="mode" value="admin">
+				<input type="hidden" name="mode" value="admin_auth">
+				<input type="hidden" name="token" value="{{$token}}">
 				<input type="hidden" name="admin" value="del">
 				<input type="hidden" name="pass" value="{{$pass}}">
 
@@ -396,7 +399,8 @@
 			@foreach($del_pages as $del_page)
 			<div class="del_page">[
 				<form action="{{$self}}" method="post" id="form_page{{$del_page['no']}}">
-					<input type="hidden" name="mode" value="admin">
+					<input type="hidden" name="mode" value="admin_auth">
+					<input type="hidden" name="token" value="{{$token}}">
 					<input type="hidden" name="admin" value="del">
 					<input type="hidden" name="pass" value="{{$pass}}">
 					<input type="hidden" name="del_pageno" value="{{$del_page['no']}}">
