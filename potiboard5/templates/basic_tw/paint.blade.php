@@ -698,10 +698,36 @@ if(DynamicColor) PaletteListSetColor();
 	<input type="text" size="20" name="count" class="input_count_timer" readonly>
 </form>
 <script>
-	timerID=10;stime=new Date;function SetTimeCount(){now=new Date;s=Math.floor((now.getTime()-stime.getTime())/1E3);disp="";86400<=s&&(d=Math.floor(s/86400),disp+=d+"\u5929",s-=86400*d);3600<=s&&(h=Math.floor(s/3600),disp+=h+"\u5c0f\u6642",s-=3600*h);60<=s&&(m=Math.floor(s/60),disp+=m+"\u5206",s-=60*m);document.watch.count.value=disp+s+"\u79d2";clearTimeout(timerID);timerID=setTimeout(function() { SetTimeCount(); }, 250);};
+"use strict";
+let s,m,h,d;
+let timerID = 10;
+	const stime = Date.now();
+	function SetTimeCount() {
+		const now = Date.now();
+			s = Math.floor((now - stime)/1000);
+	let	disp = '';
+		if(s >= 86400){
+			d = Math.floor(s/86400);
+			disp += d+"\u5929";
+			s -= d*86400;
+		}
+		if(s >= 3600){
+			h = Math.floor(s/3600);
+			disp += h+"\u5c0f\u6642";
+			s -= h*3600;
+		}
+		if(s >= 60){
+			m = Math.floor(s/60);
+			disp += m+"\u5206";
+			s -= m*60;
+		}
+		document.watch.count.value = disp+s+"\u79d2";
+		clearTimeout(timerID);
+		timerID = setTimeout(function(){ SetTimeCount(); }, 250);
+	};
 	document.addEventListener('DOMContentLoaded',SetTimeCount,false);
 </script>
-	</div>
+</div>
 <!--描画時間動的表示 ここまで-->
 <p>@if($anime) ★繪圖過程紀錄中★@endif</p>
 <!--お絵かき設定値の再設定関連-->
