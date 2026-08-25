@@ -699,10 +699,11 @@ if(DynamicColor) PaletteListSetColor();
 </form>
 <script>
 "use strict";
+document.addEventListener('DOMContentLoaded',()=>{
 let s,m,h,d;
 let timerID = 10;
 	const stime = Date.now();
-	function SetTimeCount() {
+	function SetTimeCount () {
 		const now = Date.now();
 			s = Math.floor((now - stime)/1000);
 	let	disp = '';
@@ -725,7 +726,8 @@ let timerID = 10;
 		clearTimeout(timerID);
 		timerID = setTimeout(function(){ SetTimeCount(); }, 250);
 	};
-	document.addEventListener('DOMContentLoaded',SetTimeCount,false);
+	SetTimeCount();
+});
 </script>
 </div>
 <!--描画時間動的表示 ここまで-->
