@@ -431,7 +431,7 @@ if(f instanceof HTMLSelectElement&&b instanceof HTMLSelectElement)for(c=0;e>c;c+
 </script>
 <!--動的パレットスクリプト ここまで-->
 <noscript><h3>由於 JavaScript 無效，因此無法正常工作</h3></noscript>
-<div class="appstage"><div class="app" style="width:{{$w}}px; height:{{$h}}px">
+<div class="appstage"><div class="app" style="width:{{$w}}px; height:{{$h}}px;display:block">
 <!--applet～の～部分の詳しい事は、PaintBBS及びしぃペインターのReadmeを参照-->
 <!--PaintBBS個別設定-->
 @if($useneo)
@@ -846,8 +846,8 @@ let timerID = 10;
 @if($pch_mode) 
 	</header>
 
-	<div class="appstage" style="width:{{$w}}px; height:{{$h}}px">
-	@if($type_neo)
+	<div class="appstage" style="width:{{$w}}px; max-width:100%; aspect-ratio:{{$w}} / {{$h}};display:block;">
+@if($type_neo)
 	<div class="neo-applet-pch" data-width="{{$w}}" data-height="{{$h}}"></div>
 	<script>
 	Neo.params ={
@@ -858,6 +858,7 @@ let timerID = 10;
 		speed:{{$speed}},
 		neo_enable_zoom_out:true,
 		neo_viewer_buttonswrapper_top:true,
+		neo_viewer_max_width_100:true,
 		}		
 	}
 	</script>	
@@ -881,8 +882,6 @@ let timerID = 10;
 				<param name="speed" value="{{$speed}}">
 				<param name="buffer_progress" value="false">
 				<param name="buffer_canvas" value="false">
-				<param name="neo_enable_zoom_out" value="true">
-				<param name="neo_viewer_buttonswrapper_top" value="true">
 	</applet>
 @endif
 	</div>
