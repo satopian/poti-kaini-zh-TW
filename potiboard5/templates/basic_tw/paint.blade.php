@@ -1072,6 +1072,7 @@ const applyFit = () => {
 		// ウィンドウに合わせる
 		view.style.width = `${Math.max(window.innerWidth - 210,400)}px`;
 		view.style.height = `${Math.max(window.innerHeight - 112,400)}px`;
+		
 	} else {
 		// 元のサイズに戻す(インラインstyleを初期値にもどす)
 		view.style.width = `${neo_origAppW}px`;
