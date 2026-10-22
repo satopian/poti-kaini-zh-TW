@@ -151,16 +151,19 @@
 		select:focus {
 		  outline: none;
 		}
-		button#neo-appletfit{
+	</style>
+@endif
+
+@if($paint_mode) 
+	@if(!$chickenpaint)
+	<style>
+			button#neo-appletfit{
 			color: #222;
 			background-color: #fffeff;
 			border: 1px solid #686868;
 			margin: 0 0 0 6px;
 		}
 	</style>
-@endif
-@if($paint_mode) 
-	@if(!$chickenpaint)
 	{{-- 動的PaletteのColorPicker --}}
 	<style>
 .palette_gradation{margin:6px 0 0 12px;padding:3px}.palette input,.palette_gradation input{color:#222;background-color:#fffeff;border:1px solid #686868}.palette_gradation .gradationColorInputText {width: 65px;}.palette_gradation .gradationColorInputColorPicker {border: 0;width: 30px;height: 19px; padding: 0;background-color: transparent;cursor: pointer;vertical-align:middle;}
