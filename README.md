@@ -10,6 +10,12 @@ This is the traditional Chinese translation version of POTI-board EVO.
 
 ### [繪圖留言板](https://paintbbs.sakura.ne.jp/cgi/neosample/poti-board-zh-TW/index.html)(繁體中文)
 
+## PHP Vulnerability
+- In October 2026, critical vulnerabilities (CVE-2026-109618, CVE-2026-109619) were disclosed in PHP that can allow unauthenticated remote code execution.   
+  The fixed versions are PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35. PHP 7.4 through 8.1 no longer receive updates from the PHP project.   
+  If you use a rental (shared) hosting service, the fix is applied by your hosting provider. Please check your PHP version in your server control panel.    
+  Details: https://www.php.net/index.php#2026-10-21-5
+
 ## Serious bugs in older versions
 - POTI-board v2.26.0 and earlier all versions is vulnerable to XSS.    
 Malicious JavaScript can be executed.
