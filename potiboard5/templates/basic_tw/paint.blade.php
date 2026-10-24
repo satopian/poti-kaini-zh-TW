@@ -1058,6 +1058,7 @@ let timerID = 10;
 	{{--著作権表示 削除しないでください--> --}}
 	@include('parts.copyright')
 </footer>
+@if(!$chickenpaint)
 <script>
 //Petit Note (c)さとぴあ @satopian 2021-2026 MIT License
 //https://paintbbs.sakura.ne.jp/
@@ -1150,5 +1151,6 @@ class appletFit{
 }
 const appFit=new appletFit();
 </script>
+@endif
 </body>
 </html>
