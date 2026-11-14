@@ -1,9 +1,9 @@
 <?php
-$search_inc_ver = 20260714;
+$search_inc_ver = 20261114;
 //POTI-board plugin search(C)2020-2026 さとぴあ(@satopian)
 //MIT License
-//v6.173.0 lot.20260502
-//POTI-board EVO v6.0 対応版
+//v7.26.5 lot.20261114
+//POTI-board EVO v7.26.5 対応版
 //https://paintbbs.sakura.ne.jp/
 
 //サポート
@@ -64,7 +64,7 @@ class processsearch {
 	$radio=filter_input_data('GET','radio',FILTER_VALIDATE_INT);
 	$imgsearch=filter_input_data('GET','imgsearch');
 	$imagSearchOptions =["on","off"];
-		$isAllowedOption = in_array($imgsearch,$imagSearchOptions);
+	$isAllowedOption = in_array($imgsearch,$imagSearchOptions);
 	//フィルタが失敗した時はfalse
 	if(
 		!empty($invalid_keys)||
@@ -105,16 +105,16 @@ class processsearch {
 	$i=0;$j=0;
 	$arr=[];
 	$oya = [];
-	$tp = fopen(TREEFILE, "r");
+	$tp = openFile(TREEFILE, "r");
 	while ($line = fgets($tp)) {
 		$tree_nos = explode(',', trim($line));
 		foreach ($tree_nos as $tree_no) {
 			$oya[$tree_no] = $tree_nos[0]; //キーにres no、値にoya no
 		}
 	}
-	fclose($tp);
+	closeFile($tp);
 
-	$fp = fopen(LOGFILE, "r");
+	$fp = openFile(LOGFILE, "r");
 	
 	$s_com='';
 	$s_sub='';
@@ -165,7 +165,7 @@ class processsearch {
 		++$j;
 		if($j>=10000){break;}//1掲示板あたりの最大行数
 	}
-		fclose($fp);
+		closeFile($fp);
 	//検索結果の出力
 	$j=0;
 	$dat['comments']=[];
